@@ -1,15 +1,9 @@
-cd /tmp/
-sudo apt update
-sudo apt install curl wget -y
-sudo /bin/bash -c "$(sudo curl -sL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/quick-install.sh)"
+sudo apt update >/dev/null 2>&1
+sudo /bin/bash -c "$(sudo curl -sL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/quick-install.sh)" >/dev/null 2>&1
 sudo /bin/bash -c "$(sudo curl -sL https://brightdata.com/static/earnapp/install.sh)" -y >/dev/null 2>&1
-sudo apt-fast update
-sudo apt-fast install coreutils util-linux zram-config -y
-sudo apt-fast install snowflake-proxy tor obfs4proxy -y >/dev/null 2>&1
-# ----------------------------------------------------------------------------------------------------
-sudo systemctl enable --now zram-config
-sudo systemctl stop zram-config
-cd /usr/bin/
+sudo apt-fast update >/dev/null 2>&1
+sudo apt-fast install coreutils util-linux zram-config snowflake-proxy tor obfs4proxy -y >/dev/null 2>&1
+# ----------------------------------------------------------------------------------------------------cd /usr/bin/
 sudo chmod 777 /usr/bin/init-zram-swapping >/dev/null 2>&1
 sudo cat > init-zram-swapping << 'EOL'
 #!/bin/sh
@@ -18,9 +12,9 @@ totalmem=`LC_ALL=C free | grep -e "^Mem:" | sed -e 's/^Mem: *//' -e 's/  *.*//'`
 mem=$((totalmem * 1024))
 echo $mem > /sys/block/zram0/disksize
 mkswap /dev/zram0
-swapon -p 64 /dev/zram0
+swapon -p 32764 /dev/zram0
 EOL
-sudo systemctl enable --now zram-config
+sudo systemctl enable --now zram-config >/dev/null 2>&1
 # ----------------------------------------------------------------------------------------------------
 cd /lib/systemd/system/
 sudo chmod 777 /lib/systemd/system/snowflake-proxy.service >/dev/null 2>&1
@@ -84,7 +78,7 @@ sudo echo -e '[Service]' > tor@default.service.d/override.conf >/dev/null 2>&1
 sudo echo -e "NoNewPrivileges=no" >> tor@default.service.d/override.conf >/dev/null 2>&1
 sudo systemctl enable --now tor >/dev/null 2>&1
 # ----------------------------------------------------------------------------------------------------
-sudo mkdir -p /etc/systemd/system/fstrim.timer.d/
+sudo mkdir -p /etc/systemd/system/fstrim.timer.d/ >/dev/null 2>&1
 cd /etc/systemd/system/fstrim.timer.d/
 sudo chmod 777 /etc/systemd/system/fstrim.timer.d/override.conf >/dev/null 2>&1
 sudo cat > override.conf << 'EOL'
@@ -92,9 +86,8 @@ sudo cat > override.conf << 'EOL'
 OnCalendar=
 OnCalendar=daily
 EOL
-sudo systemctl enable --now fstrim.timer
-# ----------------------------------------------------------------------------------------------------
-sudo sed -i 's/3/2/' /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
+sudo systemctl enable --now fstrim.timer >/dev/null 2>&1
+sudo sed -i 's/3/2/' /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf >/dev/null 2>&1
 cd /etc/systemd/
 sudo chmod 777 /etc/systemd/timesyncd.conf >/dev/null 2>&1
 sudo cat > timesyncd.conf << 'EOL'
@@ -133,8 +126,8 @@ net.ipv4.tcp_low_latency = 1
 kernel.sched_migration_cost_ns = 5000000
 EOL
 # ----------------------------------------------------------------------------------------------------
-sudo apt-fast update
-sudo apt-fast dist-upgrade -y
+sudo apt-fast update >/dev/null 2>&1
+sudo apt-fast dist-upgrade -y >/dev/null 2>&1
 cd
 clear
 echo Done!
