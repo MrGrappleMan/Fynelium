@@ -92,8 +92,8 @@ cd /etc/systemd/
 sudo chmod 777 /etc/systemd/timesyncd.conf >/dev/null 2>&1
 sudo cat > timesyncd.conf << 'EOL'
 [Time]
-NTP=time.google.com
-FallbackNTP=time.windows.com
+NTP=time.google.com time.windows.com time.cloudflare.com time.facebook.com time.apple.com pool.ntp.org
+FallbackNTP=time.google.com time.windows.com time.cloudflare.com time.facebook.com time.apple.com pool.ntp.org
 EOL
 # ----------------------------------------------------------------------------------------------------
 cd /etc/
