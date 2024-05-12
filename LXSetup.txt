@@ -6,7 +6,6 @@ sudo /bin/bash -c "$(sudo curl -sL https://brightdata.com/static/earnapp/install
 sudo apt-fast update
 sudo apt-fast install coreutils util-linux zram-config -y
 sudo apt-fast install snowflake-proxy tor obfs4proxy -y >/dev/null 2>&1
-sudo apt-fast purge package-update-indicator -y
 # ----------------------------------------------------------------------------------------------------
 sudo systemctl enable --now zram-config
 sudo systemctl stop zram-config
