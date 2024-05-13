@@ -67,7 +67,8 @@ ClientPreferIPv6DirPort 1
 ClientPreferIPv6ORPort 1
 ClientUseIPv6 1
 DownloadExtraInfo 1
-
+IPv6Exit 1
+DirCache 1
 EOL
 sudo setcap cap_net_bind_service=+ep /usr/bin/obfs4proxy >/dev/null 2>&1
 cd /etc/systemd/system/
