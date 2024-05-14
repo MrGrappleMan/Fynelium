@@ -75,10 +75,10 @@ cd /etc/systemd/system/
 sudo mkdir tor@.service.d >/dev/null 2>&1
 sudo mkdir tor@default.service.d >/dev/null 2>&1
 sudo chmod 777 tor@.service.d tor@default.service.d >/dev/null 2>&1
-sudo echo -e '[Service]' > tor@.service.d/override.conf >/dev/null 2>&1
-sudo echo -e "NoNewPrivileges=no" >> tor@.service.d/override.conf >/dev/null 2>&1
-sudo echo -e '[Service]' > tor@default.service.d/override.conf >/dev/null 2>&1
-sudo echo -e "NoNewPrivileges=no" >> tor@default.service.d/override.conf >/dev/null 2>&1
+sudo echo -e '[Service]' > tor@.service.d/override.conf
+sudo echo -e "NoNewPrivileges=no" >> tor@.service.d/override.conf
+sudo echo -e '[Service]' > tor@default.service.d/override.conf
+sudo echo -e "NoNewPrivileges=no" >> tor@default.service.d/override.conf
 sudo systemctl enable --now tor >/dev/null 2>&1
 # ----------------------------------------------------------------------------------------------------
 sudo mkdir -p /etc/systemd/system/fstrim.timer.d/ >/dev/null 2>&1
