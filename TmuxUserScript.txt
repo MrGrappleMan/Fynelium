@@ -1,3 +1,4 @@
 # This line executes the installation of Ubuntu 22.04 in Termux
 # Get Termux from Droidify
+# 
 pkg update && pkg upgrade -y && pkg install wget curl git proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Ubuntu22/ubuntu22.sh -O ubuntu22.sh && chmod +x ubuntu22.sh && bash ubuntu22.sh
