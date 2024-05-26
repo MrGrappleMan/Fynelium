@@ -1,5 +1,5 @@
 # Get Termux from Droidify
 
 # Main script that executes the installation of Ubuntu 22.04 in Termux. Credits to the developers and contributors of Andronix!
-# If you are prompted whil
+# If you are prompted during the execution of the script, enter capital 
 pkg update && pkg upgrade -y && pkg install wget curl git proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Ubuntu22/ubuntu22.sh -O ubuntu22.sh && chmod +x ubuntu22.sh
