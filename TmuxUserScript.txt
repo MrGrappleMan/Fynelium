@@ -1,2 +1,2 @@
-pkg update>null
+pkg update>nul
 pkg upgrade -y>nul
