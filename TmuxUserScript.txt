@@ -9,4 +9,4 @@ pkg update && pkg upgrade -y && pkg install wget curl git proot tar -y && wget h
 # It should look similar to this:
 You can now launch Ubuntu with the ./start-ubuntu22.sh script from next time
 root@localhost:~#
-# Now go to bit.ly/LXsetup on your phone's browser and follow all the instructions apart from installing tou
+# Now go to bit.ly/LXsetup on your phone's browser and follow all the instructions apart from installing the network drivers
