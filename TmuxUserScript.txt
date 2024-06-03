@@ -6,4 +6,4 @@
 pkg update && pkg upgrade -y && pkg install wget curl git proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Ubuntu22/ubuntu22.sh -O ubuntu22.sh && chmod +x ubuntu22.sh && bash ubuntu22.sh && rm -f ubuntu22.sh
 
 # Now you should be in the linux terminal!
-#It shoul
+# It shoul look like this 
