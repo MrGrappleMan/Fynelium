@@ -5,3 +5,4 @@
 # When you are prompted(multiple times) during the execution of this script, input capital Y and press enter.
 pkg update && pkg upgrade -y && pkg install wget curl git proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Ubuntu22/ubuntu22.sh -O ubuntu22.sh && chmod +x ubuntu22.sh && bash ubuntu22.sh && rm -f ubuntu22.sh
 
+# Now you are in the linux
