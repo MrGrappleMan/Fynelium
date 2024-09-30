@@ -37,3 +37,14 @@ baseurl=https://repo.radeon.com/rocm/rhel9/6.2/main/
 enabled=1
 gpgcheck=1
 gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
+
+[nobara-nvidia-new-feature-$releasever]
+name=nobara-nvidia-new-feature-$releasever
+mirrorlist=https://mirrors.nobaraproject.org/nvidia
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-nobara-nvidia-new-feature-pubkey-$basearch
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
