@@ -1,0 +1,23 @@
+[Service]
+ExecStart=/usr/bin/snowflake-proxy -capacity 0 -allow-non-tls-relay
+Restart=always
+RestartSec=5
+DynamicUser=true
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+PrivateMounts=true
+PrivateIPC=true
+ProtectHome=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectKernelLogs=true
+ProtectProc=invisible
+ProtectHostname=true
+ProtectClock=true
+ProtectSystem=strict
+MemoryDenyWriteExecute=true
+RestrictRealtime=true
+[Install]
+WantedBy=multi-user.target
