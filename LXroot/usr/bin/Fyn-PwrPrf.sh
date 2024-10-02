@@ -2,7 +2,9 @@
 sudo swapoff -a
 sudo rmmod zram
 
-get_battery_status() {
+if [[ "$1" == "Y" ]]; then
+    sudo modprobe zram
+    get_battery_status() {
     if [[ -f /sys/class/power_supply/BAT0/capacity ]]; then
         battery_capacity=$(cat /sys/class/power_supply/BAT0/capacity)
     else
@@ -14,10 +16,8 @@ get_battery_status() {
     else
         power_status=0
     fi
-}
+	}
 
-if [[ "$1" == "Y" ]]; then
-    sudo modprobe zram
     mem_total=$(free | awk '/^Mem:/{print $2}')
     mem_total_bytes=$((mem_total * 1024))
     
