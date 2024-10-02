@@ -2,7 +2,6 @@
 swapoff -a
 rmmod zram
 if [[ "$1"=="Y" ]]; then
-	#statements
+	sudo mkswap /dev/zram0
+	sudo swapon -p 32765 /dev/zram0
 fi
-sudo mkswap /dev/zram0
-sudo swapon -p 32765 /dev/zram0
