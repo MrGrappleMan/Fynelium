@@ -14,7 +14,7 @@ if [[ "$1" == "Y" ]]; then
     if [[ -f /sys/class/power_supply/AC/online ]]; then
         power_status=$(cat /sys/class/power_supply/AC/online)
     else
-        power_status=0
+        power_status=1
     fi
 	}
 
