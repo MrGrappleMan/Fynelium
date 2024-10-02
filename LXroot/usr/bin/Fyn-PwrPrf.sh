@@ -1,8 +1,7 @@
 #!/bin/bash
 swapoff -a
 rmmod zram
-sudo mkswap /dev/zram
-
+sudo mkswap /dev/zram0
 sudo swapon -p 32765 /dev/zram0
 
 set_compression_level() {
