@@ -13,6 +13,7 @@ rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rele
 # System Background Services
 rpm-ostree install tlp tlp-rdw
 rpm-ostree install boinc-client
+rpm-ostree install tor
 # User Applications
 rpm-ostree install boinc-manager
 
@@ -35,12 +36,12 @@ flatpak update --noninteractive
 
 # System:-
 # Kernel Arguments:
-# rpm-ostree kargs --append-if-missing=mitigations=off
-rpm-ostree kargs --delete-if-present=rhgb --append-if-missing=sysrq_always_enabled=0 --append-if-missing=consoleblank=0 --append-if-missing=quiet
+rpm-ostree kargs --delete-if-present=rhgb --append-if-missing=sysrq_always_enabled=0 --append-if-missing=consoleblank=0 --append-if-missing=quiet --append-if-missing=loglevel=4
 rpm-ostree initramfs --enable
 # SystemD Services:
 systemctl enable tlp.service
 systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
+systemctl enable tor.service
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 # Files:-
