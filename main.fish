@@ -10,11 +10,11 @@ rpm-ostree reload
 rpm-ostree upgrade --allow-downgrade -q
 rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
 # Packages:
-# Drivers/Codecs
-rpm-ostree install intel-media-driver libva-intel-driver libva-nvidia-driver mesa-va-drivers-freeworld mesa-vdpau-drivers-freeworld gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi
 # System Background Services
 rpm-ostree install tlp tlp-rdw
+rpm-ostree install boinc-client
 # User Applications
+rpm-ostree install boinc-manager
 
 
 # Flatpak:-
