@@ -8,11 +8,14 @@ set base (rpm-ostree status | grep '● ' | awk '{print $2}')
 rpm-ostree rebase "$base" --experimental
 rpm-ostree reload
 rpm-ostree upgrade --allow-downgrade -q
-systemctl enable rpm-ostreed-automatic.service
-systemctl enable rpm-ostreed-automatic.timer
 rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
 # Packages:
+# Drivers/Codecs
 rpm-ostree install intel-media-driver libva-intel-driver libva-nvidia-driver mesa-va-drivers-freeworld mesa-vdpau-drivers-freeworld gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi
+# System Background Services
+rpm-ostree install tlp tlp-rdw
+# User Applications
+
 
 # Flatpak:-
 # Repo Management:
@@ -35,6 +38,12 @@ flatpak update --noninteractive
 # rpm-ostree kargs --append-if-missing=mitigations=off
 rpm-ostree kargs --delete-if-present=rhgb --append-if-missing=sysrq_always_enabled=0 --append-if-missing=consoleblank=0 --append-if-missing=quiet
 rpm-ostree initramfs --enable
-# Files:
-chmod -R 755 /etc/
-cp -r LXetc/* /etc/
+# SystemD Services:
+systemctl enable tlp.service
+systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
+systemctl mask systemd-rfkill.service systemd-rfkill.socket
+
+# Files:-
+chmod -R 755 /etc/ /lib/
+cp -r LXroot/etc/* /etc/
+cp -r LXroot/lib/* /lib/
