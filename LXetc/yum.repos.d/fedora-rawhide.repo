@@ -1,0 +1,22 @@
+[rawhide]
+name=Fedora - Rawhide - Developmental packages for the next Fedora release
+metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+enabled=1
+countme=1
+metadata_expire=6h
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-rawhide-$basearch file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-43-$basearch
+skip_if_unavailable=True
+
+[rawhide-debuginfo]
+name=Fedora - Rawhide - Debug
+metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide-debug&arch=$basearch
+enabled=0
+metadata_expire=6h
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-rawhide-$basearch file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-43-$basearch
+skip_if_unavailable=False
