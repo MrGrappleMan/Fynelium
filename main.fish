@@ -39,8 +39,8 @@ flatpak update --noninteractive
 
 # System:-
 # Kernel Arguments:
-plymouth-set-default-theme spinner
-rpm-ostree kargs --append-if-missing=rhgb --append-if-missing=sysrq_always_enabled=0 --append-if-missing=consoleblank=0 --append-if-missing=quiet --append-if-missing=loglevel=3 --append-if-missing=preempt=full
+plymouth-set-default-theme -R spinner
+rpm-ostree kargs --append-if-missing=rhgb --append-if-missing=threadirqs --append-if-missing=sysrq_always_enabled=0 --append-if-missing=consoleblank=0 --append-if-missing=quiet --append-if-missing=loglevel=3 --append-if-missing=preempt=voluntary
 rpm-ostree initramfs --enable
 # SystemD Services:
 systemctl enable tlp.service
