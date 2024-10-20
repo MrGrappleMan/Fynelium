@@ -1,0 +1,10 @@
+[copr:copr.fedorainfracloud.org:hikariknight:looking-glass-kvmfr]
+name=Copr repo for looking-glass-kvmfr owned by hikariknight
+baseurl=https://download.copr.fedorainfracloud.org/results/hikariknight/looking-glass-kvmfr/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/hikariknight/looking-glass-kvmfr/pubkey.gpg
+repo_gpgcheck=0
+enabled=0
+enabled_metadata=1

@@ -1,0 +1,10 @@
+[copr:copr.fedorainfracloud.org:mavit:discover-overlay]
+name=Copr repo for discover-overlay owned by mavit
+baseurl=https://download.copr.fedorainfracloud.org/results/mavit/discover-overlay/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/mavit/discover-overlay/pubkey.gpg
+repo_gpgcheck=0
+enabled=0
+enabled_metadata=1
