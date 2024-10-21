@@ -1,4 +1,4 @@
-[rawhide]
+[official]
 name=Official
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
 enabled=1
@@ -6,22 +6,24 @@ type=rpm
 metadata_expire=1d
 repo_gpgcheck=0
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-rawhide
+gpgkey=https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/GPGkeys/RPM-GPG-KEY-official
 
-[rpmfusion-free-rawhide]
+[rpmfus-free]
 name=RPMFus.Free
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide&arch=$basearch
 enabled=1
-enabled_metadata=1
 type=rpm-md
+metadata_expire=1d
 gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
+gpgkey=https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/GPGkeys/RPM-GPG-KEY-rpmfus-free
+enabled_metadata=1
 
-[rpmfusion-nonfree-rawhide]
+[rpmfus-nonfree]
 name=RPMFus.NonFree
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-rawhide&arch=$basearch
 enabled=1
-enabled_metadata=1
 type=rpm-md
+metadata_expire=1d
 gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-rawhide
+gpgkey=https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/GPGkeys/RPM-GPG-KEY-rpmfus-nonfree
+enabled_metadata=1
