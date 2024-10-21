@@ -16,7 +16,6 @@ end
 rpm-ostree rebase "$base" --experimental
 rpm-ostree reload
 rpm-ostree upgrade --allow-downgrade -q
-rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
 # Packages:
 # System Background Services
 rpm-ostree install tlp tlp-rdw
