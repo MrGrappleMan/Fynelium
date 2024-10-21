@@ -1,5 +1,10 @@
 #!/bin/fish
 
+# Files:-
+chmod -R 755 /etc/ /lib/
+cp -r LXroot/etc/* /etc/
+cp -r LXroot/lib/* /lib/
+
 # RPM-OSTree:-
 # Repo Management:
 rpm-ostree cancel
@@ -47,8 +52,3 @@ systemctl enable tlp.service
 systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
 systemctl enable tor.service
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
-
-# Files:-
-chmod -R 755 /etc/ /lib/
-cp -r LXroot/etc/* /etc/
-cp -r LXroot/lib/* /lib/
