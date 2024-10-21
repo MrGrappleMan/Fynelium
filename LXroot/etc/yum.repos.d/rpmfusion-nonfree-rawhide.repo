@@ -1,0 +1,8 @@
+[rpmfusion-nonfree-rawhide]
+name=RPMFus.NonFree
+metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-rawhide&arch=$basearch
+enabled=1
+enabled_metadata=1
+type=rpm-md
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-rawhide
