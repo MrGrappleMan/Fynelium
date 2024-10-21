@@ -11,4 +11,4 @@ rpm-ostree reload
 rpm-ostree install fish
 rpm-ostree apply-live
 curl -s https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish -c "source; exit"
-/bin/fish -c "./main.fish">/dev/null
+/bin/fish -c "./main.fish"
