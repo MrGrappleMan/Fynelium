@@ -1,20 +1,20 @@
 #!/bin/fish
 
 # Files:-
-chmod -R 755 /etc/ /lib/
+chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
-cp -r LXroot/lib/* /lib/
 
 # RPM-OSTree:-
 # Repo Management:
-rpm-ostree cancel
-rpm-ostree reload
+rpm-ostree cancel -q
+rpm-ostree reload -q
 rpm-ostree upgrade --allow-downgrade -q
+rpm-ostree apply-live --allow-replacement
 # Packages:
 # System Background Services
-rpm-ostree install tlp tlp-rdw
-rpm-ostree install boinc-client
-rpm-ostree install tor
+rpm-ostree install tlp tlp-rdw -A
+rpm-ostree install boinc-client -A
+rpm-ostree install tor -A
 # User Applications
 rpm-ostree install boinc-manager
 
@@ -37,11 +37,11 @@ flatpak update --noninteractive
 
 # System:-
 # Kernel Arguments:
-plymouth-set-default-theme -R spinner
+plymouth-set-default-theme spinner
 rpm-ostree kargs --append-if-missing=rhgb --append-if-missing=threadirqs --append-if-missing=sysrq_always_enabled=0 --append-if-missing=consoleblank=0 --append-if-missing=quiet --append-if-missing=loglevel=3 --append-if-missing=preempt=voluntary
 rpm-ostree initramfs --enable
 # SystemD Services:
-systemctl enable tlp.service
+systemctl enable tor
+systemctl enable tlp
 systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
-systemctl enable tor.service
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
