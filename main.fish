@@ -8,15 +8,27 @@ cp -r LXroot/etc/* /etc/
 # Repo Management:
 rpm-ostree cancel -q
 rpm-ostree reload -q
+set base (rpm-ostree status | grep '● ' | awk '{print $2}')
+if echo $base | grep -q "bazzite"
+	set base (echo $base | sed 's/stable/unstable/g; s/testing/unstable/g')
+  rpm-ostree rebase "$base" --experimental
+end
+set base (rpm-ostree status | grep '● ' | awk '{print $2}')
+if echo $base | grep -q 'fedora:fedora/' -o -q '/silverblue' -o -q '/kinoite'
+	rpm-ostree rebase fedora:fedora/rawhide/x86_64/silverblue --experimental
+end
+rpm-ostree reload -q
 rpm-ostree upgrade --allow-downgrade -q
 rpm-ostree apply-live --allow-replacement
 # Packages:
 # System Background Services
-rpm-ostree install tlp tlp-rdw -A
-rpm-ostree install boinc-client -A
-rpm-ostree install tor -A
+rpm-ostree install tlp tlp-rdw
+rpm-ostree install boinc-client
+rpm-ostree install tor
 # User Applications
 rpm-ostree install boinc-manager
+# Apply for configuration in current session
+rpm-ostree apply-live --allow-replacement
 
 
 # Flatpak:-
