@@ -9,12 +9,6 @@ cp -r LXroot/lib/* /lib/
 # Repo Management:
 rpm-ostree cancel
 rpm-ostree reload
-set base (rpm-ostree status | grep '● ' | awk '{print $2}')
-if echo $base | grep -q "bazzite"
-	set base (echo $base | sed 's/stable/testing/g; s/unstable/testing/g')
-end
-rpm-ostree rebase "$base" --experimental
-rpm-ostree reload
 rpm-ostree upgrade --allow-downgrade -q
 # Packages:
 # System Background Services
