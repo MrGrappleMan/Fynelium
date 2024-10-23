@@ -23,7 +23,7 @@ rpm-ostree upgrade --allow-downgrade -q
 # Packages:
 # System Background Services
 #rpm-ostree install tlp tlp-rdw
-#rpm-ostree install boinc-client
+rpm-ostree install boinc-client
 #rpm-ostree install tor
 # User Applications
 #rpm-ostree install boinc-manager
@@ -32,9 +32,10 @@ rpm-ostree apply-live --allow-replacement
 
 # SystemD Services:
 #systemctl enable tor
-#systemctl enable --now tlp
+#systemctl enable tlp
+systemctl enable boinc-client
 systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
-#systemctl enable --now systemd-resolved systemd-networkd
+systemctl enable systemd-resolved systemd-networkd
 # systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 # Flatpak:-
@@ -50,8 +51,6 @@ flatpak remote-add --if-not-exists --system eclipse-nightly https://download.ecl
 flatpak remote-add --if-not-exists --system xwaylandvideobridge-nightly https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo
 flatpak update --noninteractive
 # Packages:
-#flatpak install https://gitlab.com/projects261/firefox-nightly-flatpak/-/raw/main/firefox-nightly.flatpakref
-#flatpak install https://gitlab.com/projects261/thunderbird-nightly-flatpak/-/raw/main/thunderbird-nightly.flatpakref
 
 # System:-
 # Kernel Arguments:
