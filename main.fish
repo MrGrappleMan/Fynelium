@@ -26,7 +26,8 @@ rpm-ostree install boinc-manager
 # Background Daemons
 rpm-ostree install boinc-client
 rpm-ostree install tor
-rpm-ostree upgrade --install=tlp --uninstall=power-profiles-daemon
+rpm-ostree install tlp tlp-rdw
+rpm-ostree uninstall power-profiles-daemon
 # Apply for configuration in current session:
 rpm-ostree apply-live --allow-replacement
 # SystemD Services:
