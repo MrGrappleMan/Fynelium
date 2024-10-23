@@ -32,8 +32,9 @@ rpm-ostree apply-live --allow-replacement
 
 # SystemD Services:
 systemctl enable tor
-systemctl enable tlp
+systemctl enable --now tlp
 systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
+systemctl enable --now systemd-resolved systemd-networkd
 # systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 # Flatpak:-
@@ -57,3 +58,4 @@ flatpak update --noninteractive
 plymouth-set-default-theme spinner
 rpm-ostree kargs --append-if-missing=rhgb --append-if-missing=threadirqs --append-if-missing=sysrq_always_enabled=0 --append-if-missing=consoleblank=0 --append-if-missing=quiet --append-if-missing=loglevel=3 --append-if-missing=preempt=voluntary
 rpm-ostree initramfs --enable
+fixfiles onboot
