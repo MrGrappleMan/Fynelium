@@ -20,8 +20,8 @@ if echo $base | grep -q 'fedora:fedora/' -o -q '/silverblue' -o -q '/kinoite'
 end
 rpm-ostree reload -q
 '
+rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
 rpm-ostree upgrade --allow-downgrade -q
-rpm-ostree apply-live --allow-replacement
 # Packages:
 # System Background Services
 rpm-ostree install tlp tlp-rdw
