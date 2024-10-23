@@ -27,19 +27,23 @@ rpm-ostree install boinc-manager
 # Background Daemons
 rpm-ostree install \
 boinc-client \
-tor \
-tlp tlp-rdw
-rpm-ostree uninstall power-profiles-daemon
+tor
+#tlp tlp-rdw
+#rpm-ostree uninstall \
+power-profiles-daemon
 # Apply for configuration in current session:
 rpm-ostree apply-live --allow-replacement
 # SystemD Services:
-systemctl enable --now tlp
-systemctl mask systemd-rfkill.service systemd-rfkill.socket
+#systemctl enable --now tlp
+#systemctl mask \
+systemd-rfkill.service \
+systemd-rfkill.socket
 systemctl enable \
-tor \
-boinc-client \
-rpm-ostreed-automatic.service rpm-ostreed-automatic.timer \
-systemd-resolved systemd-networkd
+rpm-ostreed-automatic.service \
+rpm-ostreed-automatic.timer \
+systemd-resolved \
+systemd-networkd
+#tor boinc-client 
 # Other CLI based changes:
 usermod -aG boinc root
 
