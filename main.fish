@@ -23,7 +23,8 @@ https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.n
 rpm-ostree upgrade --allow-downgrade -q
 # Packages:
 # GUI Applications
-rpm-ostree install boinc-manager
+rpm-ostree install \
+boinc-manager
 # Background Daemons
 rpm-ostree install \
 boinc-client \
