@@ -18,8 +18,8 @@ set base (rpm-ostree status | grep '● ' | awk '{print $2}')
 if echo $base | grep -q 'fedora:fedora/' -o -q '/silverblue' -o -q '/kinoite'
 	rpm-ostree rebase fedora:fedora/rawhide/x86_64/silverblue --experimental
 end
-'
 rpm-ostree reload -q
+'
 rpm-ostree upgrade --allow-downgrade -q
 rpm-ostree apply-live --allow-replacement
 # Packages:
@@ -32,6 +32,11 @@ rpm-ostree install boinc-manager
 # Apply for configuration in current session
 rpm-ostree apply-live --allow-replacement
 
+# SystemD Services:
+systemctl enable tor
+systemctl enable tlp
+systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
+# systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 # Flatpak:-
 # Repo Management:
@@ -54,8 +59,3 @@ flatpak update --noninteractive
 plymouth-set-default-theme spinner
 rpm-ostree kargs --append-if-missing=rhgb --append-if-missing=threadirqs --append-if-missing=sysrq_always_enabled=0 --append-if-missing=consoleblank=0 --append-if-missing=quiet --append-if-missing=loglevel=3 --append-if-missing=preempt=voluntary
 rpm-ostree initramfs --enable
-# SystemD Services:
-systemctl enable tor
-systemctl enable tlp
-systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
-systemctl mask systemd-rfkill.service systemd-rfkill.socket
