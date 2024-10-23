@@ -18,15 +18,16 @@ if echo $base | grep -q 'fedora:fedora/' -o -q '/silverblue' -o -q '/kinoite'
 rpm-ostree rebase fedora:fedora/rawhide/x86_64/silverblue --experimental
 end
 rpm-ostree reload -q
-rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
+https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
 rpm-ostree upgrade --allow-downgrade -q
 # Packages:
 # GUI Applications
 rpm-ostree install boinc-manager
 # Background Daemons
-rpm-ostree install boinc-client
-rpm-ostree install tor
-rpm-ostree install tlp tlp-rdw
+rpm-ostree install boinc-client \
+tor \
+tlp tlp-rdw \
 rpm-ostree uninstall power-profiles-daemon
 # Apply for configuration in current session:
 rpm-ostree apply-live --allow-replacement
@@ -35,8 +36,7 @@ systemctl enable --now tlp
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 systemctl enable tor
 systemctl enable boinc-client
-systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
-systemctl enable systemd-resolved systemd-networkd
+systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer systemd-resolved systemd-networkd
 # Other CLI based changes:
 usermod -aG boinc root
 
@@ -58,6 +58,7 @@ flatpak install flathub com.github.d4nj1.tlpui
 # System:-
 # Kernel Arguments:
 plymouth-set-default-theme spinner
-rpm-ostree kargs --append-if-missing=rhgb --append-if-missing=threadirqs --append-if-missing=sysrq_always_enabled=0 --append-if-missing=consoleblank=0 --append-if-missing=quiet --append-if-missing=loglevel=3 --append-if-missing=preempt=voluntary
+rpm-ostree kargs
+--append-if-missing=rhgb --append-if-missing=threadirqs --append-if-missing=sysrq_always_enabled=0 --append-if-missing=consoleblank=0 --append-if-missing=quiet --append-if-missing=loglevel=3 --append-if-missing=preempt=voluntary
 rpm-ostree initramfs --enable
 fixfiles onboot
