@@ -1,11 +1,21 @@
 #!/bin/fish
 
-# Files:-
+# System:-
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
+plymouth-set-default-theme spinner
+rpm-ostree kargs \
+--append-if-missing=rhgb \
+--append-if-missing=threadirqs \
+--append-if-missing=sysrq_always_enabled=0 \
+--append-if-missing=consoleblank=0 \
+--append-if-missing=quiet \
+--append-if-missing=loglevel=3 \
+--append-if-missing=preempt=full
+rpm-ostree initramfs --enable
 
 # RPM-OSTree:-
-# Repo Management:
+# Configuration:
 rpm-ostree cancel -q
 rpm-ostree reload -q
 set base (rpm-ostree status | grep '● ' | awk '{print $2}')
@@ -15,11 +25,9 @@ end
 if echo $base | grep -q "bazzite"
 set base (echo $base | sed 's/stable/unstable/g; s/testing/unstable/g')
 rpm-ostree rebase "$base" --experimental
-end
-rpm-ostree reload -q
+end⁸
 rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
 https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
-rpm-ostree upgrade --allow-downgrade -q
 # Packages:
 # GUI Applications
 rpm-ostree install \
@@ -59,17 +67,4 @@ flatpak update --noninteractive
 # Packages:
 flatpak install flathub com.github.d4nj1.tlpui
 
-# System:-
-# Kernel Arguments:
-plymouth-set-default-theme spinner
-rpm-ostree kargs \
---append-if-missing=rhgb \
---append-if-missing=threadirqs \
---append-if-missing=sysrq_always_enabled=0 \
---append-if-missing=consoleblank=0 \
---append-if-missing=quiet \
---append-if-missing=loglevel=3 \
---append-if-missing=preempt=full
-rpm-ostree initramfs --enable
-#fixfiles onboot
 systemctl shutdown now
