@@ -40,14 +40,15 @@ boinc-manager
 # Background Daemons
 rpm-ostree install \
 boinc-client \
-tor
-#tlp tlp-rdw
+tor \
+tlp tlp-rdw
 #rpm-ostree uninstall power-profiles-daemon
 # Package based configuration in current session
 rpm-ostree apply-live --allow-replacement
-#systemctl enable --now tlp
+systemctl enable --now tlp \
+tor \
+boinc-client
 #systemctl mask systemd-rfkill.service systemd-rfkill.socket
-systemctl enable --now tor boinc-client
 usermod -aG boinc root
 
 # Flatpak:-
