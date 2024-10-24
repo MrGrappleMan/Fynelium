@@ -72,5 +72,5 @@ rpm-ostree kargs \
 --append-if-missing=loglevel=3 \
 --append-if-missing=preempt=full
 rpm-ostree initramfs --enable
-fixfiles onboot
+#fixfiles onboot
 systemctl shutdown now
