@@ -30,22 +30,18 @@ rpm-ostree install \
 boinc-client \
 tor
 #tlp tlp-rdw
-#rpm-ostree uninstall \
-power-profiles-daemon
+#rpm-ostree uninstall power-profiles-daemon
 # Apply for configuration in current session:
 rpm-ostree apply-live --allow-replacement
 # SystemD Services:
 #systemctl enable --now tlp
-#systemctl mask \
-systemd-rfkill.service \
-systemd-rfkill.socket
+#systemctl mask systemd-rfkill.service systemd-rfkill.socket
 systemctl enable \
 rpm-ostreed-automatic.service \
 rpm-ostreed-automatic.timer \
 systemd-resolved \
 systemd-networkd
-#tor \
-boinc-client 
+#tor boinc-client 
 # Other CLI based changes:
 usermod -aG boinc root
 
@@ -74,7 +70,7 @@ rpm-ostree kargs \
 --append-if-missing=consoleblank=0 \
 --append-if-missing=quiet \
 --append-if-missing=loglevel=3 \
---append-if-missing=preempt=voluntary
+--append-if-missing=preempt=full
 rpm-ostree initramfs --enable
 fixfiles onboot
 systemctl shutdown now
