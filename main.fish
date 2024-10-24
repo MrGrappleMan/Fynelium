@@ -14,6 +14,7 @@ rpm-ostree kargs \
 --append-if-missing=preempt=full
 rpm-ostree initramfs --enable
 systemctl enable --now systemd-resolved systemd-networkd
+gnome-software --prefs --autoupdate
 
 # RPM-OSTree:-
 # Configuration:
@@ -60,7 +61,6 @@ flatpak remote-add --if-not-exists --system rhel https://flatpaks.redhat.io/rhel
 flatpak remote-add --if-not-exists --system webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
 flatpak remote-add --if-not-exists --system eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo
 flatpak remote-add --if-not-exists --system xwaylandvideobridge-nightly https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo
-flatpak update --noninteractive
 # Packages:
 flatpak install flathub com.github.d4nj1.tlpui
 
