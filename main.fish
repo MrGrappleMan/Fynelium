@@ -9,13 +9,12 @@ cp -r LXroot/etc/* /etc/
 rpm-ostree cancel -q
 rpm-ostree reload -q
 set base (rpm-ostree status | grep '● ' | awk '{print $2}')
+if echo $base | grep -q "fedora:fedora"
+rpm-ostree rebase fedora:fedora/rawhide/x86_64/silverblue --experimental
+end
 if echo $base | grep -q "bazzite"
 set base (echo $base | sed 's/stable/unstable/g; s/testing/unstable/g')
 rpm-ostree rebase "$base" --experimental
-end
-set base (rpm-ostree status | grep '● ' | awk '{print $2}')
-if echo $base | grep -q "fedora:fedora"
-rpm-ostree rebase fedora:fedora/rawhide/x86_64/silverblue --experimental
 end
 rpm-ostree reload -q
 rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
