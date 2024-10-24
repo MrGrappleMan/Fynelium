@@ -21,6 +21,33 @@ rpm-ostree reload -q
 rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
 https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
 rpm-ostree upgrade --allow-downgrade -q
+# Packages:
+# GUI Applications
+rpm-ostree install \
+boinc-manager
+# Background Daemons
+rpm-ostree install \
+boinc-client \
+tor
+#tlp tlp-rdw
+#rpm-ostree uninstall \
+power-profiles-daemon
+# Apply for configuration in current session:
+rpm-ostree apply-live --allow-replacement
+# SystemD Services:
+#systemctl enable --now tlp
+#systemctl mask \
+systemd-rfkill.service \
+systemd-rfkill.socket
+systemctl enable \
+rpm-ostreed-automatic.service \
+rpm-ostreed-automatic.timer \
+systemd-resolved \
+systemd-networkd
+#tor \
+boinc-client 
+# Other CLI based changes:
+usermod -aG boinc root
 
 # Flatpak:-
 # Repo Management:
@@ -34,6 +61,8 @@ flatpak remote-add --if-not-exists --system webkit-sdk https://software.igalia.c
 flatpak remote-add --if-not-exists --system eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo
 flatpak remote-add --if-not-exists --system xwaylandvideobridge-nightly https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo
 flatpak update --noninteractive
+# Packages:
+flatpak install flathub com.github.d4nj1.tlpui
 
 # System:-
 # Kernel Arguments:
@@ -48,3 +77,4 @@ rpm-ostree kargs \
 --append-if-missing=preempt=voluntary
 rpm-ostree initramfs --enable
 fixfiles onboot
+systemctl shutdown now
