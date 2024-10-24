@@ -6,8 +6,8 @@ chmod -R 755 /tmp/Fynelium
 cd /tmp/Fynelium
 
 # Prepare for main script:
-rpm-ostree cancel
-rpm-ostree reload
+rpm-ostree cancel -q
+rpm-ostree reload -q
 rpm-ostree install fish
 rpm-ostree apply-live --allow-replacement
 curl -s https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish -c "source; exit"
