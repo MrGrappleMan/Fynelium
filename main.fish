@@ -13,6 +13,7 @@ rpm-ostree kargs \
 --append-if-missing=loglevel=3 \
 --append-if-missing=preempt=full
 rpm-ostree initramfs --enable
+systemctl enable --now systemd-resolved systemd-networkd
 
 # RPM-OSTree:-
 # Configuration:
@@ -25,9 +26,12 @@ end
 if echo $base | grep -q "bazzite"
 set base (echo $base | sed 's/stable/unstable/g; s/testing/unstable/g')
 rpm-ostree rebase "$base" --experimental
-end⁸
+end
 rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
 https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+systemctl enable --now \
+rpm-ostreed-automatic.service \
+rpm-ostreed-automatic.timer \
 # Packages:
 # GUI Applications
 rpm-ostree install \
@@ -38,18 +42,11 @@ boinc-client \
 tor
 #tlp tlp-rdw
 #rpm-ostree uninstall power-profiles-daemon
-# Apply for configuration in current session:
+# Package based configuration in current session
 rpm-ostree apply-live --allow-replacement
-# SystemD Services:
 #systemctl enable --now tlp
 #systemctl mask systemd-rfkill.service systemd-rfkill.socket
-systemctl enable \
-rpm-ostreed-automatic.service \
-rpm-ostreed-automatic.timer \
-systemd-resolved \
-systemd-networkd
-#tor boinc-client 
-# Other CLI based changes:
+systemctl enable --now tor boinc-client
 usermod -aG boinc root
 
 # Flatpak:-
