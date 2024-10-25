@@ -8,7 +8,6 @@ rpm-ostree kargs -q --peer \
 --append-if-missing="rhgb,threadirqs,sysrq_always_enabled=0,consoleblank=0,quiet,loglevel=3,preempt=full"
 rpm-ostree initramfs -q --peer --enable
 systemctl enable --now systemd-resolved systemd-networkd
-gnome-software --prefs --autoupdate
 
 # RPM-OSTree:-
 # Configuration:
@@ -16,11 +15,11 @@ rpm-ostree cancel -q
 rpm-ostree reload -q
 set base (rpm-ostree status | grep '● ' | awk '{print $2}')
 if echo $base | grep -q "fedora:fedora"
-rpm-ostree rebase fedora:fedora/rawhide/x86_64/silverblue --experimental
+rpm-ostree rebase -q --peer fedora:fedora/rawhide/x86_64/silverblue --experimental
 end
 if echo $base | grep -q "bazzite"
 set base (echo $base | sed 's/stable/unstable/g; s/testing/unstable/g')
-rpm-ostree rebase "$base" --experimental
+rpm-ostree rebase -q --peer "$base" --experimental
 end
 rpm-ostree install -q --peer https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
 https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
