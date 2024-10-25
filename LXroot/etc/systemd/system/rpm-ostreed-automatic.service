@@ -1,0 +1,11 @@
+[Unit]
+Description=rpm-ostree
+ConditionPathExists=/run/ostree-booted
+WantedBy=fake.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=rpm-ostree upgrade -q --trigger-automatic-update-policy --peer
+Restart=always
+RestartSec=1
