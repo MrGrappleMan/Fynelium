@@ -6,9 +6,11 @@ Before=shutdown.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=@TLP_SBIN@/tlp init start
-ExecReload=@TLP_SBIN@/tlp start
-ExecStop=@TLP_SBIN@/tlp init stop
+ExecStart=/usr/sbin/tlp init start
+ExecReload=/usr/sbin/tlp start
+ExecStop=/usr/sbin/tlp init stop
+Restart=always
+RestartSec=1
 
 [Install]
 WantedBy=multi-user.target
