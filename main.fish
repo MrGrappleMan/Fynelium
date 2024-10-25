@@ -1,63 +1,66 @@
 #!/bin/fish
 
+function rqe
+    rpm-ostree -q --peer $argv
+end
+
 # System:-
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
 plymouth-set-default-theme spinner
-rpm-ostree kargs -q --peer \
---append-if-missing="rhgb,threadirqs,sysrq_always_enabled=0,consoleblank=0,quiet,loglevel=3,preempt=full"
-rpm-ostree initramfs -q --peer --enable
+rqe kargs --append-if-missing="rhgb,threadirqs,sysrq_always_enabled=0,consoleblank=0,quiet,loglevel=3,preempt=full"
+rqe initramfs --enable
 systemctl enable --now systemd-resolved systemd-networkd
 
 # RPM-OSTree:-
 # Configuration:
-rpm-ostree cancel -q
-rpm-ostree reload -q
-set base (rpm-ostree status | grep '● ' | awk '{print $2}')
+rqe cancel
+rqe reload
+set base (rqe status | grep '● ' | awk '{print $2}')
 if echo $base | grep -q "fedora:fedora"
-rpm-ostree rebase -q --peer fedora:fedora/rawhide/x86_64/silverblue --experimental
+    rqe rebase --experimental fedora:fedora/rawhide/x86_64/silverblue
 end
 if echo $base | grep -q "bazzite"
-set base (echo $base | sed 's/stable/unstable/g; s/testing/unstable/g')
-rpm-ostree rebase -q --peer "$base" --experimental
+    set base (echo $base | sed 's/stable/unstable/g; s/testing/unstable/g')
+    rqe rebase --experimental "$base"
 end
-rpm-ostree install -q --peer https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
-https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+
 systemctl enable \
-rpm-ostreed-automatic.service \
-rpm-ostreed-automatic.timer
+    rpm-ostreed-automatic.service \
+    rpm-ostreed-automatic.timer
+
 # Packages:
 # GUI Applications
-rpm-ostree install --peer --allow-inactive \
-boinc-manager
+rqe install --allow-inactive boinc-manager
 # Background Daemons
-rpm-ostree install --peer --allow-inactive \
-boinc-client \
-tor \
-tlp tlp-rdw \
-fwupd
-rpm-ostree uninstall --peer \
-power-profiles-daemon
+rqe install --allow-inactive boinc-client tor tlp tlp-rdw fwupd
+rqe uninstall power-profiles-daemon
 # Package based configuration in current session
-rpm-ostree apply-live --peer --allow-replacement
+rqe apply-live --allow-replacement
 usermod -aG boinc root
-systemctl enable --now \
-tlp \
-tor \
-boinc-client
+systemctl enable --now tlp tor boinc-client
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 # Flatpak:-
 # Repo Management:
-flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-flatpak remote-add --if-not-exists --system gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
-flatpak remote-add --if-not-exists --system fedora oci+https://registry.fedoraproject.org
-flatpak remote-add --if-not-exists --system fedora-testing oci+https://registry.fedoraproject.org/#testing
-flatpak remote-add --if-not-exists --system rhel https://flatpaks.redhat.io/rhel.flatpakrepo
-flatpak remote-add --if-not-exists --system webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
-flatpak remote-add --if-not-exists --system eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo
-flatpak remote-add --if-not-exists --system xwaylandvideobridge-nightly https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo
+set flatpak_repos "flathub=https://dl.flathub.org/repo/flathub.flatpakrepo \
+                  flathub-beta=https://flathub.org/beta-repo/flathub-beta.flatpakrepo \
+                  gnome-nightly=https://nightly.gnome.org/gnome-nightly.flatpakrepo \
+                  fedora=oci+https://registry.fedoraproject.org \
+                  fedora-testing=oci+https://registry.fedoraproject.org/#testing \
+                  rhel=https://flatpaks.redhat.io/rhel.flatpakrepo \
+                  webkit-sdk=https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo \
+                  eclipse-nightly=https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo \
+                  xwaylandvideobridge-nightly=https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo"
+
+for repo in $flatpak_repos
+    set name (echo $repo | cut -d '=' -f 1)
+    set url (echo $repo | cut -d '=' -f 2)
+    flatpak remote-add --if-not-exists --system $name $url
+end
+
 flatpak update --assumeyes --noninteractive
 # Packages:
 flatpak install flathub com.github.d4nj1.tlpui
