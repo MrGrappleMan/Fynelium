@@ -69,4 +69,4 @@ flatpak update --assumeyes --noninteractive
 # Packages:
 flatpak install flathub com.github.d4nj1.tlpui
 
-systemctl shutdown now
+systemctl poweroff
