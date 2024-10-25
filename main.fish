@@ -24,23 +24,23 @@ rpm-ostree rebase "$base" --experimental
 end
 rpm-ostree install -q --peer https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
 https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
-systemctl enable --now \
+systemctl enable \
 rpm-ostreed-automatic.service \
-rpm-ostreed-automatic.timer \
+rpm-ostreed-automatic.timer
 # Packages:
 # GUI Applications
-rpm-ostree install \
+rpm-ostree install --peer --allow-inactive \
 boinc-manager
 # Background Daemons
-rpm-ostree install --allow-inactive \
+rpm-ostree install --peer --allow-inactive \
 boinc-client \
 tor \
 tlp tlp-rdw \
 fwupd
-rpm-ostree uninstall \
+rpm-ostree uninstall --peer \
 power-profiles-daemon
 # Package based configuration in current session
-rpm-ostree apply-live --allow-replacement
+rpm-ostree apply-live --peer --allow-replacement
 usermod -aG boinc root
 systemctl enable --now \
 tlp \
