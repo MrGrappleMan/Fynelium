@@ -33,15 +33,27 @@ systemctl enable \
 
 # Packages:
 # GUI Applications
-rqe install --allow-inactive boinc-manager
+rqe install --allow-inactive \
+boinc-manager
 # Background Daemons
-rqe install --allow-inactive boinc-client tor tlp tlp-rdw fwupd
-rqe uninstall power-profiles-daemon
+rqe install --allow-inactive \
+boinc-client \
+tor \
+tlp \
+tlp-rdw \
+fwupd
+rqe uninstall \
+power-profiles-daemon
 # Package based configuration in current session
 rqe apply-live --allow-replacement
 usermod -aG boinc root
-systemctl enable --now tlp tor boinc-client
-systemctl mask systemd-rfkill.service systemd-rfkill.socket
+systemctl enable --now \
+tlp \
+tor \
+boinc-client
+systemctl mask \
+systemd-rfkill.service \
+systemd-rfkill.socket
 
 # Flatpak:-
 # Repo Management:
