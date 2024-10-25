@@ -4,6 +4,7 @@ After=multi-user.target NetworkManager.service
 Before=shutdown.target
 
 [Service]
+User=root
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/sbin/tlp init start
