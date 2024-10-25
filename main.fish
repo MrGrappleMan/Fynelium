@@ -47,7 +47,7 @@ power-profiles-daemon
 # Package based configuration in current session
 rqe apply-live --allow-replacement
 usermod -aG boinc root
-systemctl enable --now \
+systemctl enable \
 tlp \
 tor \
 boinc-client
