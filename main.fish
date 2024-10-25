@@ -38,10 +38,11 @@ rpm-ostreed-automatic.timer \
 rpm-ostree install \
 boinc-manager
 # Background Daemons
-rpm-ostree install \
+rpm-ostree install --allow-inactive \
 boinc-client \
 tor \
-tlp tlp-rdw
+tlp tlp-rdw \
+fwupd
 rpm-ostree uninstall \
 power-profiles-daemon
 # Package based configuration in current session
