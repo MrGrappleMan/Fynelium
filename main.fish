@@ -33,27 +33,27 @@ systemctl enable --now \
 rqe install --allow-inactive \
 	boinc-client \
 	tor \
-	tlp \
-	tlp-rdw \
-	fwupd \
+	tlp tlp-rdw \
 	distcc-server \
-	gnome-terminal 
+	gnome-terminal docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 rqe uninstall \
 	power-profiles-daemon
 # Package related configuration
 rqe apply-live --allow-replacement
 systemctl mask \
-	systemd-rfkill.service \
-	systemd-rfkill.socket
+	systemd-rfkill.service systemd-rfkill.socket
 usermod -aG boinc root
 systemctl enable --now \
 	tlp \
 	tor \
-	boinc-client
+	boinc-client \
+	docker
+boinccmd --acct_mgr attach 
 
 # Flatpak:-
-# Repo Management:
-set flatpak_repos "flathub=https://dl.flathub.org/repo/flathub.flatpakrepo \
+# Configuration:
+set flatpak_repos \
+	"flathub=https://dl.flathub.org/repo/flathub.flatpakrepo \
 	flathub-beta=https://flathub.org/beta-repo/flathub-beta.flatpakrepo \
 	gnome-nightly=https://nightly.gnome.org/gnome-nightly.flatpakrepo \
 	fedora=oci+https://registry.fedoraproject.org \
@@ -70,5 +70,15 @@ end
 flatpak update --assumeyes --noninteractive
 # Packages:
 flatpak install flathub com.github.d4nj1.tlpui
+
+# Docker:-
+# Containers:
+wget https://gitlab.torproject.org/tpo/anti-censorship/docker-snowflake-proxy/raw/main/docker-compose.yml
+docker compose up -d snowflake-proxy
+# Finalize:
+set CONTAINERS 'snowflake-proxy'
+docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --include-stopped --include-restarting --revive-stopped --interval 300 $CONTAINERS
+docker update --restart=always --memory-swap=-1 --cpus=0 --cpu-quota=0 --pids-limit=-1 --cpu-rt-period=2000000 (sudo docker ps -q -a)
+
 
 systemctl poweroff
