@@ -5,11 +5,10 @@ Before=shutdown.target
 
 [Service]
 User=root
-Type=oneshot
+Type=simple
 RemainAfterExit=yes
 ExecStart=/usr/sbin/tlp init start
 ExecReload=/usr/sbin/tlp start
-ExecStop=/usr/sbin/tlp init stop
 Restart=always
 RestartSec=1
 
