@@ -30,13 +30,14 @@ systemctl enable --now \
 	rpm-ostreed-automatic.service \
 	rpm-ostreed-automatic.timer
 # Packages:
-rqe install --allow-inactive \
+rqe install --allow-inactive --idempotent \
 	boinc-client \
 	tor \
 	tlp tlp-rdw \
 	distcc-server \
-	gnome-terminal docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-rqe uninstall \
+	gnome-terminal \
+	docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+rqe uninstall --allow-inactive --idempotent \
 	power-profiles-daemon
 # Package related configuration
 rqe apply-live --allow-replacement
@@ -48,7 +49,7 @@ systemctl enable --now \
 	tor \
 	boinc-client \
 	docker
-boinccmd --acct_mgr attach 
+boinccmd --acct_mgr attach scienceunited.org 
 
 # Flatpak:-
 # Configuration:
@@ -67,9 +68,15 @@ for repo in $flatpak_repos
     set url (echo $repo | cut -d '=' -f 2)
     flatpak remote-add --if-not-exists --system $name $url
 end
-flatpak update --assumeyes --noninteractive
+flatpak update --noninteractive
 # Packages:
-flatpak install flathub com.github.d4nj1.tlpui
+set flatpak_pkgs \
+	"flathub=com.github.d4nj1.tlpui"
+for pkgstring in $flatpak_pkgs
+    set rrepo (echo $pkgstring | cut -d '=' -f 1)
+    set pkg (echo $pkgstring | cut -d '=' -f 2)
+    flatpak install --noninteractive --or-update $rrepo $pkg
+end
 
 # Docker:-
 # Containers:
