@@ -6,6 +6,9 @@ end
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
 systemctl enable --now systemd-resolved systemd-networkd
+systemctl disable --now \
+	rpm-ostreed-automatic.service \
+	rpm-ostreed-automatic.timer
 
 # RPM-OSTree:-
 # Configuration:
@@ -17,13 +20,8 @@ if echo $base | grep -q "bazzite"
 end
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
 	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
-systemctl enable --now \
-	rpm-ostreed-automatic.service \
-	rpm-ostreed-automatic.timer
 # Packages:
 rqe install --allow-inactive --idempotent \
-	boinc-client \
-	tor \
 	tlp tlp-rdw \
 	distcc-server \
 	gnome-terminal \
@@ -72,16 +70,16 @@ Finalize Ostree pkgs:
 rqe apply-live --allow-replacement
 systemctl mask \
 	systemd-rfkill.service systemd-rfkill.socket
-usermod -aG boinc root
 systemctl enable --now \
 	tlp \
-	tor \
-	boinc-client \
 	docker
 boinccmd --acct_mgr attach scienceunited.org 
 Boot:
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="rhgb,threadirqs,sysrq_always_enabled=0,consoleblank=0,quiet,loglevel=3,preempt=full"
 rqe initramfs --enable
+systemctl enable --now \
+	rpm-ostreed-automatic.service \
+	rpm-ostreed-automatic.timer
 
 systemctl poweroff
