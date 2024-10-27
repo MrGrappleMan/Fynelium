@@ -11,10 +11,6 @@ systemctl enable --now systemd-resolved systemd-networkd
 # Configuration:
 rqe cancel
 rqe reload
-set base (rqe status | grep '● ' | awk '{print $2}')
-if echo $base | grep -q "fedora:fedora"
-	rqe rebase --experimental fedora:fedora/rawhide/x86_64/silverblue
-end
 if echo $base | grep -q "bazzite"
 	set base (echo $base | sed 's/stable/unstable/g; s/testing/unstable/g')
 	rqe rebase --experimental "$base"
