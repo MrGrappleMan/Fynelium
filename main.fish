@@ -67,7 +67,7 @@ set CONTAINERS 'snowflake-proxy'
 docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --include-stopped --include-restarting --revive-stopped --interval 300 $CONTAINERS
 docker update --restart=always --memory-swap=-1 --cpus=0 --cpu-quota=0 --pids-limit=-1 --cpu-rt-period=2000000 (sudo docker ps -q -a)
 
-System:-
+# System:-
 Finalize Ostree pkgs:
 rqe apply-live --allow-replacement
 systemctl mask \
@@ -76,7 +76,7 @@ systemctl enable --now \
 	tlp \
 	docker
 boinccmd --acct_mgr attach scienceunited.org 
-Boot:
+# Boot:
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="rhgb,threadirqs,sysrq_always_enabled=0,consoleblank=0,quiet,loglevel=3,preempt=full"
 rqe initramfs --enable
