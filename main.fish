@@ -3,13 +3,8 @@
 function rqe
 	rpm-ostree -q --peer $argv
 end
-
-# System:-
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
-plymouth-set-default-theme spinner
-rqe kargs --append-if-missing="rhgb,threadirqs,sysrq_always_enabled=0,consoleblank=0,quiet,loglevel=3,preempt=full"
-rqe initramfs --enable
 systemctl enable --now systemd-resolved systemd-networkd
 
 # RPM-OSTree:-
@@ -39,17 +34,6 @@ rqe install --allow-inactive --idempotent \
 	docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 rqe uninstall --allow-inactive --idempotent \
 	power-profiles-daemon
-# Package related configuration
-rqe apply-live --allow-replacement
-systemctl mask \
-	systemd-rfkill.service systemd-rfkill.socket
-usermod -aG boinc root
-systemctl enable --now \
-	tlp \
-	tor \
-	boinc-client \
-	docker
-boinccmd --acct_mgr attach scienceunited.org 
 
 # Flatpak:-
 # Configuration:
@@ -87,5 +71,21 @@ set CONTAINERS 'snowflake-proxy'
 docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --include-stopped --include-restarting --revive-stopped --interval 300 $CONTAINERS
 docker update --restart=always --memory-swap=-1 --cpus=0 --cpu-quota=0 --pids-limit=-1 --cpu-rt-period=2000000 (sudo docker ps -q -a)
 
+System:-
+Finalize Ostree pkgs:
+rqe apply-live --allow-replacement
+systemctl mask \
+	systemd-rfkill.service systemd-rfkill.socket
+usermod -aG boinc root
+systemctl enable --now \
+	tlp \
+	tor \
+	boinc-client \
+	docker
+boinccmd --acct_mgr attach scienceunited.org 
+Boot:
+plymouth-set-default-theme spinner
+rqe kargs --append-if-missing="rhgb,threadirqs,sysrq_always_enabled=0,consoleblank=0,quiet,loglevel=3,preempt=full"
+rqe initramfs --enable
 
 systemctl poweroff
