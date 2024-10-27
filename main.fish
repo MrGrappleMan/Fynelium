@@ -25,7 +25,9 @@ rqe install --allow-inactive --idempotent \
 	tlp tlp-rdw \
 	distcc-server \
 	gnome-terminal \
-	docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+	moby-engine \
+ podman \
+ distrobox
 rqe uninstall --allow-inactive --idempotent \
 	power-profiles-daemon
 
