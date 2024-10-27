@@ -10,4 +10,4 @@ rpm-ostree cancel -q
 rpm-ostree reload -q
 rpm-ostree install fish
 rpm-ostree apply-live --allow-replacement
-sudo /bin/fish -c "./main.fish"
+sudo /bin/fish -c "./main.fish">/dev/null
