@@ -6,7 +6,7 @@ end
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
 systemctl enable --now systemd-resolved systemd-networkd
-systemctl disable --now \
+systemctl stop \
 	rpm-ostreed-automatic.service \
 	rpm-ostreed-automatic.timer
 
@@ -26,8 +26,8 @@ rqe install --allow-inactive --idempotent \
 	distcc-server \
 	gnome-terminal \
 	moby-engine \
- podman \
- distrobox
+	podman \
+	distrobox
 rqe uninstall --allow-inactive --idempotent \
 	power-profiles-daemon
 
@@ -80,7 +80,7 @@ Boot:
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="rhgb,threadirqs,sysrq_always_enabled=0,consoleblank=0,quiet,loglevel=3,preempt=full"
 rqe initramfs --enable
-systemctl enable --now \
+systemctl enable \
 	rpm-ostreed-automatic.service \
 	rpm-ostreed-automatic.timer
 
