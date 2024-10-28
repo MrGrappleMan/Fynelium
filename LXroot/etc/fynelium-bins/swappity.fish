@@ -1,55 +1,51 @@
 #!/usr/fish
+set MIN_SWAPPINESS 1
+set MAX_SWAPPINESS 200
 
-function calculate_delay
+set MIN_ZRAM_COMPRESSION 5
+set MAX_ZRAM_COMPRESSION 15
+
+set MIN_VFS_CACHE_PRESSURE 50
+set MAX_VFS_CACHE_PRESSURE 100
+
+# Helper function to calculate the percentage of memory used
+function get_memory_used_percent
     set mem_total (awk '/^MemTotal:/ {print $2}' /proc/meminfo)
     set mem_free (awk '/^MemAvailable:/ {print $2}' /proc/meminfo)
-    set used_percent (math "(1 - ($mem_free / $mem_total)) * 100")
-    echo (math "round(1 + (59 * ($used_percent / 100)))")
+    echo (math "(1 - ($mem_free / $mem_total)) * 100")
 end
 
+# Function to calculate a value between min and max based on memory usage
+function scale_value
+    set min $argv[1]
+    set max $argv[2]
+    set percent (get_memory_used_percent)
+    set range (math "$max - $min")
+    echo (math "round($min + ($percent * $range / 100))")
+end
+
+# Calculate individual sysctl values based on memory usage and user-defined ranges
 function calculate_swappiness
-    set mem_total (awk '/^MemTotal:/ {print $2}' /proc/meminfo)
-    set mem_free (awk '/^MemAvailable:/ {print $2}' /proc/meminfo)
-    set free_percent (math "$mem_free / $mem_total * 100")
-    echo (math "min(100, max(1, 100 - $free_percent))")
+    echo (scale_value $MIN_SWAPPINESS $MAX_SWAPPINESS)
 end
 
 function calculate_zram_compression
-    set mem_total (awk '/^MemTotal:/ {print $2}' /proc/meminfo)
-    set mem_free (awk '/^MemAvailable:/ {print $2}' /proc/meminfo)
-    set free_ratio (math "$mem_free / $mem_total")
-    echo (math "round(15 - (10 * $free_ratio))")
-end
-
-function calculate_dirty_ratio
-    set mem_total (awk '/^MemTotal:/ {print $2}' /proc/meminfo)
-    set mem_free (awk '/^MemAvailable:/ {print $2}' /proc/meminfo)
-    set free_percent (math "$mem_free / $mem_total * 100")
-    echo (math "min(30, max(5, 30 - $free_percent / 3))")
-end
-
-function calculate_dirty_background_ratio
-    set dirty_ratio (calculate_dirty_ratio)
-    echo (math "$dirty_ratio * 0.7")
+    echo (scale_value $MIN_ZRAM_COMPRESSION $MAX_ZRAM_COMPRESSION)
 end
 
 function calculate_vfs_cache_pressure
-    set mem_total (awk '/^MemTotal:/ {print $2}' /proc/meminfo)
-    set mem_free (awk '/^MemAvailable:/ {print $2}' /proc/meminfo)
-    set free_ratio (math "$mem_free / $mem_total")
-    echo (math "round(50 + (50 * (1 - $free_ratio)))")
+    echo (scale_value $MIN_VFS_CACHE_PRESSURE $MAX_VFS_CACHE_PRESSURE)
 end
 
+# Function to adjust memory settings dynamically
 function adjust_memory_settings
     sudo sysctl vm.swappiness=(calculate_swappiness)
     echo (calculate_zram_compression) | sudo tee /sys/block/zram0/comp_algorithm > /dev/null
-    sudo sysctl vm.dirty_ratio=(calculate_dirty_ratio)
-    sudo sysctl vm.dirty_background_ratio=(calculate_dirty_background_ratio)
     sudo sysctl vm.vfs_cache_pressure=(calculate_vfs_cache_pressure)
 end
 
 while true
     adjust_memory_settings
-    set delay (calculate_delay)
+    set delay (math "1 + (59 * (get_memory_used_percent / 100))")
     sleep $delay
 end
