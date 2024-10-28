@@ -1,4 +1,8 @@
 #!/usr/fish
+swapoff -a
+rmmod zram
+modprobe zram
+
 function get_memory_used_percent
     set mem_total (awk '/^MemTotal:/ {print $2}' /proc/meminfo)
     set mem_free (awk '/^MemAvailable:/ {print $2}' /proc/meminfo)
@@ -19,7 +23,7 @@ function calculate_swappiness
 end
 
 function calculate_zram_compression
-    echo (scale_value 0 21)
+    echo (scale_value 0 22)
 end
 
 function calculate_vfs_cache_pressure
@@ -28,7 +32,7 @@ end
 
 function adjust_memory_settings
     sudo sysctl vm.swappiness=(calculate_swappiness)
-    echo (calculate_zram_compression) | sudo tee /sys/block/zram0/comp_algorithm > /dev/null
+    echo zstd | sudo tee /sys/block/zram0/comp_algorithm > /dev/null
     sudo sysctl vm.vfs_cache_pressure=(calculate_vfs_cache_pressure)
 end
 
