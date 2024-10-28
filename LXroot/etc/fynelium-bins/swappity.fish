@@ -1,13 +1,4 @@
 #!/usr/fish
-set MIN_SWAPPINESS 1
-set MAX_SWAPPINESS 200
-
-set MIN_ZRAM_COMPRESSION 5
-set MAX_ZRAM_COMPRESSION 15
-
-set MIN_VFS_CACHE_PRESSURE 50
-set MAX_VFS_CACHE_PRESSURE 100
-
 # Helper function to calculate the percentage of memory used
 function get_memory_used_percent
     set mem_total (awk '/^MemTotal:/ {print $2}' /proc/meminfo)
@@ -26,15 +17,15 @@ end
 
 # Calculate individual sysctl values based on memory usage and user-defined ranges
 function calculate_swappiness
-    echo (scale_value $MIN_SWAPPINESS $MAX_SWAPPINESS)
+    echo (scale_value 0 200)
 end
 
 function calculate_zram_compression
-    echo (scale_value $MIN_ZRAM_COMPRESSION $MAX_ZRAM_COMPRESSION)
+    echo (scale_value 0 21)
 end
 
 function calculate_vfs_cache_pressure
-    echo (scale_value $MIN_VFS_CACHE_PRESSURE $MAX_VFS_CACHE_PRESSURE)
+    echo (scale_value 0 2147483647)
 end
 
 # Function to adjust memory settings dynamically
