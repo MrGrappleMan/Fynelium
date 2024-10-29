@@ -69,10 +69,9 @@ docker update --restart=always --memory-swap=-1 --cpus=0 --cpu-quota=0 --pids-li
 
 # System:-
 Finalize Ostree pkgs:
-rqe apply-live --allow-replacement
 systemctl mask \
 	systemd-rfkill.service systemd-rfkill.socket
-systemctl enable --now \
+systemctl enable \
 	tlp \
 	docker
 boinccmd --acct_mgr attach scienceunited.org 
