@@ -3,6 +3,16 @@
 function rqe
 	rpm-ostree -q --peer $argv
 end
+function listedexec
+    set -l contents $argv[1]
+    set -l command_template $argv[2]
+
+    for item in (echo "$contents" | string split "\n")
+        set -l command (string replace '$crntval' "$item" "$command_template")
+        eval "$command"
+    end
+end
+
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
 systemctl enable --now systemd-resolved systemd-networkd
@@ -21,13 +31,13 @@ end
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
 	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
 # Packages:
-rqe install --allow-inactive --idempotent \
-	tlp tlp-rdw \
-	distcc-server \
-	gnome-terminal \
-	moby-engine \
-	podman \
-	distrobox
+listedexec "tlp tlp-rdw
+tor
+moby-engine
+gnome-terminal
+podman
+distrobox
+distcc-server" "rqe install --allow-inactive --idempotent \$crntval"
 rqe uninstall --allow-inactive --idempotent \
 	power-profiles-daemon
 
