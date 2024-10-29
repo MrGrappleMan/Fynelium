@@ -78,19 +78,22 @@ docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock con
 docker update --restart=always --memory-swap=-1 --cpus=0 --cpu-quota=0 --pids-limit=-1 --cpu-rt-period=2000000 (sudo docker ps -q -a)
 
 # System:-
-Finalize Ostree pkgs:
+# Finalize Ostree pkgs:
 systemctl mask \
 	systemd-rfkill.service systemd-rfkill.socket
 systemctl enable \
 	tlp \
-	docker
+	docker \
+	boinc-client
+listedexec "tlp
+boinc-client
+docker
+rpm-ostreed-automatic
+rpm-ostreed-automatic.timer" "systemctl enable \$crntval"
 boinccmd --acct_mgr attach scienceunited.org 
 # Boot:
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="rhgb,threadirqs,sysrq_always_enabled=0,consoleblank=0,quiet,loglevel=3,preempt=full"
 rqe initramfs --enable
-systemctl enable \
-	rpm-ostreed-automatic.service \
-	rpm-ostreed-automatic.timer
 
 systemctl poweroff
