@@ -34,9 +34,10 @@ function calculate_huge_pages
 end
 
 function adjust_memory_settings
-    sudo sysctl vm.swappiness=(calculate_swappiness)
+    sysctl vm.swappiness=(calculate_swappiness)
     echo zstd | sudo tee /sys/block/zram0/comp_algorithm > /dev/null
-    sudo sysctl vm.vfs_cache_pressure=(calculate_vfs_cache_pressure)
+    sysctl vm.vfs_cache_pressure=(calculate_vfs_cache_pressure)
+sysctl vm.nr_hugepages=(calculate_huge_pages)
 end
 
 while true
