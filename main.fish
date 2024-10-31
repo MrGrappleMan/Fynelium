@@ -15,6 +15,7 @@ end
 
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
+systemctl daemon-reload
 systemctl enable --now systemd-resolved systemd-networkd
 systemctl stop \
 	rpm-ostreed-automatic.service \
