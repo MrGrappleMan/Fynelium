@@ -1,0 +1,8 @@
+[Unit]
+Description=Dynamic Swap and Memory Adjuster
+After=network.target
+
+[Service]
+User=root
+ExecStart=/usr/bin/fish /etc/fynelium-bins/swappity.fish
+Restart=always
