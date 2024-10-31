@@ -9,7 +9,6 @@ function get_memory_used_percent
     echo (math "(1 - ($mem_free / $mem_total)) * 100")
 end
 
-# Function to calculate a value between min and max based on memory usage
 function scale_value
     set min $argv[1]
     set max $argv[2]
@@ -28,6 +27,10 @@ end
 
 function calculate_vfs_cache_pressure
     echo (scale_value 0 2147483647)
+end
+
+function calculate_huge_pages
+    echo (scale_value 128 102400)
 end
 
 function adjust_memory_settings
