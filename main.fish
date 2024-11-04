@@ -82,10 +82,6 @@ docker update --restart=always --memory-swap=-1 --cpus=0 --cpu-quota=0 --pids-li
 # Finalize Ostree pkgs:
 systemctl mask \
 	systemd-rfkill.service systemd-rfkill.socket
-systemctl enable \
-	tlp \
-	docker \
-	boinc-client
 listedexec "tlp
 boinc-client
 docker
