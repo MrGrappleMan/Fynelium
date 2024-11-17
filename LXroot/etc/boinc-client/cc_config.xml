@@ -36,13 +36,12 @@
 	<report_results_immediately>1</report_results_immediately>
 	<run_apps_manually>0</run_apps_manually>
 	<save_stats_days>0</save_stats_days>
-	<simple_gui_only>0</simple_gui_only>
 	<skip_cpu_benchmarks>0</skip_cpu_benchmarks>
 	<suppress_net_info>0</suppress_net_info>
 	<use_all_gpus>1</use_all_gpus>
 	<use_certs>1</use_certs>
 	<use_certs_only>0</use_certs_only>
 	<vbox_window>0</vbox_window>
-	<simple_gui_only>0</simple_gui_only>
+	<simple_gui_only>1</simple_gui_only>
     </options>
 </cc_config>
