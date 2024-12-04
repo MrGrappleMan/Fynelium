@@ -17,9 +17,8 @@ chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
 systemctl daemon-reload
 systemctl enable --now systemd-resolved systemd-networkd
-systemctl stop \
-	rpm-ostreed-automatic.service \
-	rpm-ostreed-automatic.timer
+systemctl enable rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
+systemctl stop rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
 
 # RPM-OSTree:-
 # Configuration:
@@ -29,8 +28,8 @@ if echo $base | grep -q "bazzite"
 	set base (echo $base | sed 's/stable/unstable/g; s/testing/unstable/g')
 	rqe rebase --experimental "$base"
 end
-rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
-	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+listedexec "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
+https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm" "rqe install \$crntval"
 # Packages:
 listedexec "tlp
 tlp-rdw
@@ -38,8 +37,7 @@ tor
 cosmic-desktop
 cosmic-session
 sddm" "rqe install --allow-inactive --idempotent \$crntval"
-rqe uninstall --allow-inactive --idempotent \
-	power-profiles-daemon
+listedexec "power-profiles-daemon" "rqe install --allow-inactive --idempotent \$crntval"
 
 # Flatpak:-
 # Configuration:
@@ -69,6 +67,6 @@ rpm-ostreed-automatic.timer
 sddm" "systemctl enable \$crntval"
 # Boot:
 rqe kargs --append-if-missing="threadirqs,sysrq_always_enabled=0,consoleblank=1,quiet,loglevel=3,preempt=full"
-rqe initramfs --enable
+rqe initramfs --disable
 
 systemctl poweroff
