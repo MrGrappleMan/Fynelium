@@ -21,10 +21,6 @@ function calculate_swappiness
     echo (scale_value 0 200)
 end
 
-function calculate_zram_compression
-    echo (scale_value 0 22)
-end
-
 function calculate_vfs_cache_pressure
     echo (scale_value 0 2147483647)
 end
@@ -35,9 +31,8 @@ end
 
 function adjust_memory_settings
     sysctl vm.swappiness=(calculate_swappiness)
-    echo zstd | sudo tee /sys/block/zram0/comp_algorithm > /dev/null
     sysctl vm.vfs_cache_pressure=(calculate_vfs_cache_pressure)
-sysctl vm.nr_hugepages=(calculate_huge_pages)
+    sysctl vm.nr_hugepages=(calculate_huge_pages)
 end
 
 while true
