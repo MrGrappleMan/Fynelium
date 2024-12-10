@@ -1,1 +1,1 @@
-Use [this](bit.ly/FdrNightly)
+Use [this](https://bit.ly/FdrNightly)
