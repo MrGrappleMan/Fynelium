@@ -29,7 +29,7 @@ function calc_vfs_cache_pressure
 end
 
 function calc_huge_pages
-    echo (scale_value 128 9999999999999999999)
+    echo (scale_value 0 9999999999999999999)
 end
 
 function apply_args
