@@ -46,10 +46,12 @@ eclipse-nightly=https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse
 xwaylandvideobridge-nightly=https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo" "flatpak remote-add --if-not-exists --system \$crntval"
 flatpak update --noninteractive
 # Packages:
-listedexec "flathub com.github.d4nj1.tlpui
-flathub com.gopeed.Gopeed
+listedexec "flathub com.gopeed.Gopeed
 flathub net.nokyan.Resources
 flathub org.torproject.torbrowser-launcher
+flathub com.vscodium.codium-insiders
+flathub org.octave.Octave
+flathub org.bluej.BlueJ
 flathub io.github.zen_browser.zen" "flatpak install --noninteractive --or-update \$crntval"
 
 # System:-
