@@ -48,6 +48,7 @@ flatpak update --noninteractive
 # Packages:
 listedexec "flathub com.gopeed.Gopeed
 flathub net.nokyan.Resources
+flathub io.github.flattool.Warehouse
 flathub org.torproject.torbrowser-launcher
 flathub com.vscodium.codium-insiders
 flathub org.octave.Octave
