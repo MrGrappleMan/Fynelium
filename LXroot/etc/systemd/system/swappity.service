@@ -7,3 +7,4 @@ User=root
 ExecStart=/usr/bin/fish /etc/fynelium-bins/swappity.fish
 Restart=always
 RestartSec=1
+RemainAfterExit=yes
