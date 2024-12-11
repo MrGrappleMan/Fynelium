@@ -33,9 +33,9 @@ function calc_huge_pages
 end
 
 function apply_args
-    sysctl vm.swappiness=(calculate_swappiness)
-    sysctl vm.vfs_cache_pressure=(calculate_vfs_cache_pressure)
-    sysctl vm.nr_hugepages=(calculate_huge_pages)
+    sysctl vm.swappiness=(calc_swappiness)
+    sysctl vm.vfs_cache_pressure=(calc_vfs_cache_pressure)
+    sysctl vm.nr_hugepages=(calc_huge_pages)
 end
 
 while true
