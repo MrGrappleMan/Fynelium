@@ -57,7 +57,8 @@ listedexec "systemd-rfkill
 systemd-rfkill.socket" "systemctl mask \$crntval"
 listedexec "tlp
 rpm-ostreed-automatic
-rpm-ostreed-automatic.timer" "systemctl enable \$crntval"
+rpm-ostreed-automatic.timer
+swappity" "systemctl enable \$crntval"
 # Boot:
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="threadirqs \
