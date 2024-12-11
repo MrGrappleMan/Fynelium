@@ -56,11 +56,8 @@ flathub io.github.zen_browser.zen" "flatpak install --noninteractive --or-update
 listedexec "systemd-rfkill
 systemd-rfkill.socket" "systemctl mask \$crntval"
 listedexec "tlp
-boinc-client
-docker
 rpm-ostreed-automatic
-rpm-ostreed-automatic.timer
-sddm" "systemctl enable \$crntval"
+rpm-ostreed-automatic.timer" "systemctl enable \$crntval"
 # Boot:
 rqe kargs --append-if-missing="threadirqs,sysrq_always_enabled=1,consoleblank=1,quiet,loglevel=3,preempt=full"
 rqe initramfs --disable
