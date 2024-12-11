@@ -9,5 +9,5 @@ cd /tmp/Fynelium
 rpm-ostree -q --peer cancel
 rpm-ostree -q --peer reload
 rpm-ostree -q --peer install fish
-rpm-ostree -q --peer apply-live --allow-replacement
+rpm-ostree --peer apply-live --allow-replacement
 sudo /bin/fish -c "./main.fish">/dev/null
