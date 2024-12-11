@@ -32,7 +32,7 @@ listedexec "power-profiles-daemon" "rqe remove --allow-inactive --idempotent \$c
 # Flatpak:-
 # Configuration:
 listedexec "flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flathub-beta.https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 fedora oci+https://registry.fedoraproject.org
 fedora-testing oci+https://registry.fedoraproject.org/#testing
