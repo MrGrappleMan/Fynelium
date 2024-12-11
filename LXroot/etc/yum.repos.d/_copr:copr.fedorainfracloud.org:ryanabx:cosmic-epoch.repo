@@ -1,4 +1,4 @@
-copr:copr.fedorainfracloud.org:ryanabx:cosmic-epoch]
+[copr:copr.fedorainfracloud.org:ryanabx:cosmic-epoch]
 name=Copr repo for COSMIC owned by RyanABX
 baseurl=https://download.copr.fedorainfracloud.org/results/ryanabx/cosmic-epoch/fedora-rawhide-$basearch/
 type=rpm-md
