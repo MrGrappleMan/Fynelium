@@ -1,5 +1,6 @@
 #!/bin/bash
 # Cloning:
+cd ~
 rm -rf /tmp/Fynelium
 git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium
 chmod -R 755 /tmp/Fynelium
