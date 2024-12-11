@@ -54,8 +54,7 @@ flathub io.github.zen_browser.zen" "flatpak install --noninteractive --or-update
 # System:-
 # Finalize Ostree pkgs:
 listedexec "systemd-rfkill
-systemd-rfkill.socket
-gdm" "systemctl mask \$crntval"
+systemd-rfkill.socket" "systemctl mask \$crntval"
 listedexec "tlp
 boinc-client
 docker
@@ -63,7 +62,7 @@ rpm-ostreed-automatic
 rpm-ostreed-automatic.timer
 sddm" "systemctl enable \$crntval"
 # Boot:
-rqe kargs --append-if-missing="threadirqs,sysrq_always_enabled=0,consoleblank=1,quiet,loglevel=3,preempt=full"
+rqe kargs --append-if-missing="threadirqs,sysrq_always_enabled=1,consoleblank=1,quiet,loglevel=3,preempt=full"
 rqe initramfs --disable
 
 systemctl poweroff
