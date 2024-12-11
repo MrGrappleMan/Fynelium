@@ -59,7 +59,14 @@ listedexec "tlp
 rpm-ostreed-automatic
 rpm-ostreed-automatic.timer" "systemctl enable \$crntval"
 # Boot:
-rqe kargs --append-if-missing="threadirqs,sysrq_always_enabled=1,consoleblank=1,quiet,loglevel=3,preempt=full"
+plymouth-set-default-theme spinner
+rqe kargs --append-if-missing="threadirqs \
+rhgb \
+sysrq_always_enabled=1 \
+consoleblank=0 \
+quiet \
+loglevel=3 \
+preempt=full"
 rqe initramfs --disable
 
 systemctl poweroff
