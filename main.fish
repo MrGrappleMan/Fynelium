@@ -38,8 +38,7 @@ fedora oci+https://registry.fedoraproject.org
 fedora-testing oci+https://registry.fedoraproject.org/#testing
 rhel https://flatpaks.redhat.io/rhel.flatpakrepo
 webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
-eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo
-xwaylandvideobridge-nightly https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo" "flatpak remote-add --if-not-exists --system \$crntval"
+eclipse-nightly" "flatpak remote-add --if-not-exists --system \$crntval"
 flatpak update --noninteractive
 # Packages:
 listedexec "flathub com.gopeed.Gopeed
