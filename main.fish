@@ -17,7 +17,7 @@ chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
 systemctl daemon-reload
 systemctl enable --now systemd-resolved systemd-networkd
-systemctl stop rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
+systemctl disable --now rpm-ostreed-automatic.service rpm-ostreed-automatic.timer
 
 # RPM-OSTree:-
 # Configuration:
@@ -31,7 +31,7 @@ listedexec "power-profiles-daemon" "rqe remove --allow-inactive --idempotent \$c
 
 # Flatpak:-
 # Configuration:
-listedexec "flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+listedexec "--subset=floss flathub-floss https://dl.flathub.org/repo/flathub.flatpakrepo
 flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 fedora oci+https://registry.fedoraproject.org
@@ -39,7 +39,8 @@ fedora-testing oci+https://registry.fedoraproject.org/#testing
 rhel https://flatpaks.redhat.io/rhel.flatpakrepo
 webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
 eclipse-nightly" "flatpak remote-add --if-not-exists --system \$crntval"
-flatpak update --noninteractive
+flatpak remote-delete --if-not-exists --system flathub
+flatpak update --noninteractive --system
 # Packages:
 listedexec "flathub com.gopeed.Gopeed
 flathub net.nokyan.Resources
@@ -48,14 +49,13 @@ flathub org.torproject.torbrowser-launcher
 flathub com.vscodium.codium-insiders
 flathub org.octave.Octave
 flathub org.bluej.BlueJ
-flathub io.github.zen_browser.zen" "flatpak install --noninteractive --or-update \$crntval"
+flathub io.github.zen_browser.zen" "flatpak install --system --noninteractive --or-update \$crntval"
 
 # System:-
 # Finalize Ostree pkgs:
 listedexec "systemd-rfkill
 systemd-rfkill.socket" "systemctl mask \$crntval"
 listedexec "tlp
-rpm-ostreed-automatic
 rpm-ostreed-automatic.timer
 swappity" "systemctl enable \$crntval"
 # Boot:
