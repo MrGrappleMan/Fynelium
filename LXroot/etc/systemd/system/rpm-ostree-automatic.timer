@@ -1,0 +1,11 @@
+[Unit]
+Description=Automatic timed rpm-ostree updater
+ConditionPathExists=/run/ostree-booted
+
+[Timer]
+Unit=rpm-ostreed-automatic.service
+OnBootSec=1
+OnUnitInactiveSec=1h
+
+[Install]
+WantedBy=timers.target
