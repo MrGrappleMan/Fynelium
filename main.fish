@@ -26,7 +26,7 @@ rqe reload
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 # Packages:
 listedexec "tlp tlp-rdw
-cosmic-desktop cosmic-session greetd" "rqe install --allow-inactive --idempotent \$crntval"
+cosmic-desktop cosmic-session" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon" "rqe remove --allow-inactive --idempotent \$crntval"
 
 # Flatpak:-
@@ -54,13 +54,10 @@ flathub io.github.zen_browser.zen" "flatpak install --system --noninteractive --
 # System:-
 # Finalize Ostree pkgs:
 listedexec "systemd-rfkill
-systemd-rfkill.socket
-gdm
-sddm" "systemctl mask \$crntval"
+systemd-rfkill.socket" "systemctl mask \$crntval"
 listedexec "tlp
 rpm-ostreed-automatic.timer
-swappity
-greetd" "systemctl enable \$crntval"
+swappity" "systemctl enable \$crntval"
 # Boot:
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="threadirqs \
