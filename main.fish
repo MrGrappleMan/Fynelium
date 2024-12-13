@@ -33,7 +33,7 @@ firefox" "rqe remove --allow-inactive --idempotent \$crntval"
 
 # Flatpak:-
 # Configuration:
-listedexec "--subset=floss flathub-floss https://dl.flathub.org/repo/flathub.flatpakrepo
+listedexec "flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 fedora oci+https://registry.fedoraproject.org
@@ -46,14 +46,14 @@ pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
 kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo" "flatpak remote-add --if-not-exists --system \$crntval"
 flatpak update --noninteractive --system
 # Packages:
-listedexec "flathub-floss com.gopeed.Gopeed
-flathub-floss net.nokyan.Resources
-flathub-floss io.github.flattool.Warehouse
-flathub-floss org.torproject.torbrowser-launcher
-flathub-floss com.vscodium.codium-insiders
-flathub-floss org.octave.Octave
-flathub-floss org.bluej.BlueJ
-flathub-floss io.github.zen_browser.zen" "flatpak install --system --noninteractive --or-update \$crntval"
+listedexec "flathub com.gopeed.Gopeed
+flathub net.nokyan.Resources
+flathub io.github.flattool.Warehouse
+flathub org.torproject.torbrowser-launcher
+flathub com.vscodium.codium-insiders
+flathub org.octave.Octave
+flathub org.bluej.BlueJ
+flathub io.github.zen_browser.zen" "flatpak install --system --noninteractive --or-update \$crntval"
 
 # System:-
 # Finalize Ostree pkgs:
