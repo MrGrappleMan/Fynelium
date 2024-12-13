@@ -20,22 +20,27 @@ function scale_value
     echo (math "round($min + ($percent * $range / 100))")
 end
 
-function calc_swappiness
+function c_swappiness
     echo (scale_value 0 200)
 end
 
-function calc_vfs_cache_pressure
+function c_vfs_cache_pressure
     echo (scale_value 0 2147483647)
 end
 
-function calc_huge_pages
-    echo (scale_value 0 9999999999999999999)
+function c_nr_hugepages
+    echo (scale_value 0 99999999999)
+end
+
+function c_compaction_proactiveness
+    echo (scale_value 0 100)
 end
 
 function apply_args
-    sysctl vm.swappiness=(calc_swappiness)
-    sysctl vm.vfs_cache_pressure=(calc_vfs_cache_pressure)
-    sysctl vm.nr_hugepages=(calc_huge_pages)
+    sysctl vm.swappiness=(c_swappiness)
+    sysctl vm.vfs_cache_pressure=(c_vfs_cache_pressure)
+    sysctl vm.nr_hugepages=(c_nr_hugepages)
+    sysctl vm.compaction_proactiveness=(c_compaction_proactiveness)
 end
 
 while true
