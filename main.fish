@@ -29,7 +29,8 @@ listedexec "tlp tlp-rdw
 cosmic-desktop cosmic-session
 topgrade" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
-firefox" "rqe remove --allow-inactive --idempotent \$crntval"
+firefox
+xwaylandvideobridge" "rqe remove --allow-inactive --idempotent \$crntval"
 
 # Flatpak:-
 # Configuration:
