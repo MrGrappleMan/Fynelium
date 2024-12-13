@@ -37,7 +37,7 @@ function c_compaction_proactiveness
 end
 
 function c_extfrag_threshold
-    echo (scale_value 0 100)
+    echo (scale_value 0 1000)
 end
 
 function apply_args
