@@ -28,7 +28,8 @@ rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-raw
 listedexec "tlp tlp-rdw
 cosmic-desktop cosmic-session
 topgrade" "rqe install --allow-inactive --idempotent \$crntval"
-listedexec "power-profiles-daemon" "rqe remove --allow-inactive --idempotent \$crntval"
+listedexec "power-profiles-daemon
+firefox" "rqe remove --allow-inactive --idempotent \$crntval"
 
 # Flatpak:-
 # Configuration:
@@ -43,14 +44,14 @@ eclipse-nightly" "flatpak remote-add --if-not-exists --system \$crntval"
 flatpak remote-delete --if-not-exists --system flathub
 flatpak update --noninteractive --system
 # Packages:
-listedexec "flathub com.gopeed.Gopeed
-flathub net.nokyan.Resources
-flathub io.github.flattool.Warehouse
-flathub org.torproject.torbrowser-launcher
-flathub com.vscodium.codium-insiders
-flathub org.octave.Octave
-flathub org.bluej.BlueJ
-flathub io.github.zen_browser.zen" "flatpak install --system --noninteractive --or-update \$crntval"
+listedexec "flathub-floss com.gopeed.Gopeed
+flathub-floss net.nokyan.Resources
+flathub-floss io.github.flattool.Warehouse
+flathub-floss org.torproject.torbrowser-launcher
+flathub-floss com.vscodium.codium-insiders
+flathub-floss org.octave.Octave
+flathub-floss org.bluej.BlueJ
+flathub-floss io.github.zen_browser.zen" "flatpak install --system --noninteractive --or-update \$crntval"
 
 # System:-
 # Finalize Ostree pkgs:
