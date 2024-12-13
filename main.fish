@@ -40,7 +40,10 @@ fedora oci+https://registry.fedoraproject.org
 fedora-testing oci+https://registry.fedoraproject.org/#testing
 rhel https://flatpaks.redhat.io/rhel.flatpakrepo
 webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
-eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo" "flatpak remote-add --if-not-exists --system \$crntval"
+eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo
+elementaryos https://flatpak.elementary.io/repo.flatpakrepo
+pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
+kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo" "flatpak remote-add --if-not-exists --system \$crntval"
 flatpak update --noninteractive --system
 # Packages:
 listedexec "flathub-floss com.gopeed.Gopeed
