@@ -1,4 +1,4 @@
-0#!/bin/fish
+#!/bin/fish
 
 function rqe
 	rpm-ostree -q --peer $argv
@@ -41,7 +41,6 @@ fedora-testing oci+https://registry.fedoraproject.org/#testing
 rhel https://flatpaks.redhat.io/rhel.flatpakrepo
 webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
 eclipse-nightly" "flatpak remote-add --if-not-exists --system \$crntval"
-flatpak remote-delete --if-not-exists --system flathub
 flatpak update --noninteractive --system
 # Packages:
 listedexec "flathub-floss com.gopeed.Gopeed
@@ -56,10 +55,12 @@ flathub-floss io.github.zen_browser.zen" "flatpak install --system --noninteract
 # System:-
 # Finalize Ostree pkgs:
 listedexec "systemd-rfkill
-systemd-rfkill.socket" "systemctl mask \$crntval"
+systemd-rfkill.socket
+greetd" "systemctl mask \$crntval"
 listedexec "tlp
 rpm-ostreed-automatic.timer
-swappity" "systemctl enable \$crntval"
+swappity
+sddm" "systemctl enable \$crntval"
 # Boot:
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="threadirqs \
