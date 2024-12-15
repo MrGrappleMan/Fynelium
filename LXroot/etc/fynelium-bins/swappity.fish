@@ -20,10 +20,6 @@ function scale_value
     echo (math "round($min + ($percent * $range / 100))")
 end
 
-function c_swappiness
-    echo (scale_value 0 200)
-end
-
 function c_vfs_cache_pressure
     echo (scale_value 0 2147483647)
 end
@@ -41,7 +37,6 @@ function c_extfrag_threshold
 end
 
 function apply_args
-    sysctl vm.swappiness=(c_swappiness)
     sysctl vm.vfs_cache_pressure=(c_vfs_cache_pressure)
     sysctl vm.nr_hugepages=(c_nr_hugepages)
     sysctl vm.compaction_proactiveness=(c_compaction_proactiveness)
