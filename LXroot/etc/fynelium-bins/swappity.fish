@@ -20,19 +20,6 @@ function scale_value
     echo (math "round($min + ($percent * $range / 100))")
 end
 
-function c_vfs_cache_pressure
-    echo (scale_value 0 2147483647)
-end
-
-function c_nr_hugepages
-    echo (scale_value 0 99999999999)
-end
-
-function apply_args
-    sysctl vm.vfs_cache_pressure=(c_vfs_cache_pressure)
-    sysctl vm.nr_hugepages=(c_nr_hugepages)
-end
-
 while true
     apply_args
     sleep 60
