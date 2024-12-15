@@ -28,19 +28,9 @@ function c_nr_hugepages
     echo (scale_value 0 99999999999)
 end
 
-function c_compaction_proactiveness
-    echo (scale_value 0 100)
-end
-
-function c_extfrag_threshold
-    echo (scale_value 0 1000)
-end
-
 function apply_args
     sysctl vm.vfs_cache_pressure=(c_vfs_cache_pressure)
     sysctl vm.nr_hugepages=(c_nr_hugepages)
-    sysctl vm.compaction_proactiveness=(c_compaction_proactiveness)
-    sysctl vm.extfrag_threshold=(c_extfrag_threshold)
 end
 
 while true
