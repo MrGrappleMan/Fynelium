@@ -25,9 +25,9 @@ rqe cancel
 rqe reload
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 # Packages:
-listedexec "tlp tlp-rdw
-cosmic-desktop cosmic-session
-topgrade" "rqe install --allow-inactive --idempotent \$crntval"
+rqe install --allow-inactive --idempotent tlp tlp-rdw \
+cosmic-desktop cosmic-session \
+topgrade
 listedexec "power-profiles-daemon
 firefox
 xwaylandvideobridge" "rqe remove --allow-inactive --idempotent \$crntval"
