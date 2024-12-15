@@ -1,13 +1,10 @@
 [Unit]
-Description=Dynamic Swap and Memory Adjuster
+Description=ZRAM creator
 After=network.target
 
 [Service]
 User=root
 ExecStart=/usr/bin/fish /etc/fynelium-bins/swappity.fish
-Restart=always
-RestartSec=1
-RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
