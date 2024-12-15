@@ -19,8 +19,3 @@ function scale_value
     set range (math "$max - $min")
     echo (math "round($min + ($percent * $range / 100))")
 end
-
-while true
-    apply_args
-    sleep 60
-end
