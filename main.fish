@@ -30,7 +30,7 @@ cosmic-desktop cosmic-session \
 topgrade
 listedexec "power-profiles-daemon
 firefox
-xwaylandvideobridge" "rqe remove --allow-inactive --idempotent \$crntval"
+xwaylandvideobridge" "rqe uninstall --allow-inactive --idempotent \$crntval"
 
 # Flatpak:-
 # Configuration:
