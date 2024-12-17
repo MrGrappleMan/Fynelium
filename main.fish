@@ -76,4 +76,5 @@ loglevel=3 \
 preempt=full"
 rqe initramfs --disable
 
-systemctl poweroff
+# Shutdown:
+shutdown -P +5
