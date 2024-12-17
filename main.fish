@@ -1,5 +1,5 @@
 #!/bin/fish
-
+modprobe pcspkr
 function rqe
 	rpm-ostree -q --peer $argv
 end
@@ -79,6 +79,7 @@ rqe initramfs --disable
 # Shutdown:
 for i in (seq 300 -1 1)
     notify-send "$i seconds" "left before shutdown. Save your progress!" -u critical
+   beep
     sleep 1
 end
 systemctl poweroff
