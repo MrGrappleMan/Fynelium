@@ -31,6 +31,7 @@ beep" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
 firefox
 xwaylandvideobridge" "rqe uninstall --allow-inactive --idempotent \$crntval"
+rpm-ostree apply-live --allow-replacement
 
 # Flatpak:-
 # Configuration:
