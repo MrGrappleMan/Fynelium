@@ -24,10 +24,10 @@ rqe cancel
 rqe reload
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 # Packages:
-rqe install --allow-inactive --idempotent tlp tlp-rdw \
-cosmic-desktop cosmic-session \
-topgrade \
-beep
+listedexec "tlp tlp-rdw
+cosmic-desktop cosmic-session
+topgrade
+beep" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
 firefox
 xwaylandvideobridge" "rqe uninstall --allow-inactive --idempotent \$crntval"
@@ -78,7 +78,7 @@ rqe initramfs --disable
 
 # Shutdown:
 for i in (seq 300 -1 1)
-    notify-send "$i seconds" "left before shutdown. Save your progress!" -u critical
+    notify-send "🔴 $i seconds" "left before shutdown. Save your progress!" -u critical
    beep
     sleep 1
 end
