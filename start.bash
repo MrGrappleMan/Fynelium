@@ -12,4 +12,4 @@ rpm-ostree -q --peer cancel
 rpm-ostree -q --peer reload
 rpm-ostree -q --peer --allow-inactive --idempotent install fish
 rpm-ostree apply-live --allow-replacement
-nohup fish -c "./main.fish" >/dev/null 2>/tmp/Fynelium/errors.log &
+fish -c "./main.fish" >/dev/null 2>/tmp/Fynelium/errors.log &
