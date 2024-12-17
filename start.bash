@@ -7,6 +7,7 @@ chmod -R 755 /tmp/Fynelium
 cd /tmp/Fynelium
 
 # Prepare for main script:
+systemctl stop rpm-ostreed-automatic rpm-ostreed-automatic.timer
 rpm-ostree -q --peer cancel
 rpm-ostree -q --peer reload
 rpm-ostree -q --peer --allow-inactive --idempotent install fish
