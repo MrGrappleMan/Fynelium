@@ -77,9 +77,14 @@ preempt=full"
 rqe initramfs --disable
 
 # Shutdown:
+set alertico "🔴" "🟠" "🟡" "⚠️" "🟡" "🟠"
+set index 0
+
 for i in (seq 300 -1 1)
-    notify-send "🔴 $i seconds" "left before shutdown. Save your progress!" -u critical
-   beep
+    set alerticofnl (echo $alertico[$index])
+    notify-send "$alerticofnl $i seconds" "left before shutdown. Save your progress!" -u critical
+    beep
     sleep 1
+    set index (math ($index + 1) % (count $alertico))
 end
 systemctl poweroff
