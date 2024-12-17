@@ -27,7 +27,8 @@ rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-raw
 # Packages:
 rqe install --allow-inactive --idempotent tlp tlp-rdw \
 cosmic-desktop cosmic-session \
-topgrade
+topgrade \
+beep
 listedexec "power-profiles-daemon
 firefox
 xwaylandvideobridge" "rqe uninstall --allow-inactive --idempotent \$crntval"
