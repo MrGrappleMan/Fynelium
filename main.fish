@@ -16,8 +16,7 @@ end
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
 systemctl daemon-reload
-systemctl enable --now systemd-resolved systemd-networkd
-systemctl disable --now rpm-ostreed-automatic rpm-ostreed-automatic.timer
+systemctl enable --now systemd-resolved systemd-networkd 
 
 # RPM-OSTree:-
 # Configuration:
