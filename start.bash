@@ -9,6 +9,6 @@ cd /tmp/Fynelium
 # Prepare for main script:
 rpm-ostree -q --peer cancel
 rpm-ostree -q --peer reload
-rpm-ostree -q --peer install fish
+rpm-ostree -q --peer --allow-inactive --idempotent install fish
 rpm-ostree apply-live --allow-replacement
 nohup fish -c "./main.fish" >/dev/null 2>/tmp/Fynelium/errors.log &
