@@ -78,7 +78,7 @@ rqe initramfs --disable
 
 # Shutdown:
 for i in (seq 300 -1 1)
-    notify-send "🔴 Alert" "Shutting down in $i sec" -u critical
+    notify-send "$i seconds" "left before shutdown. Save your progress!" -u critical
     sleep 1
 end
 systemctl poweroff
