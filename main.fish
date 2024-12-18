@@ -65,7 +65,8 @@ systemd-rfkill.socket
 greetd" "systemctl mask \$crntval"
 listedexec "tlp
 rpm-ostreed-automatic.timer
-swappity
+fyn-zram
+systemd-bsod
 sddm" "systemctl enable \$crntval"
 # Boot:
 plymouth-set-default-theme spinner
