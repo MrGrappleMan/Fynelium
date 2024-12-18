@@ -1,6 +1,6 @@
 [Unit]
 Description=Critical system warning indicator
-Documentation=man:systemd-bsod.service(8)
+Documentation=
 ConditionVirtualization=no
 DefaultDependencies=no
 After=systemd-battery-check.service
@@ -9,4 +9,4 @@ Conflicts=shutdown.target
 
 [Service]
 RemainAfterExit=yes
-ExecStart=/usr/lib/systemd/systemd-bsod --continuous
+ExecStart=/usr/lib/systemd/systemd-bsod -c
