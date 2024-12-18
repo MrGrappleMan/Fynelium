@@ -86,6 +86,7 @@ for i in (seq 300 -1 1)
     sleep 1
 end
 sudo journalctl --user --flush --rotate --vacuum-time=1s
-sudo systemd-cat -p emerg echo (printf "%b" '\e[41m' '\e[8]' '\e[H\e[J')'lololollolo'
+sudo systemd-cat -p emerg echo "Tweaks applied! Rebboting..."
 sudo /usr/lib/systemd/systemd-bsod
+sleep 5
 systemctl poweroff
