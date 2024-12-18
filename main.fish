@@ -81,7 +81,7 @@ rqe initramfs --disable
 
 # Shutdown:
 sudo journalctl --user --flush --rotate --vacuum-time=1s
-sudo systemd-cat -p emerg echo "--English text-- Do not panic. No unexpected event has occured. This is just to bring to your attention that the script is working. Do not turn off your device. You may continue using it normally till another message like this appears. Avoid package installation and system component modification."
+sudo systemd-cat -p emerg echo "--English text-- Do not panic. No unexpected event has occured. This is just to bring to your attention that the script execution has been successful. You have 5 minutes to save your work if you have any of it before the system shuts down to save energy."
 sudo /usr/lib/systemd/systemd-bsod -c
 for i in (seq 300 -1 1)
     notify-send "🔴 $i seconds" "left before shutdown. Save your progress!" -u critical
