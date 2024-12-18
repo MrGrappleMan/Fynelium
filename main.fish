@@ -22,6 +22,7 @@ systemctl enable --now systemd-resolved systemd-networkd
 # Configuration:
 rqe cancel
 rqe reload
+rqe upgrade
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 # Packages:
 listedexec "tlp tlp-rdw
