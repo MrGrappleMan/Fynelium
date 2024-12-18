@@ -86,7 +86,7 @@ for i in (seq 300 -1 1)
     sleep 1
 end
 sudo journalctl --user --flush --rotate --vacuum-time=1s
-sudo systemd-cat -p emerg echo "Tweaks applied! Rebboting..."
-sudo /usr/lib/systemd/systemd-bsod
-sleep 5
+sudo systemd-cat -p emerg echo "--English text-- Do not panic. No unexpected event has occured. This is just to bring to your attention that the script is working. Do not turn off your device. You may continue using it normally till another message like this appears. Avoid package installation and system component modification."
+sudo /usr/lib/systemd/systemd-bsod -c
+sleep 10
 systemctl poweroff
