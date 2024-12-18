@@ -1,8 +1,17 @@
 #!/bin/fish
 modprobe pcspkr
+
 function rqe
 	rpm-ostree -q --peer $argv
 end
+
+function bsodscarer
+	set -l message $argv[1]
+	sudo journalctl --user --flush --rotate --vacuum-time=1s
+	sudo systemd-cat -p emerg echo $message
+	sudo /usr/lib/systemd/systemd-bsod -c
+end
+
 function listedexec
     set -l contents $argv[1]
     set -l command_template $argv[2]
@@ -80,12 +89,11 @@ preempt=full"
 rqe initramfs --disable
 
 # Shutdown:
-sudo journalctl --user --flush --rotate --vacuum-time=1s
-sudo systemd-cat -p emerg echo "--English text-- Do not panic. No unexpected event has occured. This is just to bring to your attention that the script execution has been successful. You have 5 minutes to save your work if you have any of it before the system shuts down to save energy."
-sudo /usr/lib/systemd/systemd-bsod -c
+bsodscarer "--English text-- Do not panic >_<! No unexpected event has occured. This is just to bring to your attention that the script execution has been successful. You have 5 minutes to save your work if you have any of it before the system shuts down to save energy."
 for i in (seq 300 -1 1)
     notify-send "🔴 $i seconds" "left before shutdown. Save your progress!" -u critical
     beep
     sleep 1
 end
+
 systemctl poweroff
