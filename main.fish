@@ -34,7 +34,7 @@ rqe reload
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 # Packages:
 listedexec "tlp tlp-rdw
-lxqt-session
+lxqt-wayland-session
 topgrade
 beep" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
