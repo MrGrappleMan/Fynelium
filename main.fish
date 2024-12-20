@@ -35,7 +35,7 @@ rqe upgrade
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 # Packages:
 listedexec "tlp tlp-rdw
-cosmic-desktop cosmic-session
+lxqt-session
 topgrade
 beep" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
