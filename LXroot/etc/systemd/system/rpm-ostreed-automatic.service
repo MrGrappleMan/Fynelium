@@ -7,7 +7,6 @@ After=network-online.target
 Type=oneshot
 User=root
 ExecStart=rpm-ostree upgrade -q --trigger-automatic-update-policy --peer
-ExecStartPost=rpm-ostree apply-live --allow-replacement
 
 [Install]
 WantedBy=multi-user.target
