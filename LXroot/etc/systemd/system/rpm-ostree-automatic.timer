@@ -4,8 +4,8 @@ ConditionPathExists=/run/ostree-booted
 
 [Timer]
 Unit=rpm-ostreed-automatic.service
-OnBootSec=1
-OnUnitInactiveSec=1h
+OnUnitInactiveSec=3h
+Persistent=true
 
 [Install]
 WantedBy=timers.target
