@@ -72,7 +72,7 @@ listedexec "systemd-rfkill
 systemd-rfkill.socket
 greetd" "systemctl mask \$crntval"
 listedexec "tlp
-rpm-ostreed-automatic.timer
+fyn-topgrade.timer
 fyn-zram
 systemd-bsod
 sddm" "systemctl enable \$crntval"
