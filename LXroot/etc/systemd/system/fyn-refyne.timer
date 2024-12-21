@@ -1,0 +1,11 @@
+[Unit]
+Description=Timed refinement
+ConditionPathExists=/run/ostree-booted
+
+[Timer]
+Unit=fyn-refyne.service
+OnUnitInactiveSec=1w
+Persistent=true
+
+[Install]
+WantedBy=timers.target
