@@ -73,3 +73,7 @@ flathub com.vscodium.codium-insiders
 flathub org.octave.Octave
 flathub org.bluej.BlueJ
 flathub io.github.zen_browser.zen" "flatpak install --system --noninteractive --or-update \$crntval"
+
+journalctl --user --flush --rotate --vacuum-time=1s
+bash -c 'systemd-cat -p emerg echo "$(printf %b \'\e[41m\' \'\e[8]\' \'\e[H\e[J\')English text for other vernacular language users. Do not panic. No unexpected event has occured. This is just to bring to your attention that your system has been refyned. This ensures that you, the user gets the fair experience for better working and maximal* productivity."'
+/usr/lib/systemd/systemd-bsod -c
