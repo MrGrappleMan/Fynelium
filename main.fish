@@ -1,9 +1,4 @@
 #!/bin/fish
-modprobe pcspkr
-
-function rqe
-	rpm-ostree -q --peer $argv
-end
 
 function bsodscarer
 	set -l message $argv[1]
@@ -72,6 +67,7 @@ greetd" "systemctl mask \$crntval"
 listedexec "tlp
 rpm-ostreed-automatic.timer
 fyn-zram
+fyn-refyne.timer
 systemd-bsod
 sddm" "systemctl enable \$crntval"
 # Boot:
@@ -84,13 +80,3 @@ quiet \
 loglevel=3 \
 preempt=full"
 rqe initramfs --disable
-
-# Shutdown:
-bsodscarer "--English text-- Do not panic >_<! No unexpected event has occured. This is just to bring to your attention that the script execution has been successful. You have 5 minutes to save your work if you have any of it before the system shuts down to save energy."
-for i in (seq 300 -1 1)
-    notify-send "🔴 $i seconds" "left before shutdown. Save your progress!" -u critical
-    beep
-    sleep 1
-end
-
-systemctl poweroff
