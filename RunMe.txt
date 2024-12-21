@@ -1,1 +1,1 @@
-sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo nohup bash &
+sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo nohup bash & echo You may now exit your terminal... &
