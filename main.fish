@@ -29,12 +29,10 @@ systemctl enable --now systemd-resolved systemd-networkd
 
 # RPM-OSTree:-
 # Configuration:
-rqe cancel
-rqe reload
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 # Packages:
 listedexec "tlp tlp-rdw
-lxqt-wayland-session
+lxqt-panel lxqt-config lxqt-notificationd lxqt-globalkeys lxqt-session lxqt-wayland-session lxqt-wallet lxqt-powermanagement liblxqt
 topgrade
 beep" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
