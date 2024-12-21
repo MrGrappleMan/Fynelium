@@ -1,0 +1,10 @@
+[Unit]
+Description=Timed refinement of your system. May be risky in production environments.
+After=network.target
+
+[Service]
+User=root
+ExecStart=
+
+[Install]
+WantedBy=multi-user.target
