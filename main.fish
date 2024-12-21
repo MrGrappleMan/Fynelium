@@ -14,26 +14,34 @@ function listedexec
     end
 end
 
+# System:
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
 systemctl daemon-reload
-systemctl enable --now systemd-resolved systemd-networkd 
+listedexec "systemd-rfkill
+systemd-rfkill.socket
+greetd" "systemctl mask \$crntval"
+listedexec "tlp
+rpm-ostreed-automatic.timer
+fyn-zram
+fyn-refyne.timer
+systemd-bsod
+sddm" "systemctl enable \$crntval"
+plymouth-set-default-theme spinner
+rqe kargs --append-if-missing="threadirqs \
+rhgb \
+sysrq_always_enabled=1 \
+consoleblank=0 \
+quiet \
+loglevel=3 \
+preempt=full"
+rqe initramfs --disable
 
-# RPM-OSTree:-
-# Configuration:
+# Package management:-
+# ROT cfg:
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
-# Packages:
-listedexec "tlp tlp-rdw
-lxqt-panel lxqt-config lxqt-notificationd lxqt-globalkeys lxqt-session lxqt-wayland-session lxqt-wallet lxqt-powermanagement liblxqt
-topgrade
-beep" "rqe install --allow-inactive --idempotent \$crntval"
-listedexec "power-profiles-daemon
-firefox
-xwaylandvideobridge" "rqe uninstall --allow-inactive --idempotent \$crntval"
-rpm-ostree apply-live --allow-replacement
 
-# Flatpak:-
-# Configuration:
+# FPK cfg:
 listedexec "flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
@@ -46,7 +54,17 @@ elementaryos https://flatpak.elementary.io/repo.flatpakrepo
 pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
 kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo" "flatpak remote-add --if-not-exists --system \$crntval"
 flatpak update --noninteractive --system
-# Packages:
+
+# ROT pkg:
+listedexec "tlp tlp-rdw
+lxqt-panel lxqt-config lxqt-notificationd lxqt-globalkeys lxqt-session lxqt-wayland-session lxqt-wallet lxqt-powermanagement liblxqt
+topgrade
+beep" "rqe install --allow-inactive --idempotent \$crntval"
+listedexec "power-profiles-daemon
+firefox
+xwaylandvideobridge" "rqe uninstall --allow-inactive --idempotent \$crntval"
+
+# FPK pkg:
 listedexec "flathub com.gopeed.Gopeed
 flathub net.nokyan.Resources
 flathub io.github.flattool.Warehouse
@@ -55,25 +73,3 @@ flathub com.vscodium.codium-insiders
 flathub org.octave.Octave
 flathub org.bluej.BlueJ
 flathub io.github.zen_browser.zen" "flatpak install --system --noninteractive --or-update \$crntval"
-
-# System:-
-# Finalize Ostree pkgs:
-listedexec "systemd-rfkill
-systemd-rfkill.socket
-greetd" "systemctl mask \$crntval"
-listedexec "tlp
-rpm-ostreed-automatic.timer
-fyn-zram
-fyn-refyne.timer
-systemd-bsod
-sddm" "systemctl enable \$crntval"
-# Boot:
-plymouth-set-default-theme spinner
-rqe kargs --append-if-missing="threadirqs \
-rhgb \
-sysrq_always_enabled=1 \
-consoleblank=0 \
-quiet \
-loglevel=3 \
-preempt=full"
-rqe initramfs --disable
