@@ -15,4 +15,4 @@ rpm-ostree -q --peer upgrade # Fix dependancies
 rpm-ostree apply-live --allow-replacement
 rpm-ostree -q --peer --allow-inactive --idempotent install fish # Better shell imo.
 rpm-ostree apply-live --allow-replacement
-fish -c "./main.fish" >/dev/null 2>>/tmp/Fynelium/errors.log
+fish -c "./main.fish" 2>&1 | sudo tee /tmp/procedure.log
