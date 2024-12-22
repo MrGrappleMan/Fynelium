@@ -67,9 +67,10 @@ firefox
 xwaylandvideobridge" "rqe uninstall --allow-inactive \$crntval"
 
 # FPK pkg:
-listedexec "flathub com.gopeed.Gopeed6
+listedexec "flathub com.gopeed.Gopeed
 flathub io.github.flattool.Warehouse
 flathub com.vscodium.codium-insiders
+flathub org.cubocore.CoreStats
 flathub org.octave.Octave" "flatpak install --system --noninteractive --or-update \$crntval"
 
 journalctl --user --flush --rotate --vacuum-time=1s
