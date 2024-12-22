@@ -76,3 +76,6 @@ flathub org.octave.Octave" "flatpak install --system --noninteractive --or-updat
 
 rqe apply-live --allow-replacement
 usermod -aG boinc root
+
+systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target shutdown.target reboot.target poweroff.target halt.target
+notify-send "🟢 Refyned!" "Your system has been refyned. You may now safely end your session."
