@@ -44,6 +44,7 @@ rqe install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-relea
 
 # FPK cfg:
 listedexec "flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+--subset=floss flathub-floss https://dl.flathub.org/repo/flathub.flatpakrepo
 flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 fedora oci+https://registry.fedoraproject.org
@@ -61,7 +62,7 @@ listedexec "tlp tlp-rdw
 lxqt-panel lxqt-config lxqt-notificationd lxqt-globalkeys lxqt-session lxqt-wayland-session lxqt-wallet lxqt-powermanagement liblxqt
 zen-browser torbrowser-launcher
 protontricks bottles
-topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper
+topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn fedora-third-party
 beep" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
 firefox
@@ -74,6 +75,6 @@ flathub com.vscodium.codium-insiders
 flathub org.cubocore.CoreStats
 flathub org.octave.Octave" "flatpak install --system --noninteractive --or-update \$crntval"
 
-journalctl --user --flush --rotate --vacuum-time=1s
+journalctl --user --flush --rotate --vacuum-time=2s
 systemd-cat -p emerg echo "English text for other vernacular language users. Do not panic. No unexpected event has occured. This is just to bring to your attention that your system has been refyned. This ensures that you, the user gets the fair experience for better working and maximal productivity."
 /usr/lib/systemd/systemd-bsod -c
