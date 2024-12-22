@@ -15,6 +15,7 @@ ExecStart=/usr/bin/boinc
 ExecReload=/usr/bin/boinccmd --read_cc_config
 ExecStopPost=/bin/rm -f lockfile
 IOSchedulingClass=idle
+IOSchedulingPriority=4
 Restart=always
 RestartSec=1
 
