@@ -58,21 +58,20 @@ flatpak update --noninteractive --system
 # ROT pkg:
 listedexec "tlp tlp-rdw
 lxqt-panel lxqt-config lxqt-notificationd lxqt-globalkeys lxqt-session lxqt-wayland-session lxqt-wallet lxqt-powermanagement liblxqt
+zen-browser
+torbrowser-launcher
 topgrade
 beep" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
 firefox
-xwaylandvideobridge" "rqe uninstall --allow-inactive --idempotent \$crntval"
+xwaylandvideobridge" "rqe uninstall --allow-inactive \$crntval"
 
 # FPK pkg:
 listedexec "flathub com.gopeed.Gopeed
 flathub net.nokyan.Resources
 flathub io.github.flattool.Warehouse
-flathub org.torproject.torbrowser-launcher
 flathub com.vscodium.codium-insiders
-flathub org.octave.Octave
-flathub org.bluej.BlueJ
-flathub io.github.zen_browser.zen" "flatpak install --system --noninteractive --or-update \$crntval"
+flathub org.octave.Octave" "flatpak install --system --noninteractive --or-update \$crntval"
 
 journalctl --user --flush --rotate --vacuum-time=1s
 systemd-cat -p emerg echo "English text for other vernacular language users. Do not panic. No unexpected event has occured. This is just to bring to your attention that your system has been refyned. This ensures that you, the user gets the fair experience for better working and maximal productivity."
