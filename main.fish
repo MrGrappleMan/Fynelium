@@ -40,6 +40,7 @@ rqe initramfs --disable
 # Package management:-
 # ROT cfg:
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
+rqe install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
 
 # FPK cfg:
 listedexec "flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -60,7 +61,7 @@ listedexec "tlp tlp-rdw
 lxqt-panel lxqt-config lxqt-notificationd lxqt-globalkeys lxqt-session lxqt-wayland-session lxqt-wallet lxqt-powermanagement liblxqt
 zen-browser torbrowser-launcher
 protontricks bottles
-topgrade gnome-software
+topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper
 beep" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
 firefox
