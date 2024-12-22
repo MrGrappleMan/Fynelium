@@ -12,7 +12,6 @@ ReadWritePaths=/var/lib/boinc /etc/boinc-client
 User=boinc
 WorkingDirectory=/var/lib/boinc
 ExecStart=/usr/bin/boinc
-ExecReload=/usr/bin/boinccmd --read_cc_config
 ExecStopPost=/bin/rm -f lockfile
 IOSchedulingClass=idle
 IOSchedulingPriority=4
