@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User=root
-ExecStart=bash /etc/fyn-bins/refyne.fish
+ExecStart=bash /etc/fynelium-bins/refyne.fish
 
 [Install]
 WantedBy=multi-user.target
