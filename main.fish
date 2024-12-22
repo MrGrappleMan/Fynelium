@@ -59,6 +59,7 @@ flatpak update --noninteractive --system
 listedexec "tlp tlp-rdw
 cosmic-desktop cosmic-session
 zen-browser torbrowser-launcher
+boinc-client
 protontricks bottles
 topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn fedora-third-party
 beep" "rqe install --allow-inactive --idempotent \$crntval"
@@ -72,3 +73,6 @@ flathub io.github.flattool.Warehouse
 flathub com.vscodium.codium-insiders
 flathub org.cubocore.CoreStats
 flathub org.octave.Octave" "flatpak install --system --noninteractive --or-update \$crntval"
+
+rqe apply-live --allow-replacement
+usermod -aG boinc root
