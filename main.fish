@@ -58,17 +58,16 @@ flatpak update --noninteractive --system
 # ROT pkg:
 listedexec "tlp tlp-rdw
 lxqt-panel lxqt-config lxqt-notificationd lxqt-globalkeys lxqt-session lxqt-wayland-session lxqt-wallet lxqt-powermanagement liblxqt
-zen-browser
-torbrowser-launcher
-topgrade
+zen-browser torbrowser-launcher
+protontricks bottles
+topgrade gnome-software
 beep" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
 firefox
 xwaylandvideobridge" "rqe uninstall --allow-inactive \$crntval"
 
 # FPK pkg:
-listedexec "flathub com.gopeed.Gopeed
-flathub net.nokyan.Resources
+listedexec "flathub com.gopeed.Gopeed6
 flathub io.github.flattool.Warehouse
 flathub com.vscodium.codium-insiders
 flathub org.octave.Octave" "flatpak install --system --noninteractive --or-update \$crntval"
