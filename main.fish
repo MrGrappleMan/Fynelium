@@ -59,7 +59,7 @@ flatpak update --noninteractive --system
 
 # ROT pkg:
 listedexec "tlp tlp-rdw
-cosmic-desktop
+cosmic-desktop cosmic-session
 zen-browser torbrowser-launcher
 protontricks bottles
 topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn fedora-third-party
