@@ -1,5 +1,6 @@
 #!/bin/bash
 
+notify-send "🟡 Refyning..." "Avoid powering off. Use your session normally." -u critical
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target shutdown.target reboot.target poweroff.target halt.target
 
 # Cloning:
@@ -8,8 +9,6 @@ rm -rf /tmp/Fynelium
 git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium
 chmod -R 755 /tmp/Fynelium
 cd /tmp/Fynelium
-
-notify-send "🟡 Refyning..." "Avoid powering off. Use your session normally." -u critical
 
 # Prepare for main script:
 systemctl stop rpm-ostreed-automatic rpm-ostreed-automatic.timer
