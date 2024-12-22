@@ -25,8 +25,7 @@ listedexec "tlp
 rpm-ostreed-automatic.timer
 fyn-zram
 fyn-refyne.timer
-systemd-bsod
-sddm" "systemctl enable \$crntval"
+systemd-bsod" "systemctl enable \$crntval"
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="threadirqs \
 rhgb \
