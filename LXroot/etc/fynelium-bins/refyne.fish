@@ -1,1 +1,2 @@
-sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash>/dev/null 2>/tmp/Fynelium/errors.log
+#!/bin/fish
+sudo curl -o /etc/Fynelium/start.bash https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash && sudo bash /etc/Fynelium/start.bash 2>&1 | sudo tee /tmp/Fynelium/procedure.log
