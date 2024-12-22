@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User=root
-ExecStart=bash /etc/fynelium-bins/refyne.fish
+ExecStart=sudo https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash
 
 [Install]
 WantedBy=multi-user.target
