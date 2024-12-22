@@ -59,7 +59,7 @@ flatpak update --noninteractive --system
 
 # ROT pkg:
 listedexec "tlp tlp-rdw
-lxqt-panel lxqt-config lxqt-notificationd lxqt-globalkeys lxqt-session lxqt-wayland-session lxqt-wallet lxqt-powermanagement liblxqt
+cosmic-desktop
 zen-browser torbrowser-launcher
 protontricks bottles
 topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn fedora-third-party
