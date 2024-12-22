@@ -1,1 +1,1 @@
-sudo https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash
+sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo nohup bash &
