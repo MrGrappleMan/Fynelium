@@ -8,7 +8,7 @@ Type=simple
 ProtectHome=true
 ProtectSystem=full
 ProtectControlGroups=true
-ReadWritePaths=-/var/lib/boinc -/etc/boinc-client
+ReadWritePaths=/var/lib/boinc /etc/boinc-client
 User=boinc
 WorkingDirectory=/var/lib/boinc
 ExecStart=/usr/bin/boinc
@@ -18,27 +18,10 @@ IOSchedulingClass=idle
 IOSchedulingPriority=4
 Restart=always
 RestartSec=1
-
-[Install]
-WantedBy=multi-user.target
-
-[Service]
-Type=simple
-ProtectHome=true
-ProtectSystem=full
-ProtectControlGroups=true
-ReadWritePaths=-/var/lib/boinc -/etc/boinc-client
-Nice=10
-User=boinc
-WorkingDirectory=/var/lib/boinc
-ExecStart=@exec_prefix@/bin/boinc
-ExecStop=@exec_prefix@/bin/boinccmd --quit
-ExecReload=@exec_prefix@/bin/boinccmd --read_cc_config
-ExecStopPost=/bin/rm -f lockfile
 NoNewPrivileges=true
 ProtectKernelModules=true
 ProtectKernelTunables=true
 PrivateUsers=true
-#CapabilityBoundingSet=
-#MemoryDenyWriteExecute=true
-#PrivateTmp=true  #Block X11 idle detection
+
+[Install]
+WantedBy=multi-user.target
