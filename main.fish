@@ -74,7 +74,7 @@ flathub com.vscodium.codium-insiders
 flathub org.cubocore.CoreStats
 flathub org.octave.Octave" "flatpak install --system --noninteractive --or-update \$crntval"
 
-rqe apply-live --allow-replacement
+rpm-ostree apply-live --allow-replacement
 usermod -aG boinc root
 
 systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target shutdown.target reboot.target poweroff.target halt.target
