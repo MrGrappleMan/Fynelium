@@ -5,11 +5,7 @@ After=vboxdrv.service network-online.target
 
 [Service]
 Type=simple
-ProtectHome=true
-ProtectSystem=full
-ProtectControlGroups=true
-ReadWritePaths=/var/lib/boinc /etc/boinc-client
-User=boinc
+User=root
 WorkingDirectory=/var/lib/boinc
 ExecStart=/usr/bin/boinc
 ExecStopPost=/bin/rm -f lockfile
@@ -17,10 +13,6 @@ IOSchedulingClass=idle
 IOSchedulingPriority=4
 Restart=always
 RestartSec=1
-NoNewPrivileges=true
-ProtectKernelModules=true
-ProtectKernelTunables=true
-PrivateUsers=true
 
 [Install]
 WantedBy=multi-user.target
