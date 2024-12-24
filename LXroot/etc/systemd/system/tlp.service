@@ -9,9 +9,10 @@ Type=simple
 RemainAfterExit=yes
 ExecStart=/usr/sbin/tlp init start
 ExecReload=/usr/sbin/tlp start
+IOSchedulingClass=realtime
+IOSchedulingPriority=0
 Restart=always
 RestartSec=1
-IOSchedulingPriority=0
 
 [Install]
 WantedBy=multi-user.target
