@@ -9,6 +9,7 @@ User=root
 ExecStart=rpm-ostree upgrade -q --trigger-automatic-update-policy --peer
 ExecStartPost=rpm-ostree apply-live --allow-replacement
 IOSchedulingPriority=0
+IOSchedulingClass=idle
 
 [Install]
 WantedBy=multi-user.target
