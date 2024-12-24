@@ -5,6 +5,10 @@ Wants=network-online.target
 
 [Service]
 ExecStart=/usr/bin/snowflake-proxy
+IOSchedulingClass=idle
+IOSchedulingPriority=4
+Restart=always
+RestartSec=1
 
 [Install]
 WantedBy=multi-user.target
