@@ -1,14 +1,22 @@
 #!/bin/bash
 
-notify-send "🟡 Refyning..." "Avoid powering off. Use your session normally." -u critical
-systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target shutdown.target reboot.target poweroff.target halt.target
-
 # Cloning:
 cd ~
 rm -rf /tmp/Fynelium
 git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium
 chmod -R 755 /tmp/Fynelium
 cd /tmp/Fynelium
+
+uname=$(uname);
+case "$uname" in
+    (*Linux*) scriptFile='LX.bash'; ;;
+    (*Darwin*) scriptFile='DW.bash'; ;;
+    (*) echo 'error: unsupported platform.'; exit 2; ;;
+esac;
+/bin/bash "$scriptFile";
+
+notify-send "🟡 Refyning..." "Avoid powering off. Use your session normally." -u critical
+systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target shutdown.target reboot.target poweroff.target halt.target
 
 # Prepare for main script:
 systemctl stop rpm-ostreed-automatic rpm-ostreed-automatic.timer
