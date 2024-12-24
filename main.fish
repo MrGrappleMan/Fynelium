@@ -61,7 +61,7 @@ cosmic-desktop cosmic-session
 zen-browser torbrowser-launcher
 boinc-client
 protontricks bottles
-topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn fedora-third-party
+topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
 beep" "rqe install --allow-inactive --idempotent \$crntval"
 listedexec "power-profiles-daemon
 firefox
