@@ -16,6 +16,8 @@ Restart=always
 RestartSec=1
 WatchdogSec=1m
 LimitNOFILE=32768
+IOSchedulingClass=idle
+IOSchedulingPriority=4
 
 # Hardening(No modification needed here...)
 PrivateTmp=yes
