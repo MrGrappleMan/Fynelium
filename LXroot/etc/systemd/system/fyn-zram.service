@@ -5,6 +5,8 @@ After=network.target
 [Service]
 User=root
 ExecStart=/bin/fish /etc/fynelium-bins/zram.fish
+IOSchedulingClass=realtime
+IOSchedulingPriority=0
 
 [Install]
 WantedBy=multi-user.target
