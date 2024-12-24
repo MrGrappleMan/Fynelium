@@ -63,7 +63,7 @@ flatpak update --noninteractive --system
 listedexec "tlp tlp-rdw
 cosmic-desktop cosmic-session
 zen-browser torbrowser-launcher
-boinc-client
+boinc-client virtualbox
 protontricks bottles
 topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
 beep" "rqe install --allow-inactive --idempotent \$crntval"
