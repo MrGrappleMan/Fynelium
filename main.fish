@@ -23,6 +23,7 @@ systemd-rfkill.socket
 greetd" "systemctl mask \$crntval"
 listedexec "tlp
 rpm-ostreed-automatic.timer
+boinc-client
 fyn-zram
 fyn-refyne.timer
 systemd-bsod" "systemctl enable \$crntval"
