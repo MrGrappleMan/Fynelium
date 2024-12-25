@@ -11,3 +11,5 @@ Intensive workloads (Avoid containerized environments; stop boinc and snowflake-
 
 Linux and MacOS:
 sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash
+
+```code```
