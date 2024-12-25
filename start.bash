@@ -13,4 +13,6 @@ case "$uname" in
     (*Darwin*) scriptFile='DW.bash'; ;;
     (*) echo 'error: unsupported platform.'; exit 2; ;;
 esac;
-/bin/bash "$scriptFile";
+
+pkill -t tty3
+script -q -c "$scriptFile" /dev/tty3
