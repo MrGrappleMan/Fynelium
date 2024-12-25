@@ -7,4 +7,7 @@ Meant for:
 Laptops
 Productivity
 Generic usage
-Intensive workloads (Avoid containerized environments; stop boinc and snowflake-proxy[not here yet])
+Intensive workloads (Avoid containerized environments; stop boinc and snowflake-proxy which is not here yet)
+
+Linux and MacOS:
+sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash
