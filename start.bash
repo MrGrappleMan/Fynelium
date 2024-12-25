@@ -1,9 +1,17 @@
 #!/bin/bash
 
-# Homebrew for both:
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bash_profile
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+install_homebrew() {
+    if ! command -v brew &>/dev/null; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        if [[ "$(uname)" == "Linux" ]]; then
+            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bash_profile
+            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        elif [[ "$(uname)" == "Darwin" ]]; then
+            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+        fi
+    fi
+}
 
 # Recognize:
 uname=$(uname);
@@ -14,9 +22,16 @@ case "$uname" in
 esac;
 
 # Git install:
-homebrew install git
-rpm-ostree install git
-rpm-ostree apply-live --allow-replacement
+install_git() {
+    if ! command -v git &>/dev/null; then
+        if command -v rpm-ostree &>/dev/null; then
+            rpm-ostree install git
+            rpm-ostree apply-live --allow-replacement
+        else
+            brew install git
+        fi
+    fi
+}
 
 # Cloning:
 cd ~
