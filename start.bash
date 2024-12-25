@@ -3,8 +3,8 @@
 # Recognize:
 uname=$(uname);
 case "$uname" in
-    (*Linux*) scriptFile='LX.bash'; ;;
-    (*Darwin*) scriptFile='DW.bash'; ;;
+    (*Linux*) /bin/bash LX.bash; ;;
+    (*Darwin*) /bin/bash DW.bash; ;;
     (*) echo 'error: unsupported platform.'; exit 2; ;;
 esac;
 
@@ -43,4 +43,7 @@ clone_repository() {
     cd /tmp/Fynelium || exit 1
 }
 
-/bin/bash "$scriptFile"
+# Procedure:
+install_homebrew
+install_git
+clone_repository
