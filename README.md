@@ -3,13 +3,11 @@ Get [Ventoy](https://www.ventoy.net/en/download.html) with [this theme](https://
 
 Avoid removing essential components from GNOME as of now.
 
+For Linux and MacOS:
+```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash```
+
 Meant for:
 Laptops
 Productivity
 Generic usage
 Intensive workloads (Avoid containerized environments; stop boinc and snowflake-proxy which is not here yet)
-
-Linux and MacOS:
-sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash
-
-```code```
