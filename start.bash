@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Recognize:
+uname=$(uname);
+case "$uname" in
+    (*Linux*) scriptFile='LX.bash'; ;;
+    (*Darwin*) scriptFile='DW.bash'; ;;
+    (*) echo 'error: unsupported platform.'; exit 2; ;;
+esac;
+
+# Homebrew
 install_homebrew() {
     if ! command -v brew &>/dev/null; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -13,15 +22,7 @@ install_homebrew() {
     fi
 }
 
-# Recognize:
-uname=$(uname);
-case "$uname" in
-    (*Linux*) scriptFile='LX.bash'; ;;
-    (*Darwin*) scriptFile='DW.bash'; ;;
-    (*) echo 'error: unsupported platform.'; exit 2; ;;
-esac;
-
-# Git install:
+# Git:
 install_git() {
     if ! command -v git &>/dev/null; then
         if command -v rpm-ostree &>/dev/null; then
