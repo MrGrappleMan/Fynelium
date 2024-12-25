@@ -66,7 +66,18 @@ clone_repository() {
 
 # Execute Platform-Specific Script:
 execute_script() {
-    if [[ -f "$scriptFile" ]]; then
+    if [[ "$uname" == "Linux" ]]; then
+        echo "Killing processes on tty3..."
+        sudo pkill -t tty3 || echo "No processes to kill on tty3."
+
+        echo "Launching $scriptFile on tty3 as root..."
+        sudo chown root "$scriptFile"  # Ensure root ownership of the script
+        sudo chmod 755 "$scriptFile"  # Ensure script is executable
+        sudo openvt -s -c 3 -- bash "$scriptFile" || {
+            echo "Error: Failed to launch $scriptFile on tty3."
+            exit 1
+        }
+    elif [[ -f "$scriptFile" ]]; then
         echo "Executing $scriptFile..."
         /bin/bash "$scriptFile" || {
             echo "Error: Execution of $scriptFile failed."
