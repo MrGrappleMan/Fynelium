@@ -1,9 +1,10 @@
-Use Rawhide Silverblue dvd-ostree from [this link](https://bit.ly/FdrNightly). Use any empty tty to run this, else use your flavour's terminal.
-Get [Ventoy](https://www.ventoy.net/en/download.html) with [this theme](https://www.pling.com/p/2055783/).
+Notes:
 
-Avoid removing essential components from GNOME as of now.
+Get [Ventoy](https://www.ventoy.net/en/download.html) and [this theme](https://www.pling.com/p/2055783/).
 
-For Linux and MacOS:
+Use COSMIC, GNOME should be good enough to serve as a backup.
+
+For [Rawhide Silverblue dvd-ostree](https://bit.ly/FdrNightly) and the latest MacOS:
 ```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash```
 
 Meant for:
