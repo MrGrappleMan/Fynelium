@@ -35,10 +35,12 @@ install_git() {
 }
 
 # Cloning:
-cd ~
-rm -rf /tmp/Fynelium
-git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium
-chmod -R 755 /tmp/Fynelium
-cd /tmp/Fynelium
+clone_repository() {
+    cd ~ || exit 1
+    rm -rf /tmp/Fynelium
+    git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium || { echo "Error: Failed to clone repository."; exit 1; }
+    chmod -R 755 /tmp/Fynelium
+    cd /tmp/Fynelium || exit 1
+}
 
 /bin/bash "$scriptFile"
