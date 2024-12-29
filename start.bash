@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Platform Recognition:
+# Script Recognition:
 uname=$(uname)
 case "$uname" in
     Linux) scriptFile='LX.bash' ;;
@@ -9,7 +9,9 @@ case "$uname" in
 esac
 
 # Homebrew Installation:
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+case "$uname" in
+    Darwin) /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" ;;
+esac
 
 # Git Installation:
 case "$uname" in
