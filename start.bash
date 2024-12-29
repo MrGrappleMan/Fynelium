@@ -12,9 +12,10 @@ esac
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Git Installation:
-rpm-ostree install git
-rpm-ostree apply-live --allow-replacement
-brew install git
+case "$uname" in
+    Linux) rpm-ostree install git; rpm-ostree apply-live --allow-replacement ;;
+    Darwin) brew install git ;;
+esac
 
 # Clone Repository:
 rm -rf /tmp/Fynelium
