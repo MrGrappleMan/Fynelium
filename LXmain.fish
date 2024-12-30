@@ -45,6 +45,7 @@ rqe initramfs --disable
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 
 # FPK cfg:
+flatpak remote-add --if-not-exists --system --subset=floss flathub https://flathub.org/repo/flathub.flatpakrepo
 listedexec "flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 fedora oci+https://registry.fedoraproject.org
@@ -55,7 +56,7 @@ eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse
 elementaryos https://flatpak.elementary.io/repo.flatpakrepo
 pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
 kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo" "flatpak remote-add --if-not-exists --system \$crntval"
-flatpak remote-modify --subset=floss flathub
+flatpak remote-modify --system --subset=floss flathub
 flatpak update --noninteractive --system
 
 # ROT pkg:
