@@ -48,6 +48,7 @@ rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-raw
 listedexec "flathub https://flathub.org/repo/flathub.flatpakrepo
 flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
 fedora oci+https://registry.fedoraproject.org
 fedora-testing oci+https://registry.fedoraproject.org/#testing
 rhel https://flatpaks.redhat.io/rhel.flatpakrepo
@@ -58,6 +59,7 @@ kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-
 listedexec "flathub
 flathub-beta
 gnome-nightly
+webkit-sdk
 fedora
 fedora-testing
 rhel
