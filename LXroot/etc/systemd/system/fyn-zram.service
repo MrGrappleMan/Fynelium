@@ -1,12 +1,13 @@
 [Unit]
 Description=ZRAM creator
-After=network.target
+After=local-fs.target
 
 [Service]
 User=root
 ExecStart=/bin/fish /etc/fynelium-bins/zram.fish
 IOSchedulingClass=realtime
 IOSchedulingPriority=0
+Nice=-20
 
 [Install]
 WantedBy=multi-user.target
