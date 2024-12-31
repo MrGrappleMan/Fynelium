@@ -13,6 +13,7 @@ IOSchedulingClass=realtime
 IOSchedulingPriority=0
 Restart=always
 RestartSec=1
+Nice=-18
 
 [Install]
 WantedBy=multi-user.target
