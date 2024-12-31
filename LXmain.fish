@@ -71,6 +71,7 @@ flatpak update --noninteractive --system
 # ROT pkg:
 listedexec "tlp tlp-rdw
 cosmic-desktop cosmic-session
+ghostty
 zen-browser torbrowser-launcher
 boinc-client virtualbox
 protontricks bottles
