@@ -1,4 +1,4 @@
-Unit]
+[Unit]
 Description=BOINC Client
 Wants=vboxdrv.service
 After=vboxdrv.service network-online.target
