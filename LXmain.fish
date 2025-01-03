@@ -73,6 +73,8 @@ listedexec "tlp tlp-rdw
 cosmic-desktop cosmic-session
 kernel-modules-extra
 ghostty
+rustup rust
+distcc
 zen-browser torbrowser-launcher
 boinc-client virtualbox
 protontricks bottles
