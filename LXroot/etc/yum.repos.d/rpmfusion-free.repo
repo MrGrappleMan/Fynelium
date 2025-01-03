@@ -5,4 +5,4 @@ enabled=1
 enabled_metadata=1
 type=rpm-md
 gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free
