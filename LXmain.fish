@@ -68,20 +68,22 @@ elementaryos
 kde-runtime-nightly" "flatpak remote-modify --system --subset=floss \$crntval"
 flatpak update --noninteractive --system
 
-# ROT pkg:
+# ROT pkg+:
 listedexec "tlp tlp-rdw
 cosmic-desktop cosmic-session
+kernel-modules-extra
 ghostty
 zen-browser torbrowser-launcher
 boinc-client virtualbox
 protontricks bottles
 topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
 beep" "rqe install --allow-inactive --idempotent \$crntval"
+# ROT pkg-:
 listedexec "power-profiles-daemon
 firefox
 xwaylandvideobridge" "rqe uninstall --allow-inactive \$crntval"
 
-# FPK pkg:
+# FPK pkg+:
 listedexec "flathub com.gopeed.Gopeed
 flathub io.github.flattool.Warehouse
 flathub com.vscodium.codium-insiders
