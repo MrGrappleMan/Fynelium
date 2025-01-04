@@ -96,4 +96,3 @@ rpm-ostree apply-live --allow-replacement
 usermod -aG boinc root
 
 systemctl unmask hybrid-sleep.target shutdown.target reboot.target poweroff.target sleep.target
-notify-send "🟢 Refyned!" "Your system has been refyned. You may now safely end your session."
