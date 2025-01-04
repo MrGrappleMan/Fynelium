@@ -13,7 +13,7 @@ IOSchedulingClass=idle
 IOSchedulingPriority=4
 Restart=always
 RestartSec=1
-Nice=18
+Nice=19
 
 [Install]
 WantedBy=multi-user.target
