@@ -13,7 +13,10 @@ IOSchedulingClass=realtime
 IOSchedulingPriority=0
 Restart=always
 RestartSec=1
-Nice=-18
+Nice=-20
+CPUAffinity=0
+OOMScoreAdjust=-1000
+CPUSchedulingPriority=99
 
 [Install]
 WantedBy=multi-user.target
