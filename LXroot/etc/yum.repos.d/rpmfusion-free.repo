@@ -6,4 +6,6 @@ enabled_metadata=1
 skip_if_unavailable=True
 type=rpm-md
 gpgcheck=0
+enabled_metadata=1
+metadata_expire=6h
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion
