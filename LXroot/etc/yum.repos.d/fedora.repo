@@ -7,5 +7,5 @@ enabled=1
 enabled_metadata=1
 metadata_expire=6h
 gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-rawhide-$basearch
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora
 skip_if_unavailable=True
