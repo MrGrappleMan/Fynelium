@@ -1,5 +1,5 @@
 [main]
-name=Main
+name=Fedora
 failovermethod=priority
 baseurl=http://download.fedoraproject.org/pub/fedora/linux/development/rawhide/$basearch/os/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
