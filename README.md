@@ -1,14 +1,9 @@
 Notes:
 
-Get [Ventoy](https://www.ventoy.net/en/download.html) and [this theme](https://www.pling.com/p/2055783/).
+Get [Ventoy](https://www.ventoy.net/en/download.html)
 
 Use Hyprland. COSMIC should be good enough to serve as a backup.
 
-For Silverblue&(Asahi)[https://alx.sh]:
-```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash```
+For (ARM64 Laptops)[https://fedoraproject.org/atomic-desktops/silverblue/download/] & (Macbooks with any M2 chip\(Asahi installed \))[https://alx.sh]:
 
-Meant for:
-Laptops
-Productivity
-Generic usage
-Intensive workloads (Avoid containerized environments; stop boinc and snowflake-proxy which is not here yet)
+```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash```
