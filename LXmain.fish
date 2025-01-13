@@ -41,7 +41,8 @@ preempt=full"
 rqe initramfs --disable
 
 # Package management:-
-# ROT cfg:
+# RQE cfg:
+rqe rebase fedora:fedora/rawhide/aarch64/silverblue
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 
 # FPK cfg:
@@ -68,9 +69,9 @@ elementaryos
 kde-runtime-nightly" "flatpak remote-modify --system --subset=floss \$crntval"
 flatpak update --noninteractive --system
 
-# ROT pkg+:
+# RQE pkg+:
 listedexec "tlp tlp-rdw
-cosmic-desktop cosmic-session
+cosmic-desktop cosmic-session⁵
 kernel-modules-extra
 ghostty
 rustup rust
