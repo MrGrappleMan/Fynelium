@@ -1,4 +1,5 @@
-Notes:
+#Shortcuts
+[test](opinion.md)
 
 Best works with [Ventoy](https://www.ventoy.net/en/download.html) on regular ARM64 Laptops.
 
