@@ -23,15 +23,13 @@ chmod -R 755 /var/
 cp -r LXroot/var/* /var/
 
 systemctl daemon-reload
-listedexec "systemd-rfkill
-systemd-rfkill.socket
-greetd" "systemctl mask \$crntval"
-listedexec "systemctl enable \$crntval" "tlp
-rpm-ostreed-automatic.timer
-boinc-client
-fyn-zram
-fyn-refyne.timer
-systemd-bsod"
+systemctl mask systemd-rfkill systemd-rfkill.socket
+systemctl enable tlp \
+rpm-ostreed-automatic.timer \
+boinc-client \
+fyn-zram \
+fyn-refyne.timer \
+systemd-bsod
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="threadirqs \
 rhgb \
@@ -62,7 +60,7 @@ eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse
 elementaryos https://flatpak.elementary.io/repo.flatpakrepo
 pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
 kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo"
-listedexec "flathub
+listedexec "flatpak remote-modify --system --subset=floss \$crntval" "flathub
 flathub-beta
 gnome-nightly
 webkit-sdk
@@ -71,21 +69,21 @@ fedora-testing
 rhel
 eclipse-nightly
 elementaryos
-kde-runtime-nightly" "flatpak remote-modify --system --subset=floss \$crntval"
+kde-runtime-nightly"
 flatpak update --noninteractive --system
 
 # RQE pkg+:
-listedexec "tlp tlp-rdw
-cosmic-desktop cosmic-session
-kernel-modules-extra
-ghostty
-rustup rust
-distcc
-zen-browser torbrowser-launcher
-boinc-client virtualbox
-protontricks bottles
-topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
-beep" "rqe install --allow-inactive --idempotent \$crntval"
+rqe install --allow-inactive --idempotent tlp tlp-rdw \
+cosmic-desktop cosmic-session \
+kernel-modules-extra \
+ghostty \
+rustup rust \
+distcc \
+zen-browser torbrowser-launcher \
+boinc-client virtualbox \
+protontricks bottles \
+topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
+beep
 # ROT pkg-:
 listedexec "power-profiles-daemon
 firefox
