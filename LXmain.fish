@@ -39,6 +39,10 @@ quiet \
 loglevel=3 \
 preempt=full"
 rqe initramfs --disable
+It's better to use grubby for this. It'll do the right thing regardless of Fedora release version, and whether UEFI or BIOS. Whereas there's constant confusion with grub2-mkconfig. The grub.cfg is static now since Fedora 30, with all kernels having drop-in scripts in /boot/loader/entries.
+
+grubby --args="threadirqs" --update-kernel=ALL
+grub2-mkconfig
 
 # Package management:-
 # RQE cfg:
