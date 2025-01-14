@@ -4,6 +4,7 @@ Best works with [Ventoy](https://www.ventoy.net/en/download.html) on regular ARM
 For [ARM64 Laptops](https://fedoraproject.org/atomic-desktops/silverblue/download/) & [Any M2 Macbook with Asahi installed](https://alx.sh):
 
 ## Steps for ARM64 Laptops:
+
 ### 1. Disable secure boot
 Enter your UEFI setup screen. You may want to know how to do so by searching about your laptop's model from external sources.
 
@@ -59,4 +60,11 @@ Enter the password that you set up
 
 Do NOT close the terminal
 
+##
 ## Steps for M2/1 Macbooks
+
+### 1. Install Asahi Linux
+
+Simply run 
+
+```su
