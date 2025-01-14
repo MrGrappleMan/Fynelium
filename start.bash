@@ -7,4 +7,8 @@ chmod -R 755 /tmp/Fynelium
 cd /tmp/Fynelium || exit
 
 # Execute Script
-/bin/bash LX.bash
+if [ -f "/bin" ]; then
+    /bin/bash LX.bash
+else
+    /bin/bash .bash
+fi
