@@ -5,12 +5,14 @@ function rqe
 end
 
 function listedexec
-    set -l contents $argv[1]
-    set -l command_template $argv[2]
+    set -l command_template $argv[1]
+    set -l contents $argv[2]
 
-    for item in (echo "$contents" | string split "\n")
-        set -l command (string replace '$crntval' "$item" "$command_template")
-        eval "$command"
+    for subcommand in (echo "$command_template" | string split "\n")
+        for item in (echo "$contents" | string split "\n")
+            set -l command (string replace '$crntval' "$item" "$subcommand")
+            eval "$command"
+        end
     end
 end
 
@@ -24,12 +26,12 @@ systemctl daemon-reload
 listedexec "systemd-rfkill
 systemd-rfkill.socket
 greetd" "systemctl mask \$crntval"
-listedexec "tlp
+listedexec "systemctl enable \$crntval" "tlp
 rpm-ostreed-automatic.timer
 boinc-client
 fyn-zram
 fyn-refyne.timer
-systemd-bsod" "systemctl enable \$crntval"
+systemd-bsod"
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="threadirqs \
 rhgb \
@@ -39,7 +41,6 @@ quiet \
 loglevel=3 \
 preempt=full"
 rqe initramfs --disable
-It's better to use grubby for this. It'll do the right thing regardless of Fedora release version, and whether UEFI or BIOS. Whereas there's constant confusion with grub2-mkconfig. The grub.cfg is static now since Fedora 30, with all kernels having drop-in scripts in /boot/loader/entries.
 
 grubby --args="threadirqs" --update-kernel=ALL
 grub2-mkconfig
@@ -50,7 +51,7 @@ rqe rebase fedora:fedora/rawhide/aarch64/silverblue
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 
 # FPK cfg:
-listedexec "flathub https://flathub.org/repo/flathub.flatpakrepo
+listedexec "flatpak remote-add --if-not-exists --system \$crntval" "flathub https://flathub.org/repo/flathub.flatpakrepo
 flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
@@ -60,7 +61,7 @@ rhel https://flatpaks.redhat.io/rhel.flatpakrepo
 eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo
 elementaryos https://flatpak.elementary.io/repo.flatpakrepo
 pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
-kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo" "flatpak remote-add --if-not-exists --system \$crntval"
+kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo"
 listedexec "flathub
 flathub-beta
 gnome-nightly
@@ -75,7 +76,7 @@ flatpak update --noninteractive --system
 
 # RQE pkg+:
 listedexec "tlp tlp-rdw
-cosmic-desktop cosmic-session⁵
+cosmic-desktop cosmic-session
 kernel-modules-extra
 ghostty
 rustup rust
