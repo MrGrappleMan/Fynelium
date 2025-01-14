@@ -1,5 +1,5 @@
 # Shortcuts
-[test](opinion.md)
+[test]()
 
 Best works with [Ventoy](https://www.ventoy.net/en/download.html) on regular ARM64 Laptops.
 
