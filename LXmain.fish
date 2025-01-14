@@ -75,6 +75,7 @@ flatpak update --noninteractive --system
 # RQE pkg+:
 rqe install --allow-inactive --idempotent tlp tlp-rdw \
 cosmic-desktop cosmic-session \
+hyprland \
 kernel-modules-extra \
 ghostty \
 rustup rust \
