@@ -7,6 +7,8 @@ For [ARM64 Laptops](https://fedoraproject.org/atomic-desktops/silverblue/downloa
 
 ## Steps for ARM64 Laptops:
 ### 1. Downloading the iso
-At [https://bit.ly/FdrNightly](https://openqa.fedoraproject.org/nightlies.html), download the file that matches with the criteria of being in the section of Fedora Rawhide, Kinoite dvd-ostree, ARM64. It is not necessary for you to download from last known good unless the main option is highlighted in red.
+[Here](https://openqa.fedoraproject.org/nightlies.html), download the file that matches with the criteria of being in the section of Fedora Rawhide, Kinoite dvd-ostree, ARM64. It is not necessary for you to download from last known good unless the main option is highlighted in red.
 ### 2. Making the installation medium
+[Here](https://sourceforge.net/projects/ventoy/files/), go to the latest version and download the file for Linux, ending in linux.tar.gz
 
+Extract the file and run the binary wi
