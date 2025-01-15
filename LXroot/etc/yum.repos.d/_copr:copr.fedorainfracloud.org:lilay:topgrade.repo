@@ -1,5 +1,5 @@
 [copr:copr.fedorainfracloud.org:lilay:topgrade]
-name=C]lilay:topgrade
+name=C lilay topgrade
 baseurl=https://download.copr.fedorainfracloud.org/results/lilay/topgrade/fedora-rawhide-$basearch/
 type=rpm-md
 skip_if_unavailable=True
