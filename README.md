@@ -56,15 +56,20 @@ Run this script in a terminal
 
 ```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash```
 
-Enter the password that you set up
+Enter the password that you had set up.
 
-Do NOT close the terminal
+Do NOT close the terminal.
 
 ##
 ## Steps for M2/1 Macbooks
 
-### 1. Install Asahi Linux
+### 1. Get your data backed up
 
-Simply run 
+### 2. Install Asahi Linux
 
-```su
+Simply run
+
+```curl https://alx.sh | sh```
+
+and follow subsequent steps.
+Resize the MacOS partition as min and Linux as max.
