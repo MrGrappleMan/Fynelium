@@ -17,6 +17,7 @@ function listedexec
 end
 
 # System:
+rm -rf /etc/yum.repos.d/*
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
 chmod -R 755 /var/
