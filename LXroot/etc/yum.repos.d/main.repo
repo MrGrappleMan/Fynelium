@@ -1,5 +1,5 @@
 [main]
-name=Main
+name=T Main
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=aarch64
 baseurl=http://download.fedoraproject.org/pub/fedora/linux/development/rawhide/aarch64/os/
 enabled=1
