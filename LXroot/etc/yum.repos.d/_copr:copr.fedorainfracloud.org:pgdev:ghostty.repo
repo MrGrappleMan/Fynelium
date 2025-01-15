@@ -1,5 +1,5 @@
 [copr:copr.fedorainfracloud.org:pgdev:ghostty]
-name=C]pgdev:ghostty
+name=C pgdev ghostty
 baseurl=https://download.copr.fedorainfracloud.org/results/pgdev/ghostty/fedora-$releasever-$basearch/
 type=rpm-md
 skip_if_unavailable=True
