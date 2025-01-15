@@ -86,16 +86,16 @@ protontricks bottles \
 topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
 beep
 # ROT pkg-:
-listedexec "power-profiles-daemon
-firefox
-xwaylandvideobridge" "rqe uninstall --allow-inactive \$crntval"
+rqe uninstall --allow-inactive power-profiles-daemon \
+firefox \
+xwaylandvideobridge
 
 # FPK pkg+:
-listedexec "flathub com.gopeed.Gopeed
+listedexec "flatpak install --system --noninteractive --or-update \$crntval" "flathub com.gopeed.Gopeed
 flathub io.github.flattool.Warehouse
 flathub com.vscodium.codium-insiders
 flathub org.cubocore.CoreStats
-flathub org.octave.Octave" "flatpak install --system --noninteractive --or-update \$crntval"
+flathub org.octave.Octave"
 
 rpm-ostree apply-live --allow-replacement
 usermod -aG boinc root
