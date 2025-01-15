@@ -1,5 +1,5 @@
 [copr:copr.fedorainfracloud.org:solopasha:hyprland]
-name=C lilay topgrade
+name=C solopasha hyprland
 baseurl=https://download.copr.fedorainfracloud.org/results/solopasha/hyprland/fedora-rawhide-aarch64/
 type=rpm-md
 skip_if_unavailable=True
