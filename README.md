@@ -38,7 +38,7 @@ Select the alternate boot device where you have moved the file. The manufacturer
 
 Go through the generic steps
 
-Your username should be "a", use any password that you want to.
+Your username should be "a", use any password that you want to. If any other user is to be added, use (b,c...y,z)
 
 Automatic partitioning, free up space with delete all and encrypt your drive with the same password as your username.
 
