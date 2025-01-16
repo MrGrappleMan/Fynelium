@@ -17,4 +17,4 @@ rpm-ostree -q --peer upgrade # Fix dependancies
 rpm-ostree apply-live --allow-replacement
 rpm-ostree -q --peer --allow-inactive --idempotent install fish dnf-repo
 rpm-ostree apply-live --allow-replacement
-fish /tmp/Fynelium/LXmain.fish
+fish /tmp/Fynelium/main.fish
