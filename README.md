@@ -4,7 +4,7 @@ Best works with [Ventoy](https://www.ventoy.net/en/download.html) on regular ARM
 For [ARM64 Laptops](https://fedoraproject.org/atomic-desktops/silverblue/download/) & [Any M2 Macbook with Asahi installed](https://alx.sh):
 ##
 ## Steps for ARM64 Laptops:
-
+CAUTION: You will NOT be able to multi boot, but I have not tested it extensively.
 ### 1. Disable secure boot
 Enter your UEFI setup screen. You may want to know how to do so by searching about your laptop's model from external sources.
 
@@ -38,9 +38,9 @@ Select the alternate boot device where you have moved the file. The manufacturer
 
 Go through the generic steps
 
-Your username should be a single lowercase English alphabet for convenience.
+Your username should be "a", use any password that you want to.
 
-Automatic partitioning, free up space with delete all and encrypt your drive with the same password as your username. You will NOT be able to multi boot, but I have not tested it extensively.
+Automatic partitioning, free up space with delete all and encrypt your drive with the same password as your username.
 
 Connect to the internet and make your connection unmetered.
 
