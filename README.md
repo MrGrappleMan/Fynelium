@@ -2,7 +2,7 @@
 Best works with [Ventoy](https://www.ventoy.net/en/download.html) on regular ARM64 Laptops.
 
 For [ARM64 Laptops](https://fedoraproject.org/atomic-desktops/silverblue/download/) & [Any M2 Macbook with Asahi installed](https://alx.sh):
-
+##
 ## Steps for ARM64 Laptops:
 
 ### 1. Disable secure boot
@@ -59,7 +59,6 @@ Run this script in a terminal
 Enter the password that you had set up.
 
 Do NOT close the terminal.
-
 ##
 ## Steps for M2/1 Macbooks
 
