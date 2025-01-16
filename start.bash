@@ -7,8 +7,4 @@ chmod -R 755 /tmp/Fynelium
 cd /tmp/Fynelium || exit
 
 # Execute Script
-if [ -f "/usr/bin/rpm-ostree" ]; then
-    /bin/bash LX.bash
-else
-    /bin/bash .bash
-fi
+/bin/bash LX.bash
