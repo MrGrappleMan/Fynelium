@@ -6,7 +6,7 @@ After=network-online.target
 [Service]
 Type=oneshot
 User=root
-ExecStart=rpm-ostree upgrade -q --trigger-automatic-update-policy --peer
+ExecStart=/bin/topgrade
 IOSchedulingPriority=0
 IOSchedulingClass=realtime
 Nice=-5
