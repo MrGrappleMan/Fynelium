@@ -54,11 +54,13 @@ After the installation is complete, reboot and make sure to boot to Silverblue a
 
 Run this script in a terminal
 
-```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash```
+```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash >/dev/null```
 
 Enter the password that you had set up.
 
 Do NOT close the terminal.
+
+Wait till "Shaboinky" appears. It indicates the end of the script. If the script stops mid execution, force shutdown and start again.
 ##
 ## Steps for M2/1 Macbooks
 
