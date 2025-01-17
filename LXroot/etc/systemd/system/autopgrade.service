@@ -6,7 +6,7 @@ After=network-online.target
 [Service]
 Type=oneshot
 User=root
-ExecStart=/bin/topgrade
+ExecStart=/usr/bin/topgrade
 IOSchedulingPriority=0
 IOSchedulingClass=realtime
 Nice=-5
