@@ -45,12 +45,8 @@ grubby --args="threadirqs" --update-kernel=ALL
 grub2-mkconfig
 
 # Package management:-
-# RQE cfg:
-rqe rebase fedora:fedora/rawhide/aarch64/silverblue
-rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
-
 # FPK cfg:
-listedexec "flatpak remote-add --if-not-exists --system \$crntval" "flathub https://flathub.org/repo/flathub.flatpakrepo
+nohup listedexec "flatpak remote-add --if-not-exists --system \$crntval" "flathub https://flathub.org/repo/flathub.flatpakrepo
 flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
@@ -70,8 +66,19 @@ fedora-testing
 rhel
 eclipse-nightly
 elementaryos
-kde-runtime-nightly"
+kde-runtime-nightly" &
 flatpak update --noninteractive --system
+
+# RQE cfg:
+rqe rebase fedora:fedora/rawhide/aarch64/silverblue
+rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
+
+# FPK pkg+:
+nohup listedexec "flatpak install --system --noninteractive --or-update \$crntval" "flathub com.gopeed.Gopeed
+flathub io.github.flattool.Warehouse
+flathub com.vscodium.codium-insiders
+flathub org.cubocore.CoreStats
+flathub org.octave.Octave" &
 
 # RQE pkg+:
 listedexec "rqe install --allow-inactive --idempotent \$crntval" "tlp tlp-rdw
@@ -87,17 +94,10 @@ boinc-client virtualbox
 protontricks bottles
 topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
 beep"
-# ROT pkg-:
+# RQE pkg-:
 listedexec "rqe uninstall --allow-inactive --idempotent \$crntval" "power-profiles-daemon
 firefox
 xwaylandvideobridge"
-
-# FPK pkg+:
-nohup listedexec "flatpak install --system --noninteractive --or-update \$crntval" "flathub com.gopeed.Gopeed
-flathub io.github.flattool.Warehouse
-flathub com.vscodium.codium-insiders
-flathub org.cubocore.CoreStats
-flathub org.octave.Octave" &
 
 rpm-ostree apply-live --allow-replacement
 usermod -aG boinc root
