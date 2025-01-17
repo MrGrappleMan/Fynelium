@@ -32,12 +32,12 @@ fyn-zram
 fyn-refyne.timer
 systemd-bsod"
 plymouth-set-default-theme spinner
-rqe kargs --append-if-missing="threadirqs \
-rhgb \
-sysrq_always_enabled=1 \
-consoleblank=0 \
-quiet \
-loglevel=3 \
+listedexec "rqe kargs --append-if-missing=\$crntval" "threadirqs
+rhgb
+sysrq_always_enabled=1
+consoleblank=0
+quiet
+loglevel=3
 preempt=full"
 rqe initramfs --disable
 
