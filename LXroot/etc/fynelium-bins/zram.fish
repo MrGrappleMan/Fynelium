@@ -10,6 +10,6 @@ mkswap /dev/zram0
 swapon -p 10 /dev/zram0
 
 fallocate -l (math "$tmem * 2") /swapfile
-chmod 600 /swapfile
-mkswap /swapfile
-swapon -p 5 /swapfile
+chmod 600 /etc/fynelium-bins/swapfile
+mkswap /etc/fynelium-bins/swapfile
+swapon -p 5 /etc/fynelium-bins/swapfile
