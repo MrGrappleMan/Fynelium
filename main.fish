@@ -25,12 +25,12 @@ cp -r LXroot/var/* /var/
 
 systemctl daemon-reload
 systemctl mask systemd-rfkill systemd-rfkill.socket
-systemctl enable tlp \
-rpm-ostreed-automatic.timer \
-boinc-client \
-fyn-zram \
-fyn-refyne.timer \
-systemd-bsod
+listedexec "systemctl enable \$crntval" "tlp
+autopgrade.timer
+boinc-client
+fyn-zram
+fyn-refyne.timer
+systemd-bsod"
 plymouth-set-default-theme spinner
 rqe kargs --append-if-missing="threadirqs \
 rhgb \
