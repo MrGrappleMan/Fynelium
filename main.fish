@@ -74,22 +74,21 @@ kde-runtime-nightly"
 flatpak update --noninteractive --system
 
 # RQE pkg+:
-rqe install --allow-inactive --idempotent tlp tlp-rdw \
-cosmic-desktop cosmic-session \
-hyprland \
-kernel-modules-extra \
-ghostty \
-rustup rust \
-distcc \
-zen-browser torbrowser-launcher \
-boinc-client virtualbox \
-protontricks bottles \
-topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
-beep
+listedexec "rqe install --allow-inactive --idempotent \$crntval" "tlp tlp-rdw
+cosmic-desktop cosmic-session
+kernel-modules-extra
+ghostty
+rustup rust
+distcc
+zen-browser torbrowser-launcher
+boinc-client virtualbox
+protontricks bottles
+topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
+beep"
 # ROT pkg-:
-rqe uninstall --allow-inactive power-profiles-daemon \
-firefox \
-xwaylandvideobridge
+listedexec "rqe uninstall --allow-inactive --idempotent \$crntval" "power-profiles-daemon
+firefox
+xwaylandvideobridge"
 
 # FPK pkg+:
 listedexec "flatpak install --system --noninteractive --or-update \$crntval" "flathub com.gopeed.Gopeed
