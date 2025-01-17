@@ -7,6 +7,7 @@ OnFailure=plymouth-quit.service
 ExecStart=/usr/sbin/gdm
 KillMode=mixed
 Restart=always
+RestartSec=1
 IgnoreSIGPIPE=no
 BusName=org.gnome.DisplayManager
 EnvironmentFile=-/etc/locale.conf
