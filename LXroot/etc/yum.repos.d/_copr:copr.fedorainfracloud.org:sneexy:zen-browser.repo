@@ -1,10 +1,9 @@
 [copr:copr.fedorainfracloud.org:sneexy:zen-browser]
 name=C sneexy zen-browser
 baseurl=https://download.copr.fedorainfracloud.org/results/sneexy/zen-browser/fedora-rawhide-$basearch/
-type=rpm-md
-skip_if_unavailable=True
-gpgcheck=1
 gpgkey=https://download.copr.fedorainfracloud.org/results/sneexy/zen-browser/pubkey.gpg
+type=rpm-md
+gpgcheck=1
 repo_gpgcheck=0
 enabled=1
 enabled_metadata=1
