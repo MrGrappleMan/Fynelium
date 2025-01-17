@@ -1,5 +1,5 @@
 [Unit]
-Description=Automatic rpm-ostree upgrade
+Description=Automatic system upgrade
 ConditionPathExists=/run/ostree-booted
 After=network-online.target
 
@@ -7,7 +7,6 @@ After=network-online.target
 Type=oneshot
 User=root
 ExecStart=rpm-ostree upgrade -q --trigger-automatic-update-policy --peer
-ExecStartPost=rpm-ostree apply-live --allow-replacement
 IOSchedulingPriority=0
 IOSchedulingClass=realtime
 Nice=-5
