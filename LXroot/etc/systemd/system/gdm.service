@@ -1,0 +1,17 @@
+[Unit]
+Description=GDM
+After=basic.target
+OnFailure=plymouth-quit.service
+
+[Service]
+ExecStart=/usr/sbin/gdm
+KillMode=mixed
+Restart=always
+IgnoreSIGPIPE=no
+BusName=org.gnome.DisplayManager
+EnvironmentFile=-/etc/locale.conf
+ExecReload=/bin/kill -SIGHUP $MAINPID
+KeyringMode=shared
+
+[Install]
+Alias=display-manager.service
