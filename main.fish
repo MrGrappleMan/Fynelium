@@ -74,11 +74,11 @@ rqe rebase fedora:fedora/rawhide/aarch64/silverblue
 rqe install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 
 # FPK pkg+:
-nohup listedexec "flatpak install --system --noninteractive --or-update \$crntval" "flathub com.gopeed.Gopeed
+listedexec "flatpak install --system --noninteractive --or-update \$crntval" "flathub com.gopeed.Gopeed
 flathub io.github.flattool.Warehouse
 flathub com.vscodium.codium-insiders
 flathub org.cubocore.CoreStats
-flathub org.octave.Octave" &
+flathub org.octave.Octave"
 
 # RQE pkg+:
 listedexec "rqe install --allow-inactive --idempotent \$crntval
