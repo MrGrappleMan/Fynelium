@@ -81,9 +81,11 @@ flathub org.cubocore.CoreStats
 flathub org.octave.Octave" &
 
 # RQE pkg+:
-listedexec "rqe install --allow-inactive --idempotent \$crntval" "tlp tlp-rdw
+listedexec "rqe install --allow-inactive --idempotent \$crntval
+dnf install" "tlp tlp-rdw
 cosmic-desktop cosmic-session niri
 kernel-modules-extra grubby
+dnf dnf-repo
 ghostty
 rustup rust
 golang
