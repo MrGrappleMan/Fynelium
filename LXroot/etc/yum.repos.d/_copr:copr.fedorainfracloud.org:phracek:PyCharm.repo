@@ -1,5 +1,5 @@
 [copr:copr.fedorainfracloud.org:phracek:PyCharm]
-name=Copr repo for PyCharm owned by phracek
+name=C phracek PyChram
 baseurl=https://download.copr.fedorainfracloud.org/results/phracek/PyCharm/fedora-rawhide-$basearch/
 gpgkey=https://download.copr.fedorainfracloud.org/results/phracek/PyCharm/pubkey.gpg
 type=rpm-md
