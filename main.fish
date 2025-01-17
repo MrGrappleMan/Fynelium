@@ -79,7 +79,9 @@ cosmic-desktop cosmic-session
 kernel-modules-extra
 ghostty
 rustup rust
+goland
 distcc
+ostree-devel
 zen-browser torbrowser-launcher
 boinc-client virtualbox
 protontricks bottles
