@@ -75,11 +75,11 @@ flatpak update --noninteractive --system
 
 # RQE pkg+:
 listedexec "rqe install --allow-inactive --idempotent \$crntval" "tlp tlp-rdw
-cosmic-desktop cosmic-session
-kernel-modules-extra
+cosmic-desktop cosmic-session niri
+kernel-modules-extra grubby
 ghostty
 rustup rust
-goland
+golang
 distcc
 ostree-devel
 zen-browser torbrowser-launcher
@@ -93,13 +93,14 @@ firefox
 xwaylandvideobridge"
 
 # FPK pkg+:
-listedexec "flatpak install --system --noninteractive --or-update \$crntval" "flathub com.gopeed.Gopeed
+nohup listedexec "flatpak install --system --noninteractive --or-update \$crntval" "flathub com.gopeed.Gopeed
 flathub io.github.flattool.Warehouse
 flathub com.vscodium.codium-insiders
 flathub org.cubocore.CoreStats
-flathub org.octave.Octave"
+flathub org.octave.Octave" &
 
 rpm-ostree apply-live --allow-replacement
 usermod -aG boinc root
 
 systemctl unmask hybrid-sleep.target shutdown.target reboot.target poweroff.target sleep.target
+echo Script executed successfuly
