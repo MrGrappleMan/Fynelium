@@ -5,7 +5,5 @@ gpgkey=https://download.copr.fedorainfracloud.org/results/lilay/topgrade/pubkey.
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-skip_if_unavailable=True
 enabled=1
-countme=1
 enabled_metadata=1
