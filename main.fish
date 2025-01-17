@@ -92,7 +92,7 @@ golang
 distcc
 ostree-devel
 zen-browser torbrowser-launcher
-boinc-client virtualbox
+boinc-client
 protontricks bottles
 topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
 beep"
