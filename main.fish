@@ -23,27 +23,6 @@ cp -r LXroot/etc/* /etc/
 chmod -R 755 /var/
 cp -r LXroot/var/* /var/
 
-systemctl daemon-reload
-systemctl mask systemd-rfkill systemd-rfkill.socket
-listedexec "systemctl enable \$crntval" "tlp
-autopgrade.timer
-boinc-client
-fyn-zram
-fyn-refyne.timer
-systemd-bsod"
-plymouth-set-default-theme spinner
-listedexec "rqe kargs --append-if-missing=\$crntval" "threadirqs
-rhgb
-sysrq_always_enabled=1
-consoleblank=0
-quiet
-loglevel=3
-preempt=full"
-rqe initramfs --disable
-
-grubby --args="threadirqs" --update-kernel=ALL
-grub2-mkconfig
-
 # Package management:-
 # FPK cfg:
 nohup listedexec "flatpak remote-add --if-not-exists --system \$crntval" "flathub https://flathub.org/repo/flathub.flatpakrepo
