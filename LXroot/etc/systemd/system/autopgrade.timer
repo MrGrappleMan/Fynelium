@@ -1,6 +1,6 @@
 [Unit]
 Description=Timer for automatic system updates
-ConditionPathExists=/run/ostree-booted
+ConditionPathExists=/
 
 [Timer]
 OnUnitInactiveSec=3h
