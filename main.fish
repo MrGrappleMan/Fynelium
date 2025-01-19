@@ -31,33 +31,9 @@ flatpak update --noninteractive --system
 # RQE cfg:
 
 
-# FPK pkg+:
-listedexec "flatpak install --system --noninteractive --or-update \$crntval" "flathub com.gopeed.Gopeed
-flathub io.github.flattool.Warehouse
-flathub com.vscodium.codium-insiders
-flathub org.cubocore.CoreStats
-flathub org.octave.Octave"
+# FPK pkg:
 
-# RQE pkg+:
-listedexec "rqe install --allow-inactive --idempotent \$crntval
-dnf install" "tlp tlp-rdw
-cosmic-desktop cosmic-session niri
-kernel-modules-extra grubby
-dnf dnf-repo
-ghostty
-rustup rust
-golang
-distcc
-ostree-devel
-zen-browser torbrowser-launcher
-boinc-client
-protontricks bottles
-topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
-beep"
-# RQE pkg-:
-listedexec "rqe uninstall --allow-inactive --idempotent \$crntval" "power-profiles-daemon
-firefox
-xwaylandvideobridge"
+# RQE pkg:
 
 rpm-ostree apply-live --allow-replacement
 usermod -aG boinc root
