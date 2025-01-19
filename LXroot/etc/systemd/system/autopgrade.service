@@ -1,12 +1,12 @@
 [Unit]
-Description=Automatic system upgrade
-ConditionPathExists=/run/ostree-booted
+Description=Automatic system upgrades
+ConditionPathExists=/
 After=network-online.target
 
 [Service]
 Type=oneshot
 User=root
-ExecStart=/usr/bin/topgrade
+ExecStart=/bin/topgrade --skip-notify -y
 IOSchedulingPriority=0
 IOSchedulingClass=realtime
 Nice=-5
