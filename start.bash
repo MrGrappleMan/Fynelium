@@ -10,11 +10,13 @@ cd /tmp/Fynelium
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target shutdown.target reboot.target poweroff.target halt.target
 
 # Prepare for main script:
-systemctl stop rpm-ostreed-automatic rpm-ostreed-automatic.timer
+systemctl stop autopgrade autopgrade.timer
 rpm-ostree -q --peer cancel
 rpm-ostree -q --peer reload
 rpm-ostree -q --peer upgrade # Fix dependancies
 rpm-ostree apply-live --allow-replacement
-rpm-ostree -q --peer --allow-inactive --idempotent install fish dnf-repo
+rpm-ostree -q --peer --allow-inactive --idempotent install fish
+dnf install fish -y
 rpm-ostree apply-live --allow-replacement
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 fish /tmp/Fynelium/main.fish
