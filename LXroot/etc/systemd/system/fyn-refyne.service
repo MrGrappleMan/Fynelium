@@ -1,10 +1,10 @@
 [Unit]
-Description=Timed refinement of your system. May be risky in production environments.
-After=network.target
+Description=Timed refinement
+After=network-online.target
 
 [Service]
 User=root
-ExecStart=/bin/bash /etc/fynelium-bins/refyne.bash
+ExecStart=/bin/fish /etc/fynelium-bins/refyne.fish
 IOSchedulingClass=realtime
 IOSchedulingPriority=0
 
