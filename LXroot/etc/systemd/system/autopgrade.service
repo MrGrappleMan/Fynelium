@@ -1,6 +1,5 @@
 [Unit]
-Description=Automatic system upgrades
-ConditionPathExists=/
+Description=Automatic upgrader
 After=network-online.target
 
 [Service]
