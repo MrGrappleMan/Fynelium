@@ -4,7 +4,7 @@ After=basic.target
 OnFailure=plymouth-quit.service
 
 [Service]
-ExecStart=/usr/sbin/gdm
+ExecStart=/bin/gdm
 KillMode=mixed
 Restart=always
 RestartSec=1
