@@ -7,20 +7,23 @@ cp -r LXroot/etc/* /etc/
 chmod -R 755 /var/
 cp -r LXroot/var/* /var/
 
-# Package management:-
-# FPK cfg:
-
+# PKGREPO:-
+# flatpak:
+nohup fish LXscripts/PKGREPO &
 flatpak update --noninteractive --system
 
-# RQE cfg:
+# rpm-ostree:
+nohup fish LXscripts/PKGREPO &
 
+# PKG:-
+# flatpak:
+nohup fish LXscripts/ &
 
-# FPK pkg:
-
-# RQE pkg:
-
+# rpm-ostree:
+nohup fish LXscripts/ &
 rpm-ostree apply-live --allow-replacement
 usermod -aG boinc root
 
 systemctl unmask hybrid-sleep.target shutdown.target reboot.target poweroff.target sleep.target
-echo Script executed successfuly
+clear
+echo Shaboinky
