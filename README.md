@@ -1,7 +1,3 @@
-
-Best works with [Ventoy](https://www.ventoy.net/en/download.html) on regular ARM64 Laptops.
-
-For [ARM64 Laptops](https://fedoraproject.org/atomic-desktops/silverblue/download/) & [Any M2 Macbook with Asahi installed](https://alx.sh):
 ##
 ## Steps for ARM64 Laptops:
 CAUTION: You will NOT be able to multi boot, but I have not tested it extensively.
@@ -60,17 +56,5 @@ Enter the password that you had set up.
 
 Do NOT close the terminal.
 
-Wait till "Shaboinky" appears. It indicates the end of the script. If the script stops mid execution, force shutdown and start again.
+Wait till only the word "Shaboinky" appears on the terminal. It indicates the end of the script. If the script stops mid execution, force shutdown and start again.
 ##
-## Steps for M2/1 Macbooks
-
-### 1. Get your data backed up
-
-### 2. Install Asahi Linux
-
-Simply run
-
-```curl https://alx.sh | sh```
-
-and follow subsequent steps.
-Resize the MacOS partition as min and Linux as max.
