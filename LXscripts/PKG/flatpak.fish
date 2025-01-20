@@ -1,5 +1,6 @@
 #!/bin/fish
 source /etc/fish/config.fish
+fyn-functions
 
 listedexec "flatpak install --system --noninteractive --or-update \$crntval" "flathub com.gopeed.Gopeed
 flathub io.github.flattool.Warehouse
