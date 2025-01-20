@@ -1,5 +1,6 @@
 #!/bin/fish
 source /etc/fish/config.fish
+fyn-functions
 
 # RQE pkg+:
 listedexec "rpm-ostree -q --peer install --allow-inactive --idempotent \$crntval
@@ -11,11 +12,12 @@ ghostty
 rustup rust
 golang
 distcc
-ostree-devel
+ostree-devel 
 zen-browser torbrowser-launcher
 boinc-client
-protontricks bottles
-topgrade gnome-software flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
+topgrade
+gnome-software
+flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
 beep"
 
 # RQE pkg-:
