@@ -8,8 +8,3 @@ echo zstd > /sys/block/zram0/comp_algorithm
 echo $tmem > /sys/block/zram0/disksize
 mkswap /dev/zram0
 swapon -p 10 /dev/zram0
-
-fallocate -l (math "$tmem * 2") /swapfile
-chmod 600 /etc/fynelium-bins/swapfile
-mkswap /etc/fynelium-bins/swapfile
-swapon -p 5 /etc/fynelium-bins/swapfile
