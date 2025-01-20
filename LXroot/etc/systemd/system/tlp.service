@@ -1,14 +1,13 @@
 [Unit]
-Description=
-After=multi-user.target NetworkManager.service
+Description=Power Management
+After=basic.target
 Before=shutdown.target
 
 [Service]
 User=root
 Type=simple
 RemainAfterExit=yes
-ExecStart=/usr/sbin/tlp init start
-ExecReload=/usr/sbin/tlp start
+ExecStart=/bin/tlp init start
 IOSchedulingClass=realtime
 IOSchedulingPriority=0
 Restart=always
