@@ -1,5 +1,6 @@
 #!/bin/fish
 source /etc/fish/config.fish
+fyn-functions
 
 listedexec "flatpak remote-delete --force --system \$crntval"  "flathub
 eos-sdk
