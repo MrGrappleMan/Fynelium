@@ -1,7 +1,31 @@
 #!/bin/fish
 source /etc/fish/config.fish
 
+listedexec "flatpak remote-delete --force --system \$crntval"  "flathub
+eos-sdk
+igalia
+dragon-nightly
+xwaylandvideobridge-nightly
+eos-apps
+webkit
+flathub-beta
+gnome-nightly
+webkit-sdk
+fedora
+fedora-testing
+rhel
+eclipse-nightly
+elementaryos
+pureos
+kde-runtime-nightly"
+
 listedexec "flatpak remote-add --if-not-exists --system \$crntval" "flathub https://flathub.org/repo/flathub.flatpakrepo
+eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
+igalia https://software.igalia.com/flatpak-refs/igalia.flatpakrepo
+dragon-nightly https://cdn.kde.org/flatpak/dragon-nightly/dragon-nightly.flatpakrepo
+xwaylandvideobridge-nightly https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo
+eos-apps https://ostree.endlessm.com/ostree/eos-apps
+webkit https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
 flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
