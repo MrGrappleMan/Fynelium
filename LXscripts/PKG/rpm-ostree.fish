@@ -3,8 +3,7 @@ source /etc/fish/config.fish
 fyn-functions
 
 # RQE pkg+:
-listedexec "rpm-ostree -q --peer install --allow-inactive --idempotent \$crntval
-dnf install" "tlp tlp-rdw
+listedexec "rpm-ostree -q --peer install --allow-inactive --idempotent \$crntval" "tlp tlp-rdw
 cosmic-desktop cosmic-session niri
 kernel-modules-extra grubby
 dnf dnf-repo
