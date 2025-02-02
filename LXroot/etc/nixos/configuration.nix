@@ -13,7 +13,11 @@
  services.flatpak.enable = true;
  xdg.portal.enable = true;
  system.autoUpgrade.enable = true;
-system.autoUpgrade.
+system.autoUpgrade.persistent = true;
+system.autoUpgrade.operation = "switch";
+system.autoUpgrade.allowReboot = false;
+system.autoUpgrade.channel = "https://nixos.org/channels/nixpkgs-unstable"
+
 
  # Boot
  boot.loader.systemd-boot.enable = true;
