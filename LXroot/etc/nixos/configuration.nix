@@ -17,6 +17,7 @@ system.autoUpgrade.persistent = true;
 system.autoUpgrade.operation = "switch";
 system.autoUpgrade.allowReboot = false;
 system.autoUpgrade.channel = "https://nixos.org/channels/nixpkgs-unstable"
+system.autoUpgrade.dates = "daily"
 
 
  # Boot
