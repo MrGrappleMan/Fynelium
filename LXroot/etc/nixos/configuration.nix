@@ -23,7 +23,7 @@ system.autoUpgrade.dates = "daily";
  # Boot
  boot.loader.systemd-boot.enable = true;
  boot.loader.systemd-boot.memtest86.enable = true;
- boot.loader.systemd-boot.configurationLimit = 4;
+ boot.loader.systemd-boot.configurationLimit = 2;
  boot.loader.efi.canTouchEfiVariables = true;
   
 # System.Power
