@@ -4,7 +4,9 @@
   imports = [
     ./hardware-configuration.nix
   ];
- 
+ # Note:
+# This configuration is only for optimizing the base system 
+# Human Interface Hardware and Software will not be tweaked
  # Other
  services.tor.relay.enable = true;
  services.boinc.enable = true;
@@ -19,7 +21,6 @@ system.autoUpgrade.allowReboot = false;
 system.autoUpgrade.channel = "https://nixos.org/channels/nixpkgs-unstable";
 system.autoUpgrade.dates = "daily";
 
-
  # Boot
  boot.loader.systemd-boot.enable = true;
  boot.loader.systemd-boot.memtest86.enable = true;
@@ -30,35 +31,6 @@ system.autoUpgrade.dates = "daily";
 services.tlp.enable = true;
 services.power-profiles-daemon.enable = false;
 powerManagement.enable = true;
-
-# HID.Visual
-services.xserver.enable = false;
-programs.niri.enable = true;
-services.xserver.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-    autoSuspend = true;
-  };
-services.displayManager.autoLogin.enable = true;
-services.displayManager.autoLogin.user = "a";
-programs.xwayland.enable = true;
-services.xserver.desktopManager.gnome = {
-    enable = true;
-    extraGSettingsOverrides = ''
-      [org.gnome.mutter]
-      experimental-features=['scale-monitor-framebuffer']
-    '';
-  };
-
-# HID.Auditory
-services.pipewire.enable = true;
-services.pipewire.wireplumber.enable = true;
-services.pipewire.jack.enable = true;
-services.pipewire.pulse.enable = true;
-services.pipewire.systemWide = true;
-services.pulseaudio.enable = false;
-hardware.alsa.enable = false;
-services.jack.alsa.enable = false;
 
  # Networking
  networking.hostName = "Fyn-Device";
@@ -80,21 +52,6 @@ services.jack.alsa.enable = false;
     LC_TELEPHONE = "en_IN";
     LC_TIME = "en_IN";
   };
-  # Use nixos-unstable and nixpkgs-unstable properly
-
-  # Wayland-only
-  
-  
-  
-  # Configure keymap for Wayland
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Printing support
-  services.printing.enable = true;
-
 
   # Define a user
   users.users.a = {
