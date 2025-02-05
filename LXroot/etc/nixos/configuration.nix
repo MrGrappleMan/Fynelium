@@ -82,4 +82,6 @@
   programs.firefox.enable = true;
   # Kernel modules and system configuration
   hardware.system76.kernel-modules.enable = true;
+programs.ccache.enable = true;
+services.distccd.enable
 }
