@@ -55,19 +55,7 @@
         LC_TELEPHONE = "en_IN";
         LC_TIME = "en_IN";
       };
-    };
 
-    # Audio
-    pipewire = {
-      enable = true;
-      wireplumber.enable = true;
-      jack.enable = true;
-      pulse.enable = true;
-      systemWide = true;
-    };
-    pulseaudio.enable = false;
-    hardware.alsa.enable = false;
-    services.jack.alsa.enable = false;
     kubo.enable = true;
     snowflake-proxy.enable = true;
     
@@ -82,27 +70,6 @@
     printing.enable = true;
   };
 
-  # HID and display
-  services.xserver.enable = false;
-  programs.niri.enable = true;
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-    autoSuspend = true;
-  };
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "a";
-  };
-  programs.xwayland.enable = true;
-  services.xserver.desktopManager.gnome = {
-    enable = true;
-    extraGSettingsOverrides = ''
-      [org.gnome.mutter]
-      experimental-features=['scale-monitor-framebuffer']
-    '';
-  };
-
   # User configuration
   users.users.a = {
     isNormalUser = true;
@@ -113,7 +80,6 @@
     ];
   };
   programs.firefox.enable = true;
-
   # Kernel modules and system configuration
   hardware.system76.kernel-modules.enable = true;
 }
