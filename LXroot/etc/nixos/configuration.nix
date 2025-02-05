@@ -4,9 +4,7 @@
   imports = [
     ./hardware-configuration.nix
   ];
- # Note:
-# This configuration is only for optimizing the base system 
-# Human Interface Hardware and Software will not be tweaked
+ 
  # Other
  services.tor.relay.enable = true;
  services.boinc.enable = true;
@@ -32,6 +30,35 @@ services.tlp.enable = true;
 services.power-profiles-daemon.enable = false;
 powerManagement.enable = true;
 
+# HID.Visual
+services.xserver.enable = false;
+programs.niri.enable = true;
+services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+    autoSuspend = true;
+  };
+services.displayManager.autoLogin.enable = true;
+services.displayManager.autoLogin.user = "a";
+programs.xwayland.enable = true;
+services.xserver.desktopManager.gnome = {
+    enable = true;
+    extraGSettingsOverrides = ''
+      [org.gnome.mutter]
+      experimental-features=['scale-monitor-framebuffer']
+    '';
+  };
+
+# HID.Auditory
+services.pipewire.enable = true;
+services.pipewire.wireplumber.enable = true;
+services.pipewire.jack.enable = true;
+services.pipewire.pulse.enable = true;
+services.pipewire.systemWide = true;
+services.pulseaudio.enable = false;
+hardware.alsa.enable = false;
+services.jack.alsa.enable = false;
+
  # Networking
  networking.hostName = "Fyn-Device";
  networking.networkmanager.enable = true;
@@ -52,6 +79,16 @@ powerManagement.enable = true;
     LC_TELEPHONE = "en_IN";
     LC_TIME = "en_IN";
   };
+  
+  # Configure keymap for Wayland
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
+  # Printing support
+  services.printing.enable = true;
+
 
   # Define a user
   users.users.a = {
@@ -62,9 +99,6 @@ powerManagement.enable = true;
       # Add user packages here
     ];
   };
-
-  # Enable auto-login (Updated option name)
-  
 
   # Install Firefox (from unstable)
   programs.firefox.enable = true;
