@@ -1,47 +1,101 @@
 { config, pkgs, ... }:
 
 {
+  # Imports
   imports = [
     ./hardware-configuration.nix
   ];
- 
- # Other
- services.tor.relay.enable = true;
- services.boinc.enable = true;
- services.ollama.enable = true;
- hardware.system76.kernel-modules.enable = true;
- services.flatpak.enable = true;
- xdg.portal.enable = true;
- system.autoUpgrade.enable = true;
-system.autoUpgrade.persistent = true;
-system.autoUpgrade.operation = "switch";
-system.autoUpgrade.allowReboot = false;
-system.autoUpgrade.channel = "https://nixos.org/channels/nixpkgs-unstable";
-system.autoUpgrade.dates = "daily";
 
- # Boot
- boot.loader.systemd-boot.enable = true;
- boot.loader.systemd-boot.memtest86.enable = true;
- boot.loader.systemd-boot.configurationLimit = 2;
- boot.loader.efi.canTouchEfiVariables = true;
-  
-# System.Power
-services.tlp.enable = true;
-services.power-profiles-daemon.enable = false;
-powerManagement.enable = true;
+  # System settings
+  system.stateVersion = "unstable";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-# HID.Visual
-services.xserver.enable = false;
-programs.niri.enable = true;
-services.xserver.displayManager.gdm = {
+  # Auto-upgrade
+  system.autoUpgrade = {
+    enable = true;
+    persistent = true;
+    operation = "switch";
+    allowReboot = false;
+    channel = "https://nixos.org/channels/nixpkgs-unstable";
+    dates = "daily";
+  };
+
+  # Boot configuration
+  boot.loader.systemd-boot = {
+    enable = true;
+    memtest86.enable = true;
+    configurationLimit = 2;
+    efi.canTouchEfiVariables = true;
+  };
+
+  # Power management
+  services.tlp.enable = true;
+  services.power-profiles-daemon.enable = false;
+  powerManagement.enable = true;
+
+  # Services
+  services = {
+    # Networking
+    networking.hostName = "Fyn-Device";
+    networking.networkmanager.enable = true;
+
+    # Timesync and locale
+    timesyncd.enable = true;
+    time.timeZone = "Asia/Kolkata";
+    i18n = {
+      defaultLocale = "en_IN";
+      extraLocaleSettings = {
+        LC_ADDRESS = "en_IN";
+        LC_IDENTIFICATION = "en_IN";
+        LC_MEASUREMENT = "en_IN";
+        LC_MONETARY = "en_IN";
+        LC_NAME = "en_IN";
+        LC_NUMERIC = "en_IN";
+        LC_PAPER = "en_IN";
+        LC_TELEPHONE = "en_IN";
+        LC_TIME = "en_IN";
+      };
+    };
+
+    # Audio
+    pipewire = {
+      enable = true;
+      wireplumber.enable = true;
+      jack.enable = true;
+      pulse.enable = true;
+      systemWide = true;
+    };
+    pulseaudio.enable = false;
+    hardware.alsa.enable = false;
+    services.jack.alsa.enable = false;
+    kubo.enable = true;
+    snowflake-proxy.enable = true;
+    
+    boinc.enable = true;
+    ollama.enable = true;
+
+    # Flatpak & XDG
+    flatpak.enable = true;
+    xdg.portal.enable = true;
+
+    # Printing
+    printing.enable = true;
+  };
+
+  # HID and display
+  services.xserver.enable = false;
+  programs.niri.enable = true;
+  services.xserver.displayManager.gdm = {
     enable = true;
     wayland = true;
     autoSuspend = true;
   };
-services.displayManager.autoLogin.enable = true;
-services.displayManager.autoLogin.user = "a";
-programs.xwayland.enable = true;
-services.xserver.desktopManager.gnome = {
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "a";
+  };
+  programs.xwayland.enable = true;
+  services.xserver.desktopManager.gnome = {
     enable = true;
     extraGSettingsOverrides = ''
       [org.gnome.mutter]
@@ -49,48 +103,7 @@ services.xserver.desktopManager.gnome = {
     '';
   };
 
-# HID.Auditory
-services.pipewire.enable = true;
-services.pipewire.wireplumber.enable = true;
-services.pipewire.jack.enable = true;
-services.pipewire.pulse.enable = true;
-services.pipewire.systemWide = true;
-services.pulseaudio.enable = false;
-hardware.alsa.enable = false;
-services.jack.alsa.enable = false;
-
- # Networking
- networking.hostName = "Fyn-Device";
- networking.networkmanager.enable = true;
-
- # Time and locale
- services.timesyncd.enable = true;
-  
-  time.timeZone = "Asia/Kolkata";
-  i18n.defaultLocale = "en_IN";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
-  };
-  
-  # Configure keymap for Wayland
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Printing support
-  services.printing.enable = true;
-
-
-  # Define a user
+  # User configuration
   users.users.a = {
     isNormalUser = true;
     description = "a";
@@ -99,11 +112,8 @@ services.jack.alsa.enable = false;
       # Add user packages here
     ];
   };
-
-  # Install Firefox (from unstable)
   programs.firefox.enable = true;
-  
-  system.stateVersion = "unstable";
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Kernel modules and system configuration
+  hardware.system76.kernel-modules.enable = true;
 }
