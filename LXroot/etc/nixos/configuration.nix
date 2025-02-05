@@ -83,5 +83,8 @@
   # Kernel modules and system configuration
   hardware.system76.kernel-modules.enable = true;
 programs.ccache.enable = true;
-services.distccd.enable
+services.distccd.enable = true;
+services.distccd.stats.enable = true;
+services.distccd.nice = 19;
+services.preload.enable = true;
 }
