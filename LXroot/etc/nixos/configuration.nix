@@ -87,4 +87,5 @@ services.distccd.enable = true;
 services.distccd.stats.enable = true;
 services.distccd.nice = 19;
 services.preload.enable = true;
+programs.nix-ld.enable = true;
 }
