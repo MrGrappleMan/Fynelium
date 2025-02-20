@@ -11,7 +11,7 @@
 	<allow_remote_gui_rpc>0</allow_remote_gui_rpc>
  <device_name>a</device_name>
 	<disallow_attach>0</disallow_attach>
-	<dont_check_file_sizes>1</dont_check_file_sizes>
+	<dont_check_file_sizes>0</dont_check_file_sizes>
 	<dont_contact_ref_site>1</dont_contact_ref_site>
 	<dont_suspend_nci>1</dont_suspend_nci>
 	<dont_use_vbox>0</dont_use_vbox>
@@ -33,7 +33,7 @@
 	<os_random_only>0</os_random_only>
 	<process_priority>0</process_priority>
 	<process_priority_special>0</process_priority_special>
-	<rec_half_life_days>90</rec_half_life_days>
+	<rec_half_life_days>262144</rec_half_life_days>
 	<report_results_immediately>1</report_results_immediately>
 	<run_apps_manually>0</run_apps_manually>
 	<save_stats_days>0</save_stats_days>
