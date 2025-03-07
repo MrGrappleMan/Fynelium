@@ -1,0 +1,11 @@
+[Unit]
+Description=ZRAM Tweak Every 30s for Silverblue
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=30s
+Persistent=true
+Unit=zram.service
+
+[Install]
+WantedBy=timers.target
