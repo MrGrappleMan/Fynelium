@@ -6,3 +6,7 @@ After=zram-init.service
 Type=oneshot
 ExecStart=/etc/silverbluebins/zram.fish
 Nice=-15  # high priority - quick tweaks
+User=root
+
+[Install]
+WantedBy=multi-user.target
