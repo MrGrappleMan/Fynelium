@@ -1,0 +1,12 @@
+[Unit]
+Description=ZRAM Init for Silverblue
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/silverbluebins/zram-init.fish
+RemainAfterExit=yes
+Nice=-15  # high priority - fast boot
+
+[Install]
+WantedBy=multi-user.target
