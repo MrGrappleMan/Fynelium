@@ -6,7 +6,8 @@ After=network.target
 Type=oneshot
 ExecStart=/etc/silverbluebins/zram-init.fish
 RemainAfterExit=yes
-Nice=-15  # high priority - fast boot
+Nice=-15
+User=root
 
 [Install]
 WantedBy=multi-user.target
