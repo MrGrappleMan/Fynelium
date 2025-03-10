@@ -1,11 +1,11 @@
 ##
-## Steps for ARM64 Laptops:
+## Steps:
 CAUTION: You will NOT be able to multi boot, but I have not tested it extensively.
 ### 1. Disable secure boot
 Enter your UEFI setup screen. You may want to know how to do so by searching about your laptop's model from external sources.
 
 ### 2. Downloading the OS
-[Here](https://openqa.fedoraproject.org/nightlies.html), download the file that matches with the criteria of being in the section of Fedora Rawhide, Kinoite dvd-ostree, ARM64. It is not necessary for you to download from last known good unless the last built option is highlighted in red.
+[Here](https://openqa.fedoraproject.org/nightlies.html), download the file that matches with the criteria of being in the section of Fedora Rawhide, Rawhide dvd-ostree, ARM64 or x86_64 depending on your CPU.
 
 ### 3. Making the installation medium
 [Here](https://sourceforge.net/projects/ventoy/files/), go to the latest version and download the file for your host or currenly running OS.
@@ -36,9 +36,7 @@ Go through the generic steps
 
 Your username should be "a", use any password that you want to. If any other user is to be added, use (b,c...y,z)
 
-Automatic partitioning, free up space with delete all and encrypt your drive with the same password as your username.
-
-Connect to the internet and make your connection unmetered.
+Automatic partitioning, free up space with delete all and encrypt your drive with the same password as your username. Encryption is optional for servers.
 
 Begin installation.
 
@@ -48,6 +46,8 @@ After the installation is complete, reboot and make sure to boot to Silverblue a
 
 ### 5. Setting up Fynelium
 
+Connect to the internet
+
 Run this script in a terminal
 
 ```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash >/dev/null```
@@ -56,5 +56,4 @@ Enter the password that you had set up.
 
 Do NOT close the terminal.
 
-Wait till only the word "Shaboinky" appears on the terminal. It indicates the end of the script. If the script stops mid execution, force shutdown and start again.
-##
+You device should restart automatically.
