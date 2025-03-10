@@ -8,7 +8,7 @@ User=root
 ExecStart=/bin/topgrade --skip-notify -y
 IOSchedulingPriority=0
 IOSchedulingClass=realtime
-Nice=-15
+Nice=-18
 
 [Install]
 WantedBy=multi-user.target
