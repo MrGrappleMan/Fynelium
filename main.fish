@@ -2,10 +2,9 @@
 
 #Initialize:-
 chmod -R 755 /etc/
-cp -r LXroot/etc/* /etc/
+cp -r /tmp/Fynelium/LXroot/etc/* /etc/
 chmod -R 755 /var/
-cp -r LXroot/var/* /var/
-source /etc/fish/config.fish
+cp -r /tmp/Fynelium/LXroot/var/* /var/
 
 #Packaging
 	#Flatpak
