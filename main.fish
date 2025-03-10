@@ -1,29 +1,18 @@
 #!/bin/fish
 
-# System:
-rm -rf /etc/yum.repos.d/*
+# Copy:
 chmod -R 755 /etc/
 cp -r LXroot/etc/* /etc/
 chmod -R 755 /var/
 cp -r LXroot/var/* /var/
 
-# PKGREPO:-
-# flatpak:
-nohup fish LXscripts/PKGREPO &
-flatpak update --noninteractive --system
+# Packages:-
+nohup fish LXscripts/PKGREPO/flatpak.fish &
+fish LXscripts/PKG/rpm-ostree.fish
 
-# rpm-ostree:
-nohup fish LXscripts/PKGREPO &
-
-# PKG:-
-# flatpak:
-nohup fish LXscripts/ &
-
-# rpm-ostree:
-nohup fish LXscripts/ &
-rpm-ostree apply-live --allow-replacement
-usermod -aG boinc root
+# System:-
+fish LXscripts/sysconfig.fish
 
 systemctl unmask hybrid-sleep.target shutdown.target reboot.target poweroff.target sleep.target
 clear
-echo Shaboinky
+systemctl reboot
