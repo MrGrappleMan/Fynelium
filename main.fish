@@ -14,5 +14,4 @@ fish LXscripts/PKG/rpm-ostree.fish
 fish LXscripts/sysconfig.fish
 
 systemctl unmask hybrid-sleep.target shutdown.target reboot.target poweroff.target sleep.target
-clear
 systemctl reboot
