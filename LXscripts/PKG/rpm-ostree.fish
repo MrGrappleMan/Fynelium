@@ -4,8 +4,8 @@ fyn-functions
 
 # RQE pkg+:
 listedexec "rpm-ostree -q --peer install --allow-inactive --idempotent \$crntval" "tlp tlp-rdw
-cosmic-desktop cosmic-session niri
-kernel-modules-extra grubby
+kde
+kernel-modules-extra
 dnf dnf-repo
 ghostty
 rustup rust
