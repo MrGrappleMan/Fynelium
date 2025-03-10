@@ -7,11 +7,8 @@ chmod -R 755 /var/
 cp -r LXroot/var/* /var/
 
 # Packages:-
-nohup fish LXscripts/PKGREPO/flatpak.fish &
-fish LXscripts/PKG/rpm-ostree.fish
 
 # System:-
-fish LXscripts/sysconfig.fish
 
 systemctl unmask hybrid-sleep.target shutdown.target reboot.target poweroff.target sleep.target
 systemctl reboot
