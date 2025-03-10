@@ -4,13 +4,13 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=root
+User=boinc
 ReadWritePaths=-/var/lib/boinc -/etc/boinc-client -/tmp
 WorkingDirectory=/var/lib/boinc
 ExecStart=/bin/boinc
 ExecStopPost=/bin/rm -f lockfile
 IOSchedulingClass=idle
-IOSchedulingPriority=4
+IOSchedulingPriority=7
 Restart=always
 RestartSec=1
 Nice=19
