@@ -16,7 +16,6 @@ rpm-ostree -q --peer reload
 rpm-ostree -q --peer upgrade # Fix dependancies
 rpm-ostree apply-live --allow-replacement
 rpm-ostree -q --peer --allow-inactive --idempotent install fish
-dnf install fish -y
 rpm-ostree apply-live --allow-replacement
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 fish /tmp/Fynelium/main.fish
