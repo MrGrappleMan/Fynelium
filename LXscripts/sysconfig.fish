@@ -13,13 +13,10 @@ systemctl enable systemd-bsod
 plymouth-set-default-theme spinner
 
 rqe kargs --append-if-missing=threadirqs
-rqe kargs --append-if-missing=rhgb
+rqe kargs --delete-if-present=rhgb
 rqe kargs --append-if-missing=sysrq_always_enabled=1
-rqe kargs --append-if-missing=consoleblank=0
+rqe kargs --append-if-missing=consoleblank=1
 rqe kargs --append-if-missing=quiet
 rqe kargs --append-if-missing=loglevel=3
 rqe kargs --append-if-missing=preempt=full
-rqe initramfs --disable
-
-grubby --args="threadirqs rhgb sysrq_always_enabled=1" --update-kernel=ALL
-grub2-mkconfig
+rqe initramfs --enable
