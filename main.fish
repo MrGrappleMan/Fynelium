@@ -49,15 +49,41 @@ flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.
 flatpak remote-modify --system --subset=floss flathub
 flatpak remote-modify --system --subset=floss flathub-beta
 		#Pkgs
-			
+flatpak install --system --noninteractive --or-update flathub com.gopeed.Gopeed
+flatpak install --system --noninteractive --or-update flathub io.github.flattool.Warehouse
+flatpak install --system --noninteractive --or-update flathub com.github.rkoesters.xkcd-gtk
+flatpak install --system --noninteractive --or-update flathub org.geogebra.GeoGebra
+flatpak install --system --noninteractive --or-update flathub com.vscodium.codium-insiders
+flatpak install --system --noninteractive --or-update flathub se.sjoerd.Graphs
+flatpak install --system --noninteractive --or-update flathub org.cubocore.CoreStats
+flatpak install --system --noninteractive --or-update flathub net.cozic.joplin_desktop
+flatpak install --system --noninteractive --or-update flathub org.octave.Octave
 
 #RPM-OSTree
 	#Repos
-		rpm-ostree -q --peer rebase fedora:fedora/rawhide/aarch64/silverblue
+	rpm-ostree -q --peer rebase fedora:fedora/rawhide/aarch64/silverblue
 		rpm-ostree -q --peer install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 
 	#Pkgs
-		
+rpm-ostree -q --peer install --allow-inactive --idempotent tlp tlp-rdw
+rpm-ostree -q --peer install --allow-inactive --idempotent kde
+rpm-ostree -q --peer install --allow-inactive --idempotent kernel-modules-extra
+rpm-ostree -q --peer install --allow-inactive --idempotent dnf dnf-repo
+rpm-ostree -q --peer install --allow-inactive --idempotent ghostty
+rpm-ostree -q --peer install --allow-inactive --idempotent rustup rust
+rpm-ostree -q --peer install --allow-inactive --idempotent golang
+rpm-ostree -q --peer install --allow-inactive --idempotent distcc
+rpm-ostree -q --peer install --allow-inactive --idempotent ostree-devel 
+rpm-ostree -q --peer install --allow-inactive --idempotent zen-browser torbrowser-launcher
+rpm-ostree -q --peer install --allow-inactive --idempotent boinc-client
+rpm-ostree -q --peer install --allow-inactive --idempotent topgrade
+rpm-ostree -q --peer install --allow-inactive --idempotent gnome-software
+rpm-ostree -q --peer install --allow-inactive --idempotent flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
+rpm-ostree -q --peer install --allow-inactive --idempotent beep
+
+listedexec "rpm-ostree -q --peer uninstall --allow-inactive --idempotent \$crntval" "power-profiles-daemon
+firefox
+xwaylandvideobridge"
 
 #System
 
@@ -66,17 +92,17 @@ systemctl daemon-reload
 systemctl mask systemd-rfkill systemd-rfkill.socket
 
 systemctl enable tlp
-systemctl enable autopgrade.timer
+systemctl enable autopgrade.timer autopgrade
 systemctl enable boinc-client
 systemctl enable zram-init
 systemctl enable systemd-bsod
 
 plymouth-set-default-theme spinner
 
-rqe kargs --append-if-missing=threadirqs
+rpm-ostree -q --peer  kargs --append-if-missing=threadirqs
 rqe kargs --delete-if-present=rhgb
 rqe kargs --append-if-missing=sysrq_always_enabled=1
-rqe kargs --append-if-missing=consoleblank=1
+rqe kargs --append-if-missing=consoleblank=0
 rqe kargs --append-if-missing=quiet
 rqe kargs --append-if-missing=loglevel=3
 rqe kargs --append-if-missing=preempt=full
