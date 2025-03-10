@@ -7,11 +7,10 @@ systemctl mask systemd-rfkill systemd-rfkill.socket
 systemctl enable tlp
 systemctl enable autopgrade.timer
 systemctl enable boinc-client
-systemctl enable fyn-zram
-systemctl enable fyn-refyne.timer
+systemctl enable zram-init
 systemctl enable systemd-bsod
 
-plymouth-set-default-theme details
+plymouth-set-default-theme spinner
 
 rqe kargs --append-if-missing=threadirqs
 rqe kargs --append-if-missing=rhgb
