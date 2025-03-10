@@ -7,13 +7,13 @@ chmod -R 755 /var/
 cp -r /tmp/Fynelium/LXroot/var/* /var/
 
 #Packaging
-	#Flatpak
-		#Repos
-    	flatpak remote-delete --force --system flathub
-      flatpak remote-delete --force --system eos-sdk
-      flatpak remote-delete --force --system igalia
-      flatpak remote-delete --force --system dragon-nightly
-      flatpak remote-delete --force --system xwaylandvideobridge-nightly
+ #Flatpak
+  #Repos
+   flatpak remote-delete --force --system flathub
+   flatpak remote-delete --force --system eos-sdk
+   flatpak remote-delete --force --system igalia
+   flatpak remote-delete --force --system dragon-nightly
+   flatpak remote-delete --force --system xwaylandvideobridge-nightly
       flatpak remote-delete --force --system eos-apps
       flatpak remote-delete --force --system webkit
       flatpak remote-delete --force --system flathub-beta
@@ -35,8 +35,8 @@ cp -r /tmp/Fynelium/LXroot/var/* /var/
 			flatpak remote-add --if-not-exists --system eos-apps https://ostree.endlessm.com/ostree/eos-apps
 			flatpak remote-add --if-not-exists --system webkit https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
 			flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-			flatpak remote-add --if-not-exists --system gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
-flatpak remote-add --if-not-exists --system webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
+flatpak remote-add --if-not-exists --system gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+     flatpak remote-add --if-not-exists --system webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
 flatpak remote-add --if-not-exists --system fedora oci+https://registry.fedoraproject.org
 flatpak remote-add --if-not-exists --system fedora-testing oci+https://registry.fedoraproject.org/#testing
 flatpak remote-add --if-not-exists --system rhel https://flatpaks.redhat.io/rhel.flatpakrepo
