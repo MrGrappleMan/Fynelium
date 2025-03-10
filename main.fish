@@ -23,18 +23,18 @@ cp -r /tmp/Fynelium/LXroot/var/* /var/
       flatpak remote-delete --force --system fedora-testing
       flatpak remote-delete --force --system rhel
       flatpak remote-add --if-not-exists --system flatpak remote-delete --force --system eclipse-nightly
-			flatpak remote-delete --force --system elementaryos
-			flatpak remote-delete --force --system pureos
+flatpak remote-delete --force --system elementaryos
+flatpak remote-delete --force --system pureos
       flatpak remote-delete --force --system kde-runtime-nightly
 
-			flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
-			flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
-			flatpak remote-add --if-not-exists --system igalia https://software.igalia.com/flatpak-refs/igalia.flatpakrepo
-			flatpak remote-add --if-not-exists --system dragon-nightly https://cdn.kde.org/flatpak/dragon-nightly/dragon-nightly.flatpakrepo
-			flatpak remote-add --if-not-exists --system xwaylandvideobridge-nightly https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo
-			flatpak remote-add --if-not-exists --system eos-apps https://ostree.endlessm.com/ostree/eos-apps
-			flatpak remote-add --if-not-exists --system webkit https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
-			flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
+flatpak remote-add --if-not-exists --system igalia https://software.igalia.com/flatpak-refs/igalia.flatpakrepo
+flatpak remote-add --if-not-exists --system dragon-nightly https://cdn.kde.org/flatpak/dragon-nightly/dragon-nightly.flatpakrepo
+flatpak remote-add --if-not-exists --system xwaylandvideobridge-nightly https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo
+flatpak remote-add --if-not-exists --system eos-apps https://ostree.endlessm.com/ostree/eos-apps
+flatpak remote-add --if-not-exists --system webkit https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
+flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak remote-add --if-not-exists --system gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
      flatpak remote-add --if-not-exists --system webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
 flatpak remote-add --if-not-exists --system fedora oci+https://registry.fedoraproject.org
@@ -47,7 +47,7 @@ flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.
 
 flatpak remote-modify --system --subset=floss flathub
 flatpak remote-modify --system --subset=floss flathub-beta
-		#Pkgs
+#Pkgs
 flatpak install --system --noninteractive --or-update flathub com.gopeed.Gopeed
 flatpak install --system --noninteractive --or-update flathub io.github.flattool.Warehouse
 flatpak install --system --noninteractive --or-update flathub com.github.rkoesters.xkcd-gtk
@@ -59,11 +59,11 @@ flatpak install --system --noninteractive --or-update flathub net.cozic.joplin_d
 flatpak install --system --noninteractive --or-update flathub org.octave.Octave
 
 #RPM-OSTree
-	#Repos
+#Repos
  rpm-ostree -q --peer rebase fedora:fedora/rawhide/aarch64/silverblue
  rpm-ostree -q --peer install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
 
-	#Pkgs
+#Pkgs
 rpm-ostree -q --peer install --allow-inactive --idempotent tlp tlp-rdw
 rpm-ostree -q --peer install --allow-inactive --idempotent kde
 rpm-ostree -q --peer install --allow-inactive --idempotent kernel-modules-extra
