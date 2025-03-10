@@ -88,10 +88,10 @@ xwaylandvideobridge"
 
 systemctl daemon-reload
 
+systemctl disable gdm
+
 systemctl mask systemd-rfkill systemd-rfkill.socket
 systemctl mask gdm
-
-systemctl disable gdm
 
 systemctl enable tlp
 systemctl enable autopgrade.timer autopgrade
