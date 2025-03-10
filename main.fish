@@ -89,12 +89,16 @@ xwaylandvideobridge"
 systemctl daemon-reload
 
 systemctl mask systemd-rfkill systemd-rfkill.socket
+systemctl mask gdm
+
+systemctl disable gdm
 
 systemctl enable tlp
 systemctl enable autopgrade.timer autopgrade
 systemctl enable boinc-client
 systemctl enable zram-init
 systemctl enable systemd-bsod
+systemctl enable sddm
 
 plymouth-set-default-theme spinner
 
