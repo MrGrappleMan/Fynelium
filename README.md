@@ -36,11 +36,9 @@ Move the downloaded OS file onto the partition simply named as Ventoy.
 
 Select the alternate boot device where you have moved the file. The manufacturer provides information on this as well.
 
-Go through the generic steps
+Go through the generic steps.
 
-Your username should be "a", use any password that you want to. If any other user is to be added, use (b,c...y,z)
-
-Automatic partitioning, free up space with delete all and encrypt your drive with the same password as your username. Encryption is optional for servers.
+Automatic partitioning, free up space with delete all. Encryption is optional for servers.
 
 Begin installation.
 
@@ -56,8 +54,8 @@ Run this script in a terminal
 
 ```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash >/dev/null```
 
-Enter the password that you had set up.
+Enter the password that you had set up for the user you are on.
 
-Do NOT close the terminal.
+You may close the terminal. 
 
-You device should restart automatically.
+Your device should restart automatically, so ensure that you don't do any important work. Don't interfere with package management till reboot
