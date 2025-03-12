@@ -5,7 +5,11 @@ CAUTION: You will NOT be able to multi boot, but I have not tested it extensivel
 Enter your UEFI setup screen. You may want to know how to do so by searching about your laptop's model from external sources.
 
 ### 2. Downloading the OS
-[Here](https://openqa.fedoraproject.org/nightlies.html), download the file that matches with the criteria of being in the section of Fedora Rawhide, Rawhide dvd-ostree, ARM64 or x86_64 depending on your CPU.
+[x86_64/x64/amd64/intel64](https://kojipkgs.fedoraproject.org/compose/rawhide/Fedora-Rawhide-20250312.n.0/compose/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-Rawhide-20250312.n.0.iso)
+
+[aarch64/arm64](https://kojipkgs.fedoraproject.org/compose/rawhide/Fedora-Rawhide-20250312.n.0/compose/Silverblue/aarch64/iso/Fedora-Silverblue-ostree-aarch64-Rawhide-20250312.n.0.iso)
+
+[Base site](https://bit.ly/FdrNightly)
 
 ### 3. Making the installation medium
 [Here](https://sourceforge.net/projects/ventoy/files/), go to the latest version and download the file for your host or currenly running OS.
