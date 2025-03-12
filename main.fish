@@ -1,10 +1,10 @@
 #!/bin/fish
 
 #Init
-chmod -R 755 /etc/
-cp -r /tmp/Fynelium/LXroot/etc/* /etc/
-chmod -R 755 /var/
-cp -r /tmp/Fynelium/LXroot/var/* /var/
+ chmod -R 755 /etc/
+ cp -r /tmp/Fynelium/LXroot/etc/* /etc/
+ chmod -R 755 /var/
+ cp -r /tmp/Fynelium/LXroot/var/* /var/
 
 #Pkging
  #Flatpak
@@ -63,7 +63,6 @@ cp -r /tmp/Fynelium/LXroot/var/* /var/
    rpm-ostree -q --peer rebase fedora:fedora/rawhide/x86_64/silverblue
    rpm-ostree -q --peer install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
    rpm-ostree -q --peer install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
-
   #Pkgs
    #Add
     rpm-ostree -q --peer install --allow-inactive --idempotent tlp tlp-rdw
