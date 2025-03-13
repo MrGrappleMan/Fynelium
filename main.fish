@@ -97,6 +97,7 @@
   systemctl enable zram-init
   systemctl enable systemd-bsod
   systemctl enable gdm
+  systemctl enable sshd
  #KernelArgs
   rpm-ostree -q --peer kargs --append-if-missing=threadirqs
   rpm-ostree -q --peer kargs --delete-if-present=rhgb
