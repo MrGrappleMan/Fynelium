@@ -105,6 +105,6 @@
   rpm-ostree -q --peer kargs --append-if-missing=loglevel=3
   rpm-ostree -q --peer kargs --append-if-missing=preempt=full
   rpm-ostree -q initramfs --enable
-#Completion
+ #Completion
  systemctl unmask hybrid-sleep.target shutdown.target reboot.target poweroff.target sleep.target
  systemctl reboot
