@@ -77,7 +77,7 @@
     zen-browser torbrowser-launcher \
     boinc-client \
     topgrade \
-    gnome-software \\
+    gnome-software \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     beep \
     mosh openssh-server
