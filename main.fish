@@ -80,7 +80,7 @@
     gnome-software \\
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     beep \
-    mosh ssh
+    mosh openssh-server
    #Remove
     rpm-ostree -q --peer uninstall --allow-inactive --idempotent power-profiles-daemon \
     firefox
@@ -90,13 +90,13 @@
  #Mask
   systemctl mask systemd-rfkill systemd-rfkill.socket
  #Enable
-  systemctl enable tlp
-  systemctl enable autopgrade.timer autopgrade
-  systemctl enable boinc-client
-  systemctl enable zram-init
-  systemctl enable systemd-bsod
-  systemctl enable gdm
-  systemctl enable sshd
+  systemctl enable tlp \
+  autopgrade.timer autopgrade \
+  boinc-client \
+  zram-init \
+  systemd-bsod \
+  gdm \
+  sshd
  #KernelArgs
   rpm-ostree -q --peer kargs --append-if-missing=threadirqs
   rpm-ostree -q --peer kargs --delete-if-present=rhgb
