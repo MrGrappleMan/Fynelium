@@ -80,6 +80,7 @@
     rpm-ostree -q --peer install --allow-inactive --idempotent gnome-software
     rpm-ostree -q --peer install --allow-inactive --idempotent flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
     rpm-ostree -q --peer install --allow-inactive --idempotent beep
+    rpm-ostree -q --peer install --allow-inactive --idempotent mosh ssh
    #Remove
     rpm-ostree -q --peer uninstall --allow-inactive --idempotent power-profiles-daemon
     rpm-ostree -q --peer uninstall --allow-inactive --idempotent firefox
