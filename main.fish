@@ -65,26 +65,25 @@
    rpm-ostree -q --peer install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
   #Pkgs
    #Add
-    rpm-ostree -q --peer install --allow-inactive --idempotent tlp tlp-rdw
-    rpm-ostree -q --peer install --allow-inactive --idempotent kde
-    rpm-ostree -q --peer install --allow-inactive --idempotent kernel-modules-extra
-    rpm-ostree -q --peer install --allow-inactive --idempotent dnf dnf-repo
-    rpm-ostree -q --peer install --allow-inactive --idempotent ghostty
-    rpm-ostree -q --peer install --allow-inactive --idempotent rustup rust
-    rpm-ostree -q --peer install --allow-inactive --idempotent golang
-    rpm-ostree -q --peer install --allow-inactive --idempotent distcc
-    rpm-ostree -q --peer install --allow-inactive --idempotent ostree-devel 
-    rpm-ostree -q --peer install --allow-inactive --idempotent zen-browser torbrowser-launcher
-    rpm-ostree -q --peer install --allow-inactive --idempotent boinc-client
-    rpm-ostree -q --peer install --allow-inactive --idempotent topgrade
-    rpm-ostree -q --peer install --allow-inactive --idempotent gnome-software
-    rpm-ostree -q --peer install --allow-inactive --idempotent flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
-    rpm-ostree -q --peer install --allow-inactive --idempotent beep
-    rpm-ostree -q --peer install --allow-inactive --idempotent mosh ssh
+    rpm-ostree -q --peer install --allow-inactive --idempotent tlp tlp-rdw \
+    kde \
+    kernel-modules-extra \
+    dnf dnf-repo \
+    ghostty \
+    rustup rust \
+    golang \
+    distcc \
+    ostree-devel \
+    zen-browser torbrowser-launcher \
+    boinc-client \
+    topgrade \
+    gnome-software \\
+    flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
+    beep \
+    mosh ssh
    #Remove
-    rpm-ostree -q --peer uninstall --allow-inactive --idempotent power-profiles-daemon
-    rpm-ostree -q --peer uninstall --allow-inactive --idempotent firefox
-    rpm-ostree -q --peer uninstall --allow-inactive --idempotent xwaylandvideobridge
+    rpm-ostree -q --peer uninstall --allow-inactive --idempotent power-profiles-daemon \
+    firefox
 #System
  #Reload
   systemctl daemon-reload
