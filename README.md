@@ -1,6 +1,5 @@
 ##
 ## Steps:
-CAUTION: You will NOT be able to multi boot, but I have not tested it extensively.
 ### 1. Disable secure boot
 Enter your UEFI setup screen. You may want to know how to do so by searching about your laptop's model from external sources.
 
@@ -56,6 +55,6 @@ Run this script in a terminal
 
 Enter the password that you had set up for the user you are on.
 
-You may close the terminal. 
+Your device should reboot automatically once the procedure is done. Do not use your device or even close the terminal as it will interfere with the installation process. Ensure internet connection is stable.
 
-Your device should restart automatically, so ensure that you don't do any important work. Don't interfere with package management till reboot
+After the reboot you may use the device normally.
