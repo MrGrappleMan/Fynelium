@@ -48,21 +48,21 @@
 
   #Pkgs
    #Add
-    flatpak install --system --noninteractive --or-update flathub com.gopeed.Gopeed
-    flatpak install --system --noninteractive --or-update flathub io.github.flattool.Warehouse
-    flatpak install --system --noninteractive --or-update flathub com.github.rkoesters.xkcd-gtk
-    flatpak install --system --noninteractive --or-update flathub org.geogebra.GeoGebra
-    flatpak install --system --noninteractive --or-update flathub com.vscodium.codium-insiders
-    flatpak install --system --noninteractive --or-update flathub se.sjoerd.Graphs
-    flatpak install --system --noninteractive --or-update flathub org.cubocore.CoreStats
-    flatpak install --system --noninteractive --or-update flathub net.cozic.joplin_desktop
-    flatpak install --system --noninteractive --or-update flathub org.octave.Octave
+    flatpak install --system --noninteractive --or-update flathub com.gopeed.Gopeed \
+    io.github.flattool.Warehouse \
+    com.github.rkoesters.xkcd-gtk \
+    org.geogebra.GeoGebra \
+    com.vscodium.codium-insiders \
+    se.sjoerd.Graphs \
+    porg.cubocore.CoreStats \
+    net.cozic.joplin_desktop \
+    org.octave.Octave
 
  #RPM-OSTree
   #Repos
    rpm-ostree -q --peer rebase fedora:fedora/rawhide/x86_64/silverblue
-   rpm-ostree -q --peer install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
-   rpm-ostree -q --peer install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+   rpm-ostree -q --peer install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
+   https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
   #Pkgs
    #Add
     rpm-ostree -q --peer install --allow-inactive --idempotent tlp tlp-rdw \
