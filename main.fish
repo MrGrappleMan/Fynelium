@@ -42,7 +42,6 @@
     f+ flathub com.gopeed.Gopeed \
     io.github.flattool.Warehouse \
     com.github.rkoesters.xkcd-gtk \
-    org.geogebra.GeoGebra \
     com.vscodium.codium-insiders \
     se.sjoerd.Graphs \
     porg.cubocore.CoreStats \
