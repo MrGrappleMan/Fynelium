@@ -39,7 +39,7 @@
    #Remove
     f- --all
    #Add
-    f+ install --system --noninteractive --or-update flathub com.gopeed.Gopeed \
+    f+ flathub com.gopeed.Gopeed \
     io.github.flattool.Warehouse \
     com.github.rkoesters.xkcd-gtk \
     org.geogebra.GeoGebra \
@@ -56,7 +56,7 @@
    rpm-ostree apply-live --allow-replacement
   #Repos
    rpm-ostree -q --peer rebase fedora:fedora/rawhide/x86_64/silverblue
-   rpm-ostree -q --peer install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
+   r+ https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
   #RefreshX2
    rpm-ostree -q --peer reload
