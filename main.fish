@@ -64,7 +64,7 @@
    rpm-ostree apply-live --allow-replacement
   #Pkgs
    #Add
-    rpm-ostree -q --peer install --allow-inactive --idempotent tlp tlp-rdw \
+    r+ tlp tlp-rdw \
     cinnamon \
     kernel-modules-extra \
     dnf dnf-repo \
@@ -81,7 +81,7 @@
     beep \
     mosh openssh-server
    #Remove
-    rpm-ostree -q --peer uninstall --allow-inactive --idempotent power-profiles-daemon \
+    r- power-profiles-daemon \
     firefox
 #System
  #Reload
