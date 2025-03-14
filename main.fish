@@ -37,9 +37,9 @@
    
   #Pkgs
    #Remove
-    flatpak uninstall --all -y --noninteractive
+    f- --all
    #Add
-    flatpak install --system --noninteractive --or-update flathub com.gopeed.Gopeed \
+    f+ install --system --noninteractive --or-update flathub com.gopeed.Gopeed \
     io.github.flattool.Warehouse \
     com.github.rkoesters.xkcd-gtk \
     org.geogebra.GeoGebra \
