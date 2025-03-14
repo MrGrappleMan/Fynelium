@@ -1,6 +1,6 @@
 [copr:copr.fedorainfracloud.org:lizardbyte:beta]
 name=C phracek PyChram
-baseurl=https://download.copr.fedorainfracloud.org/results/phracek/beta/fedora-rawhide-$basearch/
+baseurl=https://download.copr.fedorainfracloud.org/results/lizardbyte/beta/fedora-rawhide-$basearch/
 type=rpm-md
 gpgcheck=0
 repo_gpgcheck=0
