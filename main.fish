@@ -3,7 +3,8 @@
 #Aliases
  alias r+="rpm-ostree install -q --peer --allow-inactive --idempotent -y -A "
  alias r-="rpm-ostree uninstall -q --peer --allow-inactive --idempotent -y "
- alias f+="flatpak install -y --noninteractive --system --or-update --include-sdk --include-debug
+ alias f+="flatpak install -y --noninteractive --system --or-update --include-sdk --include-debug "
+ alias f-="flatpak uninstall -y --noninteractive --system --unused "
 #CopyOver
  chmod -R 755 /etc/
  cp -r /tmp/Fynelium/LXroot/etc/* /etc/
