@@ -37,7 +37,7 @@ end
 
 # vfs cache - more mem used = free more
 function calc_vfs_cache_pressure
-    echo (scale_value 0 999999999)
+    echo (scale_value 0 99999 xxx9999)
 end
 
 # hugepages - more free = more huge
@@ -53,7 +53,7 @@ end
 
 # frag thresh - more mem used = higher
 function calc_extfrag_threshold
-    echo (scale_value 500 1000)  # from sysctl, dynamic
+    echo (scale_value 0 1000)  # from sysctl, dynamic
 end
 
 # zstd level - less free = more compress
