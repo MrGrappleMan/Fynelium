@@ -31,6 +31,8 @@
   #RefreshX2
    
   #Pkgs
+   #Remove
+    flatpak uninstall --all
    #Add
     flatpak install --system --noninteractive --or-update flathub com.gopeed.Gopeed \
     io.github.flattool.Warehouse \
@@ -46,7 +48,7 @@
   #RefreshX1
    rpm-ostree -q --peer reload
    rpm-ostree -q --peer upgrade
-   rpm-ostree apply-live -q --allow-replacement
+   rpm-ostree apply-live --allow-replacement
   #Repos
    rpm-ostree -q --peer rebase fedora:fedora/rawhide/x86_64/silverblue
    rpm-ostree -q --peer install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
@@ -54,7 +56,7 @@
   #RefreshX2
    rpm-ostree -q --peer reload
    rpm-ostree -q --peer upgrade
-   rpm-ostree apply-live -q --allow-replacement
+   rpm-ostree apply-live --allow-replacement
   #Pkgs
    #Add
     rpm-ostree -q --peer install --allow-inactive --idempotent tlp tlp-rdw \
@@ -66,7 +68,7 @@
     golang \
     distcc \
     ostree-devel \
-    zen-browser torbrowser-launcher \
+    torbrowser-launcher \
     boinc-client \
     topgrade \
     gnome-software \
