@@ -67,7 +67,7 @@ end
 
 # zswap pool - more mem used = bigger pool
 function calc_zswap_max_pool
-    echo (scale_value 20 75)  # 20-75% range, sane limits
+    echo (scale_value 1 100)  # 20-75% range, sane limits
 end
 
 # sync time - high cpu/mem = fast sync
