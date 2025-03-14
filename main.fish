@@ -32,7 +32,7 @@
    
   #Pkgs
    #Remove
-    flatpak uninstall --all
+    flatpak uninstall --all -y --noninteractive
    #Add
     flatpak install --system --noninteractive --or-update flathub com.gopeed.Gopeed \
     io.github.flattool.Warehouse \
