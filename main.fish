@@ -1,9 +1,9 @@
 #!/bin/fish
 
 #Aliases
- alias rqp="rpm-ostree -q --peer"
- alias rqpa="rpm-ostree apply-live --allow-replacement"
- alias rqp+="rpm-ostree -q --peer install 
+ alias r+="rpm-ostree -q --peer --allow-inactive --idempotent -y -A install "
+ alias r-="rpm-ostree -q --peer --allow-inactive --idempotent -y uninstall "
+ 
 #CopyOver
  chmod -R 755 /etc/
  cp -r /tmp/Fynelium/LXroot/etc/* /etc/
