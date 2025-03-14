@@ -37,7 +37,7 @@ end
 
 # vfs cache - more mem used = free more
 function calc_vfs_cache_pressure
-    echo (scale_value 0 99999 xxx9999)
+    echo (scale_value 0 999999999)
 end
 
 # hugepages - more free = more huge
