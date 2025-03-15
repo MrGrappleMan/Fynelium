@@ -5,10 +5,13 @@
  alias r-="rpm-ostree uninstall -q --peer --allow-inactive --idempotent -y "
  alias f+="flatpak install -y --noninteractive --system --or-update --include-sdk --include-debug "
  alias f-="flatpak uninstall -y --noninteractive --system --unused "
-#CopyO
+#Unlock
  chmod -R 777 /etc/
  cp -r /tmp/Fynelium/LXroot/etc/* /etc/
  chmod -R 777 /var/
+#Copy
+
+#Relock
  cp -r /tmp/Fynelium/LXroot/var/* /var/
 
 #Pkging
