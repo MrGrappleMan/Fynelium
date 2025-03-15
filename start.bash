@@ -3,7 +3,7 @@
 # Clone Repository
 rm -rf /tmp/Fynelium
 git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium
-chmod -R 755 /tmp/Fynelium
+chmod -R 777 /tmp/Fynelium/
 
 # Prevent system power state change:
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target shutdown.target reboot.target poweroff.target halt.target
