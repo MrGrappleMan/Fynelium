@@ -17,7 +17,7 @@
 #Pkging
  #Flatpak
   #RefreshX1
-   flatpak update 
+   flatpak update --noninteractive
   #Repos
    flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
    flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
