@@ -10,10 +10,10 @@ systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target 
 
 # Prepare for main script:
 systemctl stop autopgrade autopgrade.timer
-rpm-ostree -q --peer cancel
-rpm-ostree -q --peer reload
-rpm-ostree -q --peer upgrade # Fix dependancies
+rpm-ostree --peer cancel
+rpm-ostree --peer reload
+rpm-ostree --peer upgrade # Fix dependancies
 rpm-ostree apply-live --allow-replacement
-rpm-ostree -q --peer --allow-inactive --idempotent install fish
+rpm-ostree --peer --allow-inactive --idempotent install fish
 rpm-ostree apply-live --allow-replacement
 fish /tmp/Fynelium/main.fish
