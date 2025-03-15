@@ -51,7 +51,7 @@ Connect to the internet
 
 Run this script in a terminal
 
-```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash >/dev/null```
+```sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/main/start.bash | sudo bash```
 
 Enter the password that you had set up for the user you are on.
 
