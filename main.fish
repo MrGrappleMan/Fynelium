@@ -3,8 +3,8 @@
 #Aliases
  alias r+="rpm-ostree install --peer --allow-inactive --idempotent -y -A "
  alias r-="rpm-ostree uninstall --peer --allow-inactive --idempotent -y "
- alias f+="flatpak install -y --noninteractive --system --or-update --include-sdk --include-debug "
- alias f-="flatpak uninstall -y --noninteractive --system --unused "
+ alias f+="flatpak install -y -v --noninteractive --system --or-update --include-sdk --include-debug "
+ alias f-="flatpak uninstall -y -v --noninteractive --system --unused "
 #Unlock
  chmod -R 777 /etc/
  chmod -R 777 /var/
