@@ -10,6 +10,7 @@ systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target 
 
 # Prepare for main script:
 systemctl stop autopgrade autopgrade.timer
+rpm-ostree reset --peer -o
 rpm-ostree --peer cancel
 rpm-ostree --peer reload
 rpm-ostree --peer upgrade # Fix dependancies
