@@ -12,7 +12,8 @@
  cp -r /tmp/Fynelium/LXroot/etc/* /etc/
  cp -r /tmp/Fynelium/LXroot/var/* /var/
 #Relock
- 
+ chmod -R 755 /etc/
+ chmod -R 755 /var/
 #Pkging
  #Flatpak
   #RefreshX1
