@@ -1,8 +1,8 @@
 #!/bin/fish
 
 #Aliases
- alias r+="rpm-ostree install -q --peer --allow-inactive --idempotent -y -A "
- alias r-="rpm-ostree uninstall -q --peer --allow-inactive --idempotent -y "
+ alias r+="rpm-ostree install --peer --allow-inactive --idempotent -y -A "
+ alias r-="rpm-ostree uninstall --peer --allow-inactive --idempotent -y "
  alias f+="flatpak install -y --noninteractive --system --or-update --include-sdk --include-debug "
  alias f-="flatpak uninstall -y --noninteractive --system --unused "
 #Unlock
@@ -99,10 +99,10 @@
   gdm \
   sshd
  #KernelArgs
-  rpm-ostree -q --peer kargs --append-if-missing=threadirqs
-  rpm-ostree -q --peer kargs --delete-if-present=rhgb
-  rpm-ostree -q --peer kargs --append-if-missing=sysrq_always_enabled=1
-  rpm-ostree -q --peer kargs --append-if-missing=consoleblank=0
+  rpm-ostree --peer kargs --append-if-missing=threadirqs
+  rpm-ostree --peer kargs --delete-if-present=rhgb
+  rpm-ostree --peer kargs --append-if-missing=sysrq_always_enabled=1
+  rpm-ostree --peer kargs --append-if-missing=consoleblank=0
   rpm-ostree -q --peer kargs --append-if-missing=quiet
   rpm-ostree -q --peer kargs --append-if-missing=loglevel=3
   rpm-ostree -q --peer kargs --append-if-missing=preempt=full
