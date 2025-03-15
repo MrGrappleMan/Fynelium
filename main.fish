@@ -7,13 +7,12 @@
  alias f-="flatpak uninstall -y --noninteractive --system --unused "
 #Unlock
  chmod -R 777 /etc/
- cp -r /tmp/Fynelium/LXroot/etc/* /etc/
  chmod -R 777 /var/
 #Copy
-
-#Relock
+ cp -r /tmp/Fynelium/LXroot/etc/* /etc/
  cp -r /tmp/Fynelium/LXroot/var/* /var/
-
+#Relock
+ 
 #Pkging
  #Flatpak
   #RefreshX1
