@@ -17,7 +17,7 @@
 #Pkging
  #Flatpak
   #RefreshX1
-   flatpak update --noninteractive --system --force-remob
+   flatpak update --noninteractive --system --force-remove -y
   #Repos
    flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
    flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
@@ -37,7 +37,7 @@
    flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
    flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
   #RefreshX2
-   flatpak update --noninteractive
+   flatpak update --noninteractive --system --force-remove --system
   #Pkgs
    #Remove
     f- --all
