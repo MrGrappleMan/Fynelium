@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=boinc
+User=root
 ReadWritePaths=-/var/lib/boinc -/etc/boinc-client -/tmp
 WorkingDirectory=/var/lib/boinc
 ExecStart=/bin/boinc
