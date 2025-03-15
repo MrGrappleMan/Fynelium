@@ -1,6 +1,6 @@
 [Unit]
 Description=BOINC Client
-After=network-online.target
+After=basic.target
 
 [Service]
 Type=simple
