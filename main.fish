@@ -53,8 +53,8 @@
 
  #RPM-OSTree
   #RefreshX1
-   rpm-ostree -q --peer reload
-   rpm-ostree -q --peer upgrade
+   rpm-ostree --peer reload
+   rpm-ostree --peer upgrade
    rpm-ostree apply-live --allow-replacement
   #Repos
    rpm-ostree -q --peer rebase fedora:fedora/rawhide/x86_64/silverblue
@@ -103,10 +103,10 @@
   rpm-ostree --peer kargs --delete-if-present=rhgb
   rpm-ostree --peer kargs --append-if-missing=sysrq_always_enabled=1
   rpm-ostree --peer kargs --append-if-missing=consoleblank=0
-  rpm-ostree -q --peer kargs --append-if-missing=quiet
-  rpm-ostree -q --peer kargs --append-if-missing=loglevel=3
-  rpm-ostree -q --peer kargs --append-if-missing=preempt=full
-  rpm-ostree -q initramfs --enable
+  rpm-ostree --peer kargs --append-if-missing=quiet
+  rpm-ostree --peer kargs --append-if-missing=loglevel=3
+  rpm-ostree --peer kargs --append-if-missing=preempt=full
+  rpm-ostree initramfs --enable
  #Completion
  systemctl unmask hybrid-sleep.target shutdown.target reboot.target poweroff.target sleep.target
  systemctl reboot
