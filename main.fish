@@ -61,8 +61,8 @@
    r+ https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
   #RefreshX2
-   rpm-ostree -q --peer reload
-   rpm-ostree -q --peer upgrade
+   rpm-ostree --peer reload
+   rpm-ostree --peer upgrade
    rpm-ostree apply-live --allow-replacement
   #Pkgs
    #Add
