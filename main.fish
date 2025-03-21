@@ -8,16 +8,15 @@
 #Unlock
  chmod -R 777 /etc/
  chmod -R 777 /var/
-#Copy
+#Modify
  cp -r /tmp/Fynelium/LXroot/etc/* /etc/
  cp -r /tmp/Fynelium/LXroot/var/* /var/
+ rm -rf /etc/yum.repos.d/*
 #Relock
  chmod -R 755 /etc/
  chmod -R 755 /var/
 #Pkging
  #Flatpak
-  #RefreshX1
-   flatpak update --noninteractive --system --force-remove -y
   #Repos
    flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
    flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
@@ -39,17 +38,10 @@
   #RefreshX2
    flatpak update --noninteractive --system --force-remove --system
   #Pkgs
-   #Remove
-    f- --all
    #Add
     f+ flathub com.gopeed.Gopeed \
     io.github.flattool.Warehouse \
-    com.github.rkoesters.xkcd-gtk \
-    com.vscodium.codium-insiders \
-    se.sjoerd.Graphs \
-    porg.cubocore.CoreStats \
-    net.cozic.joplin_desktop \
-    org.octave.Octave
+    net.cozic.joplin_desktop
 
  #RPM-OSTree
   #RefreshX1
@@ -57,34 +49,17 @@
    rpm-ostree --peer upgrade
    rpm-ostree apply-live --allow-replacement
   #Repos
-   rpm-ostree -q --peer rebase fedora:fedora/rawhide/x86_64/silverblue
    r+ https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
-  #RefreshX2
-   rpm-ostree --peer reload
-   rpm-ostree --peer upgrade
-   rpm-ostree apply-live --allow-replacement
   #Pkgs
    #Add
     r+ tlp tlp-rdw \
-    cinnamon \
     kernel-modules-extra \
+    rpm-ostree \
     dnf dnf-repo \
-    ghostty \
-    rustup rust \
-    golang \
-    distcc \
-    ostree-devel \
-    torbrowser-launcher \
     boinc-client \
     topgrade \
-    gnome-software \
-    flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
-    beep \
-    mosh openssh-server
-   #Remove
-    r- power-profiles-daemon \
-    firefox
+    flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
 #System
  #Reload
   systemctl daemon-reload
@@ -92,12 +67,11 @@
   systemctl mask systemd-rfkill systemd-rfkill.socket
  #Enable
   systemctl enable tlp \
-  autopgrade.timer autopgrade \
+  autopgrade.timer \
   boinc-client \
-  zram-init \
+  zram \
   systemd-bsod \
-  gdm \
-  sshd
+  gdm
  #KernelArgs
   rpm-ostree --peer kargs --append-if-missing=threadirqs
   rpm-ostree --peer kargs --delete-if-present=rhgb
