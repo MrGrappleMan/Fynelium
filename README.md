@@ -5,11 +5,10 @@ Enter your UEFI setup screen. You may want to know how to do so by searching abo
 
 ### 2. Downloading the base OS
 
-[Bazzite](https://bazzite.gg)
-Only use the GNOME version
+[Bazzite](https://bazzite.gg) GNOME version only!
 
 ### 3. Making the installation medium
-[Here](https://etcher.io), go to the latest version and download the file for your host or currenly running OS.
+[Here](https://etcher.balena.io/#download-etcher), go to the latest version and download the file for your current OS
 
 Run the binary
 
