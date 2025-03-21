@@ -6,8 +6,8 @@ After=basic.target
 Type=oneshot
 User=root
 ExecStart=/bin/topgrade --skip-notify -y
-IOSchedulingPriority=0
-IOSchedulingClass=realtime
+IOSchedulingPriority=7
+IOSchedulingClass=best-effort
 Nice=19
 
 [Install]
