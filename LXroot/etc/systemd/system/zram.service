@@ -1,11 +1,11 @@
 [Unit]
-Description=ZRAM Tweaking for Silverblue
-After=zram-init.service
+Description=ZRAM Starter
+After=basic.target
 
 [Service]
 Type=oneshot
 ExecStart=/etc/silverbluebins/zram.fish
-Nice=-15  # high priority - quick tweaks
+Nice=-15
 User=root
 
 [Install]
