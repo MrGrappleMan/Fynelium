@@ -1,6 +1,6 @@
 [Unit]
 Description=Automatic upgrader
-After=network-online.target
+After=basic.target
 
 [Service]
 Type=oneshot
@@ -8,7 +8,7 @@ User=root
 ExecStart=/bin/topgrade --skip-notify -y
 IOSchedulingPriority=0
 IOSchedulingClass=realtime
-Nice=-18
+Nice=19
 
 [Install]
 WantedBy=multi-user.target
