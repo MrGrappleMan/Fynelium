@@ -1,14 +1,12 @@
 ##
 ## Steps:
 ### 1. Disable secure boot
-Enter your UEFI setup screen. You may want to know how to do so by searching about your laptop's model from external sources.
+Enter your UEFI setup screen. You may want to know how to do so by searching about your device's model from external sources.
 
-### 2. Downloading the OS
-[x86_64/x64/amd64/intel64](https://kojipkgs.fedoraproject.org/compose/rawhide/Fedora-Rawhide-20250312.n.0/compose/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-Rawhide-20250312.n.0.iso)
+### 2. Downloading the base OS
 
-[aarch64/arm64](https://kojipkgs.fedoraproject.org/compose/rawhide/Fedora-Rawhide-20250312.n.0/compose/Silverblue/aarch64/iso/Fedora-Silverblue-ostree-aarch64-Rawhide-20250312.n.0.iso)
-
-[Base site](https://bit.ly/FdrNightly)
+[Bazzite](https://bazzite.gg)
+Only use the GNOME version
 
 ### 3. Making the installation medium
 [Here](https://etcher.io), go to the latest version and download the file for your host or currenly running OS.
@@ -21,7 +19,7 @@ Pick the image
 
 Pick the device
 
-Ensure you have a spare USB drive plugged in and you have no other data on it.
+Ensure you have a USB drive plugged in. It will be wiped.
 
 Flash!
 
