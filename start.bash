@@ -9,11 +9,9 @@ chmod -R 777 /tmp/Fynelium/
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target shutdown.target reboot.target poweroff.target halt.target
 
 # Prepare for main script:
-systemctl stop autopgrade autopgrade.timer
-rpm-ostree reset --peer -o -l
 rpm-ostree --peer cancel
 rpm-ostree --peer reload
-rpm-ostree --peer upgrade # Fix dependancies
+rpm-ostree --peer upgrade
 rpm-ostree apply-live --allow-replacement
 rpm-ostree --peer --allow-inactive --idempotent install fish
 rpm-ostree apply-live --allow-replacement
