@@ -2,7 +2,7 @@
 Description=Critical system warning indicator
 ConditionVirtualization=no
 DefaultDependencies=no
-After=systemd-battery-check.service
+After=basic.target
 Before=shutdown.target
 Conflicts=shutdown.target
 
