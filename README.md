@@ -11,25 +11,19 @@ Enter your UEFI setup screen. You may want to know how to do so by searching abo
 [Base site](https://bit.ly/FdrNightly)
 
 ### 3. Making the installation medium
-[Here](https://sourceforge.net/projects/ventoy/files/), go to the latest version and download the file for your host or currenly running OS.
+[Here](https://etcher.io), go to the latest version and download the file for your host or currenly running OS.
 
-Extract the file
-
-Run the binary or executable file suited for ARM64.
+Run the binary
 
 A sudo or admin prompt may be asked, so input your password or accept the UAC prompt. 
 
-Show all devices.
+Pick the image
 
-Disable secure boot support.
+Pick the device
 
-Ensure you have a spare USB drive plugged in and yoy have cloned its contents, if any.
+Ensure you have a spare USB drive plugged in and you have no other data on it.
 
-Install
-
-Go through the confirmation prompts.
-
-Move the downloaded OS file onto the partition simply named as Ventoy.
+Flash!
 
 ### 4. Starting the installation
 
