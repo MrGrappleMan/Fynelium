@@ -1,5 +1,5 @@
 [Unit]
-Description=BOINC Client
+Description=BOINC Client for contributing idle device resources
 After=basic.target
 
 [Service]
@@ -9,7 +9,6 @@ ReadWritePaths=-/var/lib/boinc -/etc/boinc-client -/tmp
 WorkingDirectory=/var/lib/boinc
 ExecStart=/bin/boinc
 ExecStopPost=/bin/rm -f lockfile
-IOSchedulingClass=idle
 IOSchedulingPriority=7
 Restart=always
 RestartSec=1
