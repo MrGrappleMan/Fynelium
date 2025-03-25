@@ -7,36 +7,36 @@ type=rpm
 [openh264]
 name=OpenH264
 metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-cisco-openh264-rawhide&arch=$basearch
-type=rpm
 enabled=1
+type=rpm
 
 [terra]
 name=Terra
 metalink=https://tetsudou.fyralabs.com/metalink?repo=terra$releasever&arch=$basearch
-type=rpm
 enabled=1
 enabled_metadata=1
+type=rpm
 
 [terra-extras]
 name=Terra Extras
 metalink=https://tetsudou.fyralabs.com/metalink?repo=terra$releasever-extras&arch=$basearch
-type=rpm
 enabled=1
 enabled_metadata=1
+type=rpm
 
 [terra-mesa]
 name=Terra Mesa
 metalink=https://tetsudou.fyralabs.com/metalink?repo=terra$releasever-mesa&arch=$basearch
-type=rpm
-enabled=0
+enabled=1
 enabled_metadata=1
+type=rpm
 
 [terra-nvidia]
 name=Terra NVIDIA
 metalink=https://tetsudou.fyralabs.com/metalink?repo=terra$releasever-nvidia&arch=$basearch
-type=rpm
-enabled=0
+enabled=1
 enabled_metadata=1
+type=rpm
 
 [tailscale]
 name=Tailscale
