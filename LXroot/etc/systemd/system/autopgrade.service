@@ -7,7 +7,6 @@ Type=oneshot
 User=root
 ExecStart=/usr/bin/topgrade --skip-notify -y
 IOSchedulingPriority=7
-IOSchedulingClass=idle
 Nice=19
 
 [Install]
