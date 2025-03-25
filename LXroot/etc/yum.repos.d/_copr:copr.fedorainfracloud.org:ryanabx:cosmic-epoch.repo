@@ -1,9 +1,6 @@
 [copr:copr.fedorainfracloud.org:ryanabx:cosmic-epoch]
 name=C ryanabx cosmic-epoch
 baseurl=https://download.copr.fedorainfracloud.org/results/ryanabx/cosmic-epoch/fedora-rawhide-$basearch/
-gpgkey=https://download.copr.fedorainfracloud.org/results/ryanabx/cosmic-epoch/pubkey.gpg
-type=rpm-md
-gpgcheck=0
-repo_gpgcheck=0
 enabled=1
 enabled_metadata=1
+type=rpm-md
