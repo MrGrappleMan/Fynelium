@@ -1,10 +1,11 @@
 #!/bin/fish
 
 #Aliases
- alias r+="rpm-ostree install --peer --allow-inactive --idempotent -y -A "
- alias r-="rpm-ostree uninstall --peer --allow-inactive --idempotent -y "
- alias f+="flatpak install -y -v --noninteractive --system --or-update --include-sdk --include-debug "
- alias f-="flatpak uninstall -y -v --noninteractive --system --unused "
+ alias rpma="rpm-ostree install --peer --allow-inactive --idempotent -y -A "
+ alias rpmr="rpm-ostree uninstall --peer --allow-inactive --idempotent -y "
+ alias fpka="flatpak install -y -v --noninteractive --system --or-update --include-sdk --include-debug "
+ alias fpkr="flatpak uninstall -y -v --noninteractive --system --unused "
+
 #Unlock
  chmod -R 777 /etc/
  chmod -R 777 /var/
