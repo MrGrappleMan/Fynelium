@@ -1,11 +1,10 @@
 [Unit]
-Description=ZRAM Starter
+Description=Setup ZRAM and reserve ZSwap
 After=basic.target
 
 [Service]
 Type=oneshot
-ExecStart=/etc/silverbluebins/zram.fish
-Nice=-15
+ExecStart=/etc/redneck-bin/zramNzswap.fish
 User=root
 
 [Install]
