@@ -1,10 +1,10 @@
 [Unit]
-Description=Setup ZRAM and reserve ZSwap
+Description=Set ZRAM and reserve ZSwap
 After=basic.target
 
 [Service]
 Type=oneshot
-ExecStart=/etc/redneck-bin/zramNzswap.fish
+ExecStart=/etc/redneck-bin/mem-mgr.fish
 User=root
 
 [Install]
