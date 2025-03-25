@@ -1,8 +1,6 @@
 [copr:copr.fedorainfracloud.org:lizardbyte:beta]
 name=C lizardbyte beta
 baseurl=https://download.copr.fedorainfracloud.org/results/lizardbyte/beta/fedora-rawhide-$basearch/
-type=rpm-md
-gpgcheck=0
-repo_gpgcheck=0
 enabled=1
 enabled_metadata=1
+type=rpm-md
