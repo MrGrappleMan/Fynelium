@@ -14,8 +14,6 @@ enabled=1
 name=Terra
 metalink=https://tetsudou.fyralabs.com/metalink?repo=terra$releasever&arch=$basearch
 type=rpm
-gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc
-repo_gpgcheck=1
 enabled=1
 enabled_metadata=1
 
@@ -23,8 +21,6 @@ enabled_metadata=1
 name=Terra Extras
 metalink=https://tetsudou.fyralabs.com/metalink?repo=terra$releasever-extras&arch=$basearch
 type=rpm
-gpgkey=https://repos.fyralabs.com/terra$releasever-extras/key.asc
-repo_gpgcheck=1
 enabled=1
 enabled_metadata=1
 
@@ -32,20 +28,13 @@ enabled_metadata=1
 name=Terra Mesa
 metalink=https://tetsudou.fyralabs.com/metalink?repo=terra$releasever-mesa&arch=$basearch
 type=rpm
-gpgcheck=1
-gpgkey=https://repos.fyralabs.com/terra$releasever-mesa/key.asc
-repo_gpgcheck=1
 enabled=0
 enabled_metadata=1
-countme=1
 
 [terra-nvidia]
 name=Terra NVIDIA
 metalink=https://tetsudou.fyralabs.com/metalink?repo=terra$releasever-nvidia&arch=$basearch
 type=rpm
-gpgcheck=1
-gpgkey=https://repos.fyralabs.com/terra$releasever-nvidia/key.asc
-repo_gpgcheck=1
 enabled=0
 enabled_metadata=1
 
@@ -54,6 +43,41 @@ name=Tailscale
 baseurl=https://pkgs.tailscale.com/unstable/fedora/$basearch
 enabled=1
 type=rpm
-repo_gpgcheck=1
-gpgcheck=1
-gpgkey=https://pkgs.tailscale.com/stable/fedora/repo.gpgkey
+
+[rpmfus-f]
+name=RPMFus Free
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide&arch=$basearch
+enabled=1
+enabled_metadata=1
+type=rpm-md
+
+[rpmfus-f-upd1]
+name=RPMFus Free Updates1
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-rawhide&arch=$basearch
+enabled=1
+type=rpm-md
+
+[rpmfus-f-upd2]
+name=RPMFus Free Updates2
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-testing-rawhide&arch=$basearch
+enabled=1
+type=rpm-md
+
+[rpmfus-nf]
+name=RPMFus NonFree
+metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-rawhide&arch=$basearch
+enabled=1
+enabled_metadata=1
+type=rpm-md
+
+[rpmfus-nf-upd1]
+name=RPMFus NonFree Updates1
+metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-updates-released-rawhide&arch=$basearch
+enabled=1
+type=rpm-md
+
+[rpmfus-nf-upd2]
+name=RPMFus NonFree Updates2
+metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-updates-testing-rawhide&arch=$basearch
+enabled=1
+type=rpm-md
