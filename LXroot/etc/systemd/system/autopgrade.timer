@@ -1,9 +1,10 @@
 [Unit]
-Description=Timer for automatic system updates
+Description=Timer for automatic updates
 ConditionPathExists=/
 
 [Timer]
 OnUnitInactiveSec=1h
+OnBootSec=1h
 Persistent=true
 
 [Install]
