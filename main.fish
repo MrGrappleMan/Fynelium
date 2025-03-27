@@ -16,6 +16,7 @@
 #Relock
  chmod -R 755 /etc/
  chmod -R 755 /var/
+
 #Pkging
  #Flatpak
   #Repos
@@ -83,5 +84,6 @@
   rpm-ostree --peer kargs --append-if-missing=preempt=full
   rpm-ostree initramfs --enable
  #Completion
+sudo chmod -R 600 /tmp/Fynelium/
  systemctl unmask hybrid-sleep.target shutdown.target reboot.target poweroff.target sleep.target
- systemctl reboot
+sudo chmod -R 600 /tmp/Fynelium/
