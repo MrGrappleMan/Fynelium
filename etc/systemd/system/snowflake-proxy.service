@@ -1,0 +1,15 @@
+[Unit]
+Description=Contribute to providing uncensored internet access.
+After=basic.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/snowflake-proxy
+IOSchedulingClass=idle
+IOSchedulingPriority=7
+Restart=always
+RestartSec=1
+Nice=19
+
+[Install]
+WantedBy=multi-user.target

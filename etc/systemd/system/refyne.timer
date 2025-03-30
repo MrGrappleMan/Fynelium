@@ -1,0 +1,11 @@
+[Unit]
+Description=Timer for automatic system tweaks
+ConditionPathExists=/
+
+[Timer]
+OnUnitInactiveSec=1d
+OnBootSec=1d
+Persistent=true
+
+[Install]
+WantedBy=timers.target
