@@ -1,9 +1,0 @@
-[copr:copr.fedorainfracloud.org:lilay:topgrade]
-name=C lilay topgrade
-baseurl=https://download.copr.fedorainfracloud.org/results/lilay/topgrade/fedora-rawhide-$basearch/
-gpgkey=https://download.copr.fedorainfracloud.org/results/lilay/topgrade/pubkey.gpg
-type=rpm-md
-gpgcheck=0
-repo_gpgcheck=0
-enabled=1
-enabled_metadata=1

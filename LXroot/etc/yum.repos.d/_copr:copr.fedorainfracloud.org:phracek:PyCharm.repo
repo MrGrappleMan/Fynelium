@@ -1,6 +1,0 @@
-[copr:copr.fedorainfracloud.org:phracek:PyCharm]
-name=C phracek PyChram
-baseurl=https://download.copr.fedorainfracloud.org/results/phracek/PyCharm/fedora-rawhide-$basearch/
-enabled=1
-enabled_metadata=1
-type=rpm-md

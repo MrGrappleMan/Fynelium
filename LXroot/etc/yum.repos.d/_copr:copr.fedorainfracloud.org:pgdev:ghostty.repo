@@ -1,6 +1,0 @@
-[copr:copr.fedorainfracloud.org:pgdev:ghostty]
-name=C pgdev ghostty
-baseurl=https://download.copr.fedorainfracloud.org/results/pgdev/ghostty/fedora-rawhide-$basearch/
-enabled=1
-enabled_metadata=1
-type=rpm-md

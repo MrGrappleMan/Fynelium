@@ -1,9 +1,0 @@
-[copr:copr.fedorainfracloud.org:username:reponame]
-name=C username reponame
-baseurl=https://download.copr.fedorainfracloud.org/results/username/reponame/fedora-rawhide-$basearch/
-gpgkey=https://download.copr.fedorainfracloud.org/results/username/reponame/pubkey.gpg
-type=rpm-md
-gpgcheck=1
-repo_gpgcheck=0
-enabled=0
-enabled_metadata=1
