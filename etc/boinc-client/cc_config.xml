@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <cc_config>
-    <log_flags>
-		<task>0</task>
-		<file_xfer>0</file_xfer>
+	<log_flags>
+	<task>0</task>
+	<file_xfer>0</file_xfer>
     	<sched_ops>0</sched_ops>
     </log_flags>
     <options>
@@ -12,7 +12,7 @@
 	<device_name>a</device_name>
 	<disallow_attach>0</disallow_attach>
 	<dont_check_file_sizes>0</dont_check_file_sizes>
-	<dont_contact_ref_site>0/dont_contact_ref_site>
+	<dont_contact_ref_site>0</dont_contact_ref_site>
 	<dont_suspend_nci>1</dont_suspend_nci>
 	<dont_use_vbox>0</dont_use_vbox>
 	<exit_before_start>0</exit_before_start>
