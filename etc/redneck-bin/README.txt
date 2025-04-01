@@ -19,8 +19,9 @@ sudo fish
 
 rm -rf /tmp/Fynelium
 mkdir /tmp/Fynelium
-sudo git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
+git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
 cp -r /tmp/Fynelium/* /
-sudo systemctl enable refyne.timer
+systemctl enable --now refyne.timer
+systemctl start refyne
 
 You may use your system normally now. Tweaks will be applied daily.
