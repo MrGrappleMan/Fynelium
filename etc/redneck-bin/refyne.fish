@@ -3,9 +3,10 @@
 rm -rf /etc/yum.repos.d/*
 rm -rf /tmp/Fynelium
 mkdir /tmp/Fynelium 
-sudo git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
-cp -r /tmp/Fynelium/* / 
-sudo systemctl enable refyne.timer
+git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
+cp -r /tmp/Fynelium/* /
+systemctl daemon-reload
+systemctl enable refyne.timer
 
 #Aliases
  alias rpmr="rpm-ostree uninstall --peer --allow-inactive --idempotent -y "
@@ -36,6 +37,7 @@ sudo systemctl enable refyne.timer
    rpm-ostree --peer reload
    rpm-ostree install --peer --allow-inactive --idempotent -y -A \
     tlp tlp-rdw \
+    openssh-server \
     kernel-modules-extra \
     dnf dnf-repo \
     boinc-client \
@@ -54,7 +56,8 @@ sudo systemctl enable refyne.timer
    refyne.timer \
    boinc-client \
    mem-mgr \
-   systemd-bsod
+   systemd-bsod \
+   sshd
  #KernelArgs
   rpm-ostree --peer kargs --append-if-missing="threadirqs \
    sysrq_always_enabled=1 \
