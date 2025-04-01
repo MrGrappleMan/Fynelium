@@ -3,8 +3,8 @@ Description=Timer for automatic system tweaks
 ConditionPathExists=/
 
 [Timer]
-OnUnitInactiveSec=1d
-OnBootSec=1d
+OnUnitInactiveSec=6h
+OnBootSec=6h
 Persistent=true
 
 [Install]
