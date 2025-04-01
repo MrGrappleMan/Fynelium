@@ -11,9 +11,16 @@ rpm-ostree reload -q --peer
 rpm-ostree install --peer --allow-inactive --idempotent -y fish
 
 4. Reboot
-5. Run this all together in Konsole:
+5. Run this in Konsole
 
-sudo git clone https://github.com/MrGrappleMan/Fynelium.git /
+sudo fish
+
+6. Run this all together in Konsole:
+
+rm -rf /tmp/Fynelium
+mkdir /tmp/Fynelium
+sudo git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
+cp /tmp/Fynelium/ /
 sudo systemctl enable refyne.timer
 
 You may use your system normally now. Tweaks will be applied daily.
