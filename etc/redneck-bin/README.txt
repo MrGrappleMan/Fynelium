@@ -21,6 +21,7 @@ rm -rf /tmp/Fynelium
 mkdir /tmp/Fynelium
 git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
 cp -r /tmp/Fynelium/* /
+systemctl daemon-reload
 systemctl enable --now refyne.timer
 systemctl start refyne
 
