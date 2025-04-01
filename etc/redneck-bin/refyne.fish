@@ -1,7 +1,11 @@
 #!/bin/fish
 
 rm -rf /etc/yum.repos.d/*
-git clone https://github.com/MrGrappleMan/Fynelium.git /
+rm -rf /tmp/Fynelium
+mkdir /tmp/Fynelium 
+sudo git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
+cp -r /tmp/Fynelium/* / 
+sudo systemctl enable refyne.timer
 
 #Aliases
  alias rpmr="rpm-ostree uninstall --peer --allow-inactive --idempotent -y "
