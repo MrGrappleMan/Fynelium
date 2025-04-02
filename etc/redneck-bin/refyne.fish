@@ -34,8 +34,8 @@ systemctl enable refyne.timer
    flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
    flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
  #RPM-OSTree
-   rpm-ostree --peer reload
-   rpm-ostree install --peer --allow-inactive --idempotent -y -A \
+   rpm-ostree --peer -q reload
+   rpm-ostree install --peer -q --allow-inactive --idempotent -y -A \
     tlp tlp-rdw \
     openssh-server \
     kernel-modules-extra \
@@ -59,11 +59,11 @@ systemctl enable refyne.timer
    systemd-bsod \
    sshd
  #KernelArgs
-  rpm-ostree --peer kargs --append-if-missing="threadirqs \
+  rpm-ostree --peer -q kargs --append-if-missing="threadirqs \
    sysrq_always_enabled=1 \
    consoleblank=0 \
    quiet \
    loglevel=3 \
    rhgb \
    preempt=full"
-  rpm-ostree initramfs --enable
+  rpm-ostree initramfs --enable -q 
