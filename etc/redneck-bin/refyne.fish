@@ -47,9 +47,9 @@ systemctl enable refyne.timer
   systemctl daemon-reload
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket \
-   suspend.target hibernate.target poweroff.target halt.target
+   suspend.target hibernate.target halt.target
   systemctl unmask \
-   hybrid-sleep.target shutdown.target reboot.target sleep.target
+   hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target
   systemctl enable \
    tlp \
    autopgrade.timer autopgrade \
