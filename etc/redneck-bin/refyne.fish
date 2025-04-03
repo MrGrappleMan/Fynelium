@@ -53,7 +53,7 @@ systemctl enable refyne.timer
   systemctl enable \
    tlp \
    autopgrade.timer autopgrade \
-   refyne.timer \
+   refyne.timer refyne \
    boinc-client \
    mem-mgr \
    systemd-bsod \
