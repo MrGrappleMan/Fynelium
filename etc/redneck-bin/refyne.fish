@@ -1,6 +1,6 @@
 #!/bin/fish
 
-rm -rf /etc/yum.repos.d/*
+rm -rf /etc/yum.repos.d
 rm -rf /tmp/Fynelium
 mkdir /tmp/Fynelium 
 git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
