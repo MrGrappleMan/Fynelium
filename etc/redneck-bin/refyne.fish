@@ -67,3 +67,4 @@ systemctl enable refyne.timer
    rhgb \
    preempt=full"
   rpm-ostree initramfs --enable -q 
+exit
