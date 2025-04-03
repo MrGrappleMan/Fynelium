@@ -25,4 +25,4 @@ systemctl daemon-reload
 systemctl enable --now refyne.timer
 systemctl start refyne
 
-You may use your system normally now. Tweaks will be applied daily.
+You may use your system normally now. Tweaks will be applied automatically.
