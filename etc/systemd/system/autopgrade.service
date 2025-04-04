@@ -1,11 +1,11 @@
 [Unit]
-Description=Automatic upgrader
+Description=Automatic upgrader. Don't care about other package managers. Professionals have standards.
 After=basic.target
 
 [Service]
 Type=oneshot
 User=root
-ExecStart=/usr/bin/topgrade --skip-notify -y
+ExecStart=/etc/redneck-bin/autopgrade.fish
 IOSchedulingPriority=7
 Nice=19
 
