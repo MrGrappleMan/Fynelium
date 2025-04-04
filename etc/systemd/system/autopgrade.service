@@ -1,6 +1,7 @@
 [Unit]
 Description=Automatic upgrader. Don't care about other package managers. Professionals have standards.
-After=basic.target
+After=network-online.target
+ConditionPathExists=/run/ostree-booted
 
 [Service]
 Type=oneshot
