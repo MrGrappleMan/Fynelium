@@ -1,12 +1,9 @@
 #!/bin/fish
 
-rm -rf /etc/yum.repos.d
 rm -rf /tmp/Fynelium
 mkdir /tmp/Fynelium 
 git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
-cp -r /tmp/Fynelium/* /
-systemctl daemon-reload
-systemctl enable refyne.timer
+cp -r /tmp/Fynelium/*
 
 #Aliases
  alias rpmr="rpm-ostree uninstall --peer --allow-inactive --idempotent -y "
@@ -19,7 +16,6 @@ systemctl enable refyne.timer
     kernel-modules-extra \
     dnf dnf-repo \
     boinc-client \
-    topgrade \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
 #System
   systemctl daemon-reload
@@ -30,8 +26,7 @@ systemctl enable refyne.timer
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target
   systemctl enable \
    tlp \
-   autopgrade.timer autopgrade \
-   refyne.timer refyne \
+   refyne.timer \
    boinc-client \
    mem-mgr \
    systemd-bsod \
