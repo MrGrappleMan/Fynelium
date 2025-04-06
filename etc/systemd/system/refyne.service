@@ -1,5 +1,5 @@
 [Unit]
-Description=Package manager updater
+Description=System maintenance
 After=network-online.target
 ConditionPathExists=/run/ostree-booted
 Wants=network-online.target
