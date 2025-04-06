@@ -1,6 +1,8 @@
 [Unit]
-Description=Timer for automatic system tweaks
+Description=System maintenance
+After=network-online.target
 ConditionPathExists=/run/ostree-booted
+Wants=network-online.target
 
 [Timer]
 OnUnitInactiveSec=1h
