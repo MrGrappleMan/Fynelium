@@ -11,9 +11,8 @@ ExecStart=/bin/tlp init start
 IOSchedulingPriority=0
 Restart=always
 RestartSec=1
-Nice=-20
+Nice=10
 CPUAffinity=0
-OOMScoreAdjust=-1000
 CPUSchedulingPriority=99
 
 [Install]
