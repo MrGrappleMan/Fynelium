@@ -1,10 +1,9 @@
 [Unit]
 Description=Timer for automatic system tweaks
-ConditionPathExists=/
+ConditionPathExists=/run/ostree-booted
 
 [Timer]
 OnUnitInactiveSec=1h
-OnBootSec=1h
 Persistent=true
 
 [Install]
