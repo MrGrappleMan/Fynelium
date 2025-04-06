@@ -1,6 +1,8 @@
 [Unit]
-Description=Automatic system tweaker
-After=basic.target
+Description=Automatic system manager
+After=network-online.target
+ConditionPathExists=/run/ostree-booted
+Wants=network-online.target
 
 [Service]
 Type=oneshot
