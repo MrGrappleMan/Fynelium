@@ -1,5 +1,5 @@
 [Unit]
-Description=Automatic system manager
+Description=Package manager updater
 After=network-online.target
 ConditionPathExists=/run/ostree-booted
 Wants=network-online.target
@@ -7,7 +7,7 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 User=root
-ExecStart=/usr/bin/fish /etc/redneck-bin/refyne.fish
+ExecStart=/usr/bin/fish /etc/redneck-bin/pkgm.fish
 IOSchedulingPriority=7
 Nice=19
 
