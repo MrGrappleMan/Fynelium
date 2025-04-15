@@ -12,6 +12,7 @@ cp -r /tmp/Fynelium/var/* /var/
 
 #Flatpak
 flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
 flatpak remote-add --if-not-exists --system igalia https://software.igalia.com/flatpak-refs/igalia.flatpakrepo
 flatpak remote-add --if-not-exists --system dragon-nightly https://cdn.kde.org/flatpak/dragon-nightly/dragon-nightly.flatpakrepo
@@ -35,7 +36,7 @@ flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.
     tlp tlp-rdw \
     openssh-server \
     kernel-modules-extra \
-    dnf dnf-repo \
+    dnf-repo \
     boinc-client \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
    rpm-ostree apply-live --allow-replacement
