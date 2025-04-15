@@ -4,7 +4,6 @@ if test (id -u) -ne 0
     exit
 end
 
-rpm-ostree reload -q --peer
-rpm-ostree upgrade -q --peer --allow-downgrade --bypass-driver
+ujust update
 rpm-ostree apply-live --allow-replacement
 systemctl daemon-reload
