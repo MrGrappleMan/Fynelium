@@ -7,3 +7,4 @@ end
 rpm-ostree reload -q --peer
 rpm-ostree upgrade -q --peer --allow-downgrade --bypass-driver
 rpm-ostree apply-live --allow-replacement
+systemctl daemon-reload
