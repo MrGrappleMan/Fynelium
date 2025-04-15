@@ -1,17 +1,19 @@
 #!/bin/fish
 
+if test (id -u) -ne 0
+    exit
+end
+
 rm -rf /tmp/Fynelium
 mkdir /tmp/Fynelium 
 git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
-cp -r /tmp/Fynelium/*
+cp -r /tmp/Fynelium/etc/* /etc/
+cp -r /tmp/Fynelium/var/* /var/
 
 #Aliases
  alias rpmr="rpm-ostree uninstall --peer --allow-inactive --idempotent -y "
 
 #RPM-OSTree
-if test (id -u) -ne 0
-    exit
-end
    brh rebase unstable -y
    rpm-ostree --peer -q reload
    rpm-ostree install --peer -q --allow-inactive --idempotent -y -A \
