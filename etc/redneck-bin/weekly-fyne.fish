@@ -60,6 +60,7 @@ flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.
 
 #GSettings
  gsettings set org.gnome.desktop.interface enable-animations false
+ gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
 
 #Kernel
   rpm-ostree --peer -q kargs --append-if-missing="threadirqs sysrq_always_enabled=1 consoleblank=0 quiet loglevel=3 preempt=full" --delete-if-present=rhgb
