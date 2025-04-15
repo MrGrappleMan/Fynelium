@@ -53,6 +53,7 @@ flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.
    weekly-fyne.timer \
    hourly-fyne.timer \
    boinc-client \
+   podman \
    mem-mgr \
    systemd-bsod \
    sshd
