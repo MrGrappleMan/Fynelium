@@ -11,7 +11,7 @@ ExecStart=/bin/tlp init start
 IOSchedulingPriority=0
 Restart=always
 RestartSec=1
-Nice=10
+Nice=-15
 CPUAffinity=0
 CPUSchedulingPriority=99
 
