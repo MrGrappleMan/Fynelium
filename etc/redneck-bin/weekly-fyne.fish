@@ -10,13 +10,10 @@ git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
 cp -r /tmp/Fynelium/etc/* /etc/
 cp -r /tmp/Fynelium/var/* /var/
 
-#Aliases
- alias rpmr="rpm-ostree uninstall --peer --allow-inactive --idempotent -y "
-
 #RPM-OSTree
    brh rebase unstable -y
-   rpm-ostree --peer -q reload
-   rpm-ostree install --peer -q --allow-inactive --idempotent -y -A \
+   ujust update
+   rpm-ostree install --peer -q --allow-inactive --idempotent -y \
     tlp tlp-rdw \
     openssh-server \
     kernel-modules-extra \
