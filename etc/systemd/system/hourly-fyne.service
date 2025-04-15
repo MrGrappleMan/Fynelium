@@ -1,0 +1,13 @@
+[Unit]
+Description=Hourly system maintenance
+After=network-online.target
+ConditionPathExists=/run/ostree-booted
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/fish /etc/redneck-bin/hourly-fyne.fish
+
+[Install]
+WantedBy=multi-user.target
