@@ -12,7 +12,6 @@ cp -r /tmp/Fynelium/var/* /var/
 
 #RPM-OSTree
    brh rebase unstable -y
-   ujust update
    rpm-ostree install --peer -q --allow-inactive --idempotent -y \
     tlp tlp-rdw \
     openssh-server \
@@ -35,12 +34,6 @@ cp -r /tmp/Fynelium/var/* /var/
    systemd-bsod \
    sshd
  #KernelArgs
-  rpm-ostree --peer -q kargs --append-if-missing="threadirqs \
-   sysrq_always_enabled=1 \
-   consoleblank=0 \
-   quiet \
-   loglevel=3 \
-   rhgb \
-   preempt=full"
-  rpm-ostree initramfs --peer --enable -q 
+  rpm-ostree --peer -q kargs --append-if-missing="threadirqs sysrq_always_enabled=1 consoleblank=0 quiet loglevel=3 preempt=full" --delete-if-present=rhgb
+  rpm-ostree --peer -q initramfs --enable
 exit
