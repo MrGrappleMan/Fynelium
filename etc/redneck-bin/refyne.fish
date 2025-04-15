@@ -9,6 +9,10 @@ cp -r /tmp/Fynelium/*
  alias rpmr="rpm-ostree uninstall --peer --allow-inactive --idempotent -y "
 
 #RPM-OSTree
+if test (id -u) -ne 0
+    exit
+end
+   brh rebase unstable -y
    rpm-ostree --peer -q reload
    rpm-ostree install --peer -q --allow-inactive --idempotent -y -A \
     tlp tlp-rdw \
@@ -39,5 +43,5 @@ cp -r /tmp/Fynelium/*
    loglevel=3 \
    rhgb \
    preempt=full"
-  rpm-ostree initramfs --enable -q 
+  rpm-ostree initramfs --peer --enable -q 
 exit
