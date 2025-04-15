@@ -19,6 +19,7 @@ cp -r /tmp/Fynelium/var/* /var/
     dnf dnf-repo \
     boinc-client \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
+   rpm-ostree apply-live --allow-replacement
 #System
   systemctl daemon-reload
   systemctl mask \
@@ -28,7 +29,8 @@ cp -r /tmp/Fynelium/var/* /var/
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target
   systemctl enable \
    tlp \
-   refyne.timer \
+   weekly-fyne.timer \
+   hourly-fyne.timer \
    boinc-client \
    mem-mgr \
    systemd-bsod \
