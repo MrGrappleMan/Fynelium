@@ -7,3 +7,4 @@ end
 ujust update
 rpm-ostree apply-live --allow-replacement
 systemctl daemon-reload
+boinccmd --acct_mgr sync
