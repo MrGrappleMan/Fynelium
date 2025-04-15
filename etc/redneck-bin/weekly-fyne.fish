@@ -41,7 +41,7 @@ flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.
     boinc-client \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
    rpm-ostree apply-live --allow-replacement
-#System
+#Systemd
   systemctl daemon-reload
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket \
@@ -57,7 +57,11 @@ flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.
    mem-mgr \
    systemd-bsod \
    sshd
- #KernelArgs
+
+#GSettings
+ gsettings set org.gnome.desktop.interface enable-animations false
+
+#Kernel
   rpm-ostree --peer -q kargs --append-if-missing="threadirqs sysrq_always_enabled=1 consoleblank=0 quiet loglevel=3 preempt=full" --delete-if-present=rhgb
   rpm-ostree --peer -q initramfs --enable
 exit
