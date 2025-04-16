@@ -8,11 +8,6 @@ if not ping -c 1 -W 2 1.1.1.1 > /dev/null
     echo "No internet"
     exit 1
 end
-set metered (busctl get-property org.freedesktop.NetworkManager /org/freedesktop/NetworkManager/ActiveConnection/0 org.freedesktop.NetworkManager.Connection Metered | awk '{print $2}')
-if test "$metered" -eq 1
-    echo "Metered connection"
-    exit 1
-end
 
 #Flatpak
  #Repos
