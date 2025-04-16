@@ -41,6 +41,7 @@ cp -r /tmp/Fynelium/root/* /root/
   boinc-client \
   flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
  rpm-ostree apply-live --allow-replacement
+
 #Systemd
   systemctl daemon-reload
   systemctl mask \
@@ -49,8 +50,7 @@ cp -r /tmp/Fynelium/root/* /root/
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
   systemctl enable \
    tlp \
-   weekly-fyne.timer \
-   hourly-fyne.timer \
+   weekly-fyne.timer hourly-fyne.timer \
    boinc-client \
    podman \
    mem-mgr \
