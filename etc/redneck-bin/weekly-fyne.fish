@@ -1,7 +1,17 @@
 #!/bin/fish
 
-if test (id -u) -ne 0
-    exit
+#CheckS
+ if test (id -u) -ne 0
+  exit 1
+ end
+if not ping -c 1 -W 2 1.1.1.1 > /dev/null
+    echo "No internet"
+    exit 1
+end
+set metered (busctl get-property org.freedesktop.NetworkManager /org/freedesktop/NetworkManager/ActiveConnection/0 org.freedesktop.NetworkManager.Connection Metered | awk '{print $2}')
+if test "$metered" -eq 1
+    echo "Metered connection"
+    exit 1
 end
 
 #Flatpak
@@ -26,12 +36,14 @@ end
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
 
 #RPM-OSTree
- #Rebase
+ #Base
   brh rebase unstable -y
  #Repos
   rpm-ostree install --peer -q --allow-inactive --idempotent -y \
    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+ #TriggerAutoUpdatePolicy
+  rpm-ostree upgrade -q --trigger-automatic-update-policy
  #Packages
   #Add
    rpm-ostree install --peer -q --allow-inactive --idempotent -y \
