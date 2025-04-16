@@ -34,6 +34,8 @@ cp -r /tmp/Fynelium/root/* /root/
 #RPM-OSTree
  brh rebase unstable -y
  rpm-ostree install --peer -q --allow-inactive --idempotent -y \
+  https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
+  https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm \
   tlp tlp-rdw \
   openssh-server \
   kernel-modules-extra \
