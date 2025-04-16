@@ -62,6 +62,13 @@ cp -r /tmp/Fynelium/root/* /root/
  gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
 
 #Kernel
-  rpm-ostree --peer -q kargs --append-if-missing="threadirqs sysrq_always_enabled=1 consoleblank=0 quiet loglevel=3 preempt=full" --delete-if-present=rhgb
-  rpm-ostree --peer -q initramfs --enable
+ rpm-ostree --peer -q kargs \
+  --append-if-missing=threadirqs \
+  --append-if-missing=sysrq_always_enabled=1 \
+  --append-if-missing=consoleblank=0 \
+  --append-if-missing=quiet \
+  --append-if-missing=loglevel=3 \
+  --append-if-missing=preempt=full \
+  --delete-if-present=rhgb
+ rpm-ostree --peer -q initramfs --enable
 exit
