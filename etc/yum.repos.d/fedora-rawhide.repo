@@ -1,5 +1,7 @@
-[rawhide-edge]
+[rawhide]
 name=Rawhide
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
 enabled=1
 type=rpm
+metadata_expire=1h
+skip_if_unavailable=True
