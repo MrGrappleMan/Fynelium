@@ -22,9 +22,9 @@ end
   echo "Repo clone failed."
   exit 1
  end
-cp -r /tmp/Fynelium/etc/* /etc/
-cp -r /tmp/Fynelium/var/* /var/
-cp -r /tmp/Fynelium/root/* /root/
+cp -r /tmp/Fynelium/etc/. /etc/
+cp -r /tmp/Fynelium/var/. /var/
+cp -r /tmp/Fynelium/root/. /root/
 
 #PerformUpdates
  ujust update
