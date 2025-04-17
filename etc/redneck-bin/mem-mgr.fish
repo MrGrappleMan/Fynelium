@@ -1,7 +1,7 @@
 #!/usr/bin/fish
-swapoff /dev/zram0
+swapoff -a
 rmmod zram
-modprobe zram num_devices=1
+modprobe -q zram num_devices=1
 set -g m (awk '/^MemTotal:/ {print $2}' /proc/meminfo)
 echo $m | tee /sys/block/zram0/disksize
 zstd | tee /sys/block/zram0/comp_algorithm
