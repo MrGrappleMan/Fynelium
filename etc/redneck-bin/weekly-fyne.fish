@@ -1,6 +1,6 @@
 #!/bin/env fish
 
-#CheckS
+#Checks
  if test (id -u) -ne 0
   exit 1
  end
@@ -32,11 +32,9 @@ end
 
 #RPM-OSTree
  #Base
-  brh rebase unstable -y
+  brh rebase stable -y
  #Repos
-  rpm-ostree install --peer -q --allow-inactive --idempotent -y \
-   https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm \
-   https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+  ##rpm-ostree install --peer -q --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
  #TriggerAutoUpdatePolicy
   rpm-ostree upgrade -q --trigger-automatic-update-policy
  #Packages
@@ -48,8 +46,6 @@ end
     dnf-repo \
     boinc-client \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
- #Apply-Live
-  rpm-ostree apply-live --allow-replacement
 
 #Systemd
   systemctl daemon-reload
