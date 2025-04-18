@@ -30,7 +30,6 @@
   flatpak remote-add --if-not-exists --system elementaryos https://flatpak.elementary.io/repo.flatpakrepo
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
-
 #RPM-OSTree
  #Base
   brh rebase stable -y
@@ -44,10 +43,9 @@
     tlp tlp-rdw \
     openssh-server \
     kernel-modules-extra \
-    dnf-repo \
+    cosmic-epoch cosmic-desktop sddm \
     boinc-client \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
-
 #Systemd
   systemctl daemon-reload
   systemctl mask \
@@ -64,19 +62,18 @@
    sshd
 
 #GSettings
-
 for user_path in (ls -d /home/*)
-    set username (basename $user_path)
-    set user_commands '
-        gsettings set org.gnome.desktop.interface clock-show-seconds false;
-gsettings set org.gnome.desktop.interface enable-animations false;
- gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat';
- gsettings set org.gnome.software allow-updates false;
- gsettings set org.gnome.desktop.peripherals.mouse speed 1.0;
-gsettings set org.gnome.shell.app-switcher current-workspace-only true;
-    '
-    runuser -l $username -c "fish -c '$user_commands'"
-    echo ""
+ set username (basename $user_path)
+ set user_commands '
+  gsettings set org.gnome.desktop.interface clock-show-seconds false;
+  gsettings set org.gnome.desktop.interface enable-animations false;
+  gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat';
+  gsettings set org.gnome.software allow-updates false;
+  gsettings set org.gnome.desktop.peripherals.mouse speed 1.0;
+  gsettings set org.gnome.shell.app-switcher current-workspace-only true;
+ '
+  runuser -l $username -c "fish -c '$user_commands'"
+  echo ""
 end
 
 #Kernel
