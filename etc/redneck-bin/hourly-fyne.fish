@@ -1,7 +1,8 @@
 #!/bin/env fish
 
-#CheckS
+#Checks
  if test (id -u) -ne 0
+  echo "Not root user"
   exit 1
  end
  if not ping -c 1 -W 2 1.1.1.1 > /dev/null
