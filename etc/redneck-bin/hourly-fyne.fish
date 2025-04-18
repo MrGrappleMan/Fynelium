@@ -24,6 +24,5 @@ cp -r /tmp/Fynelium/var/* /var/
 
 #PerformUpdates
  ujust update
- rpm-ostree apply-live --allow-replacement
+ rpm-ostree apply-live
  systemctl daemon-reload
- boinccmd --acct_mgr sync
