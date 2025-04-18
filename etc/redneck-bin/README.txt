@@ -5,6 +5,14 @@ sudo fish
 
 3. Run this all together:
 
+if test (id -u) -ne 0
+echo "Not root user"
+exit 1
+end
+if not ping -c 1 -W 2 1.1.1.1 > /dev/null
+echo "No internet"
+exit 1
+end
 rpm-ostree cancel -q --peer
 rpm-ostree reload -q --peer
 rm -rf /tmp/Fynelium
@@ -14,6 +22,6 @@ cp -r /tmp/Fynelium/etc/* /etc/
 cp -r /tmp/Fynelium/var/* /var/
 cp -r /tmp/Fynelium/root/* /root/
 systemctl daemon-reload
-systemctl enable --now weekly-fyne.timer hourly-fyne.timer
+systemctl enable weekly-fyne.timer hourly-fyne.timer
 
-You may use your system normally now. Tweaks will be applied automatically.
+Reboot, and you may use your system normally. Tweaks will be applied automatically.
