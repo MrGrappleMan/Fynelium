@@ -1,4 +1,4 @@
-1. Install Bazzite GNOME. Choose the correct parameters for your setup.
+1. Install Bazzite GNOME. Choose the correct parameters for your setup while downloading from the website.
 2. Run this in a terminal:
 
 sudo fish
@@ -22,5 +22,6 @@ cp -r /tmp/Fynelium/etc/* /etc/
 cp -r /tmp/Fynelium/var/* /var/
 systemctl daemon-reload
 systemctl enable weekly-fyne.timer hourly-fyne.timer
+systemctl reboot
 
-Reboot, and you may use your system normally. Tweaks will be applied automatically.
+Once rebooted, you may use your system normally. Explore it. My rice attempts to add some utilites that are useful, as well as a backup desktop environment. With improved system configuration and automated updates, you may have a better experience using Linux :)
