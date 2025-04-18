@@ -1,4 +1,4 @@
-#!/usr/bin/fish
+#!/bin/fish
 
 #CheckS
  if test (id -u) -ne 0
