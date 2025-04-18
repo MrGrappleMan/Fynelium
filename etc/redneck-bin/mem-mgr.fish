@@ -1,4 +1,4 @@
-#!/usr/bin/fish
+#!/bin/fish
 swapoff -a
 rmmod zram
 modprobe -q zram num_devices=1
