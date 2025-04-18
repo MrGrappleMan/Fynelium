@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/bin/env fish
 
 #CheckS
  if test (id -u) -ne 0
@@ -67,8 +67,19 @@ end
    sshd
 
 #GSettings
- gsettings set org.gnome.desktop.interface enable-animations false
- gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
+
+for user_path in (ls -d /home/*)
+    set username (basename $user_path)
+    set user_commands '
+        gsettings set org.gnome.desktop.interface clock-show-seconds true;
+gsettings set org.gnome.desktop.interface enable-animations false;
+ gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat';
+ gsettings set org.gnome.software allow-updates false;
+ gsettings set org.gnome.desktop.peripherals.mouse speed 1.0;
+    '
+    sudo -u $username fish -c $user_commands
+    echo ""
+end
 
 #Kernel
  rpm-ostree --peer -q kargs \
