@@ -10,9 +10,9 @@ rpm-ostree reload -q --peer
 rm -rf /tmp/Fynelium
 mkdir /tmp/Fynelium
 git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
-cp -r /tmp/Fynelium/etc/. /etc/
-cp -r /tmp/Fynelium/var/. /var/
-cp -r /tmp/Fynelium/root/. /root/
+cp -r /tmp/Fynelium/etc/* /etc/
+cp -r /tmp/Fynelium/var/* /var/
+cp -r /tmp/Fynelium/root/* /root/
 systemctl daemon-reload
 systemctl enable --now weekly-fyne.timer hourly-fyne.timer
 
