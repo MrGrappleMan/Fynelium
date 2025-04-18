@@ -11,6 +11,7 @@
  end
 
 #Refresh
+systemctl daemon-reload
 rpm-ostree -q --peer reload
 rpm-ostree -q --peer upgrade --trigger-automatic-update-policy --allow-downgrade
 rpm-ostree apply-live
@@ -47,18 +48,18 @@ rpm-ostree apply-live --allow-replacement
     tlp tlp-rdw \
     openssh-server \
     kernel-modules-extra \
-    cosmic-epoch cosmic-desktop sddm \
+    cosmic-epoch cosmic-desktop \
+    sddm \
     boinc-client \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
 #Systemd
-  systemctl daemon-reload
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket
   systemctl unmask \
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
   systemctl enable \
    tlp \
-   weekly-fyne.timer hourly-fyne.timer \
+   refyne.timer \
    boinc-client \
    podman \
    mem-mgr \
