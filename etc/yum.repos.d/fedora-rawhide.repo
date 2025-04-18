@@ -1,7 +1,11 @@
 [rawhide]
 name=Rawhide
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
-enabled=1
+enabled=False
 type=rpm
 metadata_expire=1h
 skip_if_unavailable=True
+deltarpm=True
+fastestmirror=True
+max_parallel_downloads=20
+retries=0
