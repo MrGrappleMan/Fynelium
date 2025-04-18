@@ -77,7 +77,7 @@ gsettings set org.gnome.desktop.interface enable-animations false;
  gsettings set org.gnome.software allow-updates false;
  gsettings set org.gnome.desktop.peripherals.mouse speed 1.0;
     '
-    sudo -u $username fish -c $user_commands
+    runuser -l $username -c "fish -c '$user_commands'"
     echo ""
 end
 
