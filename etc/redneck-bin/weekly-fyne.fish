@@ -10,6 +10,12 @@
     exit 1
  end
 
+#Refresh
+rpm-ostree -q --peer reload
+rpm-ostree -q --peer upgrade --trigger-automatic-update-policy --allow-downgrade
+rpm-ostree apply-live
+rpm-ostree apply-live --allow-replacement
+
 #Flatpak
  #Repos
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -35,8 +41,6 @@
   brh rebase stable -y
  #Repos
   ##rpm-ostree install --peer -q --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
- #TriggerAutoUpdatePolicy
-  rpm-ostree upgrade -q --trigger-automatic-update-policy
  #Packages
   #Add
    rpm-ostree install --peer -q --allow-inactive --idempotent -y \
