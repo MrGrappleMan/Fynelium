@@ -1,11 +1,11 @@
 [Unit]
-Description=Weekly system maintenance activator
+Description=System maintenance activator
 After=network-online.target
 ConditionPathExists=/run/ostree-booted
 Wants=network-online.target
 
 [Timer]
-OnCalendar=weekly
+OnCalendar=daily
 Persistent=true
 
 [Install]
