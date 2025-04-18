@@ -20,6 +20,6 @@ systemctl enable weekly-fyne.timer hourly-fyne.timer
 systemctl reboot
 
 Once rebooted, you may use your system normally. Explore it. My rice attempts to add some utilites that are useful, as well as a backup desktop environment. With improved system configuration and automated updates, you may have a better experience using Linux :)
-Do not dual boot, as KVM and other similar utilities allow you to have 0.9998:1 performance, or performance similar to native execution.
-I have added BOINC, which automatically uses your idle computing time and for benefitting science. This will not slow down your system, as tasks run in the background with the lowest priority, parallel to even when you are using your computer.
-I expect that you have read this paragraph carefully and I claim no responsibilty to any damage done to your system, but I can try helping!
+Do not dual boot, as KVM and other similar utilities allow you to have 0.9998:1 performance, or performance similar to native execution. If you do, ostree can have a seizure and cause GRUB to not allow you to boot to your desired other OS. Boot entires are replaced upon any ostree based change.
+I have added BOINC, which automatically uses your idle computing time and for benefitting science. This will not slow down your system, as tasks run in the background with the lowest priority. Your fans may ramp up...
+I expect that you have read this paragraph carefully and I claim no responsibilty(just like avoid all of my other ones ( ⩌ ︿ ⩌ )) to any damage done to your system, but I can try helping!
