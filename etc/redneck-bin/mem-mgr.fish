@@ -1,4 +1,9 @@
 #!/bin/env fish
+#Checks
+ if test (id -u) -ne 0
+  echo "Not root user"
+  exit 1
+ end
 swapoff -a
 rmmod zram
 modprobe -q zram num_devices=1
