@@ -41,12 +41,14 @@ rpm-ostree apply-live --allow-replacement
  #Base
   brh rebase stable -y
  #Repos
-  ##rpm-ostree install --peer -q --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+  ##rpm-ostree -q --peer install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
  #Packages
   #Add
-   rpm-ostree install --peer -q --allow-inactive --idempotent -y \
+   rpm-ostree -q --peer install --allow-inactive --idempotent -y \
     tlp tlp-rdw \
     openssh-server \
+    rust cargo clippy \
+    distcc distcc-server distcc-gnome \
     kernel-modules-extra \
     cosmic-epoch cosmic-desktop \
     sddm \
@@ -82,7 +84,7 @@ for user_path in (ls -d /home/*)
 end
 
 #Kernel
- rpm-ostree --peer -q kargs \
+ rpm-ostree -q --peer kargs \
   --append-if-missing=threadirqs \
   --append-if-missing=sysrq_always_enabled=1 \
   --append-if-missing=consoleblank=0 \
@@ -90,5 +92,5 @@ end
   --append-if-missing=loglevel=3 \
   --append-if-missing=preempt=full \
   --delete-if-present=rhgb
- rpm-ostree --peer -q initramfs --enable
+ rpm-ostree -q --peer initramfs --enable
 exit
