@@ -67,6 +67,8 @@ rpm-ostree apply-live --allow-replacement
    mem-mgr \
    systemd-bsod \
    sshd
+  timedatectl set-ntp true --no-ask-password
+  timedatectl set-local-rtc true --no-ask-password
 #GSettings
 for user_path in (ls -d /home/*)
  set username (basename $user_path)
