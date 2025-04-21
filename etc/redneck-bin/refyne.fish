@@ -46,7 +46,7 @@ rpm-ostree apply-live --allow-replacement
   #Add
    rpm-ostree -q --peer install --allow-inactive --idempotent -y \
     tlp tlp-rdw \
-    openssh-server \
+    openssh openssh-server mosh \
     rust cargo clippy \
     distcc distcc-server distcc-gnome \
     kernel-modules-extra \
@@ -67,7 +67,6 @@ rpm-ostree apply-live --allow-replacement
    mem-mgr \
    systemd-bsod \
    sshd
-
 #GSettings
 for user_path in (ls -d /home/*)
  set username (basename $user_path)
