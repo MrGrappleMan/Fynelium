@@ -1,5 +1,5 @@
 [Unit]
-Description=Set ZRAM and reserve ZSwap
+Description=Sets up ZRAM, even though many inbuilt alternatives exist...
 After=basic.target
 
 [Service]
