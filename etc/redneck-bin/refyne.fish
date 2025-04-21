@@ -53,7 +53,8 @@ rpm-ostree apply-live --allow-replacement
     cosmic-epoch cosmic-desktop cosmic-greeter \
     gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm \
     boinc-client \
-    flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
+    flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
+    podman
 #Systemd
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket
@@ -63,7 +64,6 @@ rpm-ostree apply-live --allow-replacement
    tlp \
    refyne.timer \
    boinc-client \
-   podman \
    mem-mgr \
    systemd-bsod \
    sshd
