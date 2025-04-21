@@ -50,8 +50,9 @@ rpm-ostree apply-live --allow-replacement
     rust cargo clippy \
     distcc distcc-server distcc-gnome \
     kernel-modules-extra \
-    cosmic-epoch cosmic-desktop \
-    sddm \
+    cosmic-epoch cosmic-desktop cosmic-greeter \
+    gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm \
+    plasma-desktop \
     boinc-client \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
 #Systemd
