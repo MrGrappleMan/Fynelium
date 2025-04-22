@@ -96,7 +96,7 @@ rpm-ostree apply-live --allow-replacement
    sshd
   timedatectl set-ntp true --no-ask-password
   timedatectl set-local-rtc true --no-ask-password
-#GSettings
+#Per-User
 for user_path in (ls -d /home/*)
  set username (basename $user_path)
  set user_commands '
@@ -106,6 +106,7 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.software allow-updates false;
   gsettings set org.gnome.desktop.peripherals.mouse speed 1.0;
   gsettings set org.gnome.shell.app-switcher current-workspace-only true;
+  usermod -a -G boinc $username
  '
   runuser -l $username -c "fish -c '$user_commands'"
   echo ""
