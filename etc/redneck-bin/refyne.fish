@@ -114,6 +114,7 @@ for user_path in (ls -d /home/*)
 end
 
 #Kernel
+ plymouth-set-default-theme details
  rpm-ostree -q --peer kargs \
   --append-if-missing=threadirqs \
   --append-if-missing=sysrq_always_enabled=1 \
