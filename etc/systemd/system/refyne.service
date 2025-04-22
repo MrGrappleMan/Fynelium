@@ -1,7 +1,6 @@
 [Unit]
 Description=System maintenance
 After=network-online.target
-ConditionPathExists=/run/ostree-booted
 Wants=network-online.target
 
 [Service]
