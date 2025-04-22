@@ -72,7 +72,7 @@ rpm-ostree apply-live --allow-replacement
     boinc-client boinc-client-static boinc-manager \
     dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
-    podman podman-docker podman-tui \
+    podman podman-docker podman-tui
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 #Systemd
