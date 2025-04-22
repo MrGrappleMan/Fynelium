@@ -72,16 +72,22 @@ rpm-ostree apply-live --allow-replacement
     boinc-client \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     podman
-#RefreshX2
-systemctl daemon-reload
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 #Systemd
+  systemctl daemon-reload
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket
   systemctl unmask \
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
-  systemctl enable \
+  systemctl disable \
+   tlp \
+   refyne.timer \
+   boinc-client \
+   mem-mgr \
+   systemd-bsod \
+   sshd
+  systemctl enable --now \
    tlp \
    refyne.timer \
    boinc-client \
