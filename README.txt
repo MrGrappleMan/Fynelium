@@ -1,7 +1,7 @@
 1. Install Bazzite GNOME. Choose the correct parameters for your setup while downloading from the website.
 2. This.
 
-sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/etc/redneck-bin/hourly-fyne.fish | sudo fish
+run0 curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/etc/redneck-bin/refyne.fish | run0 fish
 
 You may use your system normally. Explore it. My rice attempts to add some utilites and repos that are useful, as well as a backup desktop environment. With improved system configuration and automated updates, you may have a better experience using Linux :)
 Do not dual boot, use any type 1 hypervisor.
