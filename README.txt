@@ -1,5 +1,5 @@
 1. Install Bazzite GNOME. Choose the correct parameters for your setup while downloading from the website.
-2. This.
+2. Run this script. You may encounter errors, but that is normal behaviour at times.
 
 sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/etc/redneck-bin/refyne.fish | sudo fish
 
