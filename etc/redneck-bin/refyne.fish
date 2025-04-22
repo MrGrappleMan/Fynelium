@@ -131,5 +131,8 @@ end
  chmod 775 /var/lib/boinc/cc_config.xml
  chmod 775 /var/lib/boinc/acct_mgr_url.xml
  chmod 775 /var/lib/boinc/acct_mgr_login.xml
+ chmod 775 /etc/boinc-client/cc_config.xml
+ chmod 775 /etc/boinc-client/acct_mgr_url.xml
+ chmod 775 /etc/boinc-client/acct_mgr_login.xml
 
 exit
