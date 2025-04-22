@@ -122,4 +122,7 @@ end
   --append-if-missing=preempt=full \
   --delete-if-present=rhgb
  rpm-ostree -q --peer initramfs --enable
+#Other
+ usermod -a -G boinc boinc
+ usermod -a -G boinc root
 exit
