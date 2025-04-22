@@ -1,7 +1,6 @@
 [Unit]
 Description=Contributes idle computing time
-Wants=vboxdrv.service
-After=vboxdrv.service network-online.target
+After=basic.target
 
 [Service]
 Type=simple
