@@ -10,10 +10,9 @@
     exit 1
  end
 
-#Refresh
-systemctl daemon-reload
+#RefreshX1
 rpm-ostree -q --peer reload
-rpm-ostree -q --peer upgrade --trigger-automatic-update-policy --allow-downgrade
+rpm-ostree -q --peer upgrade --allow-downgrade
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 
@@ -37,6 +36,12 @@ rpm-ostree apply-live --allow-replacement
   flatpak remote-add --if-not-exists --system elementaryos https://flatpak.elementary.io/repo.flatpakrepo
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
+#RefreshX2
+systemctl daemon-reload
+rpm-ostree -q --peer reload
+rpm-ostree -q --peer upgrade --allow-downgrade
+rpm-ostree apply-live
+rpm-ostree apply-live --allow-replacement
 #RPM-OSTree
  #Base
   brh rebase unstable -y
@@ -55,6 +60,10 @@ rpm-ostree apply-live --allow-replacement
     boinc-client \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     podman
+#RefreshX2
+systemctl daemon-reload
+rpm-ostree apply-live
+rpm-ostree apply-live --allow-replacement
 #Systemd
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket
