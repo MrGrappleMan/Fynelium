@@ -11,3 +11,5 @@ Conflicts=shutdown.target
 RemainAfterExit=yes
 ExecStart=/usr/lib/systemd/systemd-bsod -c
 
+[Install]
+WantedBy=multi-user.target
