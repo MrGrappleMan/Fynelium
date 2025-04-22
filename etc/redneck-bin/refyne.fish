@@ -128,8 +128,8 @@ end
 #BOINC
  usermod -a -G boinc boinc
  usermod -a -G boinc root
- chmod 744 /var/lib/boinc/cc_config.xml
- chmod 744 /var/lib/boinc/acct_mgr_url.xml
- chmod 744 /var/lib/boinc/acct_mgr_login.xml
+ chmod 775 /var/lib/boinc/cc_config.xml
+ chmod 775 /var/lib/boinc/acct_mgr_url.xml
+ chmod 775 /var/lib/boinc/acct_mgr_login.xml
 
 exit
