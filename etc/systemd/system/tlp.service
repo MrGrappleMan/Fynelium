@@ -1,0 +1,16 @@
+[Unit]
+Description=Power Management
+After=basic.target
+Before=shutdown.target
+
+[Service]
+User=root
+Type=simple
+ExecStart=/bin/tlp init start
+IOSchedulingPriority=0
+Restart=always
+RestartSec=1
+Nice=-15
+
+[Install]
+WantedBy=multi-user.target
