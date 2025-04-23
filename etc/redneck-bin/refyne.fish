@@ -77,13 +77,20 @@ rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 #Systemd
   systemctl daemon-reload
-  systemctl restart \
-   systemd-resolved
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket
   systemctl unmask \
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
   systemctl disable \
+   systemd-resolved \
+   tlp \
+   refyne.timer \
+   boinc-client \
+   mem-mgr \
+   systemd-bsod \
+   sshd
+  systemctl restart \
+   systemd-resolved \
    tlp \
    refyne.timer \
    boinc-client \
@@ -91,6 +98,7 @@ rpm-ostree apply-live --allow-replacement
    systemd-bsod \
    sshd
   systemctl enable --now \
+   systemd-resolved \
    tlp \
    refyne.timer \
    boinc-client \
