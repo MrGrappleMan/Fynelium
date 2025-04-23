@@ -62,6 +62,7 @@ rpm-ostree apply-live --allow-replacement
  #Packages
   #Add
    rpm-ostree -q --peer install --allow-inactive --idempotent -y \
+    gh \
     tlp tlp-rdw \
     openssh openssh-server mosh \
     rust cargo clippy \
