@@ -77,7 +77,7 @@ rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 #Systemd
   systemctl daemon-reload
-  sudo systemctl restart \
+  systemctl restart \
    systemd-resolved
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket
