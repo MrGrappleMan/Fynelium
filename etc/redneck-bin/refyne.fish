@@ -97,6 +97,7 @@ rpm-ostree apply-live --allow-replacement
    sshd
   timedatectl set-ntp true --no-ask-password
   timedatectl set-local-rtc true --no-ask-password
+  systemd-resolve --flush-caches
 #Per-User
 for user_path in (ls -d /home/*)
  set username (basename $user_path)
