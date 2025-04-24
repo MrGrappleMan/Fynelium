@@ -1,4 +1,4 @@
-06#!/bin/env fish
+#!/bin/env fish
 
 #Checks
  if test (id -u) -ne 0
@@ -64,7 +64,7 @@ rpm-ostree apply-live --allow-replacement
    rpm-ostree -q --peer install --allow-inactive --idempotent -y \
     gh \
     tlp tlp-rdw \
-    nvidia-gpu-firmware libva-nvidia-driver envytools gwe mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers  mesa-vulkan-drivers \
+    nvidia-gpu-firmware libva-nvidia-driver envytools gwe mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers nvidia-patch \
     openssh openssh-server mosh \
     rust cargo clippy \
     distcc distcc-server distcc-gnome \
