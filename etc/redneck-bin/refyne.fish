@@ -71,7 +71,8 @@ rpm-ostree apply-live --allow-replacement
     kernel-modules-extra \
     cosmic-epoch cosmic-desktop cosmic-greeter \
     gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm \
-    htop btop neohtop \
+    btop neohtop \
+    ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration \
     boinc-client boinc-client-static boinc-manager \
     dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
