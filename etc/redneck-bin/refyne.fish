@@ -64,7 +64,7 @@ rpm-ostree apply-live --allow-replacement
    rpm-ostree -q --peer install --allow-inactive --idempotent -y \
     gh \
     tlp tlp-rdw \
-    nvidia-gpu-firmware libva-nvidia-driver envytools gwe mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers \ mesa-vulkan-drivers
+    nvidia-gpu-firmware libva-nvidia-driver envytools gwe mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers  mesa-vulkan-drivers \
     openssh openssh-server mosh \
     rust cargo clippy \
     distcc distcc-server distcc-gnome \
