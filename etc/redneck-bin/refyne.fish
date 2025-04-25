@@ -64,6 +64,7 @@ rpm-ostree apply-live --allow-replacement
    rpm-ostree -q --peer install --allow-inactive --idempotent -y \
     gh \
     tlp tlp-rdw \
+    ollama \
     nvidia-gpu-firmware libva-nvidia-driver envytools gwe mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers nvidia-patch \
     mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest \
     openssh openssh-server mosh \
