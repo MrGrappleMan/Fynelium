@@ -65,6 +65,7 @@ rpm-ostree apply-live --allow-replacement
     gh \
     tlp tlp-rdw \
     nvidia-gpu-firmware libva-nvidia-driver envytools gwe mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers nvidia-patch \
+    mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest \
     openssh openssh-server mosh \
     rust cargo clippy \
     distcc distcc-server distcc-gnome \
