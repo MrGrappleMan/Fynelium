@@ -1,0 +1,7 @@
+[boinc-nightly]
+name = BOINC nightly repo
+baseurl = https://boinc.berkeley.edu/dl/linux/nightly/fc40
+enabled = 1
+gpgcheck = 1
+gpgkey = https://boinc.berkeley.edu/dl/linux/nightly/fc40/boinc.gpg
+max_parallel_downloads = 2
