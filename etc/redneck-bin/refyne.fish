@@ -23,8 +23,8 @@ cp -r /tmp/Fynelium/var/* /var/
 ##cp -r /tmp/Fynelium/root/* /root/
 
 #RefreshX1
-rpm-ostree -q --peer reload
-rpm-ostree -q --peer upgrade --allow-downgrade
+rpm-ostree -q reload
+rpm-ostree -q upgrade --allow-downgrade
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 
@@ -59,7 +59,7 @@ rpm-ostree -q --peer upgrade --allow-downgrade
   rpm-ostree -q --peer install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
  #Packages
   #Add
-   rpm-ostree -q --peer install --allow-inactive --idempotent -y \
+   rpm-ostree -q install --allow-inactive --idempotent -y \
     gh \
     tlp tlp-rdw \
     ollama \
@@ -132,7 +132,7 @@ end
 
 #Kernel
  plymouth-set-default-theme details
- rpm-ostree -q --peer kargs \
+ rpm-ostree -q kargs \
   --append-if-missing=threadirqs \
   --append-if-missing=sysrq_always_enabled=1 \
   --append-if-missing=consoleblank=0 \
