@@ -52,20 +52,18 @@ rpm-ostree apply-live --allow-replacement
 systemctl daemon-reload
 rpm-ostree -q --peer reload
 rpm-ostree -q --peer upgrade --allow-downgrade
-rpm-ostree apply-live
-rpm-ostree apply-live --allow-replacement
 #RPM-OSTree
  #Base
   brh rebase unstable -y
  #Repos
-  ##rpm-ostree -q --peer install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+  rpm-ostree -q --peer install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
  #Packages
   #Add
    rpm-ostree -q --peer install --allow-inactive --idempotent -y \
     gh \
     tlp tlp-rdw \
     ollama \
-    nvidia-gpu-firmware libva-nvidia-driver envytools gwe mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers nvidia-patch \
+    nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch \
     mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest \
     openssh openssh-server mosh \
     rust cargo clippy \
@@ -80,6 +78,7 @@ rpm-ostree apply-live --allow-replacement
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     steam steam-devices extest-steam \
     podman podman-docker podman-tui
+##mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 #Systemd
@@ -104,7 +103,7 @@ rpm-ostree apply-live --allow-replacement
    mem-mgr \
    systemd-bsod \
    sshd
-  systemctl enable --now \
+  systemctl enable \
    systemd-resolved \
    tlp \
    refyne.timer \
