@@ -134,7 +134,7 @@ end
 
 #Kernel
  plymouth-set-default-theme details
- rpm-ostree -q kargs \
+ rpm-ostree kargs \
   --append-if-missing=threadirqs \
   --append-if-missing=sysrq_always_enabled=1 \
   --append-if-missing=consoleblank=0 \
@@ -142,7 +142,7 @@ end
   --append-if-missing=loglevel=3 \
   --append-if-missing=preempt=full \
   --delete-if-present=rhgb
- rpm-ostree -q --peer initramfs --enable
+ rpm-ostree initramfs --enable
 
 #BOINC
  usermod -a -G boinc boinc
