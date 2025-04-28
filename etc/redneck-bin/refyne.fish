@@ -23,8 +23,8 @@ cp -r /tmp/Fynelium/var/* /var/
 ##cp -r /tmp/Fynelium/root/* /root/
 
 #RefreshX1
-rpm-ostree -q reload
-rpm-ostree -q upgrade --allow-downgrade
+rpm-ostree reload
+rpm-ostree upgrade --allow-downgrade
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 
@@ -50,20 +50,21 @@ rpm-ostree apply-live --allow-replacement
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
 #RefreshX2
 systemctl daemon-reload
-rpm-ostree -q --peer reload
-rpm-ostree -q --peer upgrade --allow-downgrade
+rpm-ostree reload
+rpm-ostree upgrade --allow-downgrade
 #RPM-OSTree
  #Base
   brh rebase unstable -y
  #Repos
-  rpm-ostree -q --peer install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+  rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
  #Packages
   #Add
-   rpm-ostree -q install --allow-inactive --idempotent -y \
+   rpm-ostree install --allow-inactive --idempotent -y \
     gh \
     tlp tlp-rdw \
     ollama \
-    nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch \
+    pipewire \
+    ibus-wayland \
     mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest \
     openssh openssh-server mosh \
     rust cargo clippy \
@@ -79,6 +80,7 @@ rpm-ostree -q --peer upgrade --allow-downgrade
     steam steam-devices extest-steam \
     podman podman-docker podman-tui
 ##mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+##nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 #Systemd
