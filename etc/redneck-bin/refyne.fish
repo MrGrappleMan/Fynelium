@@ -59,26 +59,25 @@ rpm-ostree upgrade --allow-downgrade
   rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
  #Packages
   #Add
-   rpm-ostree install --allow-inactive --idempotent -y \
-    gh \
-    tlp tlp-rdw \
-    ollama \
-    pipewire \
-    mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest \
-    openssh openssh-server mosh \
-    rust cargo clippy \
-    distcc distcc-server distcc-gnome \
-    kernel-modules-extra \
-    cosmic-epoch cosmic-desktop cosmic-greeter \
-    gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm \
-    btop neohtop \
-    ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration \
-    boinc-client boinc-client-static boinc-manager \
-    dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
-    flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
-    steam steam-devices extest-steam \
-    podman podman-docker podman-tui
-##mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+   rpm-ostree install --allow-inactive --idempotent -y gh
+   rpm-ostree install --allow-inactive --idempotent -y tlp tlp-rdw
+   rpm-ostree install --allow-inactive --idempotent -y ollama
+   rpm-ostree install --allow-inactive --idempotent -y pipewire
+   rpm-ostree install --allow-inactive --idempotent -y mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
+   rpm-ostree install --allow-inactive --idempotent -y openssh openssh-server mosh
+   rpm-ostree install --allow-inactive --idempotent -y rust cargo clippy
+   rpm-ostree install --allow-inactive --idempotent -y distcc distcc-server distcc-gnome
+   rpm-ostree install --allow-inactive --idempotent -y kernel-modules-extra
+   rpm-ostree install --allow-inactive --idempotent -y cosmic-epoch cosmic-desktop cosmic-greeter
+   rpm-ostree install --allow-inactive --idempotent -y gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm
+   rpm-ostree install --allow-inactive --idempotent -y btop neohtop
+   rpm-ostree install --allow-inactive --idempotent -y ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
+   rpm-ostree install --allow-inactive --idempotent -y boinc-client boinc-client-static boinc-manager
+   rpm-ostree install --allow-inactive --idempotent -y dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux
+   rpm-ostree install --allow-inactive --idempotent -y flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
+   rpm-ostree install --allow-inactive --idempotent -y steam steam-devices extest-steam
+   rpm-ostree install --allow-inactive --idempotent -y podman podman-docker podman-tui
+##msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
 ##nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
