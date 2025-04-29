@@ -80,30 +80,27 @@
  #daemon-reload
   systemctl daemon-reload
  #mask 
-  systemctl mask \
-   systemd-rfkill systemd-rfkill.socket
+  systemctl mask systemd-rfkill systemd-rfkill.socket
  #unmask 
-  systemctl unmask \
-   hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
+  systemctl unmask hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
  #disable 
-  systemctl disable \
-   systemd-resolved \
-   tlp \
-   refyne.timer \
-   boinc-client \
-   mem-mgr \
-   systemd-bsod \
-   sshd
- #enable 
-  systemctl enable \
-   systemd-resolved \
-   tlp \
-   refyne.timer \
-   boinc-client \
-   mem-mgr \
-   systemd-bsod \
-   sshd
-  timedatectl set-ntp true --no-ask-password
+  systemctl disable systemd-resolved
+  systemctl disable tlp
+  systemctl disable refyne.timer
+  systemctl disable boinc-client
+  systemctl disable mem-mgr
+  systemctl disable systemd-bsod
+  systemctl disable sshd
+ #enable
+  systemctl enable systemd-resolved
+  systemctl enable tlp
+  systemctl enable refyne.timer
+  systemctl enable boinc-client
+  systemctl enable mem-mgr
+  systemctl enable systemd-bsod
+  systemctl enable sshd
+  
+timedatectl set-ntp true --no-ask-password
   timedatectl set-local-rtc true --no-ask-password
   systemd-resolve --flush-caches
 
