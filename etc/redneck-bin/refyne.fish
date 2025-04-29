@@ -1,6 +1,6 @@
 #!/bin/env fish
 
-#Checks
+#BasicChecks
  if test (id -u) -ne 0
   echo "Not root user"
   exit 1
@@ -18,9 +18,10 @@
   echo "Repo clone failed"
   exit 1
  end
-cp -r /tmp/Fynelium/etc/* /etc/
-cp -r /tmp/Fynelium/var/* /var/
-##cp -r /tmp/Fynelium/root/* /root/
+ cp -r /tmp/Fynelium/etc/* /etc/
+ cp -r /tmp/Fynelium/var/* /var/
+ ##cp -r /tmp/Fynelium/root/* /root/
+
 #flatpak
  #remote-add
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -41,6 +42,7 @@ cp -r /tmp/Fynelium/var/* /var/
   flatpak remote-add --if-not-exists --system elementaryos https://flatpak.elementary.io/repo.flatpakrepo
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
+
 #rpm-ostree
  #reload
   rpm-ostree reload
@@ -73,6 +75,7 @@ cp -r /tmp/Fynelium/var/* /var/
   #apply-live
    rpm-ostree apply-live
    rpm-ostree apply-live --allow-replacement
+
 #Systemd
  #daemon-reload
   systemctl daemon-reload
@@ -103,6 +106,7 @@ cp -r /tmp/Fynelium/var/* /var/
   timedatectl set-ntp true --no-ask-password
   timedatectl set-local-rtc true --no-ask-password
   systemd-resolve --flush-caches
+
 #Per-User
 for user_path in (ls -d /home/*)
  set username (basename $user_path)
