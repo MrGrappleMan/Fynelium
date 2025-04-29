@@ -64,7 +64,6 @@ rpm-ostree upgrade --allow-downgrade
     tlp tlp-rdw \
     ollama \
     pipewire \
-    ibus-wayland \
     mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest \
     openssh openssh-server mosh \
     rust cargo clippy \
