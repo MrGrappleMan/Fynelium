@@ -53,7 +53,7 @@ systemctl daemon-reload
 rpm-ostree reload
 rpm-ostree upgrade --allow-downgrade
 #rpm-ostree
- #Base
+ #rebase
   brh rebase unstable -y
  #install
    rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
@@ -77,8 +77,9 @@ rpm-ostree upgrade --allow-downgrade
    rpm-ostree install --allow-inactive --idempotent -y podman podman-docker podman-tui
    ##rpm-ostree install --allow-inactive --idempotent -y msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    ##rpm-ostree install --allow-inactive --idempotent -y nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
-rpm-ostree apply-live
-rpm-ostree apply-live --allow-replacement
+  #apply-live
+   rpm-ostree apply-live
+   rpm-ostree apply-live --allow-replacement
 #Systemd
   systemctl daemon-reload
   systemctl mask \
