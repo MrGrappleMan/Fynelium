@@ -21,11 +21,6 @@
 cp -r /tmp/Fynelium/etc/* /etc/
 cp -r /tmp/Fynelium/var/* /var/
 ##cp -r /tmp/Fynelium/root/* /root/
-
-#RefreshX1
-rpm-ostree reload
-rpm-ostree upgrade --allow-downgrade
-
 #flatpak
  #remote-add
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -79,11 +74,15 @@ rpm-ostree upgrade --allow-downgrade
    rpm-ostree apply-live
    rpm-ostree apply-live --allow-replacement
 #Systemd
+ #daemon-reload
   systemctl daemon-reload
+ #mask 
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket
+ #unmask 
   systemctl unmask \
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
+ #disable 
   systemctl disable \
    systemd-resolved \
    tlp \
@@ -92,14 +91,7 @@ rpm-ostree upgrade --allow-downgrade
    mem-mgr \
    systemd-bsod \
    sshd
-  systemctl restart \
-   systemd-resolved \
-   tlp \
-   refyne.timer \
-   boinc-client \
-   mem-mgr \
-   systemd-bsod \
-   sshd
+ #enable 
   systemctl enable \
    systemd-resolved \
    tlp \
