@@ -25,11 +25,9 @@ cp -r /tmp/Fynelium/var/* /var/
 #RefreshX1
 rpm-ostree reload
 rpm-ostree upgrade --allow-downgrade
-rpm-ostree apply-live
-rpm-ostree apply-live --allow-replacement
 
-#Flatpak
- #Repos
+#flatpak
+ #remote-add
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
   flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
   flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
@@ -48,11 +46,9 @@ rpm-ostree apply-live --allow-replacement
   flatpak remote-add --if-not-exists --system elementaryos https://flatpak.elementary.io/repo.flatpakrepo
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
-#RefreshX2
-systemctl daemon-reload
-rpm-ostree reload
-rpm-ostree upgrade --allow-downgrade
 #rpm-ostree
+ #reload
+  rpm-ostree reload
  #rebase
   brh rebase unstable -y
  #install
@@ -77,6 +73,8 @@ rpm-ostree upgrade --allow-downgrade
    rpm-ostree install --allow-inactive --idempotent -y podman podman-docker podman-tui
    ##rpm-ostree install --allow-inactive --idempotent -y msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    ##rpm-ostree install --allow-inactive --idempotent -y nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
+  #upgrade
+   rpm-ostree upgrade --allow-downgrade
   #apply-live
    rpm-ostree apply-live
    rpm-ostree apply-live --allow-replacement
