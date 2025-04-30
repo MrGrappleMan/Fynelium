@@ -70,8 +70,6 @@
    rpm-ostree install --allow-inactive --idempotent -y podman podman-docker podman-tui
    ##rpm-ostree install --allow-inactive --idempotent -y msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    ##rpm-ostree install --allow-inactive --idempotent -y nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
-  #upgrade
-   rpm-ostree upgrade --allow-downgrade
   #apply-live
    rpm-ostree apply-live
    rpm-ostree apply-live --allow-replacement
@@ -83,14 +81,6 @@
   systemctl mask systemd-rfkill systemd-rfkill.socket
  #unmask 
   systemctl unmask hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
- #disable 
-  systemctl disable systemd-resolved
-  systemctl disable tlp
-  systemctl disable refyne.timer
-  systemctl disable boinc-client
-  systemctl disable mem-mgr
-  systemctl disable systemd-bsod
-  systemctl disable sshd
  #enable
   systemctl enable systemd-resolved
   systemctl enable tlp
@@ -99,6 +89,8 @@
   systemctl enable mem-mgr
   systemctl enable systemd-bsod
   systemctl enable sshd
+  systemctl enable rpm-ostreed-automatic
+  systemctl enable rpm-ostreed-automatic.timer
   
 timedatectl set-ntp true --no-ask-password
   timedatectl set-local-rtc true --no-ask-password
