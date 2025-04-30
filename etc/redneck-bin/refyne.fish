@@ -48,8 +48,8 @@
   rpm-ostree reload
  #rebase
   set output (brh current 2>&1)
-if not string match -q ':unstable' $output
-    brh rebase unstable -y
+if not string match -q '*[:unstable]*' $output
+    brh rebase unstable
 end
  #install
    rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
