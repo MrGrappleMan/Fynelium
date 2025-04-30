@@ -6,7 +6,7 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 User=root
-ExecStart=/usr/bin/fish /etc/redneck-bin/refyne.fish
+ExecStart=/bin/env /bin/fish /etc/redneck-bin/refyne.fish
 
 [Install]
 WantedBy=multi-user.target
