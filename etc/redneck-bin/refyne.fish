@@ -1,4 +1,4 @@
-#!/bin/env fish
+#!/bin/env /bin/fish
 
 #BasicChecks
  if test (id -u) -ne 0
@@ -47,7 +47,10 @@
  #reload
   rpm-ostree reload
  #rebase
-  brh rebase unstable -y
+  set output (brh current 2>&1)
+if not string match -q ':unstable' $output
+    brh rebase unstable -y
+end
  #install
    rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
    rpm-ostree install --allow-inactive --idempotent -y gh
@@ -68,8 +71,8 @@
    rpm-ostree install --allow-inactive --idempotent -y flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
    rpm-ostree install --allow-inactive --idempotent -y steam steam-devices extest-steam
    rpm-ostree install --allow-inactive --idempotent -y podman podman-docker podman-tui
-   ##rpm-ostree install --allow-inactive --idempotent -y msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
-   ##rpm-ostree install --allow-inactive --idempotent -y nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
+   rpm-ostree install --allow-inactive --idempotent -y msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+   rpm-ostree install --allow-inactive --idempotent -y nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
   #apply-live
    rpm-ostree apply-live
    rpm-ostree apply-live --allow-replacement
