@@ -132,6 +132,9 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.software download-updates-notify false;
   gsettings set org.gnome.software show-ratings true;
   gsettings set org.gnome.software show-upgrade-prerelease true;
+  gsettings set org.gnome.software show-nonfree-ui true;
+  gsettings set org.gnome.software show-only-free-apps false;
+  gsettings set org.gnome.software show-only-verified-apps false;
   usermod -a -G boinc $username;
  '
   runuser -l $username -c "fish -c '$user_commands'"
