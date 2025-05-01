@@ -66,7 +66,7 @@ end
    rpm-ostree install --allow-inactive --idempotent -y gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm
    rpm-ostree install --allow-inactive --idempotent -y btop neohtop
    rpm-ostree install --allow-inactive --idempotent -y ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
-   rpm-ostree install --allow-inactive --idempotent -y boinc-client boinc-client-static boinc-manager
+   rpm-ostree install --allow-inactive --idempotent -y boinc-client boinc-client-static
    rpm-ostree install --allow-inactive --idempotent -y dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux
    rpm-ostree install --allow-inactive --idempotent -y flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
    rpm-ostree install --allow-inactive --idempotent -y steam steam-devices extest-steam
