@@ -126,6 +126,12 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.desktop.background picture-uri 'file:///dev/null';
   gsettings set org.gnome.desktop.background picture-uri-dark 'file:///dev/null';
   gsettings set org.gnome.desktop.background picture-opacity 0;
+  gsettings set org.gnome.desktop.interface cursor-blink false;
+  gsettings set org.gnome.software allow-updates true;
+  gsettings set org.gnome.software download-updates true;
+  gsettings set org.gnome.software download-updates-notify false;
+  gsettings set org.gnome.software show-ratings true;
+  gsettings set org.gnome.software show-upgrade-prerelease true;
   usermod -a -G boinc $username;
  '
   runuser -l $username -c "fish -c '$user_commands'"
