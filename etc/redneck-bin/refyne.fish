@@ -51,6 +51,8 @@
 if not string match -q '*:unstable*' $output
     brh rebase unstable -y
 end
+ #uninstall
+   rpm-ostree uninstall --allow-inactive --idempotent -y boinc-manager
  #install
    rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
    rpm-ostree install --allow-inactive --idempotent -y gh
