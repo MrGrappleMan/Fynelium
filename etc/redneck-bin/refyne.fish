@@ -118,6 +118,8 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.SessionManager logout-prompt true;
   gsettings set org.gnome.mutter dynamic-workspaces true;
   gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
+  gsettings set org.gnome.desktop.thumbnail-cache maximum-size 1536;
+  gsettings set org.gnome.desktop.thumbnail-cache maximum-age 7;
   usermod -a -G boinc $username;
  '
   runuser -l $username -c "fish -c '$user_commands'"
