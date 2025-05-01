@@ -111,7 +111,14 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.software allow-updates false;
   gsettings set org.gnome.desktop.peripherals.mouse speed 1.0;
   gsettings set org.gnome.shell.app-switcher current-workspace-only true;
-  usermod -a -G boinc $username
+  gsettings set org.gnome.system.location max-accuracy-level 'exact';
+  gsettings set org.gnome.system.location enabled true;
+  gsettings set org.gnome.login-screen allowed-failures 15;
+  gsettings set org.gnome.SessionManager auto-save-session true;
+  gsettings set org.gnome.SessionManager logout-prompt true;
+  gsettings set org.gnome.mutter dynamic-workspaces true;
+  gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
+  usermod -a -G boinc $username;
  '
   runuser -l $username -c "fish -c '$user_commands'"
   echo ""
