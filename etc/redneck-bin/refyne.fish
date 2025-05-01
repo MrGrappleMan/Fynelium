@@ -120,6 +120,12 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
   gsettings set org.gnome.desktop.thumbnail-cache maximum-size 1536;
   gsettings set org.gnome.desktop.thumbnail-cache maximum-age 7;
+  gsettings set org.gnome.desktop.background picture-options 'none';
+  gsettings set org.gnome.desktop.background primary-color '#000000';
+  gsettings set org.gnome.desktop.background secondary-color '#000000';
+  gsettings set org.gnome.desktop.background picture-uri 'file:///dev/null';
+  gsettings set org.gnome.desktop.background picture-uri-dark 'file:///dev/null';
+  gsettings set org.gnome.desktop.background picture-opacity 0;
   usermod -a -G boinc $username;
  '
   runuser -l $username -c "fish -c '$user_commands'"
