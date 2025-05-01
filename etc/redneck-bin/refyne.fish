@@ -135,6 +135,12 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.software show-nonfree-ui true;
   gsettings set org.gnome.software show-only-free-apps false;
   gsettings set org.gnome.software show-only-verified-apps false;
+  gsettings set org.gnome.software prompt-for-nonfree true;
+  gsettings set org.gnome.software refresh-when-metered false;
+  gsettings set org.gnome.desktop.interface clock-show-weekday true;
+  gsettings set org.gnome.desktop.interface clock-show-date true;
+  gsettings set org.gnome.desktop.lockdown disable-lock-screen false;
+  gsettings set org.gtk.gtk4.Settings.FileChooser clock-format '12h';
   usermod -a -G boinc $username;
  '
   runuser -l $username -c "fish -c '$user_commands'"
