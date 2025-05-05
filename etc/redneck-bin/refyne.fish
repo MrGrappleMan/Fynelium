@@ -55,24 +55,25 @@ end
    rpm-ostree uninstall --allow-inactive --idempotent -y boinc-manager
  #install
    rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
-   rpm-ostree install --allow-inactive --idempotent -y gh
-   rpm-ostree install --allow-inactive --idempotent -y tlp tlp-rdw
-   rpm-ostree install --allow-inactive --idempotent -y ollama
-   rpm-ostree install --allow-inactive --idempotent -y pipewire
+   rpm-ostree install --allow-inactive --idempotent -y gh \
+    tlp tlp-rdw \
+    ollama \
+    pipewire \
+    openssh openssh-server mosh \
+    rust cargo clippy \
+    distcc distcc-server \
+    kernel-modules-extra \
+    cosmic-epoch cosmic-desktop cosmic-greeter \
+    gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree \
+    lightdm \
+    btop neohtop \
+    ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration \
+    boinc-client boinc-client-static \
+    dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
+    flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
+    steam steam-devices extest-steam \
+    podman podman-docker
    rpm-ostree install --allow-inactive --idempotent -y mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
-   rpm-ostree install --allow-inactive --idempotent -y openssh openssh-server mosh
-   rpm-ostree install --allow-inactive --idempotent -y rust cargo clippy
-   rpm-ostree install --allow-inactive --idempotent -y distcc distcc-server distcc-gnome
-   rpm-ostree install --allow-inactive --idempotent -y kernel-modules-extra
-   rpm-ostree install --allow-inactive --idempotent -y cosmic-epoch cosmic-desktop cosmic-greeter
-   rpm-ostree install --allow-inactive --idempotent -y gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm
-   rpm-ostree install --allow-inactive --idempotent -y btop neohtop
-   rpm-ostree install --allow-inactive --idempotent -y ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
-   rpm-ostree install --allow-inactive --idempotent -y boinc-client boinc-client-static
-   rpm-ostree install --allow-inactive --idempotent -y dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux
-   rpm-ostree install --allow-inactive --idempotent -y flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn
-   rpm-ostree install --allow-inactive --idempotent -y steam steam-devices extest-steam
-   rpm-ostree install --allow-inactive --idempotent -y podman podman-docker podman-tui
    rpm-ostree install --allow-inactive --idempotent -y msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    rpm-ostree install --allow-inactive --idempotent -y nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
   #apply-live
@@ -82,21 +83,24 @@ end
 #Systemd
  #daemon-reload
   systemctl daemon-reload
- #mask 
+ #disable
+  systemctl disable gdm
+ #mask
   systemctl mask systemd-rfkill systemd-rfkill.socket
- #unmask 
+ #unmask
   systemctl unmask hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
  #enable
-  systemctl enable systemd-resolved
-  systemctl enable tlp
-  systemctl enable refyne.timer
-  systemctl enable boinc-client
-  systemctl enable mem-mgr
-  systemctl enable systemd-bsod
-  systemctl enable sshd
-  systemctl enable rpm-ostreed-automatic
-  systemctl enable rpm-ostreed-automatic.timer
-  
+  systemctl enable systemd-resolved \
+   tlp \
+   refyne.timer \
+   boinc-client \
+   mem-mgr \
+   systemd-bsod \
+   sshd \
+   rpm-ostreed-automatic \
+   rpm-ostreed-automatic.timer \
+   lightdm
+
 timedatectl set-ntp true --no-ask-password
   timedatectl set-local-rtc true --no-ask-password
   systemd-resolve --flush-caches
