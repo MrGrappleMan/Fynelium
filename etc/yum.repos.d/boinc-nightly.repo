@@ -4,7 +4,6 @@ baseurl=https://boinc.berkeley.edu/dl/linux/nightly/fc40
 enabled=1
 gpgcheck=1
 gpgkey=https://boinc.berkeley.edu/dl/linux/nightly/fc40/boinc.gpg
-metadata_expire=2d
 skip_if_unavailable=True
 deltarpm=True
 fastestmirror=True
