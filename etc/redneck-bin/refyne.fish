@@ -156,6 +156,8 @@ end
   --append-if-missing=profile \
   --append-if-missing=loglevel=3 \
   --append-if-missing=preempt=full \
+  --append-if-missing=zswap.enabled=1 \
+  --append-if-missing=zswap.zpool=
   --delete-if-present=rhgb
  rpm-ostree initramfs --enable
 
