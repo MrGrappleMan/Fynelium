@@ -83,12 +83,10 @@ end
 #Systemd
  #daemon-reload
   systemctl daemon-reload
- #disable
-  systemctl disable gdm
  #mask
   systemctl mask systemd-rfkill systemd-rfkill.socket
  #unmask
-  systemctl unmask hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
+  systemctl unmask gdm hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
  #enable
   systemctl enable systemd-resolved \
    tlp \
@@ -99,7 +97,7 @@ end
    sshd \
    rpm-ostreed-automatic \
    rpm-ostreed-automatic.timer \
-   lightdm
+   gdm
 
 timedatectl set-ntp true --no-ask-password
   timedatectl set-local-rtc true --no-ask-password
