@@ -64,8 +64,7 @@ end
     distcc distcc-server \
     kernel-modules-extra \
     cosmic-epoch cosmic-desktop cosmic-greeter \
-    gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree \
-    lightdm \
+    gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm \
     btop neohtop \
     boinc-client boinc-client-static \
     dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
@@ -100,8 +99,8 @@ end
    gdm
 
 timedatectl set-ntp true --no-ask-password
-  timedatectl set-local-rtc true --no-ask-password
-  systemd-resolve --flush-caches
+timedatectl set-local-rtc true --no-ask-password
+systemd-resolve --flush-caches
 
 #Per-User
 for user_path in (ls -d /home/*)
@@ -142,8 +141,6 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.desktop.interface clock-show-weekday true;
   gsettings set org.gnome.desktop.interface clock-show-date true;
   gsettings set org.gnome.desktop.lockdown disable-lock-screen false;
-  gsettings set org.gtk.gtk4.Settings.FileChooser clock-format '12h';
-  usermod -a -G boinc $username;
  '
   runuser -l $username -c "fish -c '$user_commands'"
   echo ""
