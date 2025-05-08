@@ -141,6 +141,18 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.desktop.interface clock-show-weekday true;
   gsettings set org.gnome.desktop.interface clock-show-date true;
   gsettings set org.gnome.desktop.lockdown disable-lock-screen false;
+  gsettings set org.gnome.login-screen fallback-logo '';
+  gsettings set org.gnome.login-screen logo '';
+  gsettings set org.gnome.system.location enabled true;
+  gsettings set org.gnome.system.location max-accuracy-level 'exact';
+  gsettings set org.gnome.online-accounts whitelisted-providers ['all'];
+  gsettings set org.gnome.mutter center-new-windows true;
+  gsettings set org.gnome.mutter auto-maximize true;
+  gsettings set org.gnome.desktop.interface cursor-blink false;
+  gsettings set org.gnome.desktop.interface font-hinting 'slight';
+  gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale';
+  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark';
+  gsettings set org.gnome.desktop.interface locate-pointer true;
  '
   runuser -l $username -c "fish -c '$user_commands'"
   echo ""
