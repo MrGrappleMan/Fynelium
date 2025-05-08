@@ -125,8 +125,8 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.desktop.background picture-options 'none';
   gsettings set org.gnome.desktop.background primary-color '#000000';
   gsettings set org.gnome.desktop.background secondary-color '#000000';
-  gsettings set org.gnome.desktop.background picture-uri 'file:///dev/null';
-  gsettings set org.gnome.desktop.background picture-uri-dark 'file:///dev/null';
+  gsettings set org.gnome.desktop.background picture-uri '';
+  gsettings set org.gnome.desktop.background picture-uri-dark '';
   gsettings set org.gnome.desktop.background picture-opacity 0;
   gsettings set org.gnome.desktop.interface cursor-blink false;
   gsettings set org.gnome.software allow-updates true;
@@ -153,7 +153,7 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.desktop.interface font-hinting 'slight';
   gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale';
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark';
-  gsettings set org.gnome.desktop.interface locate-pointer true;
+  gsettings set org.gnome.desktop.interface locate-pointer false;
  '
   runuser -l $username -c "fish -c '$user_commands'"
   echo ""
