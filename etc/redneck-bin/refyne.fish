@@ -55,7 +55,7 @@ end
    rpm-ostree uninstall --allow-inactive --idempotent -y boinc-manager lightdm
  #install
    rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
-   rpm-ostree install --allow-inactive --idempotent -y gh \
+   rpm-ostree install --allow-inactive --idempotent -y gh git \
     tlp tlp-rdw \
     ollama \
     pipewire \
