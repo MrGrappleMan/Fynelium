@@ -56,6 +56,7 @@ end
  #install
    rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
    rpm-ostree install --allow-inactive --idempotent -y gh git \
+    rust-zram-generator-devel \
     tlp tlp-rdw \
     ollama \
     pipewire \
@@ -70,7 +71,8 @@ end
     dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     steam steam-devices extest-steam \
-    podman podman-docker
+    podman podman-docker \
+    vavoom vavoom-engine
    rpm-ostree install --allow-inactive --idempotent -y ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
    rpm-ostree install --allow-inactive --idempotent -y mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
    rpm-ostree install --allow-inactive --idempotent -y msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
