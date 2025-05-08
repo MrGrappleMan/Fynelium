@@ -1,0 +1,15 @@
+[copr:copr.fedorainfracloud.org:elxreno:preload]
+name=C elxreno preload
+baseurl=https://download.copr.fedorainfracloud.org/results/elxreno/preload/fedora-rawhide-$basearch/
+gpgkey=https://download.copr.fedorainfracloud.org/results/elxreno/preload/pubkey.gpg
+type=rpm-md
+gpgcheck=1
+repo_gpgcheck=0
+enabled=0
+enabled_metadata=1
+metadata_expire=2d
+skip_if_unavailable=True
+deltarpm=True
+fastestmirror=True
+max_parallel_downloads=20
+retries=0
