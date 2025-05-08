@@ -154,6 +154,7 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale';
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark';
   gsettings set org.gnome.desktop.interface locate-pointer false;
+  gsettings set org.gnome.desktop.a11y.interface high-contrast false;
  '
   runuser -l $username -c "fish -c '$user_commands'"
   echo ""
