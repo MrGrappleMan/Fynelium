@@ -117,6 +117,7 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.login-screen allowed-failures 15;
   gsettings set org.gnome.SessionManager auto-save-session true;
   gsettings set org.gnome.SessionManager logout-prompt true;
+  gsettings set org.gnome.SessionManager auto-save-session-one-shot true;
   gsettings set org.gnome.mutter dynamic-workspaces true;
   gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
   gsettings set org.gnome.desktop.thumbnail-cache maximum-size 1536;
