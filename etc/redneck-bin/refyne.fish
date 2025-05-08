@@ -52,7 +52,7 @@ if not string match -q '*:unstable*' $output
     brh rebase unstable -y
 end
  #uninstall
-   rpm-ostree uninstall --allow-inactive --idempotent -y boinc-manager
+   rpm-ostree uninstall --allow-inactive --idempotent -y boinc-manager lightdm
  #install
    rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
    rpm-ostree install --allow-inactive --idempotent -y gh \
@@ -62,10 +62,10 @@ end
     openssh openssh-server mosh \
     rust cargo clippy \
     distcc distcc-server \
-    kernel-modules-extra \
+    kernel-modules-extra uutils-coreutils util-linux \
     cosmic-epoch cosmic-desktop cosmic-greeter \
     gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm \
-    btop neohtop \
+    btop neohtop fastfetch \
     boinc-client boinc-client-static \
     dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
@@ -93,9 +93,9 @@ end
    boinc-client \
    mem-mgr \
    systemd-bsod \
-   sshd \
    rpm-ostreed-automatic \
    rpm-ostreed-automatic.timer \
+   sshd \
    gdm
 
 timedatectl set-ntp true --no-ask-password
@@ -168,5 +168,8 @@ end
  chmod 755 /etc/boinc-client/cc_config.xml
  chmod 755 /etc/boinc-client/acct_mgr_url.xml
  chmod 755 /etc/boinc-client/acct_mgr_login.xml
+
+#Other
+ chsh -s /usr/local/bin/fish
 
 exit
