@@ -85,7 +85,7 @@ end
  #daemon-reload
   systemctl daemon-reload
  #mask
-  systemctl mask systemd-rfkill systemd-rfkill.socket
+  systemctl mask systemd-rfkill systemd-rfkill.socket tracker-store.service
  #unmask
   systemctl unmask gdm hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
  #enable
@@ -157,6 +157,18 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark';
   gsettings set org.gnome.desktop.interface locate-pointer false;
   gsettings set org.gnome.desktop.a11y.interface high-contrast false;
+  gsettings set org.freedesktop.Tracker3.Miner.Files crawling-interval -2;
+  gsettings set org.freedesktop.Tracker3.Miner.Files enable-monitors false;
+  gsettings set org.freedesktop.Tracker3.Miner.Files ignored-directories ['all'];
+  gsettings set org.freedesktop.Tracker3.Miner.Files ignored-directories-with-content ['all'];
+  gsettings set org.freedesktop.Tracker3.Miner.Files ignored-files ['all'];
+  gsettings set org.freedesktop.Tracker3.Miner.Files index-on-battery false;
+  gsettings set org.freedesktop.Tracker3.Miner.Files index-on-battery-first-time false;
+  gsettings set org.freedesktop.Tracker3.Miner.Files index-removable-devices false;
+  gsettings set org.freedesktop.Tracker3.Miner.Files index-recursive-directories [];
+  gsettings set org.freedesktop.Tracker3.Miner.Files index-single-directories [];
+  gsettings set org.freedesktop.Tracker3.Miner.Files initial-sleep 1000;
+  gsettings set org.freedesktop.Tracker3.Miner.Files throttle 20;
  '
   runuser -l $username -c "fish -c '$user_commands'"
   echo ""
