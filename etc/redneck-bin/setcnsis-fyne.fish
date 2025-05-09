@@ -42,7 +42,8 @@
   flatpak remote-add --if-not-exists --system elementaryos https://flatpak.elementary.io/repo.flatpakrepo
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
-
+ #install
+  flatpak install flathub-beta com.visualstudio.code.insiders
 #rpm-ostree
  #rebase
   set output (brh current 2>&1)
@@ -112,7 +113,7 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.SessionManager auto-save-session true;
   gsettings set org.gnome.SessionManager logout-prompt true;
   gsettings set org.gnome.SessionManager auto-save-session-one-shot true;
-  gsettings set org.gnome.mutter dynamic-workspaces false;
+  gsettings set org.gnome.mutter dynamic-workspaces true;
   gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
   gsettings set org.gnome.desktop.thumbnail-cache maximum-size 512;
   gsettings set org.gnome.desktop.thumbnail-cache maximum-age 7;
