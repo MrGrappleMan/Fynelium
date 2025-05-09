@@ -70,7 +70,7 @@ end
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     steam steam-devices extest-steam \
     podman podman-docker \
-    vavoom vavoom-engine
+    chocolate-doom
    rpm-ostree install --allow-inactive --idempotent -y ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
    rpm-ostree install --allow-inactive --idempotent -y mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
    rpm-ostree install --allow-inactive --idempotent -y msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
