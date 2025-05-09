@@ -1,7 +1,5 @@
 [Unit]
-Description=System maintenance
-After=network-online.target
-Wants=network-online.target
+Description=Maintains system settings to be constant or ensures that they stay fixed.
 
 [Service]
 Type=oneshot
