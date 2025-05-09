@@ -112,9 +112,9 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.SessionManager auto-save-session true;
   gsettings set org.gnome.SessionManager logout-prompt true;
   gsettings set org.gnome.SessionManager auto-save-session-one-shot true;
-  gsettings set org.gnome.mutter dynamic-workspaces true;
+  gsettings set org.gnome.mutter dynamic-workspaces false;
   gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
-  gsettings set org.gnome.desktop.thumbnail-cache maximum-size 1536;
+  gsettings set org.gnome.desktop.thumbnail-cache maximum-size 512;
   gsettings set org.gnome.desktop.thumbnail-cache maximum-age 7;
   gsettings set org.gnome.desktop.background picture-options 'none';
   gsettings set org.gnome.desktop.background primary-color '#000000';
@@ -161,6 +161,20 @@ for user_path in (ls -d /home/*)
   gsettings set org.freedesktop.Tracker3.Miner.Files index-single-directories [];
   gsettings set org.freedesktop.Tracker3.Miner.Files initial-sleep 1000;
   gsettings set org.freedesktop.Tracker3.Miner.Files throttle 20;
+  org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'hibernate';
+  org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'blank';
+  org.gnome.settings-daemon.plugins.power power-saver-profile-on-low-battery true;
+  org.gnome.settings-daemon.plugins.power idle-dim true;
+  org.gnome.desktop.session idle-delay 60;
+  org.gnome.desktop.screensaver idle-activation-enabled false;
+  org.gnome.desktop.screensaver lock-delay 300;
+  org.gnome.desktop.peripherals.keyboard remember-numlock-state true;
+  org.gnome.desktop.break-reminders.eyesight fade-screen true;
+  org.gnome.desktop.break-reminders.eyesight notify true;
+  org.gnome.desktop.break-reminders.eyesight interval-seconds 1200;
+  org.gnome.desktop.break-reminders.eyesight countdown true;
+  org.gnome.desktop.break-reminders.eyesight delay-seconds 10;
+  org.gnome.desktop.break-reminders.eyesight duration-seconds 20;
  '
   runuser -l $username -c "fish -c '$user_commands'"
   echo ""
