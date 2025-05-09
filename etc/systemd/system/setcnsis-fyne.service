@@ -4,7 +4,7 @@ Description=Maintains system settings to be constant or ensures that they stay f
 [Service]
 Type=oneshot
 User=root
-ExecStart=/bin/env /bin/fish /etc/redneck-bin/setup-consistency.fish
+ExecStart=/bin/env /bin/fish /etc/redneck-bin/setcnsis-fyne.fish
 
 [Install]
 WantedBy=multi-user.target
