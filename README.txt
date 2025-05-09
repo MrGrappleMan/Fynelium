@@ -1,9 +1,12 @@
-1. Install Bazzite GNOME. Choose the correct parameters for your setup while downloading from the website.
-2. Run this script. You may encounter errors, but that is normal behaviour at times.
+1. Install Bazzite GNOME. Choose the correct parameters for your setup while downloading from the website. Ensure that you are using a compatible GPU.
+2. Run this script. You may encounter errors, which is normal dependant on the type. Most of them are usually expected.
 
-sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/etc/redneck-bin/refyne.fish | sudo fish
+sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/etc/redneck-bin/setcnsis-fyne.fish | sudo fish
 
-You may use your system normally. Explore it. My rice attempts to add some utilites and repos that are useful, as well as a backup desktop environment. With improved system configuration and automated updates, you may have a better experience using Linux :)
-Do not dual boot, use any type 1 hypervisor.
-I have added BOINC, which automatically uses your idle computing time and for benefitting science. This will not slow down your system, as tasks run in the background with the lowest priority. Your fans may ramp up...
-I expect that you have read this paragraph carefully and I claim no responsibilty(just like avoid some of my other ones ( ⩌ ︿ ⩌ )) to any damage done to your system, but I can try helping!
+You may use your system normally. Explore it. My rice attempts to greatly enhance your system experience.
+Do not dual boot, use any type 1 hypervisor. I am still very skeptical about it, so stick to Bottles or BoxBuddy.
+I have added BOINC, which automatically uses your idle computing time and for benefitting science. This will slow down your system by some magnitude, so before you run intensive tasks, ensure that you run:
+
+run0 systemctl stop boinc-client
+
+I expect that you have read this paragraph carefully and I claim no responsibilty to any damage done to your system, but I can try helping!
