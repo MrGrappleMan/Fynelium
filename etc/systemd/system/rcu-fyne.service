@@ -1,1 +1,10 @@
-Description=Refresh, clean and update your system
+[Unit]
+Description=Refresh, clean and update your system every 3 hours and on startup
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/bin/env /bin/fish /etc/redneck-bin/rcu-fyne.fish
+
+[Install]
+WantedBy=multi-user.target
