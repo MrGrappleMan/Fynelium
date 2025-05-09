@@ -8,6 +8,7 @@ rpm-ostree -q --peer upgrade --bypass-driver --allow-downgrade --trigger-automat
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 
+systemctl daemon-reload
 
 timedatectl set-ntp true --no-ask-password
 systemd-resolve --flush-caches
