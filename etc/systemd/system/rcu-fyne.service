@@ -1,5 +1,7 @@
 [Unit]
 Description=Refresh, clean and update your system every 3 hours and on startup
+After=network-online.target
+ConditionPathExists=/run/ostree-booted
 
 [Service]
 Type=oneshot
