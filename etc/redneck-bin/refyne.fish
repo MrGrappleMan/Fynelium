@@ -56,7 +56,7 @@ end
  #install
    rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
    rpm-ostree install --allow-inactive --idempotent -y gh git \
-    rust-zram-generator-devel \
+    rust-zram-generator-devel preload \
     tlp tlp-rdw \
     ollama \
     pipewire \
