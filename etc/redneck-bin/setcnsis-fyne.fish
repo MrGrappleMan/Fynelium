@@ -93,6 +93,7 @@ end
    rpm-ostreed-automatic \
    rpm-ostreed-automatic.timer \
    sshd \
+   preload \
    gdm
 
 #Per-User
