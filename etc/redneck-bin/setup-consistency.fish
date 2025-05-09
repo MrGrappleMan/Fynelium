@@ -77,9 +77,6 @@ end
    rpm-ostree install --allow-inactive --idempotent -y mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
    rpm-ostree install --allow-inactive --idempotent -y msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    rpm-ostree install --allow-inactive --idempotent -y nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
-  #apply-live
-   rpm-ostree apply-live
-   rpm-ostree apply-live --allow-replacement
 
 #Systemd
  #daemon-reload
@@ -99,10 +96,6 @@ end
    rpm-ostreed-automatic.timer \
    sshd \
    gdm
-
-timedatectl set-ntp true --no-ask-password
-timedatectl set-local-rtc true --no-ask-password
-systemd-resolve --flush-caches
 
 #Per-User
 for user_path in (ls -d /home/*)
@@ -175,7 +168,8 @@ for user_path in (ls -d /home/*)
 end
 
 #Kernel
- plymouth-set-default-theme details
+ rpm-ostree initramfs --enable
+ plymouth-set-default-theme spinner
  rpm-ostree kargs \
   --append-if-missing=threadirqs \
   --append-if-missing=sysrq_always_enabled=1 \
@@ -186,8 +180,7 @@ end
   --append-if-missing=preempt=full \
   --append-if-missing=zswap.enabled=1 \
   --append-if-missing=zswap.zpool=z3fold \
-  --delete-if-present=rhgb
- rpm-ostree initramfs --enable
+  --append-if-missing=rhgb
 
 #BOINC
  chmod 755 /var/lib/boinc/cc_config.xml
