@@ -44,8 +44,6 @@
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
 
 #rpm-ostree
- #reload
-  rpm-ostree reload
  #rebase
   set output (brh current 2>&1)
 if not string match -q '*:unstable*' $output
@@ -79,8 +77,6 @@ end
    rpm-ostree install --allow-inactive --idempotent -y nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 
 #Systemd
- #daemon-reload
-  systemctl daemon-reload
  #mask
   systemctl mask systemd-rfkill systemd-rfkill.socket tracker-store.service
  #unmask
