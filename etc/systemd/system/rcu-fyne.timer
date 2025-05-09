@@ -1,0 +1,12 @@
+[Unit]
+Description=Activates RCU for optimal system status
+ConditionPathExists=/run/ostree-booted
+After=network-online.target
+Wants=network-online.target
+
+[Timer]
+OnUnitInactiveSec=3h
+Persistent=true
+
+[Install]
+WantedBy=timers.target
