@@ -78,13 +78,15 @@ end
 
 #Systemd
  #mask
-  systemctl mask systemd-rfkill systemd-rfkill.socket tracker-store.service
+  systemctl mask systemd-rfkill systemd-rfkill.socket tracker-store.service rpm-ostree-automatic rpm-ostree-automatic.timer
  #unmask
   systemctl unmask gdm hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
+ #disable
+  systemctl disable rpm-ostree-automatic rpm-ostree-automatic.timer
  #enable
   systemctl enable systemd-resolved \
    tlp \
-   refyne.timer \
+   rcu-fyne rcu-fyne.timer \
    boinc-client \
    mem-mgr \
    systemd-bsod \
