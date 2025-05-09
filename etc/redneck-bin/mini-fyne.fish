@@ -1,6 +1,6 @@
 #!/bin/env /bin/fish
 
-nohup flatpak update --system -y --noninteractive --force-remove
+nohup flatpak update --system -y --noninteractive --force-remove &
 
 rpm-ostree -q --peer reload
 rpm-ostree -q --peer cleanup -b
