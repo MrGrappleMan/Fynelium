@@ -7,3 +7,7 @@ rpm-ostree -q --peer cleanup -b
 rpm-ostree -q --peer upgrade --bypass-driver --allow-downgrade --trigger-automatic-update-policy
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
+
+
+timedatectl set-ntp true --no-ask-password
+systemd-resolve --flush-caches
