@@ -45,6 +45,7 @@
  #install
   flatpak install -y --noninteractive --system flathub-beta com.visualstudio.code.insiders
   flatpak install -y --noninteractive --system flathub io.neovim.nvim
+  flatpak install -y --noninteractive --system flathub io.github.celluloid_player.Celluloid
 #rpm-ostree
  #rebase
   set output (brh current 2>&1)
