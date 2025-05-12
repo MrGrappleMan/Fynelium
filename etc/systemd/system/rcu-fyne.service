@@ -8,6 +8,9 @@ ConditionPathExists=/run/ostree-booted
 Type=oneshot
 User=root
 ExecStart=/bin/env /bin/fish /etc/redneck-bin/rcu-fyne.fish
+Nice=19
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
 
 [Install]
 WantedBy=multi-user.target
