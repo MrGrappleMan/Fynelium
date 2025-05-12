@@ -165,7 +165,7 @@ for user_path in (ls -d /home/*)
   gsettings set org.freedesktop.Tracker3.Miner.Files initial-sleep 1000;
   gsettings set org.freedesktop.Tracker3.Miner.Files throttle 20;
   gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'hibernate';
-  gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'blank';
+  gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing';
   gsettings set org.gnome.settings-daemon.plugins.power power-saver-profile-on-low-battery true;
   gsettings set org.gnome.settings-daemon.plugins.power idle-dim true;
   gsettings set org.gnome.desktop.session idle-delay 60;
