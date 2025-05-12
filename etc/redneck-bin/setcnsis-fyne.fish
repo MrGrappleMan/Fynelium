@@ -53,10 +53,10 @@ if not string match -q '*:unstable*' $output
     brh rebase unstable -y
 end
  #uninstall
-   rpm-ostree uninstall --allow-inactive --idempotent -y boinc-manager lightdm
+   rpm-ostree uninstall --allow-inactive --idempotent -y -q --peer boinc-manager lightdm
  #install
-   rpm-ostree install --allow-inactive --idempotent -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
-   rpm-ostree install --allow-inactive --idempotent -y gh git \
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer gh git \
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
     ollama \
@@ -74,10 +74,10 @@ end
     steam steam-devices extest-steam \
     podman podman-docker \
     chocolate-doom
-   rpm-ostree install --allow-inactive --idempotent -y ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
-   rpm-ostree install --allow-inactive --idempotent -y mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
-   rpm-ostree install --allow-inactive --idempotent -y msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
-   rpm-ostree install --allow-inactive --idempotent -y nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer msa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 
 #Systemd
  #mask
