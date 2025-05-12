@@ -61,7 +61,7 @@ end
     tlp tlp-rdw \
     ollama \
     pipewire \
-    openssh openssh-server mosh \
+    openssh openssh-server mosh freerdp freerdp-server gnome-remote-desktop \
     rust cargo clippy \
     distcc distcc-server \
     kernel-modules-extra uutils-coreutils util-linux \
@@ -95,7 +95,7 @@ end
    systemd-bsod \
    rpm-ostreed-automatic \
    rpm-ostreed-automatic.timer \
-   sshd freerdp freerdp-server gnome-remote-desktop \
+   sshd \
    preload \
    gdm
 
