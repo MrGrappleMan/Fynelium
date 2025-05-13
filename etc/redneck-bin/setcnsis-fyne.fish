@@ -191,6 +191,7 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.desktop.remote-desktop.rdp negotiate-port true;
   gsettings set org.gnome.desktop.remote-desktop.rdp port 3389;
   gsettings set org.gnome.desktop.remote-desktop.rdp view-only false;
+  ujust setup-sunshine ACTION="Enable"
  '
   runuser -l $username -c "fish -c '$user_commands'"
   echo ""
