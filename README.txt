@@ -9,4 +9,8 @@ I have added BOINC, which automatically uses your idle computing time and for be
 
 run0 systemctl stop boinc-client
 
+To reset you experience,
+
+run0 systemctl start setcnsis-fyne
+
 I expect that you have read this paragraph carefully and I claim no responsibilty to any damage done to your system, but I can try helping!
