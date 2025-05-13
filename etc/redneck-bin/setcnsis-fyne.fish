@@ -74,6 +74,7 @@
     boinc-client boinc-client-static \
     dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
+    snapd snapd-selinux \
     steam steam-devices extest-steam \
     podman podman-docker \
     chocolate-doom \
