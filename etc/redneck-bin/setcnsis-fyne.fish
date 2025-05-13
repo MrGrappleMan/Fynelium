@@ -1,4 +1,7 @@
 #!/bin/env /bin/fish
+### This file ensures a form of consistency across your system ###
+### While some changes may not meet your preferences, this is only to 'reset' your experience ###
+
 
 #BasicChecks
  if test (id -u) -ne 0
