@@ -1,4 +1,4 @@
-1. Install Bazzite GNOME. Choose the correct parameters for your setup while downloading from the website. Ensure that you are using a compatible GPU.
+1. Install Bazzite GNOME. Choose the correct parameters for your setup while downloading from the website. Rebasing to another image WILL cause some issues, but not different release versions. Ensure that you are using a compatible i/GPU.
 2. Run this script. You may encounter errors, which is normal dependant on the type. Most of them are usually expected.
 
 sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/etc/redneck-bin/setcnsis-fyne.fish | sudo fish
