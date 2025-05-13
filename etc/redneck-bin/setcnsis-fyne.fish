@@ -43,8 +43,11 @@
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
  #install
-  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub io.neovim.nvim io.github.celluloid_player.Celluloid
-  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta com.visualstudio.code.insiders org.freedesktop.Platform org.kde.Sdk org.freedesktop.Sdk org.freedesktop.Platform
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub \
+   io.neovim.nvim io.github.celluloid_player.Celluloid
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta \
+   com.visualstudio.code.insiders \
+   org.freedesktop.Platform org.freedesktop.Sdk org.gnome.Platform org.gnome.Sdk org.kde.Platform org.kde.Sdk
 #rpm-ostree
  #rebase
   set output (brh current 2>&1)
@@ -79,14 +82,17 @@ end
    rpm-ostree install --allow-inactive --idempotent -y -q --peer nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 
 #Systemd
- #mask
-  systemctl mask systemd-rfkill systemd-rfkill.socket tracker-store.service rpm-ostree-automatic rpm-ostree-automatic.timer
- #unmask
-  systemctl unmask gdm hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
- #disable
-  systemctl disable rpm-ostree-automatic rpm-ostree-automatic.timer
- #enable
-  systemctl enable systemd-resolved \
+  systemctl mask \
+   systemd-rfkill systemd-rfkill.socket \
+   tracker-store.service \
+   rpm-ostree-automatic rpm-ostree-automatic.timer
+  systemctl unmask \
+   gdm \
+   hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
+  systemctl disable \
+   rpm-ostree-automatic rpm-ostree-automatic.timer
+  systemctl enable \
+   systemd-resolved \
    tlp \
    rcu-fyne rcu-fyne.timer \
    boinc-client \
