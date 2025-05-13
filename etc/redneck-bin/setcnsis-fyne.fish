@@ -53,10 +53,7 @@
    org.freedesktop.Platform org.freedesktop.Sdk org.gnome.Platform org.gnome.Sdk
 #rpm-ostree
  #rebase
-  set output (brh current 2>&1)
-if not string match -q '*:unstable*' $output
     brh rebase unstable -y
-end
  #uninstall
    rpm-ostree uninstall --allow-inactive --idempotent -y -q --peer boinc-manager lightdm
  #install
