@@ -152,7 +152,8 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.mutter center-new-windows true;
   gsettings set org.gnome.mutter auto-maximize true;
   gsettings set org.gnome.desktop.interface cursor-blink false;
-  gsettings set org.gnome.desktop.interface font-hinting 'slight';
+  gsettings set org.gnome.desktop.interface accent-color 'blue';
+  gsettings set org.gnome.desktop.interface font-hinting 'full';
   gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale';
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark';
   gsettings set org.gnome.desktop.interface locate-pointer false;
