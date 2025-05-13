@@ -47,10 +47,10 @@
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
  #install
   flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub \
-   io.neovim.nvim io.github.celluloid_player.Celluloid
+   io.neovim.nvim io.github.celluloid_player.Celluloid org.kde.Platform org.kde.Sdk
   flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta \
    com.visualstudio.code.insiders \
-   org.freedesktop.Platform org.freedesktop.Sdk org.gnome.Platform org.gnome.Sdk org.kde.Platform org.kde.Sdk
+   org.freedesktop.Platform org.freedesktop.Sdk org.gnome.Platform org.gnome.Sdk
 #rpm-ostree
  #rebase
   set output (brh current 2>&1)
