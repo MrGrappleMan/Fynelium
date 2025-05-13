@@ -74,8 +74,8 @@ end
     steam steam-devices extest-steam \
     podman podman-docker \
     chocolate-doom \
-    mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest \
-    mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+    mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    rpm-ostree install --allow-inactive --idempotent -y -q --peer ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
    rpm-ostree install --allow-inactive --idempotent -y -q --peer nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 
