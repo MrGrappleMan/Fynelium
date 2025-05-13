@@ -77,7 +77,7 @@
     snapd snapd-selinux \
     steam steam-devices extest-steam \
     podman podman-docker \
-    chocolate-doom \
+    vavoom vavoom-engine \
     mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
    rpm-ostree install --allow-inactive --idempotent -y -q --peer mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    rpm-ostree install --allow-inactive --idempotent -y -q --peer ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
