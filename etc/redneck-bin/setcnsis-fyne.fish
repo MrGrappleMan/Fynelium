@@ -63,7 +63,8 @@
     tlp tlp-rdw \
     ollama \
     pipewire \
-    openssh openssh-server mosh freerdp freerdp-server gnome-remote-desktop \
+    openssh openssh-server mosh freerdp freerdp-server freerdp-libs freerdp2-libs gnome-remote-desktop \
+    libei libei-utils \
     rust cargo clippy \
     distcc distcc-server \
     kernel-modules-extra uutils-coreutils util-linux \
