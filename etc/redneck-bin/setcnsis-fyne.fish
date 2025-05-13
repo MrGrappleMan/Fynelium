@@ -43,9 +43,10 @@
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
  #install
-  flatpak install -y --noninteractive --system flathub-beta com.visualstudio.code.insiders
-  flatpak install -y --noninteractive --system flathub io.neovim.nvim
-  flatpak install -y --noninteractive --system flathub io.github.celluloid_player.Celluloid
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta com.visualstudio.code.insiders
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub io.neovim.nvim
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub io.github.celluloid_player.Celluloid
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update
 #rpm-ostree
  #rebase
   set output (brh current 2>&1)
