@@ -47,6 +47,9 @@
   flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub io.neovim.nvim
   flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub io.github.celluloid_player.Celluloid
   flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta org.freedesktop.Platform
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta org.kde.Sdk
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta org.freedesktop.Sdk
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta org.freedesktop.Platform
 #rpm-ostree
  #rebase
   set output (brh current 2>&1)
