@@ -107,7 +107,7 @@
    systemd-bsod \
    rpm-ostreed-automatic \
    rpm-ostreed-automatic.timer \
-   sshd gnome-remote-desktop \
+   sshd gnome-remote-desktop novnc \
    preload \
    gdm
 
