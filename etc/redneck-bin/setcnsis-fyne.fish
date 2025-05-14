@@ -25,6 +25,7 @@
  cp -r /tmp/Fynelium/var/* /var/
  ##cp -r /tmp/Fynelium/root/* /root/
 
+#snap
 #flatpak
  #remote-add
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -47,10 +48,14 @@
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
  #install
   flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub \
-   io.neovim.nvim io.github.celluloid_player.Celluloid org.kde.Platform org.kde.Sdk
+   io.neovim.nvim io.github.celluloid_player.Celluloid
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub \
+   org.kde.Platform org.kde.Sdk
   flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta \
-   com.visualstudio.code.insiders \
-   org.freedesktop.Platform org.freedesktop.Sdk org.gnome.Platform org.gnome.Sdk
+   com.visualstudio.code.insiders
+  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta \
+   org.freedesktop.Platform org.freedesktop.Sdk \
+   org.gnome.Platform org.gnome.Sdk
 #rpm-ostree
  #rebase
     brh rebase unstable -y
@@ -62,8 +67,8 @@
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
     ollama \
-    pipewire \
-    openssh openssh-server mosh freerdp freerdp-server freerdp-libs freerdp2-libs gnome-remote-desktop \
+    pipewire wireplumber wireplumber-libs \
+    openssh openssh-server mosh \
     libei libei-utils \
     rust cargo clippy \
     distcc distcc-server \
