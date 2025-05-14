@@ -1,0 +1,13 @@
+[Unit]
+Description=noVNC WebSocket Proxy Service
+After=network.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/novnc_proxy --vnc localhost:5900 --listen 6080
+Restart=always
+RestartSec=1s
+User=root
+
+[Install]
+WantedBy=multi-user.target
