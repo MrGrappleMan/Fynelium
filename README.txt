@@ -3,7 +3,7 @@
 
 sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/etc/redneck-bin/setcnsis-fyne.fish | sudo fish
 
-You may use your system normally. Explore it. My rice attempts to greatly enhance your system experience.
+You may use your system normally. Explore it. My rice attempts to greatly enhance your system experience. Use COSMIC.
 Do not dual boot, use any type 1 hypervisor. I am still very skeptical about it, so stick to Bottles or BoxBuddy.
 I have added BOINC, which automatically uses your idle computing time and for benefitting science. This will slow down your system by some magnitude, so before you run intensive tasks, ensure that you run:
 
