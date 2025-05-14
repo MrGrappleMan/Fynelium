@@ -73,7 +73,7 @@
     rust cargo clippy \
     distcc distcc-server \
     kernel-modules-extra uutils-coreutils util-linux \
-    cosmic-epoch cosmic-desktop xdg-desktop-portal-cosmic initial-setup-gui-wayland-cosmic cosmic-greeter cosmic-comp cosmic-app-library cosmic-applets cosmic-edit cosmic-idle cosmic-osd cosmic-session cosmic-settings cosmic-settings-daemon cosmic-store fedora-release-cosmic-atomic fedora-release-identity-cosmic-atomic cosmic-config-fedora \
+    cosmic-epoch cosmic-desktop xdg-desktop-portal-cosmic initial-setup-gui-wayland-cosmic cosmic-greeter cosmic-comp cosmic-app-library cosmic-applets cosmic-edit cosmic-idle cosmic-osd cosmic-session cosmic-settings cosmic-settings-daemon cosmic-store fedora-release-cosmic-atomic cosmic-config-fedora \
     gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm \
     btop neohtop fastfetch \
     boinc-client boinc-client-static \
