@@ -107,7 +107,7 @@
    systemd-bsod \
    rpm-ostreed-automatic \
    rpm-ostreed-automatic.timer \
-   sshd vncserver@1 \
+   sshd vncserver@:1 \
    preload \
    gdm
 
