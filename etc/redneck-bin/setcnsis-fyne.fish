@@ -68,7 +68,7 @@
     tlp tlp-rdw \
     ollama \
     pipewire wireplumber wireplumber-libs \
-    openssh openssh-server mosh freerdp freerdp-server freerdp-libs freerdp2-libs gnome-remote-desktop novnc tigervnc tigervnc-server tigervnc-server-module tigervnc-icons tigervnc-selinux \
+    openssh openssh-server mosh freerdp freerdp-server freerdp-libs freerdp2-libs gnome-remote-desktop tigervnc tigervnc-server tigervnc-server-module tigervnc-icons tigervnc-selinux \
     libei libei-utils \
     rust cargo clippy \
     distcc distcc-server \
@@ -107,7 +107,7 @@
    systemd-bsod \
    rpm-ostreed-automatic \
    rpm-ostreed-automatic.timer \
-   sshd gnome-remote-desktop novnc \
+   sshd vncserver@1 \
    preload \
    gdm
 
