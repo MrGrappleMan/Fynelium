@@ -68,7 +68,7 @@
     tlp tlp-rdw \
     ollama \
     pipewire wireplumber wireplumber-libs \
-    openssh openssh-server mosh freerdp freerdp-server freerdp-libs freerdp2-libs gnome-remote-desktop novnc \
+    openssh openssh-server mosh freerdp freerdp-server freerdp-libs freerdp2-libs gnome-remote-desktop novnc tigervnc tigervnc-server tigervnc-server-module tigervnc-icons tigervnc-selinux \
     libei libei-utils \
     rust cargo clippy \
     distcc distcc-server \
