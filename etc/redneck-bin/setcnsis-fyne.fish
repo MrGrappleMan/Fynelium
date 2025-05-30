@@ -90,26 +90,26 @@
 
 #Systemd
   systemctl mask \
-   systemd-rfkill systemd-rfkill.socket \
-   tracker-store.service \
-   rpm-ostree-automatic rpm-ostree-automatic.timer
+   systemd-rfkill \
+systemd-rfkill.socket \
+   tracker-store.service 
   systemctl unmask \
    gdm \
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
   systemctl disable \
    rpm-ostree-automatic rpm-ostree-automatic.timer
-  systemctl enable \
+  systemctl reenable \
    systemd-resolved \
    tlp \
    rcu-fyne rcu-fyne.timer \
    boinc-client \
    mem-mgr \
    systemd-bsod \
-   rpm-ostreed-automatic \
-   rpm-ostreed-automatic.timer \
    sshd \
    preload \
-   gdm
+   gdm \
+   rpm-ostree-automatic \
+   rpm-ostree-automatic.timer
 
 #Per-User
 for user_path in (ls -d /home/*)
@@ -129,8 +129,8 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.SessionManager auto-save-session-one-shot true;
   gsettings set org.gnome.mutter dynamic-workspaces true;
   gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
-  gsettings set org.gnome.desktop.thumbnail-cache maximum-size 512;
-  gsettings set org.gnome.desktop.thumbnail-cache maximum-age 7;
+  gsettings set org.gnome.desktop.thumbnail-cache maximum-size 128;
+  gsettings set org.gnome.desktop.thumbnail-cache maximum-age 3;
   gsettings set org.gnome.desktop.background picture-options 'none';
   gsettings set org.gnome.desktop.background primary-color '#000000';
   gsettings set org.gnome.desktop.background secondary-color '#000000';
@@ -159,7 +159,6 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.mutter center-new-windows true;
   gsettings set org.gnome.mutter auto-maximize true;
   gsettings set org.gnome.desktop.interface cursor-blink false;
-  gsettings set org.gnome.desktop.interface accent-color 'blue';
   gsettings set org.gnome.desktop.interface font-hinting 'full';
   gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale';
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark';
@@ -204,7 +203,7 @@ end
 
 #Kernel
  rpm-ostree initramfs --enable
- plymouth-set-default-theme spinner
+ plymouth-set-default-theme details
  rpm-ostree kargs \
   --append-if-missing=threadirqs \
   --append-if-missing=sysrq_always_enabled=1 \
@@ -215,7 +214,7 @@ end
   --append-if-missing=preempt=full \
   --append-if-missing=zswap.enabled=1 \
   --append-if-missing=zswap.zpool=z3fold \
-  --append-if-missing=rhgb
+  --delete-if-present=rhgb
 
 #BOINC
  chmod 755 /var/lib/boinc/cc_config.xml
