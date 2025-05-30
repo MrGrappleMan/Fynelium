@@ -118,7 +118,7 @@ for user_path in (ls -d /home/*)
   gsettings set org.gnome.desktop.interface clock-show-seconds false;
   gsettings set org.gnome.desktop.interface enable-animations false;
   gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat';
-  gsettings set org.gnome.software allow-updates false;
+  gsettings set org.gnome.software download-updates false;
   gsettings set org.gnome.desktop.peripherals.mouse speed 1.0;
   gsettings set org.gnome.shell.app-switcher current-workspace-only true;
   gsettings set org.gnome.system.location max-accuracy-level 'exact';
