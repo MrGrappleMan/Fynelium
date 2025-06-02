@@ -17,9 +17,7 @@ Conflicts=network-online.target
 Before=multi-user.target
 
 [Service]
-# Force Wayland; never spawn Xorg
-Environment=GDM_DISABLE_X11=1
-ExecStart=/usr/sbin/gdm
+ExecStart=/usr/bin/gdm
 KillMode=mixed
 Restart=always
 BusName=org.gnome.DisplayManager
