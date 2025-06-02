@@ -89,9 +89,12 @@
    rpm-ostree install --allow-inactive --idempotent -y -q --peer nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 
 #Systemd
+  systemctl daemon-reload
+  systemctl daemon-reexec
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket \
-   tracker-store.service 
+   tracker-store.service \
+   plymouth-start.service plymouth-quit-wait.service
   systemctl unmask \
    gdm \
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
@@ -199,7 +202,6 @@ end
 
 #Kernel
  rpm-ostree initramfs --enable
- plymouth-set-default-theme details
  rpm-ostree kargs \
   --append-if-missing=threadirqs \
   --append-if-missing=sysrq_always_enabled=1 \
