@@ -82,22 +82,19 @@
     snapd snapd-selinux \
     steam steam-devices extest-steam \
     podman podman-docker \
-    vavoom vavoom-engine \
     mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
+    #vavoom vavoom-engine mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
    rpm-ostree install --allow-inactive --idempotent -y -q --peer mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    rpm-ostree install --allow-inactive --idempotent -y -q --peer ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
    rpm-ostree install --allow-inactive --idempotent -y -q --peer nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 
 #Systemd
   systemctl mask \
-   systemd-rfkill \
-systemd-rfkill.socket \
+   systemd-rfkill systemd-rfkill.socket \
    tracker-store.service 
   systemctl unmask \
    gdm \
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
-  systemctl disable \
-   rpm-ostree-automatic rpm-ostree-automatic.timer
   systemctl reenable \
    systemd-resolved \
    tlp \
@@ -108,8 +105,7 @@ systemd-rfkill.socket \
    sshd \
    preload \
    gdm \
-   rpm-ostree-automatic \
-   rpm-ostree-automatic.timer
+   rpm-ostree-automatic rpm-ostree-automatic.timer
 
 #Per-User
 for user_path in (ls -d /home/*)
