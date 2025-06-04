@@ -36,7 +36,6 @@
   flatpak remote-add --if-not-exists --system xwaylandvideobridge-nightly https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo
   flatpak remote-add --if-not-exists --system eos-apps https://ostree.endlessm.com/ostree/eos-apps
   flatpak remote-add --if-not-exists --system webkit https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
-  flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
   flatpak remote-add --if-not-exists --system gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
   flatpak remote-add --if-not-exists --system webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
   flatpak remote-add --if-not-exists --system fedora oci+https://registry.fedoraproject.org
@@ -74,19 +73,20 @@
     distcc distcc-server \
     kernel-modules-extra uutils-coreutils util-linux \
     cosmic-epoch cosmic-desktop xdg-desktop-portal-cosmic initial-setup-gui-wayland-cosmic cosmic-greeter cosmic-comp cosmic-app-library cosmic-applets cosmic-edit cosmic-idle cosmic-osd cosmic-session cosmic-settings cosmic-settings-daemon cosmic-store fedora-release-cosmic-atomic cosmic-config-fedora \
-    gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree gdm \
+    gdm \
     btop neohtop fastfetch \
     boinc-client boinc-client-static \
     dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     snapd snapd-selinux \
     steam steam-devices extest-steam \
-    podman podman-docker \
-    mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
-    #vavoom vavoom-engine mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
-   rpm-ostree install --allow-inactive --idempotent -y -q --peer mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+    podman podman-docker
+   #rpm-ostree install --allow-inactive --idempotent -y -q --peer gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree
+   #rpm-ostree install --allow-inactive --idempotent -y -q --peer vavoom vavoom-engine
+   #rpm-ostree install --allow-inactive --idempotent -y -q --peer mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
+   #rpm-ostree install --allow-inactive --idempotent -y -q --peer mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    rpm-ostree install --allow-inactive --idempotent -y -q --peer ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
-   rpm-ostree install --allow-inactive --idempotent -y -q --peer nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
+   #rpm-ostree install --allow-inactive --idempotent -y -q --peer nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 
 #Systemd
   systemctl daemon-reload
