@@ -14,7 +14,7 @@ Your distribution MUST use systemd. Professionals have standards. Be polite, be 
 8. 🌐 Distro-agnostic, include a wide range of repositories(with the intention of all content being available in a single one, e.g The AUR)
 9. 🛠️ Distro-specific maintenance
 
-### The above applies to most distros, but using Aurora, Bazzite or any rpm-ostree is heavily recommended if you intend to use your computer normally for cases like productivity, work, gaming, etc.
+### The above applies to most distros, but using Aurora, Bazzite or any other rpm-ostree based distro is heavily recommended if you intend to use your computer normally for cases like productivity, work, gaming, etc. Even if you want to host a server, using CoreOS is recommended.
 #
 # ⚛️ For Atomic-Distros:
 You can have all the above features, but when compared to any other type of distro...you will not get the following advantages
