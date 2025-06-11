@@ -1,5 +1,5 @@
-[sysbase-c]
-name=System Base - C
+[sysbase-d]
+name=System Base - D
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
 enabled=True
 type=rpm
