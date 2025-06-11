@@ -61,7 +61,6 @@
  #uninstall
    rpm-ostree uninstall --allow-inactive --idempotent -y -q --peer boinc-manager
  #install
-   ##rpm-ostree install --allow-inactive --idempotent -y -q --peer https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
    rpm-ostree install --allow-inactive --idempotent -y -q --peer gh git \
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
