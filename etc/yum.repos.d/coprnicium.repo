@@ -29,3 +29,19 @@ deltarpm=True
 fastestmirror=True
 max_parallel_downloads=20
 retries=0
+
+[copr:copr.fedorainfracloud.org:ryanabx:cosmic-epoch]
+name=C ryanabx cosmic-epoch
+baseurl=https://download.copr.fedorainfracloud.org/results/ryanabx/cosmic-epoch/fedora-rawhide-$basearch/
+gpgkey=https://download.copr.fedorainfracloud.org/results/ryanabx/cosmic-epoch/pubkey.gpg
+type=rpm-md
+gpgcheck=1
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+metadata_expire=24h
+skip_if_unavailable=True
+deltarpm=True
+fastestmirror=True
+max_parallel_downloads=20
+retries=0
