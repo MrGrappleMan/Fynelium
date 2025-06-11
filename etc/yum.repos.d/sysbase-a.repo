@@ -1,5 +1,5 @@
-[sysbase-a1]
-name=System Base - A1
+[sysbase-a]
+name=System Base - A
 metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
 enabled=True
 type=rpm
