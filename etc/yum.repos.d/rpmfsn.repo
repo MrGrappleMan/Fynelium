@@ -1,5 +1,5 @@
-[rpmfusion-free]
-name=RPM Fusion for Fedora $releasever - Free
+[rpmfsn-f]
+name=rpmfsn-f
 #baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/$basearch/os/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
 enabled=0
@@ -9,8 +9,8 @@ gpgcheck=1
 repo_gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 
-[rpmfusion-free-rawhide]
-name=RPM Fusion for Fedora Rawhide - Free
+[rpmfsn-f-rwh]
+name=rpmfsn-f-rwh
 #baseurl=http://download1.rpmfusion.org/free/fedora/development/$basearch/os/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide&arch=$basearch
 enabled=1
@@ -19,7 +19,7 @@ type=rpm-md
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 
-[rpmfusion-free-updates-testing]
+[rpmfsn-f-u-t]
 name=RPM Fusion for Fedora $releasever - Free - Test Updates
 #baseurl=http://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/$basearch/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-testing-$releasever&arch=$basearch
@@ -29,7 +29,7 @@ gpgcheck=1
 repo_gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 
-[rpmfusion-free-updates]
+[rpmfsn-f-u]
 name=RPM Fusion for Fedora $releasever - Free - Updates
 #baseurl=http://download1.rpmfusion.org/free/fedora/updates/$releasever/$basearch/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
@@ -39,8 +39,8 @@ gpgcheck=1
 repo_gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 
-[rpmfusion-nonfree]
-name=RPM Fusion for Fedora $releasever - Nonfree
+[rpmfsn-n]
+name=rpmfsn-n
 #baseurl=http://download1.rpmfusion.org/nonfree/fedora/releases/$releasever/Everything/$basearch/os/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-$releasever&arch=$basearch
 enabled=0
@@ -50,8 +50,8 @@ gpgcheck=1
 repo_gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
 
-[rpmfusion-nonfree-rawhide]
-name=RPM Fusion for Fedora Rawhide - Nonfree
+[rpmfsn-n-rwh]
+name=rpmfsn-n-rwh
 #baseurl=http://download1.rpmfusion.org/nonfree/fedora/development/$basearch/os/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-rawhide&arch=$basearch
 enabled=1
@@ -60,8 +60,8 @@ type=rpm-md
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-rawhide
 
-[rpmfusion-nonfree-updates-testing]
-name=RPM Fusion for Fedora $releasever - Nonfree - Test Updates
+[rpmfsn-n-u-t]
+name=rpmfsn-n-u-t
 #baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/testing/$releasever/$basearch/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-updates-testing-$releasever&arch=$basearch
 enabled=0
@@ -70,8 +70,8 @@ gpgcheck=1
 repo_gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
 
-[rpmfusion-nonfree-updates]
-name=RPM Fusion for Fedora $releasever - Nonfree - Updates
+[rpmfsn-n-u]
+name=rpmfsn-n-u
 #baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/$basearch/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-updates-released-$releasever&arch=$basearch
 enabled=0
