@@ -1,5 +1,5 @@
-[boinc-nightly]
-name=BOINC nightly repo
+[boinc]
+name=boinc
 baseurl=https://boinc.berkeley.edu/dl/linux/nightly/fc40
 enabled=1
 gpgcheck=1
