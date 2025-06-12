@@ -1,5 +1,5 @@
-[minecraft-linux-pkg]
-name=minecraft-linux-pkg
+[mcbedrock]
+name=mcbedrock
 baseurl=https://minecraft-linux.github.io/pkg/fedora-41
 enabled=1
 repo_gpgcheck=0
