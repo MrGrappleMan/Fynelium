@@ -1,7 +1,7 @@
 #!/bin/env /bin/fish
-### This file ensures a form of consistency across your system ###
-### While some changes may not meet your preferences, this is only to 'reset' your experience ###
-
+### This file ensures a form of standardization across your system ###
+### Some preferences might not meet your requirements ###
+### Adjusting or adapting yourself to them is recommended ###
 
 #BasicChecks
  if test (id -u) -ne 0
@@ -27,6 +27,8 @@
 
 #snap
 #flatpak
+ #refresh
+  flatpak update --system -y --noninteractive --force-remove
  #remote-add
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
   flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
@@ -58,6 +60,10 @@
 #rpm-ostree
  #rebase
     brh rebase unstable -y
+ #refresh
+  rpm-ostree -q --peer reload
+  rpm-ostree -q --peer cleanup -b
+  rpm-ostree -q --peer upgrade --bypass-driver --allow-downgrade --trigger-automatic-update-policy
  #uninstall
    rpm-ostree uninstall --allow-inactive --idempotent -y -q --peer boinc-manager
  #install
@@ -86,10 +92,15 @@
    #rpm-ostree install --allow-inactive --idempotent -y -q --peer mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    rpm-ostree install --allow-inactive --idempotent -y -q --peer ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
    #rpm-ostree install --allow-inactive --idempotent -y -q --peer nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
-
+ #apply-live
+  rpm-ostree apply-live
+  rpm-ostree apply-live --allow-replacement
 #Systemd
-  systemctl daemon-reload
-  systemctl daemon-reexec
+ #refresh
+  nohup systemctl daemon-reload &
+  nohup timedatectl set-ntp true --no-ask-password &
+  nohup systemd-resolve --flush-caches &
+ #Services 
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket \
    tracker-store.service \
