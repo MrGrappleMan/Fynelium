@@ -28,7 +28,7 @@ You can have all the above features, but when compared to any other type of dist
 Run this script. You will be asked questions depending on what your distribution type/base is.
 You may encounter errors, which is normal. Most of them are usually expected.
 
-sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/etc/redneck-bin/setcnsis-fyne.fish | sudo fish
+sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/etc/fn-components/prep.bash | sudo bash
 
 It attempts to greatly enhance your system experience. Use COSMIC as the desktop environment with the display manager shipped by your distribution.
 For rpm-ostree distribution users: Do not dual boot, use any Wine related utilities like Bottles/Proton or BoxBuddy/KVM for using distro specific packages.
