@@ -23,10 +23,14 @@ fi
  cp -r /tmp/Fynelium/var/* /var/
  ##cp -r /tmp/Fynelium/root/* /root/
 
-rpm-ostree install --allow-inactive --idempotent -y -q --peer -A --force-replacefiles fish
-apt install fish
-dnf install fish
+rpm-ostree -q --peer reload
+rpm-ostree -q --peer cleanup -b
+rpm-ostree -q --peer upgrade --bypass-driver --allow-downgrade --trigger-automatic-update-policy
+rpm-ostree install --allow-inactive --idempotent -y -q --peer fish
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
+
+apt install fish
+dnf install fish
 
 fish /etc/fn-components/main.fish
