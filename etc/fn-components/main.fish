@@ -9,7 +9,7 @@
   exit 1
  end
  if not ping -c 1 -W 2 1.1.1.1 > /dev/null
-    echo "No internet"
+    echo "No access to internet or Google DNS"
     exit 1
  end
 
@@ -55,7 +55,7 @@
  #uninstall
    rpm-ostree uninstall --allow-inactive --idempotent -y -q --peer boinc-manager
  #install
-   rpm-ostree install --allow-inactive --idempotent -y -q --peer gh git \
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer -A --force-replacefiles gh git \
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
     ollama \
