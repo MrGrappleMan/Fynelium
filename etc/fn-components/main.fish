@@ -55,7 +55,7 @@
  #uninstall
    rpm-ostree uninstall --allow-inactive --idempotent -y -q --peer boinc-manager
  #install
-   rpm-ostree install --allow-inactive --idempotent -y -q --peer -A --force-replacefiles gh git \
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer gh git \
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
     ollama \
