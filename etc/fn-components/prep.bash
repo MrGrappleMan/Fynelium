@@ -1,4 +1,5 @@
 #!/bin/bash
+### Retrieves fish prior to main script execution ###
 
 #BasicChecks
 if [ "$(id -u)" -ne 0 ]; then
