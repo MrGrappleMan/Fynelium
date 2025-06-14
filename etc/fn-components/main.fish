@@ -37,7 +37,7 @@
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
  #install
   flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub \
-   io.neovim.nvim io.github.celluloid_player.Celluloid
+   io.neovim.nvim io.github.celluloid_player.Celluloid app.zen_browser.zen io.mrarm.mcpelauncher io.github.flattool.Warehouse
   flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub \
    org.kde.Platform org.kde.Sdk
   flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta \
