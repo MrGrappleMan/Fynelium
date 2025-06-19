@@ -1,5 +1,5 @@
 [Unit]
-Description=Refresh, clean and update your system every 3 hours and on startup
+Description=Refresh, clean and update your system
 After=network-online.target
 Wants=network-online.target
 ConditionPathExists=/run/ostree-booted
@@ -7,7 +7,7 @@ ConditionPathExists=/run/ostree-booted
 [Service]
 Type=oneshot
 User=root
-ExecStart=/bin/env /bin/fish /etc/redneck-bin/rcu-fyne.fish
+ExecStart=/bin/env /bin/fish /etc/fn-components/main.fish
 Nice=19
 IOSchedulingClass=best-effort
 IOSchedulingPriority=7
