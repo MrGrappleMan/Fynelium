@@ -21,18 +21,11 @@ Asahi support comming soon.
 14. ✒️ Professional system software support backed by the community and RedHat
 15. 🔁 The integrated ability to rollback to a previous system state
 
-
-### The above applies to most distros, but using Bazzite GNOME, Bluefin, Silverblue or any other rpm-ostree based distro is heavily recommended if you intend to use your computer normally for cases like productivity, work, gaming, etc. Even if you want to host a server, using CoreOS is recommended.
-#
-# ⚛️ For Atomic-Distros:
-You can have all the above features, but when compared to any other type of distro...you will not get the following advantages
-
 Run this script. You will be asked questions depending on what your distribution type/base is.
 You may encounter errors, which is normal. Most of them are usually expected.
 
 sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/etc/fn-components/main.bash | sudo bash
 
 It attempts to greatly enhance your system experience. Use COSMIC as the desktop environment with the display manager shipped by your distribution.
-For rpm-ostree distribution users: Do not dual boot, use any Wine related utilities like Bottles/Proton or BoxBuddy/KVM for using distro specific packages.
-To refresh your experience and potentialy introduce new tweaks, re-run the above given script.
+Do not dual boot, use any Wine related utilities like Bottles/Proton or BoxBuddy/KVM for using distro specific packages.
 I expect that you have read this paragraph carefully and I claim no responsibilty to any damage done to your system, but I can try helping!
