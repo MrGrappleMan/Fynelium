@@ -1,11 +1,11 @@
 [Unit]
-Description=Activates RCU for optimal system status
-ConditionPathExists=/run/ostree-booted
+Description=Refresh, clean and update your system daily
 After=network-online.target
 Wants=network-online.target
+ConditionPathExists=/run/ostree-booted
 
 [Timer]
-OnUnitInactiveSec=3h
+OnCalendar=daily
 Persistent=true
 
 [Install]
