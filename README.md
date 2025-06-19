@@ -1,14 +1,10 @@
 This project's intended purpose is to have your system in a great state with files preconfigured for the best possible experience,
 and by that, a centrallized distribution with the intent of fulfilling consumer/user usage.
-Use the following base distributions:
+Use (Bazzite)[https://bazzite.gg/] GNOME. Do not enable Steam Gaming Mode if you want to use your device for productivity. Infact most OSTree-based distributions are supported.
+Asahi support comming soon.
 
-|Distribution|x86_64|arm64|
-|Bazzite
-
-
-Professionals have standards. Be polite, be efficient. Have a plan to excel at every situation you see.
 #
-# 📜 Key features and tweaks:
+# 📜 Key features:
 1. 📦 Automatic unattended updates, prevent dependency hell(depends on package manager)
 2. ⚡ Better power management
 3. ⭐ Use modern protocols and programs
