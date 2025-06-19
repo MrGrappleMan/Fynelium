@@ -30,7 +30,4 @@ rpm-ostree install --allow-inactive --idempotent -y -q --peer fish
 rpm-ostree apply-live
 rpm-ostree apply-live --allow-replacement
 
-apt install fish
-dnf install fish
-
-fish /etc/fn-components/main.fish
+/bin/env /bin/fish /etc/fn-components/main.fish
