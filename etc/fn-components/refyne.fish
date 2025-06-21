@@ -110,12 +110,10 @@
    tlp \
    refyne refyne.timer \
    boinc-client \
-   mem-mgr \
    systemd-bsod \
    sshd \
-   preload \
-   greetd \
-   rpm-ostree-automatic rpm-ostree-automatic.timer
+   preload systemd-zram-setup@zram0 \
+   greetd
 
 #Per-User
 for user_path in (ls -d /home/*)
