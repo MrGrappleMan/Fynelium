@@ -68,7 +68,8 @@
     dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     snapd snapd-selinux \
-    podman podman-docker
+    podman podman-docker \
+    fish
 
    ## GNOME ## gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree
 
