@@ -60,7 +60,7 @@
     tlp tlp-rdw \
     ollama \
     pipewire wireplumber wireplumber-libs \
-    openssh openssh-server mosh tigervnc tigervnc-server tigervnc-server-module tigervnc-icons tigervnc-selinux \
+    openssh openssh-server mosh \
     libei libei-utils \
     rust cargo clippy \
     distcc distcc-server \
@@ -71,16 +71,16 @@
     dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     snapd snapd-selinux \
-    steam steam-devices extest-steam \
     podman podman-docker
    ## GNOME ## gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree
    ## QUAKE-ENGINE-STUFF ## vavoom vavoom-engine
    ## MINECRAFT-BEDROCK ## mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
-   ## MESA ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
-   ## GHOSTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
+   ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+   ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
    ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
-   ## HECKING ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
-
+   ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
+   ## Steam ## steam steam-devices extest-steam
+   
  #apply-live
   rpm-ostree apply-live
   rpm-ostree apply-live --allow-replacement
