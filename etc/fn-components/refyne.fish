@@ -102,7 +102,7 @@
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket \
    tracker-store.service \
-   plymouth-start.service plymouth-quit-wait.service \
+   plymouth-start.service plymouth-quit-wait.service plymouth-poweroff.service \
    gdm
   systemctl unmask \
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
