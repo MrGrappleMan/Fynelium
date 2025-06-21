@@ -1,25 +1,23 @@
 This project's intended purpose is to have your system in a great state with files preconfigured for the best possible experience,
 and by that, a centrallized distribution with the intent of fulfilling consumer/user usage.
 Use (Bazzite)[https://bazzite.gg/] GNOME. Do not enable Steam Gaming Mode if you want to use your device for productivity. Infact most OSTree-based distributions are supported.
-Asahi support comming soon.
+Asahi support comming soon(till I get a Mac, in like 6 years :( ) they are the best computers ever, but seems more like a flex from rich people
 
 #
 # 📜 Key features:
 1. 📦 Automatic unattended updates, prevent dependency hell(depends on package manager)
 2. ⚡ Better power management
-3. ⭐ Use modern protocols and programs
-4. 🛑 Advertisement( and potentially, trackers) blocking
-5. 🌟 Install modern alternatives to pre-existing applications
+3. ⭐ Modern protocols and programs
+4. 🛑 AD-Blocking ( and potentially, trackers)
 6. 🌌 The COSMIC desktop experience
 7. 🚀 All-round system optimization
-8. 🌐 Distro-agnostic, include a wide range of repositories(with the intention of all content being available in a single one, e.g The AUR)
-9. 🛠️ Distro-specific maintenance
-10. 1. ♾️ Autonomous handling of packages and the entire system
-11. 🛡️ Hardened Security by default by SELinux
-12. 🛑 Prevent manual modification of core system parts(ricing is allowed, proceed to perform with caution)
-13. ⛓️‍💥 Reduced risk of a broken system
-14. ✒️ Professional system software support backed by the community and RedHat
-15. 🔁 The integrated ability to rollback to a previous system state
+8. 🌐 Include a wide range of repositories(with the intention of all content being available in a single one, e.g The AUR)
+9. ♾️ Autonomous handling of packages and the entire system
+10. 🛡️ Hardened Security by default by SELinux
+11. 🛑 Prevent manual modification of core system parts(ricing is allowed to the extent it doesn't spoil productivity, proceed to perform with caution)
+12. ⛓️‍💥 Reduced risk of a broken system
+13. ✒️ Professional system software support
+14. 🔁 The integrated ability to rollback to a previous system state
 
 Run this script. You will be asked questions depending on what your distribution type/base is.
 You may encounter errors, which is normal. Most of them are usually expected.
