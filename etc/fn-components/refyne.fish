@@ -55,15 +55,12 @@
  #uninstall
    rpm-ostree uninstall --allow-inactive --idempotent -y -q --peer boinc-manager
  #install
-   rpm-ostree install --allow-inactive --idempotent -y -q --peer gh git \
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer git \
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
-    ollama \
     pipewire wireplumber wireplumber-libs \
     openssh openssh-server mosh \
     libei libei-utils \
-    rust cargo clippy \
-    distcc distcc-server \
     kernel-modules-extra uutils-coreutils util-linux \
     cosmic-epoch cosmic-desktop xdg-desktop-portal-cosmic initial-setup-gui-wayland-cosmic cosmic-greeter cosmic-comp cosmic-app-library cosmic-applets cosmic-edit cosmic-idle cosmic-osd cosmic-session cosmic-settings cosmic-settings-daemon cosmic-store fedora-release-cosmic-atomic cosmic-config-fedora greetd \
     btop neohtop fastfetch \
@@ -72,15 +69,26 @@
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     snapd snapd-selinux \
     podman podman-docker
+
    ## GNOME ## gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree
+
    ## QUAKE-ENGINE-STUFF ## vavoom vavoom-engine
    ## MINECRAFT-BEDROCK ## mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
-   ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
-   ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
-   ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
-   ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
    ## Steam ## steam steam-devices extest-steam
-   
+
+   ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+   ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
+
+   ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integratio
+   ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
+
+   ## RustLang ## rust cargo clippy
+   ## C/C++ ## cpp
+   ## Compilation ## distcc distcc-server gcc gcc-c++
+   ## VCS ## gh
+
+   ## AI ## ollama
+
  #apply-live
   rpm-ostree apply-live
   rpm-ostree apply-live --allow-replacement
