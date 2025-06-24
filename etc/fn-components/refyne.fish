@@ -23,7 +23,6 @@
   flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
   flatpak remote-add --if-not-exists --system igalia https://software.igalia.com/flatpak-refs/igalia.flatpakrepo
   flatpak remote-add --if-not-exists --system dragon-nightly https://cdn.kde.org/flatpak/dragon-nightly/dragon-nightly.flatpakrepo
-  flatpak remote-add --if-not-exists --system xwaylandvideobridge-nightly https://cdn.kde.org/flatpak/xwaylandvideobridge-nightly/xwaylandvideobridge-nightly.flatpakrepo
   flatpak remote-add --if-not-exists --system eos-apps https://ostree.endlessm.com/ostree/eos-apps
   flatpak remote-add --if-not-exists --system webkit https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
   flatpak remote-add --if-not-exists --system gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
@@ -36,15 +35,14 @@
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
  #install
-  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub \
-   io.neovim.nvim io.github.celluloid_player.Celluloid app.zen_browser.zen io.mrarm.mcpelauncher io.github.flattool.Warehouse
-  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub \
-   org.kde.Platform org.kde.Sdk
-  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta \
+  flatpak install -y --noninteractive --system --include-sdk --or-update flathub \
+   io.neovim.nvim \
+   io.github.celluloid_player.Celluloid \
+   app.zen_browser.zen \
+   io.mrarm.mcpelauncher org.vinegarhq.Sober org.vinegarhq.Vinegar \
+   io.github.flattool.Warehouse
+  flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
    com.visualstudio.code.insiders
-  flatpak install -y --noninteractive --system --include-sdk --include-debug --or-update flathub-beta \
-   org.freedesktop.Platform org.freedesktop.Sdk \
-   org.gnome.Platform org.gnome.Sdk
 #rpm-ostree
  #rebase
     brh rebase unstable -y
@@ -74,7 +72,6 @@
    ## GNOME ## gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree
 
    ## QUAKE-ENGINE-STUFF ## vavoom vavoom-engine
-   ## MINECRAFT-BEDROCK ## mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
    ## Steam ## steam steam-devices extest-steam
 
    ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
