@@ -104,7 +104,7 @@
   systemctl unmask \
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
   systemctl reenable \
-   systemd-resolved \
+   systemd-resolved systemd-networkd \
    tlp \
    refyne refyne.timer \
    boinc-client \
