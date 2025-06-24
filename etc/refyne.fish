@@ -65,23 +65,26 @@
  #uninstall
    rpm-ostree uninstall --allow-inactive --idempotent -y -q --peer boinc-manager
  #install
-   rpm-ostree install --allow-inactive --idempotent -y -q --peer git \
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer git gh \
+    rust cargo clippy \
+    cpp \
+    distcc distcc-server gcc gcc-c++ \
+    java-latest-openjdk \
+    \
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
     pipewire wireplumber wireplumber-libs \
-    openssh openssh-server mosh \
-    libei libei-utils \
     kernel-modules-extra uutils-coreutils util-linux \
+    openssh openssh-server mosh \
     cosmic-epoch cosmic-desktop xdg-desktop-portal-cosmic initial-setup-gui-wayland-cosmic cosmic-greeter cosmic-comp cosmic-app-library cosmic-applets cosmic-edit cosmic-idle cosmic-osd cosmic-session cosmic-settings cosmic-settings-daemon cosmic-store fedora-release-cosmic-atomic cosmic-config-fedora greetd \
-    btop neohtop fastfetch \
     boinc-client boinc-client-static \
-    dnf dnf-repo dnf-data dnfdaemon dnfdaemon-selinux \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     snapd snapd-selinux \
     podman podman-docker \
     fish
-
-   ## GNOME ## gnome-shell gnome-shell-common gnome-software gnome-software-rpm-ostree
+    \
+    libei libei-utils \
+    btop fastfetch
 
    ## QUAKE-ENGINE-STUFF ## vavoom vavoom-engine
    ## Steam ## steam steam-devices extest-steam
@@ -89,15 +92,10 @@
    ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 
-   ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integratio
+   ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
    ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
 
-   ## RustLang ## rust cargo clippy
-   ## C/C++ ## cpp
-   ## Compilation ## distcc distcc-server gcc gcc-c++
-   ## VCS ## gh
-
-   ## AI ## ollama
+   ## AI ## ollama python3-ollama
 
  #apply-live
   rpm-ostree apply-live
