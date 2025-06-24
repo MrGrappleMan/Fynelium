@@ -1,5 +1,5 @@
-[sysbase-a]
-name=sysbase-a
+[rawhide-a]
+name=rawhide-a
 metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
 enabled=True
 type=rpm
@@ -10,8 +10,8 @@ fastestmirror=True
 max_parallel_downloads=20
 retries=0
 
-[sysbase-b]
-name=sysbase-b
+[rawhide-b]
+name=rawhide-b
 metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
 enabled=True
 type=rpm
@@ -22,8 +22,8 @@ fastestmirror=True
 max_parallel_downloads=20
 retries=0
 
-[sysbase-c]
-name=sysbase-c
+[rawhide-c]
+name=rawhide-c
 metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-testing-f$releasever&arch=$basearch
 enabled=True
 type=rpm
@@ -34,8 +34,8 @@ fastestmirror=True
 max_parallel_downloads=20
 retries=0
 
-[sysbase-d]
-name=sysbase-d
+[rawhide-d]
+name=rawhide-d
 metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
 enabled=True
 type=rpm
