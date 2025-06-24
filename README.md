@@ -30,3 +30,8 @@ I expect that you have read this paragraph carefully and I claim no responsibilt
 
 Bazzite is used as a base not because it is a gaming distribution, but has access to a wide range of supported hardware, software
 and has community support greater than that of regular atomic Fedora alone
+
+## Extra tips:
+Use tailscale for a seamless networking experience. You can SSH, host servers and even access your home network with it.
+If you are self-hosting a game server, you may use [PlayIt.gg](https://playit.gg/) for playing with your friends.
+Use Sunshine/Moonlight to access your device from everywhere with high performance. Pair it with Tailscale and you have a portable desktop!
