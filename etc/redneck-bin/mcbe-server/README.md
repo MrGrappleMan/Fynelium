@@ -69,5 +69,14 @@ While the world is still on your device, activate the resource/behaviour packs t
 
 ## 4.Export the world
 
-## 5.Starting the world
-By default, your server automatically starts up when your computer starts
+## 5.Managing the server
+By default, your server automatically starts up when your computer starts. This is triggered by a systemd service.
+
+Here are some controls for it. Run them in "COSMIC Terminal"
+
+To stop:
+```
+sudo systemctl stop fn-mcbe-srv
+```
+
+To start:
