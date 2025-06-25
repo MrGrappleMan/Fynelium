@@ -4,7 +4,7 @@
 ## 1.Getting the server files
 [Download them here](https://www.minecraft.net/en-us/download/server/bedrock)
 Choose the "Ubuntu (Linux)" option for downloading. Choosing the preview option makes it so that only beta/preview edition users of the game can join.
-They say it does not work with other distros, but it does anyway.
+They say it does not work with other distros, but they do due to the relianc eonly being on the ELF format
 
 Once downloaded, extract the contents to be right beside this file you are seeing right now
 In other words, when you extract the file, "bedrock_server" should be put in the same folder(called mcbe-server) as the file you are seeing right here, right now.
@@ -70,13 +70,13 @@ While the world is still on your device, activate the resource/behaviour packs t
 ## 4.Export the world
 
 ## 5.Managing the server
-By default, your server automatically starts up when your computer starts. This is triggered by a systemd service.
+By default, your server automatically starts up as a daemon inside tmux when your computer starts. This is triggered by a systemd service which executes the file if it is detected.
 
 Here are some controls for it. Run them in "COSMIC Terminal"
 
-To stop:
+To start:
 ```
-sudo systemctl stop fn-mcbe-srv
+sudo systemctl start fn-mcbe-srv
 ```
 
-To start:
+To access the :
