@@ -1,6 +1,6 @@
 [Service]
 Type=simple
-WorkingDirectory=/opt/minecraft-bedrock
+WorkingDirectory=/opt/mcbe-server
 ExecStart=/usr/bin/tmux new-session -s bedrock -d '/opt/mcbe-server/bedrock_server'
 ExecStop=/usr/bin/tmux kill-session -t bedrock
 RemainAfterExit=yes
@@ -9,3 +9,4 @@ StandardOutput=journal
 Nice=19
 
 [Install]
+WantedBy=multi-user.target
