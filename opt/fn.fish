@@ -23,6 +23,7 @@
  end
  cp -r /tmp/Fynelium/etc/* /etc/
  cp -r /tmp/Fynelium/var/* /var/
+ cp -r /tmp/Fynelium/opt/* /opt/
  ##cp -r /tmp/Fynelium/root/* /root/
 
 #snap
