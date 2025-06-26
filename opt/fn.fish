@@ -110,19 +110,22 @@
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket \
    tracker-store.service \
-   plymouth-start.service plymouth-quit-wait.service plymouth-poweroff.service \
-   gdm
+   plymouth-start.service plymouth-quit-wait.service plymouth-poweroff.service
   systemctl unmask \
+   gdm
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
+  systemctl disable \
+   greetd \
+   rpm-ostree-automatic
   systemctl reenable \
    systemd-resolved systemd-networkd \
    tlp \
-   refyne refyne.timer \
+   rpm-ostree-automatic.timer \
    boinc-client \
    systemd-bsod \
    sshd \
    preload systemd-zram-setup@zram0 \
-   greetd
+   gdm
 
 #Per-User
 for user_path in (ls -d /home/*)
