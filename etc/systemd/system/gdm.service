@@ -8,10 +8,6 @@ Wants=graphical-pre.target
 Conflicts=getty@tty1.service
 After=getty@tty1.service
 
-# No more Plymouth / RHGB
-Conflicts=plymouth-quit.service plymouth-start.service
-OnFailure=plymouth-quit.service
-
 # Don’t let multi-user-target or network delays block the GUI
 Conflicts=network-online.target
 Before=multi-user.target
