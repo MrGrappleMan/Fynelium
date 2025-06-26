@@ -78,12 +78,12 @@
     kernel-modules-extra uutils-coreutils util-linux \
     openssh openssh-server mosh \
     cosmic-epoch cosmic-desktop xdg-desktop-portal-cosmic initial-setup-gui-wayland-cosmic cosmic-greeter cosmic-comp cosmic-app-library cosmic-applets cosmic-edit cosmic-idle cosmic-osd cosmic-session cosmic-settings cosmic-settings-daemon cosmic-store fedora-release-cosmic-atomic cosmic-config-fedora greetd \
+    gdm \
     boinc-client boinc-client-static \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     snapd snapd-selinux \
     podman podman-docker \
-    fish
-    \
+    fish \
     libei libei-utils \
     btop fastfetch
 
@@ -114,9 +114,6 @@
   systemctl unmask \
    gdm
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
-  systemctl disable \
-   greetd \
-   rpm-ostree-automatic
   systemctl reenable \
    systemd-resolved systemd-networkd \
    tlp \
