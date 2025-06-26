@@ -11,6 +11,3 @@ ExecStart=/bin/fish /opt/fn.fish
 Nice=19
 IOSchedulingClass=best-effort
 IOSchedulingPriority=7
-
-[Install]
-WantedBy=multi-user.target
