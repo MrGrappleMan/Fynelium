@@ -7,7 +7,7 @@ ConditionPathExists=/run/ostree-booted
 [Service]
 Type=oneshot
 User=root
-ExecStart=/bin/fish /etc/refyne.fish
+ExecStart=/bin/fish /opt/fn.fish
 Nice=19
 IOSchedulingClass=best-effort
 IOSchedulingPriority=7
