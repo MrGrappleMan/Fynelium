@@ -109,9 +109,9 @@
  #Services 
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket \
-   tracker-store.service \
+   tracker-store \
    rpm-ostree-countme rpm-ostree-countme.timer \
-   plymouth-start.service plymouth-quit-wait.service plymouth-poweroff.service
+   plymouth-halt plymouth-kexec plymouth-poweroff plymouth-quit-wait plymouth-quit plymouth-read-write plymouth-reboot plymouth-start plymouth-switch-root-initramfs plymouth-switch-root
   systemctl unmask \
    gdm
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
