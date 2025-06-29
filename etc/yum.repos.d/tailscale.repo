@@ -1,0 +1,8 @@
+[tailscale-stable]
+name=Tailscale
+baseurl=https://pkgs.tailscale.com/unstable/fedora/$basearch
+enabled=1
+type=rpm
+repo_gpgcheck=1
+gpgcheck=1
+gpgkey=https://pkgs.tailscale.com/unstable/fedora/repo.gpg
