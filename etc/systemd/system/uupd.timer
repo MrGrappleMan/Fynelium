@@ -1,5 +1,5 @@
 [Unit]
-Description=Auto Update System Timer For Universal Blue
+Description=uBlue All In One daily updater
 Wants=network-online.target
 
 [Timer]
