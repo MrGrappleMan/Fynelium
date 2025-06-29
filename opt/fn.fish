@@ -26,6 +26,9 @@
  cp -r /tmp/Fynelium/opt/* /opt/
  ##cp -r /tmp/Fynelium/root/* /root/
 
+#clear
+ clear
+ echo "fn.fish started"
 #snap
 #flatpak
  #remote-add
