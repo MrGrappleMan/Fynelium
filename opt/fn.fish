@@ -81,7 +81,7 @@
     fish \
     libei libei-utils \
     btop fastfetch \
-    steam steam-devices extest-steam \
+    steam steam-devices \
     zstd \
     mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
 
@@ -127,8 +127,8 @@
    rpm-ostree-countme rpm-ostree-countme.timer \
    plymouth-halt plymouth-kexec plymouth-poweroff plymouth-quit-wait plymouth-quit plymouth-read-write plymouth-reboot plymouth-start plymouth-switch-root-initramfs plymouth-switch-root
   systemctl unmask \
-   gdm
-   hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
+   gdm \
+   shutdown.target reboot.target poweroff.target halt.target
   systemctl reenable \
    systemd-resolved systemd-networkd systemd-timesyncd \
    tlp \
