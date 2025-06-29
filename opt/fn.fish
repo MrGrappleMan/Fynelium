@@ -58,12 +58,12 @@
  #rebase
     brh rebase unstable -y
  #install
-   rpm-ostree install --idempotent -y -q --peer git gh \
+   rpm-ostree install --allow-inactive --idempotent -y -q --peer \
+    git gh \
     rust cargo clippy \
     cpp \
     distcc distcc-server gcc gcc-c++ \
     java-latest-openjdk \
-    \
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
     pipewire wireplumber wireplumber-libs \
@@ -77,19 +77,38 @@
     podman podman-docker \
     fish \
     libei libei-utils \
-    btop fastfetch
+    btop fastfetch \
+    steam steam-devices extest-steam
 
-   ## Quake Engine ## vavoom vavoom-engine
-   ## Steam ## steam steam-devices extest-steam
-   ## MC Bedrock ##
+    ## VCS ##
+    ## RustLang ##
+    ## C Lang ##
+    ## Compiling ##
+    ## Java ##
+    ## System Boosters ##
+    ## Power management ##
+    ## PipeWire WirePluber ##
+    ## Kernel mods ##
+    ## Remote access ##
+    ## COSMIC ##
+    ## GDM ##
+    ## Science United ##
+    ## Flatpak ##
+    ## Snap ##
+    ## Podman ##
+    ## Fish ##
+    ## Libei ##
+    ## TTY Shows ##
+    ## Steam ##
 
-   ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
-   ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
+    ## MC Bedrock ##
+    ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+    ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 
-   ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
-   ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
-
-   ## AI ## ollama python3-ollama
+    ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
+    ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
+    ## Quake Engine ## vavoom vavoom-engine
+    ## AI ##
 
 #Systemd
  #refresh
