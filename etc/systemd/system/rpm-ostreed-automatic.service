@@ -1,5 +1,5 @@
 [Unit]
-Description=Refresh, clean and update your system
+Description=RPM OSTree Automatic updater
 After=network-online.target
 Wants=network-online.target
 ConditionPathExists=/run/ostree-booted
@@ -7,7 +7,7 @@ ConditionPathExists=/run/ostree-booted
 [Service]
 Type=oneshot
 User=root
-ExecStart=/bin/fish /opt/fn.fish
+ExecStart=/usr/bin/rpm-ostree upgrade -q --peer --trigger-automatic-update-policy --allow-downgrade --bypass-driver
 Nice=19
 IOSchedulingClass=best-effort
 IOSchedulingPriority=7
