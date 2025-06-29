@@ -7,6 +7,6 @@ ExecStart=/usr/bin/uupd --log-level debug --json --hw-check
 SELinuxContext=system_u:unconfined_r:unconfined_t:s0
 User=root
 Nice=19
-IOSchedulingClass=best=effort
+IOSchedulingClass=best-effort
 IOSchedulingPriority=7
 RestrictRealtime=false
