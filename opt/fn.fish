@@ -46,6 +46,9 @@
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
  #install
+  flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
+   org.freedesktop.Platform \
+   org.gnome.Platform
   flatpak install -y --noninteractive --system --include-sdk --or-update flathub \
    io.neovim.nvim \
    io.github.celluloid_player.Celluloid \
