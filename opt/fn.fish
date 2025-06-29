@@ -82,7 +82,8 @@
     libei libei-utils \
     btop fastfetch \
     steam steam-devices extest-steam \
-    zstd
+    zstd \
+    mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
 
     ## VCS ##
     ## RustLang ##
@@ -105,8 +106,8 @@
     ## TTY Shows ##
     ## Steam ##
     ## Compression ##
-
     ## MC Bedrock ##
+
     ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
     ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
 
