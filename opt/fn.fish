@@ -127,11 +127,12 @@
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket \
    tracker-store \
-   rpm-ostree-countme rpm-ostree-countme.timer \
-   plymouth-halt plymouth-kexec plymouth-poweroff plymouth-quit-wait plymouth-quit plymouth-read-write plymouth-reboot plymouth-start plymouth-switch-root-initramfs plymouth-switch-root
+   rpm-ostree-countme rpm-ostree-countme.timer
   systemctl unmask \
    gdm \
    shutdown.target reboot.target poweroff.target halt.target
+  systemctl disable \
+   plymouth-halt plymouth-kexec plymouth-poweroff plymouth-quit-wait plymouth-quit plymouth-read-write plymouth-reboot plymouth-start plymouth-switch-root-initramfs plymouth-switch-root
   systemctl reenable \
    systemd-resolved systemd-networkd systemd-timesyncd \
    tlp \
