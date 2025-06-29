@@ -1,21 +1,16 @@
 [Unit]
 Description=GNOME Display Manager
 
-After=graphical-pre.target
-Wants=graphical-pre.target
-
-# Replace console getty on tty1
 Conflicts=getty@tty1.service
 After=getty@tty1.service
 
-# Don’t let multi-user-target or network delays block the GUI
-Conflicts=network-online.target
-Before=multi-user.target
+After=rc-local.service systemd-user-sessions.service
 
 [Service]
 ExecStart=/usr/bin/gdm
 KillMode=mixed
 Restart=always
+IgnoreSIGPIPE=no
 BusName=org.gnome.DisplayManager
 EnvironmentFile=-/etc/locale.conf
 ExecReload=/bin/kill -SIGHUP $MAINPID
@@ -23,4 +18,3 @@ KeyringMode=shared
 
 [Install]
 Alias=display-manager.service
-WantedBy=graphical.target
