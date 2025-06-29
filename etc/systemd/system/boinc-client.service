@@ -1,5 +1,5 @@
 [Unit]
-Description=Berkeley Open Infrastructure Network Computing Client
+Description=BOINC Science United Node
 Documentation=man:boinc(1)
 Wants=vboxdrv.service
 After=vboxdrv.service network-online.target
@@ -11,7 +11,6 @@ ProtectSystem=full
 ProtectControlGroups=true
 ReadWritePaths=-/var/lib/boinc -/etc/boinc-client
 Nice=19
-User=boinc
 WorkingDirectory=/var/lib/boinc
 ExecStart=/usr/bin/boinc
 ExecStop=/usr/bin/boinccmd --quit
@@ -19,8 +18,9 @@ ExecReload=/usr/bin/boinccmd --read_cc_config
 ExecStopPost=/bin/rm -f lockfile
 IOSchedulingClass=best=effort
 IOSchedulingPriority=7
+User=boinc
 Restart=always
-RestrictRealtime=true
+RestrictRealtime=false
 
 [Install]
 WantedBy=multi-user.target
