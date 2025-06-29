@@ -1,0 +1,8 @@
+[minecraft-linux-pkg]
+name=minecraft-linux-pkg
+baseurl=https://minecraft-linux.github.io/pkg/fedora-42-nightly
+enabled=1
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+gpgkey=https://minecraft-linux.github.io/pkg/deb/pubkey.gpg
