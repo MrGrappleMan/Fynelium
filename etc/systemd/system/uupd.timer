@@ -1,0 +1,10 @@
+[Unit]
+Description=Auto Update System Timer For Universal Blue
+Wants=network-online.target
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
