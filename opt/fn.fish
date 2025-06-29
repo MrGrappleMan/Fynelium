@@ -78,7 +78,8 @@
     fish \
     libei libei-utils \
     btop fastfetch \
-    steam steam-devices extest-steam
+    steam steam-devices extest-steam \
+    zstd
 
     ## VCS ##
     ## RustLang ##
@@ -100,6 +101,7 @@
     ## Libei ##
     ## TTY Shows ##
     ## Steam ##
+    ## Compression ##
 
     ## MC Bedrock ##
     ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
