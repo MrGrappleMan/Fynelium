@@ -11,5 +11,4 @@ skip_if_unavailable=True
 deltarpm=True
 fastestmirror=True
 max_parallel_downloads=20
-retries=0
 metadata_expire=1d
