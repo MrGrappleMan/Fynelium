@@ -28,8 +28,6 @@
 
 #snap
 #flatpak
- #refresh
-  flatpak update --system -y --noninteractive --force-remove
  #remote-add
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
   flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
@@ -59,14 +57,8 @@
 #rpm-ostree
  #rebase
     brh rebase unstable -y
- #refresh
-  rpm-ostree -q --peer reload
-  rpm-ostree -q --peer cleanup -b
-  rpm-ostree -q --peer upgrade --bypass-driver --allow-downgrade --trigger-automatic-update-policy
- #uninstall
-   rpm-ostree uninstall --allow-inactive --idempotent -y -q --peer boinc-manager
  #install
-   rpm-ostree install --allow-inactive --idempotent -y -q --peer git gh \
+   rpm-ostree install --idempotent -y -q --peer git gh \
     rust cargo clippy \
     cpp \
     distcc distcc-server gcc gcc-c++ \
@@ -87,8 +79,9 @@
     libei libei-utils \
     btop fastfetch
 
-   ## QUAKE-ENGINE-STUFF ## vavoom vavoom-engine
+   ## Quake Engine ## vavoom vavoom-engine
    ## Steam ## steam steam-devices extest-steam
+   ## MC Bedrock ##
 
    ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
    ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
@@ -98,14 +91,10 @@
 
    ## AI ## ollama python3-ollama
 
- #apply-live
-  rpm-ostree apply-live
-  rpm-ostree apply-live --allow-replacement
 #Systemd
  #refresh
   nohup systemctl daemon-reload &
   nohup timedatectl set-ntp true --no-ask-password &
-  nohup systemd-resolve --flush-caches &
  #Services 
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket \
@@ -236,8 +225,5 @@ end
  chmod 755 /etc/boinc-client/cc_config.xml
  chmod 755 /etc/boinc-client/acct_mgr_url.xml
  chmod 755 /etc/boinc-client/acct_mgr_login.xml
-
-#Other
- chsh -s /usr/local/bin/fish
 
 exit
