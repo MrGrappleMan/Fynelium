@@ -1,8 +1,6 @@
 [Unit]
-Description= Auto-updater for RPM OSTree
+Description= Auto-updater for RPM-OSTree
 Documentation=man:rpm-ostree(1) man:rpm-ostreed.conf(5)
-After=network-online.target
-Wants=network-online.target
 ConditionPathExists=/run/ostree-booted
 
 [Service]
