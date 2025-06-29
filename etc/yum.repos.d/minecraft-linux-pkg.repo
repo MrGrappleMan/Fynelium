@@ -6,3 +6,7 @@ repo_gpgcheck=0
 type=rpm
 gpgcheck=1
 gpgkey=https://minecraft-linux.github.io/pkg/deb/pubkey.gpg
+skip_if_unavailable=True
+deltarpm=True
+fastestmirror=True
+max_parallel_downloads=20
