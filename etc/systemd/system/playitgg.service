@@ -1,1 +1,14 @@
+[Unit]
+Description=playit.gg is an IP forwarding service, meant for gaming.
+After=basic.target
+Before=shutdown.target
 
+[Service]
+Type=simple
+ExecStart=/opt/playitgg
+IOSchedulingPriority=6
+Restart=always
+Nice=15
+
+[Install]
+WantedBy=multi-user.target
