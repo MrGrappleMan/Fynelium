@@ -110,14 +110,15 @@
   systemctl mask \
    systemd-rfkill systemd-rfkill.socket \
    tracker-store.service \
+   rpm-ostree-countme rpm-ostree-countme.timer \
    plymouth-start.service plymouth-quit-wait.service plymouth-poweroff.service
   systemctl unmask \
    gdm
    hybrid-sleep.target shutdown.target reboot.target sleep.target poweroff.target suspend.target hibernate.target halt.target
   systemctl reenable \
-   systemd-resolved systemd-networkd \
+   systemd-resolved systemd-networkd systemd-timesyncd \
    tlp \
-   rpm-ostree-automatic.timer \
+   uupd.timer \
    boinc-client \
    systemd-bsod \
    sshd \
