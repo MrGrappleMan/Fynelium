@@ -191,7 +191,8 @@ else
     echo "Finished intelligent re-enabling process."
 end
   systemctl reenable \
-   systemd-resolved systemd-networkd systemd-networkd-wait-online systemd-timesyncd getty@tty1.service \
+   systemd-resolved systemd-networkd systemd-networkd-wait-online systemd-timesyncd \
+   playitgg \
    tlp \
    uupd.timer \
    boinc-client \
