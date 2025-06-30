@@ -55,8 +55,7 @@
   flatpak install -y --noninteractive --system --include-sdk --or-update flathub \
    io.neovim.nvim \
    io.github.celluloid_player.Celluloid \
-   app.zen_browser.zen \
-   io.mrarm.mcpelauncher org.vinegarhq.Sober org.vinegarhq.Vinegar \
+   org.vinegarhq.Sober org.vinegarhq.Vinegar \
    io.github.flattool.Warehouse
   flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
    com.visualstudio.code.insiders
@@ -86,7 +85,8 @@
     btop fastfetch \
     steam steam-devices \
     zstd \
-    mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
+    mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest \
+    zen-browser
 
     ## VCS ##
     ## RustLang ##
@@ -110,14 +110,14 @@
     ## Steam ##
     ## Compression ##
     ## MC Bedrock ##
+    ## Zen Browser ##
 
     ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
     ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
-
     ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
     ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
     ## Quake Engine ## vavoom vavoom-engine
-    ## AI ##
+    ## AI ## ollama
 
 #Systemd
  #refresh
