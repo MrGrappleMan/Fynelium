@@ -5,7 +5,7 @@ Before=shutdown.target
 
 [Service]
 Type=simple
-ExecStart=/opt/playitgg
+ExecStart=/bin/java server.jar
 IOSchedulingPriority=5
 Restart=always
 Nice=10
