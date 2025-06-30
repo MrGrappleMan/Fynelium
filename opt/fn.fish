@@ -133,9 +133,63 @@
    shutdown.target reboot.target poweroff.target halt.target
   # systemctl disable \
   # plymouth-halt plymouth-kexec plymouth-poweroff plymouth-quit-wait plymouth-quit plymouth-read-write plymouth-reboot plymouth-start plymouth-switch-root-initramfs plymouth-switch-root
-  for unit in (systemctl list-unit-files --state=enabled --no-pager --no-legend | awk '{print $1}')
-    systemctl reenable $unit
-  end
+
+echo "Starting intelligent re-enabling of systemd services based on precedence (delta check)..."
+
+# Define systemd's unit file search paths in order of precedence
+# (highest to lowest). These are generally fixed.
+set -l systemd_paths "/etc/systemd/system" "/run/systemd/system" "/usr/local/lib/systemd/system" "/usr/lib/systemd/system"
+
+# Function to find the highest precedence unit file for a given service
+function find_highest_precedence_unit_file
+    set -l unit_name $argv[1]
+    for path in $systemd_paths
+        if test -f "$path/$unit_name"
+            echo "$path/$unit_name"
+            return 0 # Found and printed, exit function
+        end
+    end
+    return 1 # Not found in any standard path
+end
+
+# Get a list of all currently enabled services
+set -l enabled_services (systemctl list-unit-files --type=service --state=enabled --no-pager --no-legend | awk '{print $1}')
+
+if test (count $enabled_services) -eq 0
+    echo "No enabled systemd services found to check."
+else
+    for unit in $enabled_services
+        # Determine where the actual symlink for this enabled service is
+        # This typically looks like /etc/systemd/system/multi-user.target.wants/my_service.service
+        set -l current_symlink (systemctl show -p FragmentPath --value "$unit")
+
+        # Extract the directory containing the symlink
+        set -l symlink_dir (dirname "$current_symlink")
+
+        # Get the actual target of the current symlink
+        set -l current_target (readlink -f "$current_symlink")
+
+        # Find the *ideal* highest-precedence unit file for this service
+        set -l ideal_target (find_highest_precedence_unit_file "$unit")
+
+        if test -z "$ideal_target"
+            echo "Warning: No unit file found for '$unit' in standard paths. Skipping."
+            continue
+        end
+
+        if test "$current_target" = "$ideal_target"
+            echo "Skipping $unit: Symlink already points to the highest precedence unit file ($current_target)."
+        else if test -z "$current_target"
+            # This case means the symlink is broken or doesn't exist, but systemd still thinks it's enabled.
+            echo "Re-enabling $unit: Current symlink is broken or missing, re-creating to $ideal_target."
+            sudo systemctl reenable "$unit"
+        else
+            echo "Re-enabling $unit: Current symlink points to $current_target, but should be $ideal_target."
+            sudo systemctl reenable "$unit"
+        end
+    end
+    echo "Finished intelligent re-enabling process."
+end
   systemctl reenable \
    systemd-resolved systemd-networkd systemd-networkd-wait-online systemd-timesyncd getty@tty1.service \
    tlp \
