@@ -133,8 +133,11 @@
    shutdown.target reboot.target poweroff.target halt.target
   # systemctl disable \
   # plymouth-halt plymouth-kexec plymouth-poweroff plymouth-quit-wait plymouth-quit plymouth-read-write plymouth-reboot plymouth-start plymouth-switch-root-initramfs plymouth-switch-root
+  for unit in (systemctl list-unit-files --state=enabled --no-pager --no-legend | awk '{print $1}')
+    systemctl reenable $unit
+  end
   systemctl reenable \
-   systemd-resolved systemd-networkd systemd-networkd-wait-online systemd-timesyncd  \
+   systemd-resolved systemd-networkd systemd-networkd-wait-online systemd-timesyncd getty@tty1.service \
    tlp \
    uupd.timer \
    boinc-client \
