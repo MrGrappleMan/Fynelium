@@ -36,7 +36,16 @@ In the GNOME Display Manager, change your desktop environment to COSMIC.
 Bazzite is used as a base not because it is a gaming distribution, but has access to a wide range of supported hardware, software
 and has community support greater than that of regular atomic Fedora alone
 
-## Extra tips:
-Use tailscale for a seamless networking experience. You can SSH, host servers and even access your home network with it.
-If you are self-hosting a game server, you may use [PlayIt.gg](https://playit.gg/) for playing with your friends.
-Use Sunshine/Moonlight to access your device from everywhere with high performance. Pair it with Tailscale and you have an easily accessible desktop!
+#
+# Extra Tips:
+## Tailscale
+Provides a seamless networking experience. You can MoSH, host servers and even access your home network with it.
+Best for home-labbing and server hosting.
+
+## [PlayIt.gg](https://playit.gg/)
+Playing with your friends, a form of easier port forwarding.
+Allows for a public IP that can be accessed/used by anyone on the internet.
+
+## Sunshine/Moonlight
+Access your device from everywhere with high performance. Pair it with Tailscale and you have an easily accessible desktop!
+Screen sharing + best for remote gaming.
