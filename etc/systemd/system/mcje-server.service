@@ -1,11 +1,10 @@
 [Unit]
-Description=playit.gg is an IP forwarding service, meant for gaming.
-After=basic.target
-Before=shutdown.target
+Description=Minecraft Java Server
+After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/bin/java server.jar
+ExecStart=/bin/java -Xmx6G -Xms256m -XX:+UseZGC -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -XX:+OptimizeStringConcat -jar server.jar 
 IOSchedulingPriority=5
 Restart=always
 Nice=10
