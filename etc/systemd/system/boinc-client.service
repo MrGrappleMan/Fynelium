@@ -6,18 +6,36 @@ After=vboxdrv.service network-online.target
 
 [Service]
 Type=simple
-ReadWritePaths=-/var/lib/boinc -/etc/boinc-client
+ProtectHome=true
+ProtectSystem=strict
+ProtectControlGroups=true
+ReadWritePaths=-/var/lib/boinc -/etc/boinc-client -/tmp -/var/tmp
 Nice=19
+User=boinc
 WorkingDirectory=/var/lib/boinc
 ExecStart=/usr/bin/boinc
 ExecStop=/usr/bin/boinccmd --quit
-ExecReload=/usr/bin/boinccmd --read_cc_config --acct_mgr sync
-ExecStopPost=/bin/rm -f lockfile
+ExecReload=/usr/bin/boinccmd --read_cc_config
+ExecStopPost=/usr/bin/rm -f lockfile
 IOSchedulingClass=best-effort
 IOSchedulingPriority=7
-User=root
 Restart=always
 RestrictRealtime=false
+# The following options prevent setuid root as they imply NoNewPrivileges=true
+# Since Atlas requires setuid root, they break Atlas
+# In order to improve security, if you're not using Atlas,
+# Add these options to the [Service] section of an override file using
+# sudo systemctl edit boinc-client.service
+#NoNewPrivileges=true
+#ProtectKernelModules=true
+#ProtectKernelTunables=true
+#RestrictRealtime=true
+#RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+#RestrictNamespaces=true
+#PrivateUsers=true
+#CapabilityBoundingSet=
+#MemoryDenyWriteExecute=true
+#PrivateTmp=true  #Block X11 idle detection
 
 [Install]
 WantedBy=multi-user.target
