@@ -5,7 +5,8 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/bin/java -Xmx6G -Xms256m -XX:+UseZGC -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -XX:+OptimizeStringConcat -XX:+UseNUMA -XX:MaxRAMPercentage=50.0 -jar server.jar 
+WorkingDirectory=/opt/mcje-server
+ExecStart=/usr/bin/java -Xmx6G -Xms256m -XX:+UseZGC -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -XX:+OptimizeStringConcat -XX:+UseNUMA -XX:MaxRAMPercentage=50.0 -jar server.jar 
 IOSchedulingPriority=5
 Restart=always
 Nice=10
