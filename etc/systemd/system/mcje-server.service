@@ -10,6 +10,7 @@ ExecStart=/usr/bin/java -Xmx6G -Xms256m -XX:+UseZGC -XX:+UnlockExperimentalVMOpt
 IOSchedulingPriority=5
 Restart=always
 Nice=10
+User=root
 
 [Install]
 WantedBy=multi-user.target
