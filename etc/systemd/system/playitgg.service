@@ -9,6 +9,7 @@ ExecStart=/opt/playitgg
 IOSchedulingPriority=6
 Restart=always
 Nice=15
+User=root
 
 [Install]
 WantedBy=multi-user.target
