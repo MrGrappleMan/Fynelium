@@ -38,14 +38,15 @@ and has community support greater than that of regular atomic Fedora alone
 
 #
 # Extra Tips:
-## Tailscale
+
+### Tailscale
 Provides a seamless networking experience. You can MoSH, host servers and even access your home network with it.
 Best for home-labbing and server hosting.
 
-## [PlayIt.gg](https://playit.gg/)
+### [PlayIt.gg](https://playit.gg/)
 Playing with your friends, a form of easier port forwarding.
 Allows for a public IP that can be accessed/used by anyone on the internet.
 
-## Sunshine/Moonlight
+### Sunshine/Moonlight
 Access your device from everywhere with high performance. Pair it with Tailscale and you have an easily accessible desktop!
 Screen sharing + best for remote gaming.
