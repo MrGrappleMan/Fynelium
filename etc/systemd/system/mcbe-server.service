@@ -9,6 +9,7 @@ ExecStart=/opt/mcbe-server/bedrock_server
 IOSchedulingPriority=5
 Restart=always
 Nice=10
+User=root
 
 [Install]
 WantedBy=multi-user.target
