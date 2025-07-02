@@ -34,7 +34,7 @@
 		echo "Marked +x: $file"
 	end
 end
- chmod a+x /opt/playitgg
+ chmod a+x /opt/playit/playit
  chmod a+x /opt/mcbe-server/bedrock_server
  chmod a+x /opt/mcje-server/server.jar
 
