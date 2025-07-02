@@ -204,12 +204,11 @@ else
 end
   systemctl reenable \
    systemd-resolved systemd-networkd systemd-networkd-wait-online systemd-timesyncd \
-   playitgg \
    tlp \
    uupd.timer \
    boinc-client \
    systemd-bsod \
-   sshd \
+   sshd playit tailscaled \
    preload systemd-zram-setup@zram0 \
    gdm \
    mcbe-server mcje-server
