@@ -26,6 +26,18 @@
  cp -r /tmp/Fynelium/opt/* /opt/
  ##cp -r /tmp/Fynelium/root/* /root/
 
+#CHMod
+ for file in (find /opt -type f)
+	set info (file $file)
+	if string match -q '*executable*' $info; or string match -q '*script*' $info
+		chmod +x $file
+		echo "Marked +x: $file"
+	end
+end
+ chmod a+x /opt/playitgg
+ chmod a+x /opt/mcbe-server/bedrock_server
+ chmod a+x /opt/mcje-server/server.jar
+
 #clear
  clear
  echo "fn.fish started"
@@ -305,13 +317,5 @@ end
   --append-if-missing=zswap.enabled=1 \
   --append-if-missing=zswap.zpool=z3fold \
   --delete-if-present=rhgb
-
-#BOINC
- chmod 755 /var/lib/boinc/cc_config.xml
- chmod 755 /var/lib/boinc/acct_mgr_url.xml
- chmod 755 /var/lib/boinc/acct_mgr_login.xml
- chmod 755 /etc/boinc-client/cc_config.xml
- chmod 755 /etc/boinc-client/acct_mgr_url.xml
- chmod 755 /etc/boinc-client/acct_mgr_login.xml
 
 exit
