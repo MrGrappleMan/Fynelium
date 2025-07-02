@@ -199,7 +199,8 @@ end
    systemd-bsod \
    sshd \
    preload systemd-zram-setup@zram0 \
-   gdm
+   gdm \
+   mcbe-server mcje-server
 
 #Per-User
 for user_path in (ls -d /home/*)
