@@ -26,9 +26,7 @@
  cp -r /tmp/Fynelium/opt/* /opt/
  ##cp -r /tmp/Fynelium/root/* /root/
  mkdir -p /etc/playit
- touch /etc/playit/playit.toml
  mkdir -p /opt/playit
- touch /opt/playit/playit
  
 #CHMod
  for file in (find /opt -type f)
