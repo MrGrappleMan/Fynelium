@@ -39,13 +39,22 @@ and has community support greater than that of regular atomic Fedora alone
 #
 # Extra Tips:
 
-### Tailscale
+### [Tailscale](https://tailscale.com)
 Provides a seamless networking experience. You can MoSH, host servers and even access your home network with it.
 Best for home-labbing and server hosting.
 
 ### [PlayIt.gg](https://playit.gg/)
 Playing with your friends, a form of easier port forwarding.
 Allows for a public IP that can be accessed/used by anyone on the internet.
+
+Ensure the executable file's location is /opt/playit/playit
+There should be no file at /etc/playit/playit.toml prior to execution of the command below.
+For first time setup run this:
+```
+/opt/playit/playit --secret_path /etc/playit/playit.toml start
+```
+Get an error? Delete /etc/playit/playit.toml and try first time setup again.
+The service autostarts at startup if the executable is found.
 
 ### Sunshine/Moonlight
 Access your device from everywhere with high performance. Pair it with Tailscale and you have an easily accessible desktop!
