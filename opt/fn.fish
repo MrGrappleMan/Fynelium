@@ -128,6 +128,7 @@ end
 
     ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
     ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
+    ## AMD ## amd-gpu-firmware amd-ucode-firmware amdsmi am-utils
     ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
     ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
     ## Quake Engine ## vavoom vavoom-engine
