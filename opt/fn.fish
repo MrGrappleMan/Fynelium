@@ -209,7 +209,6 @@ end
    systemd-resolved systemd-networkd systemd-networkd-wait-online systemd-timesyncd \
    tlp \
    uupd.timer \
-   boinc-client \
    systemd-bsod \
    sshd playit tailscaled \
    preload systemd-zram-setup@zram0 \
