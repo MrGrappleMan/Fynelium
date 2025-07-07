@@ -9,6 +9,7 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/lib/systemd/system-generators/zram-generator --setup-device 'zram0'
 ExecStop=/usr/lib/systemd/system-generators/zram-generator --reset-device 'zram0'
+User=root
 
 [Install]
 WantedBy=multi-user.target
