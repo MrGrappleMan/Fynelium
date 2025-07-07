@@ -1,0 +1,11 @@
+[Unit]
+Description=Create swap on /dev/zram0
+Documentation=man:zram-generator(8) man:zram-generator.conf(5)
+After=dev-zram0.device
+DefaultDependencies=false
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/lib/systemd/system-generators/zram-generator --setup-device 'zram0'
+ExecStop=/usr/lib/systemd/system-generators/zram-generator --reset-device 'zram0'
