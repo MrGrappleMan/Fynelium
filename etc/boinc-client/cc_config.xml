@@ -23,7 +23,7 @@
 	<max_file_xfers>262144</max_file_xfers>
 	<max_file_xfers_per_project>262144</max_file_xfers_per_project>
 	<max_tasks_reported>262144</max_tasks_reported>
-	<ncpus>0</ncpus>
+	<ncpus>262144</ncpus>
 	<no_alt_platform>0</no_alt_platform>
 	<no_gpus>0</no_gpus>
 	<no_info_fetch>0</no_info_fetch>
@@ -43,6 +43,6 @@
 	<use_certs>1</use_certs>
 	<use_certs_only>0</use_certs_only>
 	<vbox_window>0</vbox_window>
-	<simple_gui_only>0</simple_gui_only>
+	<simple_gui_only>1</simple_gui_only>
     </options>
 </cc_config>
