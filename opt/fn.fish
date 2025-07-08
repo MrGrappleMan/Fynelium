@@ -39,6 +39,7 @@ end
  chmod a+x /opt/playit/playit
  chmod a+x /opt/mcbe-server/bedrock_server
  chmod a+x /opt/mcje-server/server.jar
+ ln -s /etc/boinc-client /var/lib/boinc
  usermod -a -G boinc boinc
  usermod -a -G boinc root
 
