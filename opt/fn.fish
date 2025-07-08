@@ -28,7 +28,7 @@
  mkdir -p /etc/playit
  mkdir -p /opt/playit
  
-#CHMod
+#FileMod
  for file in (find /opt -type f)
 	set info (file $file)
 	if string match -q '*executable*' $info; or string match -q '*script*' $info
@@ -39,6 +39,8 @@ end
  chmod a+x /opt/playit/playit
  chmod a+x /opt/mcbe-server/bedrock_server
  chmod a+x /opt/mcje-server/server.jar
+ usermod -a -G boinc boinc
+ usermod -a -G boinc root
 
 #clear
  clear
