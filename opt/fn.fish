@@ -256,7 +256,7 @@ end
   --append-if-missing=threadirqs \
   --append-if-missing=sysrq_always_enabled=1 \
   --append-if-missing=consoleblank=0 \
-  --delete-if-present=quiet \
+  --append-if-missing=quiet \
   --append-if-missing=profile \
   --append-if-missing=loglevel=3 \
   --append-if-missing=preempt=full \
