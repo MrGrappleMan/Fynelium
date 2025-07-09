@@ -81,11 +81,6 @@ end
     brh rebase unstable -y
  #install
    rpm-ostree install --allow-inactive --idempotent -y --peer \
-    git gh \
-    rust cargo clippy \
-    cpp \
-    distcc distcc-server gcc gcc-c++ \
-    java-latest-openjdk \
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
     pipewire wireplumber wireplumber-libs \
@@ -96,7 +91,6 @@ end
     boinc-client boinc-client-static \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     snapd snapd-selinux \
-    podman podman-docker \
     fish \
     libei libei-utils \
     btop fastfetch \
@@ -105,11 +99,6 @@ end
     mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest \
     zen-browser
 
-    ## VCS ##
-    ## RustLang ##
-    ## C Lang ##
-    ## Compiling ##
-    ## Java ##
     ## System Boosters ##
     ## Power management ##
     ## PipeWire WirePluber ##
@@ -120,7 +109,6 @@ end
     ## Science United ##
     ## Flatpak ##
     ## Snap ##
-    ## Podman ##
     ## Fish ##
     ## Libei ##
     ## TTY Shows ##
@@ -131,17 +119,45 @@ end
 
     ## Mesa ##
      rpm-ostree install --allow-inactive --idempotent -y --peer \
-      mesa* \
-      mesa-va-drivers-freeworld mesa-vdpau-drivers-freeworld mesa-vulkan-drivers-freeworld \
-      mesa-dri-drivers \
-      mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers \
-      mesa-libOSMesa mesa-compat-libOSMesa
+      
     ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch 
     ## AMD ## amd-gpu-firmware amd-ucode-firmware amdsmi am-utils
-    ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration 
-    ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon 
+    ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
     ## Quake Engine ## vavoom vavoom-engine 
-    ## AI ## ollama
+
+    ### Developer Specific:-
+     ## Version Control Systems:
+      # git gh
+     ## Rust:
+      # rust cargo clippy
+     ## C stuff:
+      # cpp
+     ## Java:
+      # java-latest-openjdk
+     ## Compilation:
+      # distcc distcc-server gcc gcc-c++
+     ## Containerization / Orchestration:
+      # podman podman-docker
+     ## Penetration testing / Hacking:
+      # aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
+     ## Artificial Intelligence:
+      # ollama
+
+    ### Gaming:-
+     ## Steam:
+      # steam
+     ## 
+
+    ### Graphical / User Environment:-
+     ## Mesa:
+      # mesa*
+      # mesa-va-drivers-freeworld mesa-vdpau-drivers-freeworld mesa-vulkan-drivers-freeworld
+      # mesa-dri-drivers
+      # mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
+      # mesa-libOSMesa mesa-compat-libOSMesa
+     ## AMD:
+     ## Nvidia:
+     ## Wayland:
 
 #Systemd
  #refresh
