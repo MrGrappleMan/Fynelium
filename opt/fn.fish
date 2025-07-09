@@ -85,25 +85,20 @@ end
     tlp tlp-rdw \
     pipewire wireplumber wireplumber-libs \
     kernel-modules-extra uutils-coreutils util-linux \
-    openssh openssh-server mosh \
     cosmic-epoch cosmic-desktop xdg-desktop-portal-cosmic initial-setup-gui-wayland-cosmic cosmic-greeter cosmic-comp cosmic-app-library cosmic-applets cosmic-edit cosmic-idle cosmic-osd cosmic-session cosmic-settings cosmic-settings-daemon cosmic-store fedora-release-cosmic-atomic cosmic-config-fedora greetd \
     gdm \
     boinc-client boinc-client-static \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
-    snapd snapd-selinux \
     fish \
     libei libei-utils \
     btop fastfetch \
-    steam steam-devices \
     zstd \
-    mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest \
     zen-browser
 
     ## System Boosters ##
     ## Power management ##
-    ## PipeWire WirePluber ##
+    ## User environment ##
     ## Kernel mods ##
-    ## Remote access ##
     ## COSMIC ##
     ## GDM ##
     ## Science United ##
@@ -112,18 +107,10 @@ end
     ## Fish ##
     ## Libei ##
     ## TTY Shows ##
-    ## Steam ##
     ## Compression ##
-    ## MC Bedrock ##
     ## Zen Browser ##
 
-    ## Mesa ##
-     rpm-ostree install --allow-inactive --idempotent -y --peer \
-      
-    ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch 
-    ## AMD ## amd-gpu-firmware amd-ucode-firmware amdsmi am-utils
     ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
-    ## Quake Engine ## vavoom vavoom-engine 
 
     ### Developer Specific:-
      ## Version Control Systems:
@@ -145,19 +132,26 @@ end
 
     ### Gaming:-
      ## Steam:
-      # steam
-     ## 
+      # steam steam-devices
+     ## Minecraft:
+      # mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
+     ## Vavoom:
+      # vavoom vavoom-engine
 
-    ### Graphical / User Environment:-
+    ### Graphics:-
      ## Mesa:
-      # mesa*
       # mesa-va-drivers-freeworld mesa-vdpau-drivers-freeworld mesa-vulkan-drivers-freeworld
       # mesa-dri-drivers
       # mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
       # mesa-libOSMesa mesa-compat-libOSMesa
-     ## AMD:
-     ## Nvidia:
-     ## Wayland:
+     ## AMD: amd-gpu-firmware amd-ucode-firmware amdsmi am-utils
+     ## Nvidia: nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
+
+   ### Multipurpose:-
+    ## Remote access
+     # openssh openssh-server mosh
+    ## PKGMGR Snap
+     # snapd snapd-selinux
 
 #Systemd
  #refresh
