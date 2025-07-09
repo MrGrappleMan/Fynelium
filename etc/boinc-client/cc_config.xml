@@ -23,7 +23,7 @@
 	<max_file_xfers>262144</max_file_xfers>
 	<max_file_xfers_per_project>262144</max_file_xfers_per_project>
 	<max_tasks_reported>262144</max_tasks_reported>
-	<ncpus>262144</ncpus>
+	<ncpus>0</ncpus>
 	<no_alt_platform>0</no_alt_platform>
 	<no_gpus>0</no_gpus>
 	<no_info_fetch>0</no_info_fetch>
