@@ -129,12 +129,18 @@ end
     ## MC Bedrock ##
     ## Zen Browser ##
 
-    ## Mesa ## mesa-dri-drivers mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
-    ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
+    ## Mesa ##
+     rpm-ostree install --allow-inactive --idempotent -y --peer \
+      mesa* \
+      mesa-va-drivers-freeworld mesa-vdpau-drivers-freeworld mesa-vulkan-drivers-freeworld \
+      mesa-dri-drivers \
+      mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers \
+      mesa-libOSMesa mesa-compat-libOSMesa
+    ## NVIDIA ## nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch 
     ## AMD ## amd-gpu-firmware amd-ucode-firmware amdsmi am-utils
-    ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
-    ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon
-    ## Quake Engine ## vavoom vavoom-engine
+    ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration 
+    ## Hecking ## aircrack-ng turbo-attack golang-github-redteampentesting-monsoon 
+    ## Quake Engine ## vavoom vavoom-engine 
     ## AI ## ollama
 
 #Systemd
