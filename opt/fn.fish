@@ -37,9 +37,9 @@
 	end
 end
  chmod a+x /opt/playit/playit
- chmod a+x /opt/mcbe-server/bedrock_server
- chmod a+x /opt/mcje-server/server.jar
+ chmod a+x /opt/mc-server/bedrock_server
  ln -s /etc/boinc-client /var/lib/boinc
+ ln -s /etc/boinc-client /var/lib/app/edu.berkeley.BOINC/current/active/files/etc
  usermod -a -G boinc boinc
  usermod -a -G boinc root
 
@@ -175,7 +175,9 @@ end
    sshd playit tailscaled \
    preload systemd-zram-setup@zram0 \
    gdm \
-   mcbe-server mcje-server
+   mc-server
+
+### For mc-server, Bedrock is default as it is the primary platform. Java ExecStart compatibility is maintained, check the comments within the service
 
 #Per-User
 for user_path in (ls -d /home/*)
