@@ -33,8 +33,10 @@ I expect that you have read this paragraph carefully and I claim no responsibilt
 
 In the GNOME Display Manager, change your desktop environment to COSMIC.
 
-Bazzite is used as a base not because it is a gaming distribution, but has access to a wide range of supported hardware, software
-and has community support greater than that of regular atomic Fedora alone
+Bazzite is used as it has access to a wide range of
+### supported hardware
+### user friendly software
+### community support greater than that of regular atomic Fedora alone
 
 #
 # Extra Tips:
@@ -59,3 +61,23 @@ The service autostarts at startup if the executable is found.
 ### Sunshine/Moonlight
 Access your device from everywhere with high performance. Pair it with Tailscale and you have an easily accessible desktop!
 Screen sharing + best for remote gaming.
+
+### Minecraft Server
+Host your own Minecraft Server on your PC.
+
+Note: Using Bedrock edition is heavily recommended.
+It is faster, scalable, efficient and the language used for it is significantly better.
+Want a great vanilla experience? Use this!
+You can infact get mods, worlds and skins for free! The marketplace is just an optional way to support Mojang and UGC creators
+There are plenty of mods here that can satisfy your needs.
+Move the contents inside the server folder to
+```
+/opt/mc-server/
+```
+such that the server executable is located at and named as
+```
+/opt/mc-server/mc-server
+```
+
+Want mods only possible to use on Java? Use server software like FabricMC
+alongside mods like Lithium, GeyserMC and Floodgate to get started.
