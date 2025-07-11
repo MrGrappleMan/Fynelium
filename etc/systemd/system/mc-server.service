@@ -1,11 +1,14 @@
 [Unit]
-Description=Minecraft server
+Description=Minecraft server starter
 After=network-online.target
 Wants=network-online.target
 
+# You can also try exploring Bedrock Server software that utilizes Rust
+# rather than using the official server
+
 [Service]
 Type=simple
-ExecStart=/opt/mc-server/bedrock_server
+ExecStart=/opt/mc-server/mc-server
 IOSchedulingPriority=5
 Restart=always
 Nice=10
