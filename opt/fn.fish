@@ -168,7 +168,7 @@ end
   # systemctl disable \
   #  plymouth-halt plymouth-kexec plymouth-poweroff plymouth-quit-wait plymouth-quit plymouth-read-write plymouth-reboot plymouth-start plymouth-switch-root-initramfs plymouth-switch-root
   systemctl reenable \
-   systemd-resolved systemd-networkd systemd-networkd-wait-online systemd-timesyncd \
+   systemd-resolved systemd-networkd systemd-networkd-wait-online NetworkManager-wait-online systemd-timesyncd \
    boinc-client
    tlp \
    uupd.timer \
