@@ -3,7 +3,7 @@ Description=uBlue All In One daily updater
 Wants=network-online.target
 
 [Timer]
-OnCalendar=daily
+OnCalendar=*-*-* */6:00:00
 Persistent=true
 
 [Install]
