@@ -3,7 +3,7 @@ Description=uBlue All In One updater
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/uupd --log-level debug --disable-progress --json --hw-check
+ExecStart=/usr/bin/uupd --disable-progress --hw-check
 SELinuxContext=system_u:unconfined_r:unconfined_t:s0
 User=root
 Nice=18
