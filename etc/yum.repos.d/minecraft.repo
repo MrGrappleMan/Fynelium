@@ -1,5 +1,5 @@
 [minecraft-linux-pkg]
-name=minecraft-linux-pkg
+name=minecraft
 baseurl=https://minecraft-linux.github.io/pkg/fedora-42-nightly
 enabled=1
 repo_gpgcheck=0
