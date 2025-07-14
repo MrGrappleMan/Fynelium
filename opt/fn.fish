@@ -87,13 +87,15 @@ end
     kernel-modules-extra uutils-coreutils util-linux \
     cosmic-epoch cosmic-desktop xdg-desktop-portal-cosmic initial-setup-gui-wayland-cosmic cosmic-greeter cosmic-comp cosmic-app-library cosmic-applets cosmic-edit cosmic-idle cosmic-osd cosmic-session cosmic-settings cosmic-settings-daemon cosmic-store fedora-release-cosmic-atomic cosmic-config-fedora greetd \
     gdm \
-    boinc-client boinc-client-static \
+    boinc-client boinc-client-static boinc-manager \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     fish \
     libei libei-utils \
     btop fastfetch \
     zstd \
-    zen-browser
+    zen-browser \
+    mesa-*
+    
 
     ## System Boosters ##
     ## Power management ##
@@ -145,7 +147,7 @@ end
       # mesa-va-drivers mesa-vdpau-drivers mesa-vulkan-drivers
       # mesa-libOSMesa mesa-compat-libOSMesa
      ## AMD: amd-gpu-firmware amd-ucode-firmware amdsmi am-utils
-     ## Nvidia: nvidia-gpu-firmware libva-nvidia-driver envytools gwe nvidia-patch
+     ## Nvidia: nvidia-gpu-firmware libva-nvidia-driver envytools nvidia-patch
 
    ### Multipurpose:-
     ## Remote access
