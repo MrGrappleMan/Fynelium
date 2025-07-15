@@ -1,10 +1,10 @@
 #
-# Creating a Minecraft: Bedrock Edition server
+# Creating a Minecraft server
 
 ## 1.Getting the server files
 [Download them here](https://www.minecraft.net/en-us/download/server/bedrock)
 Choose the "Ubuntu (Linux)" option for downloading. Choosing the preview option makes it so that only beta/preview edition users of the game can join.
-They say it does not work with other distros, but they do due to the relianc eonly being on the ELF format
+They say it does not work with other distros, but they do due to the reliance only being on the ELF format
 
 Once downloaded, extract the contents to be right beside this file you are seeing right now
 In other words, when you extract the file, "bedrock_server" should be put in the same folder(called mcbe-server) as the file you are seeing right here, right now.
@@ -91,3 +91,6 @@ enter main console first
 ```
 quit
 ```
+
+#
+# Creating a Minecraft: Java Editon server
