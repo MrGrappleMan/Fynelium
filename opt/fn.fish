@@ -148,7 +148,6 @@
   ln -s /etc/boinc-client /var/lib/boinc
   ln -s /etc/boinc-client /var/lib/app/edu.berkeley.BOINC/current/active/files/etc
   usermod -a -G boinc root
-  setsebool -P domain_kernel_load_modules on
  #refresh
   nohup systemctl daemon-reload &
   nohup timedatectl set-ntp true --no-ask-password &
