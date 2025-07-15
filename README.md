@@ -5,20 +5,21 @@ Asahi Linux support not confirmed.
 
 #
 # 📜 Key features:
-1. 📦 Automatic unattended updates, prevent dependency hell(RPM-OSTree)
-2. ⚡ Better power management(TLP)
-3. ⭐ Modern protocols and programs(Wayland, PipeWire, WirePlumber)
-4. 🛑 AD-Blocking + reduced tracking(AdGuard DNS and internal block list)
+1. 📦 Automatic unattended updates, prevent dependency hell ( RPM-OSTree )
+2. ⚡ Better power management ( TLP )
+3. ⭐ Modern protocols and programs ( Wayland, PipeWire, WirePlumber )
+4. 🛑 AD-Blocking ( AdGuard DNS and internal block list )
 5. 🌌 The COSMIC desktop experience, modified for productivity
-6. 🚀 All-round system optimization(sysctl.conf)
-7. 🌐 Include a wide range of repositories(flatpak)
-8. ♾️ Autonomous handling of packages and the entire system(RPM-OSTree)
-9. 🛡️ Hardened Security by default by SELinux(Fedora defaults)
+6. 🚀 All-round system optimization ( sysctl.conf )
+7. 🌐 Include a wide range of repositories ( flatpak )
+8. ♾️ Autonomous handling of packages and the entire system ( RPM-OSTree )
+9. 🛡️ Hardened Security by default by pre-hardened SELinux
 10. 🛑 Prevent manual modification of core system parts
-11. ⛓️‍💥 Reduced risk of a broken system(Atomic Distribution)
-12. ✒️ Professional system software support(backed by RedHat and the community)
-13. 🔁 Rollback to a previous system state(OSTree)
+11. ⛓️‍💥 Reduced risk of a broken system due to atomic behaviour
+12. ✒️ Professional system software support backed by RedHat and the community
+13. 🔁 Rollback to a previous system state 
 14. ☮️ A peaceful browsing experience with the Zen Browser
+15. ✴️ Modern kernel improvements with the CachyOS kernel
 
 Run this script to proceed.
 You may encounter errors, which is usually a normal occurence.
