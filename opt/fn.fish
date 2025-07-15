@@ -64,6 +64,8 @@
 #rpm-ostree
  #rebase
     brh rebase unstable -y
+ #overrides
+    rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos
  #install
    rpm-ostree install --allow-inactive --idempotent -y --peer \
     rust-zram-generator-devel preload \
@@ -78,8 +80,7 @@
     libei libei-utils \
     btop fastfetch \
     zstd \
-    zen-browser \
-    mesa-*
+    zen-browser
     
 
     ## System Boosters ##
