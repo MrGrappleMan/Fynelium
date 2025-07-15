@@ -27,21 +27,6 @@
  ##cp -r /tmp/Fynelium/root/* /root/
  mkdir -p /etc/playit
  mkdir -p /opt/playit
- 
-#FileMod
- for file in (find /opt -type f)
-	set info (file $file)
-	if string match -q '*executable*' $info; or string match -q '*script*' $info
-		chmod +x $file
-		echo "Marked +x: $file"
-	end
-end
- chmod a+x /opt/playit/playit
- chmod a+x /opt/mc-server/bedrock_server
- ln -s /etc/boinc-client /var/lib/boinc
- ln -s /etc/boinc-client /var/lib/app/edu.berkeley.BOINC/current/active/files/etc
- usermod -a -G boinc boinc
- usermod -a -G boinc root
 
 #clear
  clear
@@ -155,7 +140,14 @@ end
     ## PKGMGR Snap
      # snapd snapd-selinux
 
-#Systemd
+#System
+ #Policies and permissions
+  chmod a+x /opt/playit/playit
+  chmod a+x /opt/mc-server/bedrock_server
+  ln -s /etc/boinc-client /var/lib/boinc
+  ln -s /etc/boinc-client /var/lib/app/edu.berkeley.BOINC/current/active/files/etc
+  usermod -a -G boinc root
+  setsebool -P domain_kernel_load_modules on
  #refresh
   nohup systemctl daemon-reload &
   nohup timedatectl set-ntp true --no-ask-password &
