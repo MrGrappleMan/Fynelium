@@ -1,6 +1,6 @@
 [copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos]
 name=C bieszczaders kernel-cachyos
-baseurl=https://download.copr.fedorainfracloud.org/results/bieszczaders/kernel-cachyos/fedora-rawhide-$basearch/
+baseurl=https://download.copr.fedorainfracloud.org/results/bieszczaders/kernel-cachyos/fedora-$releasever-$basearch/
 gpgkey=https://download.copr.fedorainfracloud.org/results/bieszczaders/kernel-cachyos/pubkey.gpg
 type=rpm-md
 gpgcheck=1
