@@ -32,8 +32,13 @@
  clear
  echo "fn.fish started"
 #snap
+#fwupdmr
+ #repos
+  fwupdmgr enable-remote lvfs -y
+  fwupdmgr enable-remote lvfs-testing -y
+
 #flatpak
- #remote-add
+ #repos
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
   flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
   flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
