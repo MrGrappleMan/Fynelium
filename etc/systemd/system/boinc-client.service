@@ -6,9 +6,12 @@ After=vboxdrv.service network-online.target
 
 [Service]
 Type=simple
-ReadWritePaths=/var/lib/boinc /etc/boinc-client /tmp /var/tmp
+ProtectHome=true
+ProtectSystem=strict
+ProtectControlGroups=true
+ReadWritePaths=-/var/lib/boinc -/etc/boinc-client -/tmp -/var/tmp
 Nice=19
-User=root
+User=boinc
 WorkingDirectory=/var/lib/boinc
 ExecStart=/usr/bin/boinc
 ExecStop=/usr/bin/boinccmd --quit
