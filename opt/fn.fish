@@ -36,7 +36,6 @@
  #repos
   fwupdmgr enable-remote lvfs -y
   fwupdmgr enable-remote lvfs-testing -y
-
 #flatpak
  #repos
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -149,9 +148,7 @@
 #System
  #Policies and permissions
   chmod a+x /opt/playit/playit
-  chmod a+x /opt/mc-server/bedrock_server
-  ln -s /etc/boinc-client /var/lib/boinc
-  ln -s /etc/boinc-client /var/lib/app/edu.berkeley.BOINC/current/active/files/etc
+  chmod a+x /opt/mc-server/mc-server
   usermod -a -G boinc root
  #refresh
   nohup systemctl daemon-reload &
