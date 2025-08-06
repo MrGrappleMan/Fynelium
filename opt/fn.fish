@@ -147,7 +147,6 @@
  #Policies and permissions
   chmod a+x /opt/playit/playit
   chmod a+x /opt/mc-server/mc-server
-  usermod -a -G boinc root
  #refresh
   nohup systemctl daemon-reload &
   nohup timedatectl set-ntp true --no-ask-password &
