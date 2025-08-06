@@ -68,8 +68,6 @@
 #rpm-ostree
  #rebase
     brh rebase unstable -y
- #overrides
-    rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos
  #install
    rpm-ostree install --allow-inactive --idempotent -y --peer \
     rust-zram-generator-devel preload \
@@ -269,10 +267,11 @@ end
 #Kernel
  rpm-ostree initramfs --enable
  rpm-ostree kargs \
+  --append-if-missing=splash \
   --append-if-missing=threadirqs \
   --append-if-missing=sysrq_always_enabled=1 \
   --append-if-missing=consoleblank=0 \
-  --append-if-missing=quiet \
+  --delete-if-present=quiet \
   --append-if-missing=profile \
   --append-if-missing=loglevel=3 \
   --append-if-missing=preempt=full \
