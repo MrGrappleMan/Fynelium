@@ -9,7 +9,6 @@
 	<abort_jobs_on_exit>0</abort_jobs_on_exit>
 	<allow_multiple_clients>0</allow_multiple_clients>
 	<allow_remote_gui_rpc>1</allow_remote_gui_rpc>
-	<device_name>a</device_name>
 	<disallow_attach>0</disallow_attach>
 	<dont_check_file_sizes>0</dont_check_file_sizes>
 	<dont_contact_ref_site>0</dont_contact_ref_site>
@@ -46,3 +45,4 @@
 	<simple_gui_only>0</simple_gui_only>
     </options>
 </cc_config>
+
