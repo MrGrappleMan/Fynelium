@@ -30,14 +30,16 @@
 
 #clear
  clear
- echo "fn.fish started"
+ echo "Fynelium - Setup started"
 #snap
 #fwupdmr
  #repos
   fwupdmgr enable-remote lvfs -y
   fwupdmgr enable-remote lvfs-testing -y
 #flatpak
- #repos
+ #remotes - before
+  flatpak remotes
+ #remote-add
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
   flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
   flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
@@ -54,6 +56,10 @@
   flatpak remote-add --if-not-exists --system elementaryos https://flatpak.elementary.io/repo.flatpakrepo
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
+ #remotes - after
+  flatpak remotes 
+ #list - before
+  flatpak list
  #install
   flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
    org.freedesktop.Platform \
@@ -65,9 +71,20 @@
    io.github.flattool.Warehouse
   flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
    com.visualstudio.code.insiders
-#rpm-ostree
+ #list - after
+  flatpak list
+
+#brh
+ #current - before
+  brh current
  #rebase
-    brh rebase unstable -y
+  brh rebase unstable -y
+ #current - after
+  brh current
+
+#rpm-ostree
+ #status - before
+  rpm-ostree status -v --peer -a
  #install
    rpm-ostree install --allow-inactive --idempotent -y --peer \
     rust-zram-generator-devel preload \
@@ -123,8 +140,6 @@
     ### Gaming:-
      ## Steam:
       # steam steam-devices
-     ## Minecraft:
-      # mcpelauncher-manifest mcpelauncher-ui-manifest msa-manifest
      ## Vavoom:
       # vavoom vavoom-engine
 
@@ -143,6 +158,9 @@
     ## PKGMGR Snap
      # snapd snapd-selinux
 
+ #status - after
+  rpm-ostree status -v --peer -a
+
 #System
  #Policies and permissions
   chmod a+x /opt/playit/playit
@@ -158,8 +176,6 @@
   systemctl unmask \
    gdm \
    shutdown.target reboot.target poweroff.target halt.target
-  # systemctl disable \
-  #  plymouth-halt plymouth-kexec plymouth-poweroff plymouth-quit-wait plymouth-quit plymouth-read-write plymouth-reboot plymouth-start plymouth-switch-root-initramfs plymouth-switch-root
   systemctl reenable \
    systemd-resolved systemd-networkd systemd-networkd-wait-online NetworkManager-wait-online systemd-timesyncd \
    boinc-client \
@@ -171,7 +187,7 @@
    gdm \
    mc-server
 
-### For mc-server, Bedrock is default as it is the primary platform. Java ExecStart compatibility is maintained, check the comments within the service
+### For mc-server, Bedrock is default as it is the primary platform. Java ExecStart compatibility is maintained, check the comments within mc-server.service
 
 #Per-User
 for user_path in (ls -d /home/*)
@@ -264,6 +280,7 @@ for user_path in (ls -d /home/*)
 end
 
 #Kernel
+ plymouth-set-default-theme 
  rpm-ostree initramfs --enable
  rpm-ostree kargs \
   --append-if-missing=splash \
