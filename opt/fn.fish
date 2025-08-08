@@ -5,7 +5,7 @@
 
 #Aliases
  alias rot "rpm-ostree -q --peer"
- alias fpkremadd "flatpak remote-add --if-not-exists --system
+ alias fpkremadd "flatpak remote-add --if-not-exists --system"
 
 #BasicChecks
  if test (id -u) -ne 0
