@@ -1,15 +1,19 @@
 #!/bin/env /bin/fish
-### This file ensures a form of standardization across your system ###
+### This script is the template for your system ###
 ### Some preferences might not meet your requirements ###
-### Adjusting or adapting yourself to them is recommended ###
+### Adjusting some userspace settings and apps yourself is recommended after executing ###
+
+#Aliases
+ alias rot "rpm-ostree -q --peer"
+ alias fpkremadd "flatpak remote-add --if-not-exists --system
 
 #BasicChecks
  if test (id -u) -ne 0
-  echo "Not root user"
+  echo "Run as root user"
   exit 1
  end
  if not ping -c 1 -W 2 8.8.8.8 > /dev/null
-    echo "No access to internet or Google DNS"
+    echo "Connect to the internet"
     exit 1
  end
 
@@ -18,7 +22,7 @@
  mkdir /tmp/Fynelium
  git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
  if test $status -ne 0
-  echo "Repo clone failed"
+  echo "Repository clone failed"
   exit 1
  end
  cp -r /tmp/Fynelium/etc/* /etc/
@@ -28,17 +32,18 @@
  mkdir -p /etc/playit
  mkdir -p /opt/playit
 
-#clear
+#InformTheUser
  clear
  echo "Fynelium - Setup started"
+
 #snap
+
 #fwupdmr
  #repos
   fwupdmgr enable-remote lvfs -y
   fwupdmgr enable-remote lvfs-testing -y
+
 #flatpak
- #remotes - before
-  flatpak remotes
  #remote-add
   flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
   flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
@@ -56,10 +61,6 @@
   flatpak remote-add --if-not-exists --system elementaryos https://flatpak.elementary.io/repo.flatpakrepo
   flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
   flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
- #remotes - after
-  flatpak remotes 
- #list - before
-  flatpak list
  #install
   flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
    org.freedesktop.Platform \
@@ -71,22 +72,13 @@
    io.github.flattool.Warehouse
   flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
    com.visualstudio.code.insiders
- #list - after
-  flatpak list
 
 #brh
- #current - before
-  brh current
- #rebase
   brh rebase unstable -y
- #current - after
-  brh current
 
 #rpm-ostree
- #status - before
-  rpm-ostree status -v --peer -a
  #install
-   rpm-ostree install --allow-inactive --idempotent -y --peer \
+   rot install --allow-inactive --idempotent -y \
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
     pipewire wireplumber wireplumber-libs \
@@ -158,9 +150,6 @@
     ## PKGMGR Snap
      # snapd snapd-selinux
 
- #status - after
-  rpm-ostree status -v --peer -a
-
 #System
  #Policies and permissions
   chmod a+x /opt/playit/playit
@@ -187,7 +176,8 @@
    gdm \
    mc-server
 
-### For mc-server, Bedrock is default as it is the primary platform. Java ExecStart compatibility is maintained, check the comments within mc-server.service
+### For the inbuilt Minecraft server service, switch to Java edition by running and exploring it,
+### systemctl edit mc-server
 
 #Per-User
 for user_path in (ls -d /home/*)
@@ -280,14 +270,14 @@ for user_path in (ls -d /home/*)
 end
 
 #Kernel
- plymouth-set-default-theme 
- rpm-ostree initramfs --enable
- rpm-ostree kargs \
-  --append-if-missing=splash \
+ plymouth-set-default-theme spinner
+ rot initramfs --enable
+ rot kargs \
+  --append-if-missing=rhgb \
   --append-if-missing=threadirqs \
   --append-if-missing=sysrq_always_enabled=1 \
   --append-if-missing=consoleblank=0 \
-  --delete-if-present=quiet \
+  --append-if-missing=quiet \
   --append-if-missing=profile \
   --append-if-missing=loglevel=3 \
   --append-if-missing=preempt=full \
