@@ -1,0 +1,13 @@
+[rawhide]
+name=Fedora Rawhide
+metalink=https://mirrors.fedoraproject.org/metalink?repo=rawhide&arch=$basearch
+enabled=1
+repo_gpgcheck=0
+type=rpm
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-rawhide-$basearch
+skip_if_unavailable=True
+deltarpm=True
+fastestmirror=True
+max_parallel_downloads=20
+metadata_expire=1d
