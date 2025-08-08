@@ -45,30 +45,28 @@
 
 #flatpak
  #remote-add
-  flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
-  flatpak remote-add --if-not-exists --system flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-  ###flatpak remote-add --if-not-exists --system eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
-  flatpak remote-add --if-not-exists --system igalia https://software.igalia.com/flatpak-refs/igalia.flatpakrepo
-  flatpak remote-add --if-not-exists --system dragon-nightly https://cdn.kde.org/flatpak/dragon-nightly/dragon-nightly.flatpakrepo
-  ###flatpak remote-add --if-not-exists --system eos-apps https://ostree.endlessm.com/ostree/eos-apps
-  flatpak remote-add --if-not-exists --system webkit https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
-  flatpak remote-add --if-not-exists --system gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
-  flatpak remote-add --if-not-exists --system webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
-  flatpak remote-add --if-not-exists --system fedora oci+https://registry.fedoraproject.org
-  flatpak remote-add --if-not-exists --system fedora-testing oci+https://registry.fedoraproject.org/#testing
-  flatpak remote-add --if-not-exists --system rhel https://flatpaks.redhat.io/rhel.flatpakrepo
-  flatpak remote-add --if-not-exists --system eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo
-  flatpak remote-add --if-not-exists --system elementaryos https://flatpak.elementary.io/repo.flatpakrepo
-  flatpak remote-add --if-not-exists --system pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
-  flatpak remote-add --if-not-exists --system kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
+  fpkremadd flathub https://flathub.org/repo/flathub.flatpakrepo
+  fpkremadd flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+  ###fpkremadd eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
+  fpkremadd igalia https://software.igalia.com/flatpak-refs/igalia.flatpakrepo
+  fpkremadd dragon-nightly https://cdn.kde.org/flatpak/dragon-nightly/dragon-nightly.flatpakrepo
+  ###fpkremadd eos-apps https://ostree.endlessm.com/ostree/eos-apps
+  fpkremadd webkit https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
+  fpkremadd gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+  fpkremadd webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
+  fpkremadd fedora oci+https://registry.fedoraproject.org
+  fpkremadd fedora-testing oci+https://registry.fedoraproject.org/#testing
+  fpkremadd rhel https://flatpaks.redhat.io/rhel.flatpakrepo
+  fpkremadd eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo
+  fpkremadd elementaryos https://flatpak.elementary.io/repo.flatpakrepo
+  fpkremadd pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
+  fpkremadd kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
  #install
   flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
    org.freedesktop.Platform \
    org.gnome.Platform
   flatpak install -y --noninteractive --system --include-sdk --or-update flathub \
-   io.neovim.nvim \
    io.github.celluloid_player.Celluloid \
-   org.vinegarhq.Sober org.vinegarhq.Vinegar \
    io.github.flattool.Warehouse
   flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
    com.visualstudio.code.insiders
