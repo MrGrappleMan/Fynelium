@@ -90,10 +90,8 @@
     fish \
     libei libei-utils \
     btop fastfetch \
-    zstd \
-    zen-browser
+    zstd
     
-
     ## System Boosters ##
     ## Power management ##
     ## User environment ##
