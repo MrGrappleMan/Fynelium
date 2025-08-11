@@ -4,7 +4,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Timer]
-OnCalendar=hourly
+OnCalendar=daily
 Persistent=true
 
 [Install]
