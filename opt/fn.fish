@@ -72,7 +72,20 @@
    com.visualstudio.code.insiders
 
 #brh
-  brh rebase unstable -y
+ brh rebase unstable -y
+
+#ujust - Recommended
+ ujust setup-decky prerelease
+ ujust get-decky-bazzite-buddy
+ ujust get-framegen install-decky-plugin
+ ujust get-framegen install
+ ujust get-lsfg install
+ ujust get-lsfg install-decky-plugin
+ ujust toggle-password-feedback off
+ ujust configure-grub show
+ ujust enable-automounting
+ ujust enable-steamos-automount
+ ujust get-media-app "YouTube" # This looks smooth even on a 60Hz monitor.
 
 #rpm-ostree
  #install
