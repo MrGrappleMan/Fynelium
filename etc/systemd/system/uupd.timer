@@ -1,9 +1,9 @@
 [Unit]
-Description=uBlue All In One daily updater
+Description=Universal Blue All in one Updater
 Wants=network-online.target
 
 [Timer]
-OnCalendar=*-*-* */6:00:00
+OnCalendar=hourly
 Persistent=true
 
 [Install]
