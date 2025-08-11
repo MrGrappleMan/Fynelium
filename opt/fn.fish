@@ -1,36 +1,64 @@
 #!/bin/env /bin/fish
-### This script is the template for your system ###
+### This script is like a template for your system ###
 ### Some preferences might not meet your requirements ###
-### Adjusting some userspace settings and apps yourself is recommended after executing ###
+### Adjusting some userspace settings and apps yourself is recommended after the reboot ###
 
-#Aliases
- alias rot "rpm-ostree -q --peer"
- alias fpkremadd "flatpak remote-add --if-not-exists --system"
-
-#BasicChecks
- if test (id -u) -ne 0
-  echo "Run as root user"
-  exit 1
- end
+# Internet connection
  if not ping -c 1 -W 2 8.8.8.8 > /dev/null
-    echo "Connect to the internet"
+    echo "Connect to the internet, or just dont block Google DNS. Probably just need to contact github domain."
     exit 1
  end
 
-#RepoClone
- rm -rf /tmp/Fynelium
- mkdir /tmp/Fynelium
- git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
+# No root by default 
+if test (id -u) -eq 0
+	echo "❌ Do not run this script as root or with sudo. Please run as a normal user." >&2
+	exit 1
+end
+
+# PKEXEC Prompt
+if type -q pkexec
+	pkexec sudo -v # Trigger GUI prompt via pkexec, then sudo immediately
+else
+	echo "❌ Cannot start GUI password prompt by pkexec." >&2
+	exit 1
+end
+
+# Sudo Checker
+if sudo -n true 2>/dev/null
+	echo "✅ Sudo capabilities confirmed."
+else
+	echo "❌ Sudo not available without password. Please authenticate first BY THE REQUESTED PROMPT." >&2
+	exit 1
+end
+
+# Sudo Refresher
+while true
+	sudo -v
+	sleep 60
+end &
+set sudo_pid $last_pid
+trap "kill $sudo_pid" EXIT
+
+# Aliases
+ alias rot "rpm-ostree -q --peer"
+ alias fpkremadd "flatpak remote-add --if-not-exists --system"
+
+# Functions, actions, loops. Reserved for future use.
+
+# Repository Clone
+ sudo rm -rf /tmp/Fynelium
+ sudo mkdir /tmp/Fynelium
+ sudo git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
  if test $status -ne 0
   echo "Repository clone failed"
   exit 1
  end
- cp -r /tmp/Fynelium/etc/* /etc/
- cp -r /tmp/Fynelium/var/* /var/
- cp -r /tmp/Fynelium/opt/* /opt/
- ##cp -r /tmp/Fynelium/root/* /root/
- mkdir -p /etc/playit
- mkdir -p /opt/playit
+ sudo cp -r /tmp/Fynelium/etc/* /etc/
+ sudo cp -r /tmp/Fynelium/var/* /var/
+ sudo cp -r /tmp/Fynelium/opt/* /opt/
+ ##sudo cp -r /tmp/Fynelium/root/* /root/
+ sudo mkdir -p /etc/playit
+ sudo mkdir -p /opt/playit
 
 #InformTheUser
  clear
@@ -188,99 +216,91 @@
 ### For the inbuilt Minecraft server service, switch to Java edition by running and exploring it,
 ### systemctl edit mc-server
 
-#Per-User
-for user_path in (ls -d /home/*)
- set username (basename $user_path)
- set user_commands '
-  gsettings set org.gnome.desktop.interface clock-show-seconds false;
-  gsettings set org.gnome.desktop.interface enable-animations false;
-  gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat';
-  gsettings set org.gnome.software download-updates false;
-  gsettings set org.gnome.desktop.peripherals.mouse speed 1.0;
-  gsettings set org.gnome.shell.app-switcher current-workspace-only true;
-  gsettings set org.gnome.system.location max-accuracy-level 'exact';
-  gsettings set org.gnome.system.location enabled true;
-  gsettings set org.gnome.login-screen allowed-failures 15;
-  gsettings set org.gnome.SessionManager auto-save-session true;
-  gsettings set org.gnome.SessionManager logout-prompt true;
-  gsettings set org.gnome.SessionManager auto-save-session-one-shot true;
-  gsettings set org.gnome.mutter dynamic-workspaces true;
-  gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
-  gsettings set org.gnome.desktop.thumbnail-cache maximum-size 128;
-  gsettings set org.gnome.desktop.thumbnail-cache maximum-age 3;
-  gsettings set org.gnome.desktop.background picture-options 'none';
-  gsettings set org.gnome.desktop.background primary-color '#000000';
-  gsettings set org.gnome.desktop.background secondary-color '#000000';
-  gsettings set org.gnome.desktop.background picture-uri '';
-  gsettings set org.gnome.desktop.background picture-uri-dark '';
-  gsettings set org.gnome.desktop.background picture-opacity 0;
-  gsettings set org.gnome.desktop.interface cursor-blink false;
-  gsettings set org.gnome.software allow-updates true;
-  gsettings set org.gnome.software download-updates true;
-  gsettings set org.gnome.software download-updates-notify false;
-  gsettings set org.gnome.software show-ratings true;
-  gsettings set org.gnome.software show-upgrade-prerelease true;
-  gsettings set org.gnome.software show-nonfree-ui true;
-  gsettings set org.gnome.software show-only-free-apps false;
-  gsettings set org.gnome.software show-only-verified-apps false;
-  gsettings set org.gnome.software prompt-for-nonfree true;
-  gsettings set org.gnome.software refresh-when-metered false;
-  gsettings set org.gnome.desktop.interface clock-show-weekday true;
-  gsettings set org.gnome.desktop.interface clock-show-date true;
-  gsettings set org.gnome.desktop.lockdown disable-lock-screen false;
-  gsettings set org.gnome.login-screen fallback-logo '';
-  gsettings set org.gnome.login-screen logo '';
-  gsettings set org.gnome.system.location enabled true;
-  gsettings set org.gnome.system.location max-accuracy-level 'exact';
-  gsettings set org.gnome.online-accounts whitelisted-providers ['all'];
-  gsettings set org.gnome.mutter center-new-windows true;
-  gsettings set org.gnome.mutter auto-maximize true;
-  gsettings set org.gnome.desktop.interface cursor-blink false;
-  gsettings set org.gnome.desktop.interface font-hinting 'full';
-  gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale';
-  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark';
-  gsettings set org.gnome.desktop.interface locate-pointer false;
-  gsettings set org.gnome.desktop.a11y.interface high-contrast false;
-  gsettings set org.freedesktop.Tracker3.Miner.Files crawling-interval -2;
-  gsettings set org.freedesktop.Tracker3.Miner.Files enable-monitors false;
-  gsettings set org.freedesktop.Tracker3.Miner.Files ignored-directories ['all'];
-  gsettings set org.freedesktop.Tracker3.Miner.Files ignored-directories-with-content ['all'];
-  gsettings set org.freedesktop.Tracker3.Miner.Files ignored-files ['all'];
-  gsettings set org.freedesktop.Tracker3.Miner.Files index-on-battery false;
-  gsettings set org.freedesktop.Tracker3.Miner.Files index-on-battery-first-time false;
-  gsettings set org.freedesktop.Tracker3.Miner.Files index-removable-devices false;
-  gsettings set org.freedesktop.Tracker3.Miner.Files index-recursive-directories [];
-  gsettings set org.freedesktop.Tracker3.Miner.Files index-single-directories [];
-  gsettings set org.freedesktop.Tracker3.Miner.Files initial-sleep 1000;
-  gsettings set org.freedesktop.Tracker3.Miner.Files throttle 20;
-  gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'hibernate';
-  gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing';
-  gsettings set org.gnome.settings-daemon.plugins.power power-saver-profile-on-low-battery true;
-  gsettings set org.gnome.settings-daemon.plugins.power idle-dim true;
-  gsettings set org.gnome.desktop.session idle-delay 60;
-  gsettings set org.gnome.desktop.screensaver idle-activation-enabled false;
-  gsettings set org.gnome.desktop.screensaver lock-delay 300;
-  gsettings set org.gnome.desktop.peripherals.keyboard remember-numlock-state true;
-  gsettings set org.gnome.desktop.break-reminders.eyesight fade-screen true;
-  gsettings set org.gnome.desktop.break-reminders.eyesight notify true;
-  gsettings set org.gnome.desktop.break-reminders.eyesight interval-seconds 1200;
-  gsettings set org.gnome.desktop.break-reminders.eyesight countdown false;
-  gsettings set org.gnome.desktop.break-reminders.eyesight delay-seconds 10;
-  gsettings set org.gnome.desktop.break-reminders.eyesight duration-seconds 20;
-  gsettings set org.gnome.desktop.remote-desktop.vnc enable false;
-  gsettings set org.gnome.desktop.remote-desktop.rdp enable true;
-  gsettings set org.gnome.desktop.remote-desktop.rdp negotiate-port true;
-  gsettings set org.gnome.desktop.remote-desktop.rdp port 3389;
-  gsettings set org.gnome.desktop.remote-desktop.rdp view-only false;
-  ujust setup-sunshine ACTION="Enable"
- '
-  runuser -l $username -c "fish -c '$user_commands'"
-  echo ""
-end
+#gsettings
+ gsettings set org.gnome.desktop.interface clock-show-seconds false;
+ gsettings set org.gnome.desktop.interface enable-animations false;
+ gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat';
+ gsettings set org.gnome.software download-updates false;
+ gsettings set org.gnome.desktop.peripherals.mouse speed 1.0;
+ gsettings set org.gnome.shell.app-switcher current-workspace-only true;
+ gsettings set org.gnome.system.location max-accuracy-level 'exact';
+ gsettings set org.gnome.system.location enabled true;
+ gsettings set org.gnome.login-screen allowed-failures 15;
+ gsettings set org.gnome.SessionManager auto-save-session true;
+ gsettings set org.gnome.SessionManager logout-prompt true;
+ gsettings set org.gnome.SessionManager auto-save-session-one-shot true;
+ gsettings set org.gnome.mutter dynamic-workspaces true;
+ gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
+ gsettings set org.gnome.desktop.thumbnail-cache maximum-size 128;
+ gsettings set org.gnome.desktop.thumbnail-cache maximum-age 3;
+ gsettings set org.gnome.desktop.background picture-options 'none';
+ gsettings set org.gnome.desktop.background primary-color '#000000';
+ gsettings set org.gnome.desktop.background secondary-color '#000000';
+ gsettings set org.gnome.desktop.background picture-uri '';
+ gsettings set org.gnome.desktop.background picture-uri-dark '';
+ gsettings set org.gnome.desktop.background picture-opacity 0;
+ gsettings set org.gnome.desktop.interface cursor-blink false;
+ gsettings set org.gnome.software allow-updates true;
+ gsettings set org.gnome.software download-updates true;
+ gsettings set org.gnome.software download-updates-notify false;
+ gsettings set org.gnome.software show-ratings true;
+ gsettings set org.gnome.software show-upgrade-prerelease true;
+ gsettings set org.gnome.software show-nonfree-ui true;
+ gsettings set org.gnome.software show-only-free-apps false;
+ gsettings set org.gnome.software show-only-verified-apps false;
+ gsettings set org.gnome.software prompt-for-nonfree true;
+ gsettings set org.gnome.software refresh-when-metered false;
+ gsettings set org.gnome.desktop.interface clock-show-weekday true;
+ gsettings set org.gnome.desktop.interface clock-show-date true;
+ gsettings set org.gnome.desktop.lockdown disable-lock-screen false;
+ gsettings set org.gnome.login-screen fallback-logo '';
+ gsettings set org.gnome.login-screen logo '';
+ gsettings set org.gnome.system.location enabled true;
+ gsettings set org.gnome.system.location max-accuracy-level 'exact';
+ gsettings set org.gnome.online-accounts whitelisted-providers ['all'];
+ gsettings set org.gnome.mutter center-new-windows true;
+ gsettings set org.gnome.mutter auto-maximize true;
+ gsettings set org.gnome.desktop.interface cursor-blink false;
+ gsettings set org.gnome.desktop.interface font-hinting 'full';
+ gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale';
+ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark';
+ gsettings set org.gnome.desktop.interface locate-pointer false;
+ gsettings set org.gnome.desktop.a11y.interface high-contrast false;
+ gsettings set org.freedesktop.Tracker3.Miner.Files crawling-interval -2;
+ gsettings set org.freedesktop.Tracker3.Miner.Files enable-monitors false;
+ gsettings set org.freedesktop.Tracker3.Miner.Files ignored-directories ['all'];
+ gsettings set org.freedesktop.Tracker3.Miner.Files ignored-directories-with-content ['all'];
+ gsettings set org.freedesktop.Tracker3.Miner.Files ignored-files ['all'];
+ gsettings set org.freedesktop.Tracker3.Miner.Files index-on-battery false;
+ gsettings set org.freedesktop.Tracker3.Miner.Files index-on-battery-first-time false;
+ gsettings set org.freedesktop.Tracker3.Miner.Files index-removable-devices false;
+ gsettings set org.freedesktop.Tracker3.Miner.Files index-recursive-directories [];
+ gsettings set org.freedesktop.Tracker3.Miner.Files index-single-directories [];
+ gsettings set org.freedesktop.Tracker3.Miner.Files initial-sleep 1000;
+ gsettings set org.freedesktop.Tracker3.Miner.Files throttle 20;
+ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'hibernate';
+ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing';
+ gsettings set org.gnome.settings-daemon.plugins.power power-saver-profile-on-low-battery true;
+ gsettings set org.gnome.settings-daemon.plugins.power idle-dim true;
+ gsettings set org.gnome.desktop.session idle-delay 60;
+ gsettings set org.gnome.desktop.screensaver idle-activation-enabled false;
+ gsettings set org.gnome.desktop.screensaver lock-delay 300;
+ gsettings set org.gnome.desktop.peripherals.keyboard remember-numlock-state true;
+ gsettings set org.gnome.desktop.break-reminders.eyesight fade-screen true;
+ gsettings set org.gnome.desktop.break-reminders.eyesight notify true;
+ gsettings set org.gnome.desktop.break-reminders.eyesight interval-seconds 1200;
+ gsettings set org.gnome.desktop.break-reminders.eyesight countdown false;
+ gsettings set org.gnome.desktop.break-reminders.eyesight delay-seconds 10;
+ gsettings set org.gnome.desktop.break-reminders.eyesight duration-seconds 20;
+ gsettings set org.gnome.desktop.remote-desktop.vnc enable false;
+ gsettings set org.gnome.desktop.remote-desktop.rdp enable true;
+ gsettings set org.gnome.desktop.remote-desktop.rdp negotiate-port true;
+ gsettings set org.gnome.desktop.remote-desktop.rdp port 3389;
+ gsettings set org.gnome.desktop.remote-desktop.rdp view-only false;
 
-#Kernel
- plymouth-set-default-theme spinner
+# Kernel
  rot initramfs --enable
+ plymouth-set-default-theme spinner
  rot kargs \
   --append-if-missing=rhgb \
   --append-if-missing=threadirqs \
@@ -292,4 +312,5 @@ end
   --append-if-missing=preempt=full \
   --append-if-missing=zswap.enabled=0
 
-exit
+# Reboot
+ sudo systemctl reboot
