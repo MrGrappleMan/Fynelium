@@ -1,5 +1,6 @@
 [Unit]
-Description=Universal Blue All in one Updater
+Description=Universal Blue All in one Update enforcer
+After=network-online.target
 Wants=network-online.target
 
 [Timer]
