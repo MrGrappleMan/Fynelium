@@ -1,5 +1,6 @@
 [Unit]
 Description=uBlue All In One updater
+Wants=network-online.target
 StartLimitBurst=3
 StartLimitIntervalSec=600
 
