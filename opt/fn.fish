@@ -18,16 +18,9 @@ end
 # PKEXEC Prompt
 if type -q pkexec
 	pkexec sudo -v # Trigger GUI prompt via pkexec, then sudo immediately
+	sudo -v
 else
 	echo "❌ Cannot start GUI password prompt by pkexec." >&2
-	exit 1
-end
-
-# Sudo Checker
-if sudo -n true 2>/dev/null
-	echo "✅ Sudo capabilities confirmed."
-else
-	echo "❌ Sudo not available without password. Please authenticate first BY THE REQUESTED PROMPT." >&2
 	exit 1
 end
 
