@@ -26,7 +26,7 @@ After installing and getting to the desktop, run this script in the "Terminal" a
 Getting some errors is normal.
 
 ```
-sudo -A curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/opt/fn.fish | sudo fish
+curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/opt/fn.fish | fish
 ```
 
 It attempts to greatly enhance your system experience.
