@@ -1,5 +1,5 @@
 [Unit]
-Description=Adaptive readahead daemon
+Description=Adaptive Read Ahead daemon for loading frequently used parts of the filesystem into the RAM
 After=basic.target
 
 [Service]
