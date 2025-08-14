@@ -26,8 +26,7 @@ After installing and getting to the desktop, run this script in the "Terminal" a
 Getting some errors is normal.
 
 ```
-git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
-curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/opt/fn.fish | fish
+sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/opt/fn.fish | sudo fish
 ```
 
 It attempts to greatly enhance your system experience.
