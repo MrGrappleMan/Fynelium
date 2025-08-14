@@ -38,14 +38,7 @@ trap "kill $sudo_pid" EXIT
 
 # Functions, actions, loops. Reserved for future use.
 
-# Repository Clone
- sudo rm -rf /tmp/Fynelium
- sudo mkdir /tmp/Fynelium
- sudo git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
- if test $status -ne 0
-  echo "Repository clone failed"
-  exit 1
- end
+# Filesystem
  sudo cp -r /tmp/Fynelium/etc/* /etc/
  sudo cp -r /tmp/Fynelium/var/* /var/
  sudo cp -r /tmp/Fynelium/opt/* /opt/
