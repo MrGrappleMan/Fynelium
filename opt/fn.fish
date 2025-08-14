@@ -9,29 +9,6 @@
     exit 1
  end
 
-# No root by default 
-if test (id -u) -eq 0
-	echo "❌ Do not run this script as root or with sudo. Please run as a normal user." >&2
-	exit 1
-end
-
-# PKEXEC Prompt
-if type -q pkexec
-	pkexec sudo -v # Trigger GUI prompt via pkexec, then sudo immediately
-	sudo -v
-else
-	echo "❌ Cannot start GUI password prompt by pkexec." >&2
-	exit 1
-end
-
-# Sudo Refresher
-while true
-	sudo -v
-	sleep 60
-end &
-set sudo_pid $last_pid
-trap "kill $sudo_pid" EXIT
-
 # Aliases
  alias rot "rpm-ostree -q --peer"
  alias fpkremadd "flatpak remote-add --if-not-exists --system"
