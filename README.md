@@ -1,5 +1,5 @@
 # Fynelium
-Ascend your device experience
+Ascend your device experience. Greatly enhance your system experience for High Performance Computing and Productivity.
 
 
 # 📜 Key features:
@@ -19,22 +19,20 @@ Ascend your device experience
 14. 🌐 A productive browsing experience with Microsoft Edge
 15. ✴️ Modern kernel improvements with the latest kernel
 
-Install [Bazzite GNOME](https://bazzite.gg/). DO NOT enable Steam Gaming Mode.
+Install [Bazzite GNOME with no Steam Gaming Mode](https://bazzite.gg/)
 Write the file ending with ".iso" to a spare USB Drive with a tool like Ventoy.
-Wipe out your entire system disk, encrypt it with LUKS in the Bazzite setup wizard.
+Back up ALL your data. In the Bazzite installer, wipe out your entire system disk, encrypt it with LUKS.
 After installing and getting to the desktop, run this script in the "Terminal" app to get started.
 Getting some errors is normal.
 
 ```
-sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/opt/fn.fish | sudo fish
+sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/tmp/Fynelium.fish | sudo fish
 ```
-
-It attempts to greatly enhance your system experience.
 
 Windows environment »→ use Bottles
 Linux environments »→ use BoxBuddy/DistroShelf
 
-I expect that you have read this paragraph carefully and I claim no responsibilty to any damage done to your system, but I can try helping!
+It expects that you have read this paragraph carefully and it claims no responsibilty to any damage done to your system, but I can try helping!
 
 This project's intended purpose is to have your system in a great state with files preconfigured for a great user experience,
 and by that, a unified distribution with the intent of fulfilling consumer/user usage without having technical experience or using terminals
@@ -52,10 +50,11 @@ Bazzite is used as it has access to a wide range of
 
 ### [Tailscale](https://tailscale.com)
 Provides a seamless networking experience. You can MoSH, host servers and even access your home network with it.
-Best for home-labbing and server hosting.
+Best for home-labbing, server hosting and remotely accessing your home internet.
+Use it with Sunshine / Moonlight to use your desktop from anywhere as long as you 
 
 ### [PlayIt.gg](https://playit.gg/)
-Playing with your friends, a form of easier port forwarding.
+Port forwarding made simple for all.
 Allows for a public IP that can be accessed/used by anyone on the internet.
 
 Ensure the executable file's location is /opt/playit/playit
@@ -69,7 +68,7 @@ The service autostarts at startup if the executable is found.
 
 ### Sunshine/Moonlight
 Access your device from everywhere with high performance. Pair it with Tailscale and you have an easily accessible desktop!
-Screen sharing + best for remote gaming.
+Best for screen sharing + remote gaming. Better than Steam Remote Play and not restricted to just games.
 
 ### Minecraft Server
 Host your own Minecraft Server on your PC.
@@ -90,3 +89,11 @@ such that the server executable is located at and named as
 
 Want mods only possible to use on Java? Use server software like FabricMC
 alongside mods like Lithium, GeyserMC and Floodgate to get started.
+
+### Running other Linux distributions
+
+Use tools like DistroShelf or BoxBuddy to get started with containers
+
+### Running Windows programs
+
+Although not providing a full fledged environment 
