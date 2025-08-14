@@ -16,12 +16,17 @@
 # Functions, actions, loops. Reserved for future use.
 
 # Filesystem
- sudo cp -r /tmp/Fynelium/etc/* /etc/
- sudo cp -r /tmp/Fynelium/var/* /var/
- sudo cp -r /tmp/Fynelium/opt/* /opt/
- ##sudo cp -r /tmp/Fynelium/root/* /root/
- sudo mkdir -p /etc/playit
- sudo mkdir -p /opt/playit
+ rm -rf /tmp/Fynelium
+ mkdir /tmp/Fynelium
+ git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
+ if test $status -ne 0
+  echo "Repository clone failed"
+ cp -r /tmp/Fynelium/etc/* /etc/
+ cp -r /tmp/Fynelium/var/* /var/
+ cp -r /tmp/Fynelium/opt/* /opt/
+ ##cp -r /tmp/Fynelium/root/* /root/
+ mkdir -p /etc/playit
+ mkdir -p /opt/playit
 
 #InformTheUser
  clear
@@ -276,4 +281,4 @@
   --append-if-missing=zswap.enabled=0
 
 # Reboot
- sudo systemctl reboot
+ systemctl reboot
