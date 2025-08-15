@@ -1,4 +1,3 @@
-#
 # Creating a Minecraft server
 
 ## 1.Getting the server files
