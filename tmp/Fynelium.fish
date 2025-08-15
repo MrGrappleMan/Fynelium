@@ -21,6 +21,7 @@ if not ping -c 1 -W 2 8.8.8.8 > /dev/null
  git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
  if test $status -ne 0
   echo "Repository clone failed"
+ end
  cp -r /tmp/Fynelium/etc/* /etc/
  cp -r /tmp/Fynelium/var/* /var/
  cp -r /tmp/Fynelium/opt/* /opt/
