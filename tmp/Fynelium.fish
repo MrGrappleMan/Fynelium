@@ -174,13 +174,11 @@
    shutdown.target reboot.target poweroff.target halt.target
   systemctl reenable \
    systemd-resolved systemd-networkd systemd-timesyncd \
-   boinc-client \
    tlp \
    uupd uupd.timer \
    systemd-bsod \
    sshd playit tailscaled \
-   preload systemd-zram-setup@zram0 \
-   gdm \
+   preload systemd-zram-setup@zram0
    mc-server
 
 ### For the inbuilt Minecraft server service, switch to Java edition by running the command below and editing it
