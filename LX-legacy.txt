@@ -260,20 +260,6 @@ sudo echo -e "NoNewPrivileges=no" >> tor@.service.d/override.conf
 sudo echo -e '[Service]' > tor@default.service.d/override.conf
 sudo echo -e "NoNewPrivileges=no" >> tor@default.service.d/override.conf
 sudo systemctl enable --now tor
-# FS Trim----------------------------------------------------------------------------------------------------
-sudo mkdir -p /etc/systemd/system/fstrim.timer.d/
-sudo touch /etc/systemd/system/fstrim.timer.d/override.conf
-sudo chmod 755 /etc/systemd/system/fstrim.timer.d/override.conf
-sudo tee /etc/systemd/system/fstrim.timer.d/override.conf > /dev/null << "XIT"
-[Timer]
-OnCalendar=
-OnCalendar=daily
-XIT
-sudo systemctl enable --now fstrim.timer
-sudo chmod 755 /etc/systemd/timesyncd.conf
-# DNS Setup----------------------------------------------------------------------------------------------------
-sudo systemctl enable --now systemd-resolved
-sudo systemctl enable --now systemd-networkd
 # End----------------------------------------------------------------------------------------------------
 kill $SUDOREFRESHP
 echo Done
@@ -312,9 +298,9 @@ sudo curl -sL https://dl.google.com/linux/direct/chrome-remote-desktop_current_a
 sudo apt-fast install ./crd.deb -y
 
 # For Performance:
-sudo apt-fast update; sudo apt-fast dist-upgrade -y; sudo apt-fast install cpufrequtils -y; sudo echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils; sudo systemctl disable ondemand
+sudo apt-fast update; sudo apt-fast dist-upgrade -y; sudo apt-fast install cpufrequtils -y
 # For OnDemand(default for most distributions):
-sudo apt-fast update; sudo apt-fast dist-upgrade -y; sudo apt-fast install cpufrequtils -y; sudo echo 'GOVERNOR="ondemand"' | sudo tee /etc/default/cpufrequtils; sudo systemctl enable ondemand
+sudo apt-fast update; sudo apt-fast dist-upgrade -y; sudo apt-fast install cpufrequtils -y
 
 # Science United
 EMAIL=
