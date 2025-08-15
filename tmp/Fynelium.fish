@@ -5,13 +5,16 @@
 
 # Aliases
  alias rot "rpm-ostree -q --peer"
- alias fpkremadd "flatpak remote-add --if-not-exists --system"
+ alias rotpkgadd "rpm-ostree -q --peer install --allow-inactive --idempotent -y"
+ alias fpkrepoadd "flatpak remote-add --if-not-exists --system"
+ alias fpkpkgadd "flatpak install -y --noninteractive --system --include-sdk --or-update"
 
-# Functions, actions, loops. Reserved for future use.
+# Functions, actions, loops.
 
 # Filesystem
  rm -rf /tmp/Fynelium
  mkdir /tmp/Fynelium
+ cd /tmp/Fynelium
  git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
  cp -r /tmp/Fynelium/etc/* /etc/
  cp -r /tmp/Fynelium/var/* /var/
@@ -22,9 +25,8 @@
 
 #InformTheUser
  clear
- echo "Fynelium - Setup started"
-
-#snap
+ echo "Setup started. Even if something may not seem to be occuring, it is"
+ echo "Be patient till your device reboots"
 
 #fwupdmr
  #repos
@@ -33,37 +35,41 @@
 
 #flatpak
  #remote-add
-  fpkremadd flathub https://flathub.org/repo/flathub.flatpakrepo
-  fpkremadd flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-  ###fpkremadd eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
-  fpkremadd igalia https://software.igalia.com/flatpak-refs/igalia.flatpakrepo
-  fpkremadd dragon-nightly https://cdn.kde.org/flatpak/dragon-nightly/dragon-nightly.flatpakrepo
-  ###fpkremadd eos-apps https://ostree.endlessm.com/ostree/eos-apps
-  fpkremadd webkit https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
-  fpkremadd gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
-  fpkremadd webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
-  fpkremadd fedora oci+https://registry.fedoraproject.org
-  fpkremadd fedora-testing oci+https://registry.fedoraproject.org/#testing
-  fpkremadd rhel https://flatpaks.redhat.io/rhel.flatpakrepo
-  fpkremadd eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo
-  fpkremadd elementaryos https://flatpak.elementary.io/repo.flatpakrepo
-  fpkremadd pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
-  fpkremadd kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
+  fpkrepoadd flathub https://flathub.org/repo/flathub.flatpakrepo
+  fpkrepoadd flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+  ###fpkrepoadd eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
+  fpkrepoadd igalia https://software.igalia.com/flatpak-refs/igalia.flatpakrepo
+  fpkrepoadd dragon-nightly https://cdn.kde.org/flatpak/dragon-nightly/dragon-nightly.flatpakrepo
+  ###fpkrepoadd eos-apps https://ostree.endlessm.com/ostree/eos-apps
+  fpkrepoadd webkit https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
+  fpkrepoadd gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+  fpkrepoadd webkit-sdk https://software.igalia.com/flatpak-refs/webkit-sdk.flatpakrepo
+  fpkrepoadd fedora oci+https://registry.fedoraproject.org
+  fpkrepoadd fedora-testing oci+https://registry.fedoraproject.org/#testing
+  fpkrepoadd rhel https://flatpaks.redhat.io/rhel.flatpakrepo
+  fpkrepoadd eclipse-nightly https://download.eclipse.org/linuxtools/flatpak-I-builds/eclipse.flatpakrepo
+  fpkrepoadd elementaryos https://flatpak.elementary.io/repo.flatpakrepo
+  fpkrepoadd pureos https://store.puri.sm/repo/stable/pureos.flatpakrepo
+  fpkrepoadd kde-runtime-nightly https://cdn.kde.org/flatpak/kde-runtime-nightly/kde-runtime-nightly.flatpakrepo
  #install
-  flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
-   org.freedesktop.Platform \
-   org.gnome.Platform
-  flatpak install -y --noninteractive --system --include-sdk --or-update flathub \
+  fpkpkgadd flathub-beta \
+   org.freedesktop.Platform org.gnome.Platform \
+   org.freedesktop.Sdk org.gnome.Sdk
+  fpkpkgadd flathub \
    io.github.celluloid_player.Celluloid \
-   io.github.flattool.Warehouse
-  flatpak install -y --noninteractive --system --include-sdk --or-update flathub-beta \
-   com.visualstudio.code.insiders
+   io.github.flattool.Warehouse \
+   edu.berkeley.BOINC \
+   com.microsoft.EdgeDev \
+   org.torproject.torbrowser-launcher \
+   io.frama.tractor.carburetor
+  fpkpkgadd flathub-beta \
+   com.visualstudio.code
 
 #brh
  brh rebase unstable -y
 
 #ujust
- ujust setup-decky prerelease # Still of great utility on desktops
+ ujust setup-decky prerelease # Still of utility on desktops
  ujust get-decky-bazzite-buddy # Know your changes you system undergoes to use it better
  ujust get-framegen install-decky-plugin
  ujust get-framegen install
@@ -77,22 +83,23 @@
  ujust get-media-app "YouTube" # Use this instead of your web browser, as browsers introduce some middleman overhead. This is just dedicated and optimized for specifically YT.
  ujust get-media-app "Spotify" # Stay sane
  ujust get-media-app "YouTube Music"
- 
+
+#snap
+
 #rpm-ostree
  #install
-   rot install --allow-inactive --idempotent -y \
+   rotpkgadd \
     rust-zram-generator-devel preload \
     tlp tlp-rdw \
     pipewire wireplumber wireplumber-libs \
     kernel-modules-extra uutils-coreutils util-linux \
     cosmic-epoch cosmic-desktop xdg-desktop-portal-cosmic initial-setup-gui-wayland-cosmic cosmic-greeter cosmic-comp cosmic-app-library cosmic-applets cosmic-edit cosmic-idle cosmic-osd cosmic-session cosmic-settings cosmic-settings-daemon cosmic-store fedora-release-cosmic-atomic cosmic-config-fedora greetd \
     gdm \
-    boinc-client boinc-client-static boinc-manager \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     fish \
     libei libei-utils \
     btop fastfetch \
-    zstd
+    zstd brotli p7zip p7zip-plugins p7zip-gui
     
     ## System Boosters ##
     ## Power management ##
@@ -100,14 +107,12 @@
     ## Kernel mods ##
     ## COSMIC ##
     ## GDM ##
-    ## Science United ##
     ## Flatpak ##
     ## Snap ##
     ## Fish ##
     ## Libei ##
     ## TTY Shows ##
     ## Compression ##
-    ## Zen Browser ##
 
     ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
 
@@ -120,6 +125,8 @@
       # cpp
      ## Java:
       # java-latest-openjdk
+     ## Python:
+      # 
      ## Compilation:
       # distcc distcc-server gcc gcc-c++
      ## Containerization / Orchestration:
