@@ -176,6 +176,7 @@
    systemd-resolved systemd-networkd systemd-timesyncd \
    tlp \
    uupd uupd.timer \
+   fstrim.timer \
    systemd-bsod \
    sshd playit tailscaled \
    preload systemd-zram-setup@zram0
