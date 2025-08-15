@@ -3,12 +3,6 @@
 ### Some preferences might not meet your requirements ###
 ### Adjusting some userspace settings and apps yourself is recommended after the reboot ###
 
-# Internet connection
-if not ping -c 1 -W 2 8.8.8.8 > /dev/null
-    echo "Connect to the internet, or just dont block Google DNS. Probably just need to contact github domain."
-    exit 1
- end
-
 # Aliases
  alias rot "rpm-ostree -q --peer"
  alias fpkremadd "flatpak remote-add --if-not-exists --system"
@@ -19,9 +13,6 @@ if not ping -c 1 -W 2 8.8.8.8 > /dev/null
  rm -rf /tmp/Fynelium
  mkdir /tmp/Fynelium
  git clone https://github.com/MrGrappleMan/Fynelium.git /tmp/Fynelium/
- if test $status -ne 0
-  echo "Repository clone failed"
- end
  cp -r /tmp/Fynelium/etc/* /etc/
  cp -r /tmp/Fynelium/var/* /var/
  cp -r /tmp/Fynelium/opt/* /opt/
