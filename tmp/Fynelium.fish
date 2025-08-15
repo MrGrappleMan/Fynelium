@@ -4,7 +4,7 @@
 ### Adjusting some userspace settings and apps yourself is recommended after the reboot ###
 
 # Internet connection
- if not ping -c 1 -W 2 8.8.8.8 > /dev/null
+if not ping -c 1 -W 2 8.8.8.8 > /dev/null
     echo "Connect to the internet, or just dont block Google DNS. Probably just need to contact github domain."
     exit 1
  end
