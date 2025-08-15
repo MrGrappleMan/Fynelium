@@ -6,7 +6,7 @@ Wants=network-online.target
 ConditionPathExists=/run/ostree-booted
 
 [Timer]
-OnCalendar=daily
+OnCalendar=hourly
 Persistent=true
 
 [Install]
