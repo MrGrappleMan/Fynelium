@@ -62,19 +62,22 @@
 #brh
  brh rebase unstable -y
 
-#ujust - Recommended
- ujust setup-decky prerelease
- ujust get-decky-bazzite-buddy
+#ujust
+ ujust setup-decky prerelease # Still of great utility on desktops
+ ujust get-decky-bazzite-buddy # Know your changes you system undergoes to use it better
  ujust get-framegen install-decky-plugin
  ujust get-framegen install
  ujust get-lsfg install
  ujust get-lsfg install-decky-plugin
- ujust toggle-password-feedback off
- ujust configure-grub show
+ ujust toggle-password-feedback off # You cannot trust anyone. People can get into accounts based on keyboard sounds.
+ ujust configure-grub show # Better safe than sorry if you want to debug
  ujust enable-automounting
  ujust enable-steamos-automount
- ujust get-media-app "YouTube" # This looks smooth even on a 60Hz monitor.
-
+ ujust setup-sunshine enable # Remote Graphical desktop
+ ujust get-media-app "YouTube" # Use this instead of your web browser, as browsers introduce some middleman overhead. This is just dedicated and optimized for specifically YT.
+ ujust get-media-app "Spotify" # Stay sane
+ ujust get-media-app "YouTube Music"
+ 
 #rpm-ostree
  #install
    rot install --allow-inactive --idempotent -y \
@@ -163,7 +166,7 @@
    gdm \
    shutdown.target reboot.target poweroff.target halt.target
   systemctl reenable \
-   systemd-resolved systemd-networkd systemd-networkd-wait-online NetworkManager-wait-online systemd-timesyncd \
+   systemd-resolved systemd-networkd systemd-timesyncd \
    boinc-client \
    tlp \
    uupd uupd.timer \
@@ -173,12 +176,12 @@
    gdm \
    mc-server
 
-### For the inbuilt Minecraft server service, switch to Java edition by running and exploring it,
+### For the inbuilt Minecraft server service, switch to Java edition by running the command below and editing it
 ### systemctl edit mc-server
 
 #gsettings
  gsettings set org.gnome.desktop.interface clock-show-seconds false;
- gsettings set org.gnome.desktop.interface enable-animations false;
+ gsettings set org.gnome.desktop.interface enable-animations true;
  gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat';
  gsettings set org.gnome.software download-updates false;
  gsettings set org.gnome.desktop.peripherals.mouse speed 1.0;
@@ -255,7 +258,6 @@
  gsettings set org.gnome.desktop.remote-desktop.vnc enable false;
  gsettings set org.gnome.desktop.remote-desktop.rdp enable true;
  gsettings set org.gnome.desktop.remote-desktop.rdp negotiate-port true;
- gsettings set org.gnome.desktop.remote-desktop.rdp port 3389;
  gsettings set org.gnome.desktop.remote-desktop.rdp view-only false;
 
 # Kernel
