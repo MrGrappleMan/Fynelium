@@ -1,0 +1,14 @@
+[Unit]
+Description=Discard unused filesystem blocks daily
+Documentation=man:fstrim
+ConditionVirtualization=!container
+ConditionPathExists=!/etc/initrd-release
+
+[Timer]
+OnCalendar=daily
+AccuracySec=1h
+Nice=17
+Persistent=true
+
+[Install]
+WantedBy=timers.target
