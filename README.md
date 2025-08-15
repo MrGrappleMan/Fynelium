@@ -21,12 +21,12 @@ Ascend your device experience. Greatly enhance your system experience for High P
 
 Install [Bazzite GNOME with no Steam Gaming Mode](https://bazzite.gg/)
 Write the file ending with ".iso" to a spare USB Drive with a tool like Ventoy.
-Back up ALL your data. In the Bazzite installer, wipe out your entire system disk, encrypt it with LUKS.
+Back up ALL your data on the disk. In the Bazzite installer, wipe out your entire system disk, encrypt it with LUKS.
 After installing and getting to the desktop, run this script in the "Terminal" app to get started.
-Getting some errors is normal.
+Getting some errors is normal. Allow inhibiting shortcuts if requested.
 
 ```
-sudo curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/tmp/Fynelium.fish | sudo fish
+sudo -A curl https://raw.githubusercontent.com/MrGrappleMan/Fynelium/refs/heads/main/tmp/Fynelium.fish | sudo -A fish
 ```
 
 Windows environment »→ use Bottles
@@ -34,9 +34,9 @@ Linux environments »→ use BoxBuddy/DistroShelf
 
 It expects that you have read this paragraph carefully and it claims no responsibilty to any damage done to your system, but I can try helping!
 
-This project's intended purpose is to have your system in a great state with files preconfigured for a great user experience,
-and by that, a unified distribution with the intent of fulfilling consumer/user usage without having technical experience or using terminals
-Asahi Linux support not confirmed.
+This project's intended purpose is to have your system in a state with files preconfigured for a great user experience,
+For a unified distribution with the intent of fulfilling consumer/user usage without having technical experience or using terminals
+Asahi Linux support not confirmed(could use unc work macbook, maybe. defaults is just like gsettings by experience).
 
 In the GNOME Display Manager, change your desktop environment to COSMIC.
 
