@@ -96,6 +96,7 @@
     cosmic-epoch cosmic-desktop xdg-desktop-portal-cosmic initial-setup-gui-wayland-cosmic cosmic-greeter cosmic-comp cosmic-app-library cosmic-applets cosmic-edit cosmic-idle cosmic-osd cosmic-session cosmic-settings cosmic-settings-daemon cosmic-store fedora-release-cosmic-atomic cosmic-config-fedora greetd \
     gdm \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
+    gnome-software \
     fish \
     libei libei-utils \
     btop fastfetch \
@@ -110,7 +111,7 @@
     ## COSMIC ##
     ## GDM ##
     ## Flatpak ##
-    ## Snap ##
+    ## GNOME Software ##
     ## Fish ##
     ## Libei ##
     ## TTY Shows ##
