@@ -97,6 +97,7 @@
     gdm \
     flatseal flatpak-selinux flatpak-session-helper xdg-desktop-portal flatpak-libs libportal host-spawn \
     gnome-software \
+    dnf-plugins-core etckeeper-dnf dnf-repo dnfdaemon dnfdaemon-selinux \
     fish \
     libei libei-utils \
     btop fastfetch \
@@ -112,6 +113,7 @@
     ## GDM ##
     ## Flatpak ##
     ## GNOME Software ##
+    ## DNF ##
     ## Fish ##
     ## Libei ##
     ## TTY Shows ##
