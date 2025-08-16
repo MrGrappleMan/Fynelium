@@ -18,6 +18,7 @@ Ascend your device experience. Greatly enhance your system experience for High P
 13. 🔁 Rollback to a previous system state 
 14. 🌐 A productive browsing experience with Microsoft Edge
 15. ✴️ Modern kernel improvements with the latest kernel
+16. 🕸️ Anonymized telemetry enabled for betterment of the ecosystem
 
 Install [Bazzite GNOME with no Steam Gaming Mode](https://bazzite.gg/)
 Write the file ending with ".iso" to a spare USB Drive with a tool like Ventoy.
