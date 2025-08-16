@@ -6,7 +6,7 @@ Ascend your device experience. Greatly enhance your system experience for High P
  1. 📦 Automatic unattended updates, prevent dependency hell ( RPM-OSTree )
  2. ⚡ Better power management ( TLP )
  3. ⭐ Modern protocols and programs ( Wayland, PipeWire, WirePlumber )
- 4. 🛑 AD-Blocking ( AdGuard DNS and internal block list )
+ 4. 🛑 AD-Blocking ( AdGuard DNS and hBlock )
  5. 🌌 The COSMIC desktop experience, modified for productivity
  6. 🚀 All-round system optimization ( sysctl.conf )
  7. 🌏 Access to a wide range of software
