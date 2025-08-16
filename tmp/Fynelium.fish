@@ -100,7 +100,8 @@
     libei libei-utils \
     btop fastfetch \
     zstd brotli p7zip p7zip-plugins p7zip-gui \
-    kuserfeedback gnome-info-collect
+    kuserfeedback gnome-info-collect \
+    hblock
     
     ## System Boosters ##
     ## Power management ##
@@ -115,6 +116,7 @@
     ## TTY Shows ##
     ## Compression ##
     ## Telemetry ##
+    ## Networking ##
 
     ## GhosTTY ## ghostty-nightly ghostty-nightly-fish-completion ghostty-nightly-shell-integration
 
