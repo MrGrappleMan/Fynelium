@@ -92,8 +92,13 @@ alongside mods like Lithium, GeyserMC and Floodgate to get started.
 
 ### Running other Linux distributions
 
-Use tools like DistroShelf or BoxBuddy to get started with containers
+Use tools like DistroShelf or BoxBuddy to get started with containers.
+Or run something in podman. You are all by yourself in this case.
 
 ### Running Windows programs
 
-Although not providing a full fledged environment 
+Although not providing a full fledged environment, Bottles does the job well
+
+### Running Android apps
+
+Use Waydroid
