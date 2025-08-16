@@ -1,0 +1,14 @@
+[copr:copr.fedorainfracloud.org:pgdev:ghostty]
+name=C pgdev ghostty
+baseurl=https://download.copr.fedorainfracloud.org/results/pgdev/ghostty/fedora-$releasever-$basearch/
+gpgkey=https://download.copr.fedorainfracloud.org/results/pgdev/ghostty/pubkey.gpg
+type=rpm-md
+gpgcheck=1
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+skip_if_unavailable=True
+deltarpm=True
+fastestmirror=True
+max_parallel_downloads=20
+metadata_expire=1d
